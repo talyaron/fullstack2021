@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import UserForm from '../View/Components/UserForm'
+// import UserForm from '../View/Components/UserForm'
 
 const Navbar = (props:any) => {
     const {RegClassShow, handleShowWindow  } = props

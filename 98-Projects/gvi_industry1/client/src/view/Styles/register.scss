@@ -12,8 +12,12 @@ body{
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
-    border:6px solid rgba(0, 0, 255, 0.543)
+    border:6px solid rgba(0, 0, 255, 0.543);
+    display:block;
 
+}
+.back{
+    display:none;
 }
 
 // :root {

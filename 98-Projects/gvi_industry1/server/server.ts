@@ -14,16 +14,16 @@ app.use(express.static('client/build'))
 
 require('dotenv').config();
 console.log(process.env.ENV)
-// console.log(process.env.JWT_SECRET);
+ console.log(process.env.JWT_SECRET);
 const cookieParser = require('cookie-parser');
 app.use(express.json());
 app.use(cookieParser());
-const mongodb_uri = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI;
 
 
 
 mongoose.connect(
-  mongodb_uri
+  MONGODB_URI
 ).then(res=>{
   console.log("Connected to DB");
 }).catch(err=>{

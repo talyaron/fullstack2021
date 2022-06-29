@@ -6,10 +6,11 @@ interface RegisterMenteeProps {
     countryArray: Array<object>,
     registerWindow: boolean,
     setRegisterWindow: Function,
+    menteeWindow:boolean
 }
 
 const RegisterMentee = (props: RegisterMenteeProps) => {
-    const { registerWindow, setRegisterWindow, countryArray } = props;
+    const { registerWindow, setRegisterWindow, countryArray,menteeWindow } = props;
 
 
     async function handleMenteeForm(ev: any) {
@@ -38,6 +39,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         const initiative = { sector, companyName, description, stage, website, linkToOnePager, presentations }
         console.log(user);
         console.log(initiative);
+        //initaitive not addded yet to mongo
 
         const {data} = await axios.post('/api/user/add-user', {user});
 
@@ -49,7 +51,8 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
 
     return (
-        <div className="form__wrapper">
+        
+        <div className={menteeWindow?"form__wrapper":"back"}>
             <button className="closeButton" onClick={() => { setRegisterWindow(false) }}>X</button>
             <div className="progressBar">
                 <div className="progressBar__stage-1">personal details</div>

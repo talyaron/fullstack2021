@@ -1,32 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import logo from './logo.svg';
-import './view/Styles/global.scss';
-import RegisterMentee from './view/Components/RegisterMentee';
-import RegisterMentor from './view/Components/RegisterMentor';
+import React from "react";
+import "./view/Styles/global.scss";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from './view/Components/HomePage'
 
 function App() {
-  const [registerWindow, setRegisterWindow] = useState(false)
-  const [countryArray, setCountryArray] = useState([]);
-
-
-
-  useEffect(() => {
-    getCountries()
-  }, [])
-
-  async function getCountries() {
-    const { data } = await axios.get('https://restcountries.com/v3.1/all')
-    setCountryArray(data)
-  }
-
-
-
   return (
-    <div className="div">
-    <RegisterMentee registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} countryArray={countryArray} />
-    {/* <RegisterMentor registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} countryArray={countryArray} /> */}
-    </div>
+    <BrowserRouter>
+      <Routes>
+      
+          <Route path='/' element={<HomePage />} />
+          
+          <Route/>
+       
+      </Routes>
+    </BrowserRouter>
   );
 }
 

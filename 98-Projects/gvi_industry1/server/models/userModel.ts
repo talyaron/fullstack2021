@@ -32,7 +32,7 @@ export enum Stage {
 const UserSchema = new mongoose.Schema({
     name: NameSchema,
     description: String,
-    image: File,
+    // image: File,
     email: String,
     country: String,
     lastEntry: Date,
