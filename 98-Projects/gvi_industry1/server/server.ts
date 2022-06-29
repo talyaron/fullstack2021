@@ -1,21 +1,30 @@
-const express = require("express");
-const app = express();
-const http = require("http");
-const server = http.createServer(app);
-const { Server } = require("socket.io");
-export const io = new Server(server);
-const port = process.env.PORT || 4000;
-var cors = require("cors");
+import express from 'express';
+import mongoose from 'mongoose';
+import userRouter from './routes/UserRouters'
 
 
-app.use(cors());
+const app = express()
+const port = process.env.PORT || 4004;
 
-app.use(express.static('client/build'))
+require('dotenv').config()
 
-io.on("connection", (socket: any) => {
-  console.log('user connected', socket.id)
-});
 
-server.listen(port, () => {
-  console.log(`listening on *:${port}`);
-});
+const mongodb_uri = process.env.MONGODB_URI
+
+mongoose.connect(
+    mongodb_uri
+  ).then(res=>{
+    console.log("Connected to DB");
+  }).catch(err=>{
+    console.error(err.message)
+  });
+
+  app.use(express.json())
+  app.use(express.static('client/build'))
+  app.use('/api', userRouter)
+
+
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
