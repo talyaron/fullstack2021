@@ -1,8 +1,4 @@
 import mongoose from "mongoose";
-// interface Name {
-//     first: string;
-//     last: string;
-//   }
 
 export enum FieldsOfKnowledge {
   UX = "ux",
@@ -34,7 +30,6 @@ export enum Stage {
 
 
 const UserSchema = new mongoose.Schema({
-
     name: NameSchema,
     description: String,
     image: File,

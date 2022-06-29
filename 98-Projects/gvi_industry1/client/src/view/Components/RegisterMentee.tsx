@@ -18,6 +18,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
         const firstName = ev.target.elements.firstName.value;
         const lastName = ev.target.elements.lastName.value;
+        const password = ev.target.elements.password.value;
         const email = ev.target.elements.email.value;
         const phone = ev.target.elements.phone.value;
         const linkdinProfile = ev.target.elements.linkdinProfile.value;
@@ -29,17 +30,18 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         const presentations = ev.target.elements.presentations.value;
         const linkToOnePager = ev.target.elements.linkToOnePager.value;
         const description = ev.target.elements.description.value;
+        const profilePic = ev.target.elements.profilePic.value;
 
         const name = { firstName, lastName };
 
-        const user = { name, description,linkdinProfile, email, country, phone, sector, stage }
+        const user = { name,password,profilePic, description,linkdinProfile, email, country, phone, sector, stage }
         const initiative = { sector, companyName, description, stage, website, linkToOnePager, presentations }
         console.log(user);
         console.log(initiative);
 
         const {data} = await axios.post('/api/user/add-user', {user});
 
-console.log(data)
+        console.log(data)
 
 
 
@@ -66,6 +68,10 @@ console.log(data)
                             <input type="text" name="lastName" />
                         </div>
                         <div className="inputBox">
+                            <div className="form__text">Password</div>
+                            <input type="password" name="password" />
+                        </div>
+                        <div className="inputBox">
                             <div className="form__text">Email</div>
                             <input type="email" name="email" />
                         </div>
@@ -84,6 +90,11 @@ console.log(data)
                                 {countryArray.map((country: any, i) => { return <option key={i} value={`${country.name.common}`}>{country.name.common}</option> })}
                             </select>
                         </div>
+                        <div className="inputBox">
+                            <div className="form__text">Upload Profile Image</div>
+                            <input type="file" name="profilePic" />
+                        </div>
+                        
                         <button>BACK</button>
                         <button>NEXT</button>
                     </div>
