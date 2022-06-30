@@ -44,7 +44,11 @@ const UserSchema = new mongoose.Schema({
   name: NameSchema,
   description: String,
   image: String,
-  email: String,
+  email: {
+    type:String,
+    unique:true,
+    required:true
+  },
   country: String,
   lastEntry: Date,
   companies: companySchema,
