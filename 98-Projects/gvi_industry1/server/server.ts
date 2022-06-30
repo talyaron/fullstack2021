@@ -1,6 +1,3 @@
-// QUESTIONS -
-// 1  IO / SOCKET - CHOICE  ???  (44)
-// 2  PROXY ERRORS SOCKET
 
 import 'dotenv/config';
 import express from 'express';
@@ -27,7 +24,6 @@ const upload = multer({storage: storage});
 const io = new Server(server, {
     cors: {
         origin: 'https://localhost:3000',
-        // methods: ['GET', 'POST']
     },
 });
 import mongoose from 'mongoose';
@@ -37,10 +33,10 @@ import MessageModel from './models/messageModel';
 const port = process.env.PORT || 4000;
 const MONGODB_URI = process.env.MONGODB_URI;
 
+app.use(express.static('client/build'))
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
-app.use(express.static('public/build'));
 
 mongoose
     // .set('debug', { shell: true })

@@ -1,8 +1,4 @@
 import mongoose from "mongoose";
-// interface Name {
-//     first: string;
-//     last: string;
-//   }
 
 export enum FieldsOfKnowledge {
   UX = "ux",
@@ -34,25 +30,31 @@ export enum Stage {
 
 
 const UserSchema = new mongoose.Schema({
-
-    // _id: String,
-//     name: NameSchema,
-//     description: String,
-//     // TODO: find how to put file in the pace of string in "image: String,"
-//     image: String,
-//     email: String,
-//     country: String,
-//     lastEntry: Date,
-//     companies: Array,
-//     linkedInProfile: String,
-//     phone: Number,
-//     initiatives: Array,
-//     password: String,
-//     // type: UserType,
-//     fieldsOfKnowledge: Array,
-//     // sectors:Sector
-userName:{
-    first:String, last: String},
+    name: NameSchema,
+    description: String,
+    // image: File,
+    email: String,
+    country: String,
+    lastEntry: Date,
+    linkedInProfile: String,
+    phone: Number,
+    password: String,
+    type: {
+      type:String,
+      enum:UserType,
+    },
+    fieldsOfKnowledge: {
+      type:String,
+      enum:FieldsOfKnowledge,
+    },
+    sectors:{
+      type:String,
+      enum:Sector,
+    },
+    stage:{
+      type:String,
+      enum:Stage,
+    }
 });
 
 const User = mongoose.model('users', UserSchema);

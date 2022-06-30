@@ -1,21 +1,39 @@
-import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import './view/styles/global.scss';
-import Chat from './view/pages/Chat/Chat';
 import { socket } from './index'
+import React from "react";
+import "./view/Styles/global.scss";
+import HomePage from './view/Components/HomePage'
+import Matching from './view/pages/matching/Matching';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
 
 function App() {
 
+  const [mentorsList, setMentorsList] = useState([])
+  const [selectedUser , setSelectedUser] = useState({})
 
-    return (
-      <div className="wrapper">
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('/api/get-user')
+      const {user} = data
+      setSelectedUser(user)
+      console.log(user)
+    })();
+  }, [])
+
+  return (
+      <Routes>
+      
+          <Route path='/' element={<HomePage />} />
+          
+          <Route/>
+       
+      </Routes>
+  );
        <Router>
-        <Routes>
-          <Route path="/chat" element={<Chat/>}/>
-        </Routes>
        </Router>
-      </div>
-    );
+          <Route path="/chat" element={<Chat/>}/>
 }
 
 export default App;
