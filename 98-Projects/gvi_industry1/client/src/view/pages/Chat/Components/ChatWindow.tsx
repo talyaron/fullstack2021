@@ -13,11 +13,12 @@ interface ChatWindowProps {
     setMessageList: Function;
     handleSendMessage: Function;
     setSentMessage: Function;
+    dateFromObjectId: Function;
 }
 
 function ChatWindow(props: ChatWindowProps) {
 const [click, setClick] = useState<Boolean>(true)
-    const {getMessageList, messageList, setMessageList, setSentMessage, handleSendMessage, scroll } = props;
+    const {dateFromObjectId ,getMessageList, messageList, setMessageList, setSentMessage, handleSendMessage, scroll } = props;
 
     
 
@@ -41,9 +42,8 @@ useEffect(()=>{
                 {messageList
                     ? messageList.map((message, i) => {
                           return <li key={i} className='messageCard'>{message.text}
-                          {
-                            message.time && 
-                           `, ${message.time}`}</li>;
+                         
+                            {dateFromObjectId(message._id)}</li>;
                       })
                     : null}
             </ul>

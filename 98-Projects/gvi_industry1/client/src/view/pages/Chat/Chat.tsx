@@ -23,6 +23,7 @@ export interface MessageInterface {
     time?: String;
 }
 
+
 function Chat() {
     const [scroll, setScroll] = useState('')
     const [ sentMessage, setSentMessage ] = useState ('');
@@ -30,26 +31,27 @@ function Chat() {
     const [messageList, setMessageList] = useState<Array<MessageInterface>>([]);
     const [userList, setUserList] = useState<Array<UserInterface>>([]);
     
+    function dateFromObjectId  (messageId:string) {
+       if(messageId){
+           console.log(messageId, 'message id');
+           return (`${new Date(parseInt(messageId.substring(0, 8), 16) * 1000)}`)
+       }
+    };
     function handleJoinRoom(ev: any, id: any) {
         const room = id;
         if (room !== ''|| room) {
             console.log('hi', room);
             socket.emit('join-room', room);
+            setRoom(room);
         }
-        setRoom(room);
     }
 
+    
     useEffect(() => {
         console.log('on');
         socket.on('receive-message', (message:MessageInterface) => {
             console.log('received');
             const id:any = message._id
-            let dateFromObjectId =   (messageId:string) => {
-                if(messageId){
-                    console.log(messageId, 'message id');
-                    return (`${new Date(parseInt(messageId.substring(0, 8), 16) * 1000)}`)
-                }
-            };
             const payload = {
                 text: message.text,
                 sender: {userId: '', userName: {first: '', last: ''}},
@@ -77,8 +79,9 @@ function Chat() {
 
             text: sentMessage,
             sender: {userId: '', userName: {first: '', last: ''}},
-            recipients: [{userId: room, userName: { first: '', last:''}},{userId: room, userName: { first: '', last:''}}],
+            recipients: [{userId: room, userName: { first: '', last:''}}],
             file: '',
+            
         };
         socket.emit('send-message',payload)
         setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
@@ -109,7 +112,7 @@ function Chat() {
         <div  className='chat'>
             <SideBar handleJoinRoom={handleJoinRoom} getUserList={getUserList} userList={userList} />
             <CurrentRecipient />
-            <ChatWindow scroll={scroll} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} getMessageList={getMessageList} messageList={messageList} setMessageList={setMessageList} />
+            <ChatWindow dateFromObjectId={dateFromObjectId} scroll={scroll} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} getMessageList={getMessageList} messageList={messageList} setMessageList={setMessageList} />
         </div>
     );
 }
