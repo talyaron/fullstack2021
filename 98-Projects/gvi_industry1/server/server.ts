@@ -2,6 +2,8 @@ const express = require("express");
 import mongoose from 'mongoose';
 import CardRoute from "./routes/CardRoute"
 const app = express();
+require('dotenv').config()
+const port = process.env.PORT || 4001;
 //socket.io:
 import http from 'http';
 const server = http.createServer(app);
@@ -26,11 +28,11 @@ const io = new Server(server, {
         origin: 'https://localhost:3000',
     },
 });
-import mongoose from 'mongoose';
+
 import cookieParser from 'cookie-parser';
 import MessageModel from './models/messageModel';
 
-app.use(express.static('public/build'))
+
 app.use(express.json());
 
 app.use(express.static('client/build'))
@@ -45,16 +47,18 @@ const cookieParser = require('cookie-parser');
 app.use(express.json());
 app.use(cookieParser());
 
+const url = process.env.MONGODB_URI
+
 mongoose
     // .set('debug', { shell: true })
-    .connect(`${MONGODB_URI}`)
+    .connect(url)
     .then(() => {
         console.log('connected to Mongoose');
     })
     .catch((err) => {
         console.log('Failed to connect to Mongoose:');
         console.log(err.message);
-        console.log(MONGODB_URI);
+      
     });
 
 io.on('connection', (socket: any) => {
