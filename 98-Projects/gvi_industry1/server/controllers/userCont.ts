@@ -1,5 +1,33 @@
+
 import UserModel from '../models/userModel'
 import JWT from 'jwt-simple'
+
+export const getMentors = async (req, res) => {
+
+    try {
+        const {selectedUser} = req.body
+        const allMentors = await UserModel.find({ type: 'mentor' })
+        const filterMentors = allMentors.filter((mentor) =>mentor.sectors === selectedUser.sector || mentor.country === selectedUser.country)
+        console.log(filterMentors)
+        res.send({ filterMentors, ok: true })
+
+    } catch (error) {
+        console.log(error.error)
+        res.send({ error: error.message })
+    }
+}
+export const getUser = async (req:any, res:any) => {
+    try {
+        const user = await UserModel.findOne({ type: 'mentee' })
+        res.send({ user })
+
+    } catch (error) {
+        console.log(error.error)
+        res.send({ error: error.message })
+    }
+
+}
+
 
 const secret=process.env.JWT_SECRET
 
@@ -33,33 +61,7 @@ export const login= async(req,res)=>{
   
   }
 
-//   export const getUsers = async (req, res) => {
-//     const allUsers = await UserModel.find({})
 
-//     try {
-//         res.send({ allUsers, ok: true })
-//     } catch (error) {
-//         console.log(error.error)
-//         res.send({ error: error.message })
-//     }
-// }
-
-//   export const addUser = async (req, res) => {
-
-//     let userFormAll = req.body
-
-//     const foundUser: any = await UserModel.findOne({ email: userFormAll.email })
-
-//     if (foundUser) {
-//         res.send('Already exists')
-        
-//     } else {
-//         let newUser = new UserModel(userFormAll)
-//         const result = await newUser.save()
-//         console.log(newUser)
-//         res.send(result)
-//     }
-// }
 
 export const addUser = async (req,res)=>{
   try{

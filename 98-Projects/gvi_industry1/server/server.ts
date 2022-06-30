@@ -1,23 +1,21 @@
 const express = require("express");
 import mongoose from 'mongoose';
-import userRoute from './routes/userRoute'
-
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-
+require('dotenv').config();
 
 export const io = new Server(server);
 const port = process.env.PORT || 4001;
-var cors = require("cors");
+import cors from "cors";
 app.use(cors());
 
 
 app.use(express.json());
 app.use(express.static('client/build'))
 
-require('dotenv').config();
+
 console.log(process.env.ENV)
  console.log(process.env.JWT_SECRET);
 const cookieParser = require('cookie-parser');
