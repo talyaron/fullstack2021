@@ -16,18 +16,18 @@ app.use("/api/users",CardRoute)
 app.use('/api/companies',CardRoute)
 
 
-// mongoose.connect('mongodb+srv://GviMentorMentee:DlOC8kO9pt6jsKoj@cluster0.vbho2.mongodb.net/MentorMentee?retryWrites=true&w=majority')
-//     .then(res => {
-//         console.log("connected to Mongoose");
-//     })
-//     .catch((err) => {
-//         console.log("Failed to connect to Mongoose:")
-//         console.log(err.message);
-//     });
+mongoose.connect('mongodb+srv://GviMentorMentee:DlOC8kO9pt6jsKoj@cluster0.vbho2.mongodb.net/MentorMentee?retryWrites=true&w=majority')
+    .then(res => {
+        console.log("connected to Mongoose");
+    })
+    .catch((err) => {
+        console.log("Failed to connect to Mongoose:")
+        console.log(err.message);
+    });
 
-// app.listen(port, () => {
-//     return console.log(`Express is listening at http://localhost:${port}`);
-// });
+app.listen(port, () => {
+    return console.log(`Express is listening at http://localhost:${port}`);
+});
 
 
 
