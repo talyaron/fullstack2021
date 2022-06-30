@@ -1,6 +1,6 @@
 import { socket } from './index'
 import Profile from './view/pages/mentee/Profile';
-import Card from './view/pages/mentee/Card';
+// import Card from './view/pages/mentee/Card';
 import SearchMentor from './view/components/SearchMentor';
 import React from "react";
 import "./view/styles/global.scss";
