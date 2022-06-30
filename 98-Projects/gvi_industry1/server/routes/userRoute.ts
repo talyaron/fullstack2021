@@ -11,3 +11,6 @@ router
 
 
 export default router;
+import { getMentors, getUser } from '../control/userCont'
+.post('/get-mentors', getMentors)
+.get('/get-user', getUser)

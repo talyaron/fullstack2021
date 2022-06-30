@@ -1,15 +1,20 @@
 const express = require("express");
+import mongoose from 'mongoose';
+import userRoute from './routes/userRoute'
+
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
+
+
 export const io = new Server(server);
 const port = process.env.PORT || 4001;
 var cors = require("cors");
 app.use(cors());
 
 
-import mongoose from "mongoose";
+app.use(express.json());
 app.use(express.static('client/build'))
 
 require('dotenv').config();
@@ -42,6 +47,21 @@ app.use('/api/user',userRoute)
 io.on("connection", (socket: any) => {
   console.log('user connected', socket.id)
 });
+
+
+mongoose.connect(
+  process.env.MONGODB_URI
+)
+  .then(() => {
+    console.log("connected to Mongoose");
+  })
+  .catch((err) => {
+    console.log("Failed to connect to Mongoose:")
+    console.log(err.message);
+  });
+
+
+app.use('/api', userRoute)
 
 server.listen(port, () => {
   console.log(`listening on *:${port}`);
