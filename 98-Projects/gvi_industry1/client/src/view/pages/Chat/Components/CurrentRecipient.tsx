@@ -1,8 +1,8 @@
 import {useId} from 'react';
 import {Avatar} from '@mui/material';
-import {ReactComponent as SearchMessages} from '../Icons/SearchMessages.svg';
-import {ReactComponent as VideoIcon} from '../Icons/VideoIcon.svg';
-import {ReactComponent as CallIcon} from '../Icons/CallIcon.svg';
+import SearchMessages from '../Icons/SearchMessages.svg';
+import VideoIcon from '../Icons/VideoIcon.svg';
+import CallIcon from '../Icons/CallIcon.svg';
 
 
 interface CurrentRecipientProps {}

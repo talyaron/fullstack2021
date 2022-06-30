@@ -1,5 +1,5 @@
 import {useEffect,useState} from 'react';
-import {ReactComponent as PaperPlaneIcon} from '../Icons/paper-plane-right.svg';
+import PaperPlaneIcon from '../Icons/paper-plane-right.svg';
 import {InputBase} from '@mui/material';
 import {MessageInterface, MessageUserInterface } from '../Chat';
 import { socket } from '../../../../index'

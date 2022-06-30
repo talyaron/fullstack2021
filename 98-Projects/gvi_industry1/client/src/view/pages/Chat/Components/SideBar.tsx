@@ -1,9 +1,9 @@
 import {useId, useEffect} from 'react';
 import {InputBase} from '@mui/material';
 import {UserInterface} from '../Chat';
-import {ReactComponent as SearchUsersIcon} from '../Icons/SearchUsers.svg';
-import {ReactComponent as SVGHamburgerIcon} from '../Icons/HamburgerIcon.svg';
-import {ReactComponent as SideBarDivider} from '../Icons/SideBarDivider.svg';
+import SearchUsersIcon from '../Icons/SearchUsers.svg';
+import SVGHamburgerIcon from '../Icons/HamburgerIcon.svg';
+import SideBarDivider from '../Icons/SideBarDivider.svg';
 import { socket } from '../../../../index';
 
 interface SideBarProps {
