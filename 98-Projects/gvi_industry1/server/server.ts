@@ -61,7 +61,7 @@ mongoose.connect(
 
 app.use('/api', userRoute)
 
-import matchingRoute from './Routers/matchingRoute'
+import matchingRoute from './routes/matchingRoute'
 app.use('/', matchingRoute)
 
 server.listen(port, () => {

@@ -16,7 +16,7 @@ const Matching = (props: MatchingProps) => {
       setMentorsList(filterMentors)
       console.log(selectedUser)
     })();
-  }, [selectedUser])
+  }, [])
 
 
   return (
