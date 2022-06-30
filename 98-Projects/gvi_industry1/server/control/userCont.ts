@@ -3,10 +3,10 @@ import UserModelEX from "../models/userModelEX";
 export const getMentors = async (req, res) => {
 
     try {
-        const selectedUser = req.body
-        console.log(req.body)
+        const {selectedUser} = req.body
         const allMentors = await UserModelEX.find({ type: 'mentor' })
-        const filterMentors = allMentors.filter((mentor) => mentor.sector === selectedUser.sector)
+        const filterMentors = allMentors.filter((mentor) =>mentor.sector === selectedUser.sector || mentor.country === selectedUser.country)
+        console.log(filterMentors)
         res.send({ filterMentors, ok: true })
 
     } catch (error) {

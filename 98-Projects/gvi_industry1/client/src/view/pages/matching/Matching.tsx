@@ -9,7 +9,6 @@ interface MatchingProps {
 const Matching = (props: MatchingProps) => {
 
   const { mentorsList, setMentorsList, selectedUser } = props
-
   useEffect(() => {
     (async () => {
       const { data } = await axios.post('/api/get-mentors', {selectedUser} )
@@ -17,7 +16,7 @@ const Matching = (props: MatchingProps) => {
       setMentorsList(filterMentors)
       console.log(selectedUser)
     })();
-  }, [])
+  }, [selectedUser])
 
 
   return (
