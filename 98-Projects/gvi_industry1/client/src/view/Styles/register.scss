@@ -1,0 +1,113 @@
+body{
+    display: flex;
+    justify-content: center;  
+}
+.form__wrapper {
+    
+    width: 604px;
+    // height: 71px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    border:6px solid rgba(0, 0, 255, 0.543);
+    display:block;
+
+}
+.back{
+    display:none;
+}
+
+// :root {
+//     --line-border-fill: #3498db;
+//     --line-border-empty: #e0e0e0;
+// }
+
+.progressBar {
+   
+
+    display: flex;
+    justify-content: space-between;
+    // border:4px solid rgb(169, 251, 5);
+
+    &__stage-1 {
+        // border: 3px solid rgb(237, 20, 20);
+
+        &:after {
+            content: ''
+        }
+    }
+
+}
+
+
+#descriptionBox{
+    height:60px;
+    width: 95%;
+}
+#SpecializationDescription{
+    height:60px;
+    width: 550px;
+}
+.firstSectionWrapper{
+    position: relative;
+   
+    
+}
+.firstSection{
+    // border: 3px solid yellow;
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    grid-template-columns: repeat(2,1fr);
+    input{
+        width: 95%;
+    }
+    select{
+        width: 95%;
+    }
+}
+.secondSection-menteeWrapper{
+    position: relative;
+   
+    
+}
+.secondSection-mentee{
+    // border: 3px solid pink;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(4,0.75fr);
+    input{
+        width: 95%;
+    }
+    select{
+        width: 95%;
+    }
+    .inputBox-7{
+        grid-area: 4 / 1 / 5 / 3;
+    }
+    
+}
+.secondSection-mentor{
+    // border: 3px solid limegreen;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,0.75fr);
+    input{
+        width: 95%;
+    }
+    select{
+        width: 95%;
+    }
+    #FieldsOfKnowledged{
+        height: 70%;
+    }
+    .inputBox-1{
+        grid-area: 1 / 1 / 3 / 2;
+    }
+    .inputBox-4{
+        grid-area: 3 / 1 / 4 / 3; 
+    }
+    
+}
