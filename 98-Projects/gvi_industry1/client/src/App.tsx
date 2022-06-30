@@ -10,12 +10,12 @@ import axios from 'axios';
 function App() {
 
   const [mentorsList, setMentorsList] = useState([])
-  const [selectedUser , setSelectedUser] = useState({})
+  const [selectedUser, setSelectedUser] = useState({})
 
   useEffect(() => {
     (async () => {
       const { data } = await axios.get('/api/get-user')
-      const {user} = data
+      const { user } = data
       setSelectedUser(user)
       console.log(user)
     })();
@@ -24,11 +24,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-      
-          <Route path='/' element={<HomePage />} />
-          
-          <Route/>
-       
+
+        <Route path='/' element={<HomePage />} />
+        <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} selectedUser={selectedUser}/>} />
+
       </Routes>
     </BrowserRouter>
   );

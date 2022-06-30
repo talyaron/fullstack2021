@@ -24,8 +24,6 @@ const Matching = (props: MatchingProps) => {
       {mentorsList.map((mentor: any) =>
         <div key={mentor._id}>{mentor.fullName}</div>
       )}
-
-
     </div>
   )
 }
