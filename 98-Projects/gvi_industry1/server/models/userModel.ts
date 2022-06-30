@@ -1,55 +1,61 @@
 import mongoose from "mongoose";
-// interface Name {
-//     first: string;
-//     last: string;
-//   }
+import InitiativeModel, { InitiativeSchema } from "./initiativeModel";
+import company, { companySchema } from "./companyModel";
 
-export enum FieldsOfKnowledge {
-  UX = "ux",
-  BUSINESS_DEVELOPMENT = "devlopment",
-}
+export const NameSchema = new mongoose.Schema({
+  first: String,
+  last: String
+})
 
-export enum Stage {
-  FFF = "friends and family",
-  PRE_SEED = "pre-seed",
-  SEED = "seed",
-  ROUND_A = "round a",
-  ROUND_ABOVE = "round b and above",
-}
+export const FieldsOfKnowledgeSchema = new mongoose.Schema({
+  userType: {
+    type: String,
+    enum: ['ux', 'devlopment'],
+    default: 'ux'
+  },
+})
 
+export const StageSchema = new mongoose.Schema({
+  userType: {
+    type: String,
+    enum: ['fff', 'pre-seed', 'seed', 'round A', 'round b and above'],
+    default: 'fff'
+  },
+})
 
-  export enum UserType {
-    ADMIN = "admin",
-    MENTEE = "mentee",
-    MENTOR = "mentor",
-  }
-  export const NameSchema = new mongoose.Schema({
-    first:String,
-    last: String
-  })
-  export enum Sector {
-    EDUCATION = "eduction",
-    DIGITAL_HEALTH = "digital health",
-  }
+export const UserTypeSchema = new mongoose.Schema({
+  userType: {
+    type: String,
+    enum: ['mentee', 'admin', 'mentor'],
+    default: 'mentee'
+  },
+})
+
+export const SectorSchema = new mongoose.Schema({
+  userType: {
+    type: String,
+    enum: ['eduction', 'digital health'],
+    default: 'eduction'
+  },
+})
 
 
 const UserSchema = new mongoose.Schema({
-
-    _id: String,
-    name: NameSchema,
-    description: String,
-    image: File,
-    email: String,
-    country: String,
-    lastEntry: Date,
-    companies: Array,
-    linkedInProfile: String,
-    phone: Number,
-    initiatives: Array,
-    password: String,
-    type: UserType,
-    fieldsOfKnowledge: Array,
-    sectors:Sector
+  name: NameSchema,
+  description: String,
+  image: String,
+  email: String,
+  country: String,
+  lastEntry: Date,
+  companies: companySchema,
+  linkedInProfile: String,
+  phone: Number,
+  initiatives: InitiativeSchema,
+  password: String,
+  type: UserTypeSchema,
+  fieldsOfKnowledge: FieldsOfKnowledgeSchema,
+  sectors: SectorSchema,
+  profession: String
 });
 
 const UserModel = mongoose.model('users', UserSchema);
