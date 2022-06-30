@@ -1,9 +1,8 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
-import Card from './view/pages/mentee/Card';
-// import Card from './view/pages/mentee/Card';
 import Profile from './view/pages/mentee/Profile';
+import Card from './view/pages/mentee/Card';
 
 function App() {
 
@@ -11,12 +10,10 @@ function App() {
 
   return (
     <>
+    <Card/>
 
-    
-      <Card />
       {/* <Profile /> */}
 
-      {/* <Card/> */}
       <Profile _id={"1234"} />
 
     </>

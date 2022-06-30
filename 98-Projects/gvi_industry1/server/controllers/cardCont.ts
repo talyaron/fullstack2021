@@ -9,4 +9,8 @@ export async function getUser(req, res) {
     // console.log(data);
  
   }
+  catch{
+    
+  }
 }
+
