@@ -1,8 +1,8 @@
 import {useId} from 'react';
 import {Avatar} from '@mui/material';
-import SearchMessages from '../Icons/SearchMessages.svg';
-import VideoIcon from '../Icons/VideoIcon.svg';
-import CallIcon from '../Icons/CallIcon.svg';
+import CallIcon from '../Icons/CallIcon';
+import SearchMessages from '../Icons/SearchMessages';
+import VideoIcon from '../Icons/VideoIcon';
 
 
 interface CurrentRecipientProps {}
@@ -23,7 +23,7 @@ function CurrentRecipient(props: CurrentRecipientProps) {
             <ul className='chat__currentRecipient__Buttons'>
                 <a href=''>
                     <SearchMessages />
-                    <CallIcon />
+                    <CallIcon/>
                     <VideoIcon />
                 </a>
             </ul>

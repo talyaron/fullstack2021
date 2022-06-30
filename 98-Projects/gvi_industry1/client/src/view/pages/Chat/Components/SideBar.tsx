@@ -1,9 +1,9 @@
 import {useId, useEffect} from 'react';
 import {InputBase} from '@mui/material';
 import {UserInterface} from '../Chat';
-import SearchUsersIcon from '../Icons/SearchUsers.svg';
-import SVGHamburgerIcon from '../Icons/HamburgerIcon.svg';
-import SideBarDivider from '../Icons/SideBarDivider.svg';
+
+import SearchUsersIcon from '../Icons/SearchUsers'
+import SideBarDivider from '../Icons/SideBarDivider'
 import { socket } from '../../../../index';
 
 interface SideBarProps {
@@ -27,11 +27,9 @@ function SideBar(props: SideBarProps) {
     return (
         <div className='chat__sideBar'>
             <div className='chat__sideBar__searchBar'>
-                <SVGHamburgerIcon style={{padding: '21px 26px'}} />
                 <div className={`search` + id}>
-                    <SearchUsersIcon />
-
                     <InputBase placeholder='Search' />
+                    <SearchUsersIcon />
                 </div>
             </div>
             <ul className='chat__sideBar__recipientsList'>
@@ -48,7 +46,7 @@ function SideBar(props: SideBarProps) {
                     <h1>userList</h1>
                 )}
             </ul>
-            <SideBarDivider style={{}}/>
+            <SideBarDivider/>
             <ul className='chat__sideBar__Buttons'>
                 <li className='btn'>100Tasks</li>
                 <li className='btn'>Docs</li>
