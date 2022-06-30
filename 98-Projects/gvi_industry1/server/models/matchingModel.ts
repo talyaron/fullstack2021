@@ -1,17 +1,17 @@
-// import mongoose from 'mongoose'
-// // import {Sector, FieldsOfKnowledge} from './userModel'
+import mongoose from 'mongoose'
+import {Sector, FieldsOfKnowledge} from '../Models/userModel'
 
-// export enum MentoringType {
-//   UX = "ux",
-//   BUSINESS_DEVELOPMENT = "development"
-// }
 
-// const MatchingFiltersSchema = new mongoose.Schema({
-//     sectors: Sector,
-//     specialties:FieldsOfKnowledge,
-//     countries: [String],
-//     typesOfMentoring: MentoringType
-// })
+
+const MatchingFiltersSchema = new mongoose.Schema({
+    sectors: [String],
+    specialties:[String],
+    countries: [String],
+    typesOfMentoring: {
+      UX : String,
+      BUSINESS_DEVELOPMENT :String
+    }
+})
 
 
 //   const MatchingModel = mongoose.model('matchings', MatchingFiltersSchema);

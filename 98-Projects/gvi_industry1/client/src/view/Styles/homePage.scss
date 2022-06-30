@@ -1,0 +1,65 @@
+.homeContainer{
+    font-family: 'Inter';
+    font-style: normal;
+  margin: 50px 50px 0px 50px;
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: repeat(2,1fr);
+  gap:10px;
+}
+.welcomeText{
+    border:3px solid pink;
+
+    h1{
+        font-size:80px;  
+        letter-spacing: 0.05em;    
+    }
+    h3{
+        font-size:60px;
+        letter-spacing: 0.05em;   
+    }
+    p{
+        word-wrap: break-word;
+        font-size:24px;
+        letter-spacing:0.05em;
+    }
+    .loginBtns{
+        display:flex;
+        justify-content: space-around;
+        button{
+            width:256px;
+            height:60px;
+            border-radius: 24px;
+            
+        }
+    }
+}
+.videoWindow{
+    border:3px solid pink;
+    background-color: pink;
+}
+.feed{
+    grid-column-start: -3;
+    grid-column-end: -1;
+    display:grid;
+    grid-template-columns: repeat(2,500px);
+    grid-template-rows: 250px;
+    gap:100px;
+    justify-content: center;
+    align-self: center;
+
+
+    
+    
+    border:3px solid red;
+    &__news{
+        border:3px solid rgb(68, 0, 255); 
+        // width:500px;
+        
+    }
+    &__events{
+        border:3px solid rgb(0, 255, 47);
+        
+    }
+
+}
