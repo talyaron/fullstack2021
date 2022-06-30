@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.css';
 import axios from 'axios';
 import Profile from './view/pages/mentee/Profile';
 import Card from './view/pages/mentee/Card';
+import SearchMentor from './view/components/SearchMentor';
 
 function App() {
 
@@ -10,13 +10,16 @@ function App() {
 
   return (
     <>
+      <SearchMentor/>
     <Card/>
 
       {/* <Profile /> */}
 
       <Profile _id={"1234"} />
-
-    </>
+    
+      
+</>
+  
   )
 }
 
