@@ -1,4 +1,7 @@
 import { socket } from './index'
+import Profile from './view/pages/mentee/Profile';
+import Card from './view/pages/mentee/Card';
+import SearchMentor from './view/components/SearchMentor';
 import React from "react";
 import "./view/Styles/global.scss";
 import HomePage from './view/Components/HomePage'
@@ -13,7 +16,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 function App() {
 
   const [mentorsList, setMentorsList] = useState([])
-  const [selectedUser , setSelectedUser] = useState({})
+  const [selectedUser, setSelectedUser] = useState({})
 
   // useEffect(() => {
   //   (async () => {
@@ -27,12 +30,8 @@ function App() {
   return (
           <Router>
       <Routes>
-      
-          <Route path='/' element={<HomePage />} />
       <Route path="/chat" element={<Chat/>}/>
-          
-          <Route/>
-       
+        <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} selectedUser={selectedUser}/>} />
       </Routes>
        </Router>
   );

@@ -1,6 +1,6 @@
-
-import 'dotenv/config';
-import express from 'express';
+const express = require("express");
+import mongoose from 'mongoose';
+import CardRoute from "./routes/CardRoute"
 const app = express();
 //socket.io:
 import http from 'http';
@@ -30,11 +30,18 @@ import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import MessageModel from './models/messageModel';
 
-const port = process.env.PORT || 4000;
-const MONGODB_URI = process.env.MONGODB_URI;
+app.use(express.static('public/build'))
+app.use(express.json());
 
 app.use(express.static('client/build'))
-app.use(cors());
+app.use("/api/users",CardRoute)
+app.use('/api/companies',CardRoute)
+
+
+
+console.log(process.env.ENV)
+ console.log(process.env.JWT_SECRET);
+const cookieParser = require('cookie-parser');
 app.use(express.json());
 app.use(cookieParser());
 
@@ -95,3 +102,20 @@ upload.single('image'),
 server.listen(port, () => {
     console.log(`listening on *:${port}`);
 });
+
+
+
+
+
+
+// app.use(cors());
+
+// app.use(express.static('client/build'))
+
+// io.on("connection", (socket: any) => {
+//   console.log('user connected', socket.id)
+// });
+
+// server.listen(port, () => {
+//   console.log(`listening on *:${port}`);
+// });

@@ -1,22 +1,28 @@
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
-import Home from "./pages/Home";
+import HomeSatrt from "./pages/HomeStart";
 import Orders from "./pages/Orders";
 import './App.scss';
+import MapPage from "./pages/MapPage";
+
 
 
 function App() {
+  
   return (
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="orders" element={<Orders />} />
+        <Route index element={<HomeSatrt />} />
+        
+
+
         
       </Route>
     </Routes>
   </BrowserRouter>
+  
   );
 }
 

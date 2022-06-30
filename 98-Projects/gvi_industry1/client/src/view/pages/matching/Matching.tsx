@@ -16,7 +16,7 @@ const Matching = (props: MatchingProps) => {
       setMentorsList(filterMentors)
       console.log(selectedUser)
     })();
-  }, [selectedUser])
+  }, [])
 
 
   return (
@@ -24,8 +24,6 @@ const Matching = (props: MatchingProps) => {
       {mentorsList.map((mentor: any) =>
         <div key={mentor._id}>{mentor.fullName}</div>
       )}
-
-
     </div>
   )
 }
