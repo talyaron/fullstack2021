@@ -14,19 +14,19 @@ export enum Stage {
 }
 
 
-  // export enum UserType {
-  //   ADMIN = "admin",
-  //   MENTEE = "mentee",
-  //   MENTOR = "mentor",
-  // }
+  export enum UserType {
+    ADMIN = "admin",
+    MENTEE = "mentee",
+    MENTOR = "mentor",
+  }
   export const NameSchema = new mongoose.Schema({
     first:String,
     last: String
   })
-  // export enum Sector {
-  // EDUCATION = "eduction",
-  //   DIGITAL_HEALTH = "digital health",
-  // }
+  export enum Sector {
+  EDUCATION = "eduction",
+    DIGITAL_HEALTH = "digital health",
+  }
 
 
 const UserSchema = new mongoose.Schema({
@@ -57,5 +57,5 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
-const User = mongoose.model('users', UserSchema);
-export default User;
+const UserModel = mongoose.model('users', UserSchema);
+export default UserModel;

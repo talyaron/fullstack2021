@@ -33,6 +33,7 @@ const UserSelection = (props:RegisterProps) => {
     <div className={ registerWindow?'register showRegister':'register dontShowRegister'}>
        
         <button className='closeButton' onClick={()=>{setRegisterWindow(false)}} >X</button>
+        <RegisterMentee registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} countryArray={countryArray} />
         <div className='register__text'>
         <h1 >Join Now The GVI <span>Global Accelerator</span></h1>
         </div>
@@ -46,7 +47,6 @@ const UserSelection = (props:RegisterProps) => {
             
            
         </div>
-        <RegisterMentee registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} countryArray={countryArray} />
         {/* <RegisterMentor registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} countryArray={countryArray} /> */}
     </div>
   )

@@ -29,15 +29,32 @@ export const getUser = async (req:any, res:any) => {
 }
 
 
+export async function getAllRecipients(req, res) {
+    try {
+    const allUsers = await UserModel.find({})
+    if(!allUsers) throw new Error('no Users were found')
+        res.send({ allUsers, ok: true })
+    } catch (error) {
+        console.log(error.error)
+        res.send({ error: error.message })
+    }
+}
+
+
+
 const secret=process.env.JWT_SECRET
 
 export const login= async(req,res)=>{
     try {
       const {username,password}=req.body;
-    
+      console.log(username, password,'loggedIn');
       if(typeof username==="string" && typeof password==="string"){
-       const user= await UserModel.findOne({username})
+        console.log(username, 'loggedIn 2');
+        
+       const user= await UserModel.findOne({email:username})
+       console.log(user);
        if(user){
+        
          //checking if password is right for the username that was put
          if(user.password===password){
               const payload={username,id:user._id,loggedInUser:true,type:user.type}

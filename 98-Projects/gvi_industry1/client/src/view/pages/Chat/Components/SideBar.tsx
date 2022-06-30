@@ -22,6 +22,7 @@ function SideBar(props: SideBarProps) {
     const id = useId();
 
     
+    
 
     return (
         <div className='chat__sideBar'>
@@ -34,11 +35,12 @@ function SideBar(props: SideBarProps) {
                 </div>
             </div>
             <ul className='chat__sideBar__recipientsList'>
+
                 {userList ? (
                     userList.map((user, i) => {
                         return (
                             <li key={i} onClick={(ev) => handleJoinRoom(ev, user._id)}>
-                                <p>{user.userName.last}</p>
+                                <p>{user.fullName.last}</p>
                             </li>
                         );
                     })

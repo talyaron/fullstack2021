@@ -22,7 +22,7 @@ const Login = (props:LoginProps) => {
       const username=ev.target.elements.username.value;
       const password=ev.target.elements.password.value;
       console.log(username,password)
-      const {data} = await axios.post('api/user/login',{username,password})
+      const {data} = await axios.post('api/users/login',{username,password})
       console.log(data);
 
       if(data.login===true){

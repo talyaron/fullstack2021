@@ -41,7 +41,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         console.log(initiative);
         //initaitive not addded yet to mongo
 
-        const {data} = await axios.post('/api/user/add-user', {user});
+        const {data} = await axios.post('/api/users/add-user', {user});
 
         console.log(data)
 

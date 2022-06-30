@@ -75,10 +75,11 @@ io.on('connection', (socket: any) => {
     });
 });
 
-import userRouter from './routers/userRouter';
+import userRouter from './routes/userRoute';
 app.use('/api/users', userRouter);
 
-import messageRouter from './routers/messageRouter';
+import messageRoute from './routes/messageRoute';
+app.use('/api/messages', messageRoute);
 app.post('/images', 
 upload.single('image'), 
 (req, res) => {
@@ -90,7 +91,6 @@ upload.single('image'),
         
     }
 })
-app.use('/api/messages', messageRouter);
 
 server.listen(port, () => {
     console.log(`listening on *:${port}`);
