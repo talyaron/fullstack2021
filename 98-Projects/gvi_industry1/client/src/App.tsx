@@ -1,6 +1,6 @@
 import { socket } from './index'
 import React from "react";
-import "./view/styles/global.scss";
+import "./view/Styles/global.scss";
 import HomePage from './view/Components/HomePage'
 import Matching from './view/pages/matching/Matching';
 import Chat from './view/pages/Chat/Chat'
