@@ -6,7 +6,7 @@ export const getMentors = async (req, res) => {
 
     try {
         const {selectedUser} = req.body
-        const allMentors = await UserModel.find({ type: 'mentor' })
+        const allMentors = await UserModel.find({})
         const filterMentors = allMentors.filter((mentor) =>mentor.sectors === selectedUser.sector || mentor.country === selectedUser.country)
         console.log(filterMentors)
         res.send({ filterMentors, ok: true })
@@ -18,8 +18,9 @@ export const getMentors = async (req, res) => {
 }
 export const getUser = async (req:any, res:any) => {
     try {
-        const user = await UserModel.findOne({ type: 'mentee' })
+        const user = await UserModel.findOne({})
         res.send({ user })
+        console.log(user)
 
     } catch (error) {
         console.log(error.error)

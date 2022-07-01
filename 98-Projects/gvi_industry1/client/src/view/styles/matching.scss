@@ -1,0 +1,14 @@
+.matching-grid {
+    // width: 95vh;
+    display: grid;
+    grid-template-columns: 400px 400px;
+    gap: 20px;
+
+}
+
+.matching-card {
+    width: 348px;
+    height: 393px;
+    border: 1px solid black;
+    border-radius: 10% 10% 0 0 ;
+}

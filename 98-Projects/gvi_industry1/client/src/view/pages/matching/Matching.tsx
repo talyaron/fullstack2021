@@ -1,5 +1,7 @@
 import axios from 'axios'
 import { useEffect } from 'react'
+import MatchingCard from './components/MatchingCards'
+
 interface MatchingProps {
   mentorsList: any,
   setMentorsList: Function
@@ -11,19 +13,19 @@ const Matching = (props: MatchingProps) => {
   const { mentorsList, setMentorsList, selectedUser } = props
   useEffect(() => {
     (async () => {
-      const { data } = await axios.post('/api/get-mentors', {selectedUser} )
-      const {filterMentors} = data
+      const { data } = await axios.post('/api/users/get-mentors', { selectedUser })
+      const { filterMentors } = data
       setMentorsList(filterMentors)
       console.log(selectedUser)
     })();
-  }, [])
+  }, [selectedUser])
 
 
   return (
     <div>
-      {mentorsList.map((mentor: any) =>
-        <div key={mentor._id}>{mentor.fullName}</div>
-      )}
+
+      <MatchingCard mentorsList={mentorsList} />
+
     </div>
   )
 }
