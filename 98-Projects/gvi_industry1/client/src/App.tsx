@@ -4,7 +4,7 @@ import SearchMentor from './view/components/SearchMentor';
 import React from "react";
 import "./view/Styles/global.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from './view/Components/HomePage'
+import HomePage from './view/components/HomePage'
 import Matching from './view/pages/matching/Matching';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
