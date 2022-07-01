@@ -37,8 +37,8 @@ function SideBar(props: SideBarProps) {
                 {userList ? (
                     userList.map((user, i) => {
                         return (
-                            <li key={i} onClick={(ev) => handleJoinRoom(ev, user._id)}>
-                                <p>{user.fullName.last}</p>
+                            <li key={i} onClick={(ev) => handleJoinRoom(ev, user)}>
+                                <p>{user.fullName}</p>
                             </li>
                         );
                     })

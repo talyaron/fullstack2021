@@ -5,14 +5,15 @@ import CurrentRecipient from './components/CurrentRecipient';
 import SideBar from './components/SideBar';
 import {socket} from '../../../index';
 import {ObjectId} from 'mongoose';
+import { text } from 'node:stream/consumers';
 
 export interface MessageUserInterface {
     userId: String;
-    userName: {first: String; last: String};
+fullName:String;
 }
 export interface UserInterface {
     _id: String;
-    fullName: {first: String; last: String};
+    fullName: String;
 }
 export interface MessageInterface {
     _id?: String;
@@ -28,28 +29,22 @@ function Chat() {
     const [sentMessage, setSentMessage] = useState('');
     const [room, setRoom] = useState('');
     const [messageList, setMessageList] = useState<Array<MessageInterface>>([]);
-    const [userList, setUserList] = useState<Array<UserInterface>>([
-        {
-            _id: '62b50ec96bd21c886f8fc3ad',
-            fullName: {
-                first: 'Etan',
-                last: 'Heyman',
-            },
-        },
-    ]);
+    const [recipient, setRecipient] = useState<UserInterface>();
+    const [userList, setUserList] = useState<Array<UserInterface>>([]);
+    const [searchMessagesToggle,setSearchMessagesToggle] = useState<boolean>(false)
 
     function dateFromObjectId(messageId: string) {
         if (messageId) {
-            console.log(messageId, 'message id');
+
             return `${new Date(parseInt(messageId.substring(0, 8), 16) * 1000)}`;
         }
     }
-    function handleJoinRoom(ev: any, id: any) {
-        const room = id;
+    function handleJoinRoom(ev: any, user: UserInterface) {
+        const room:any = user._id;
         if (room !== '' || room) {
-            console.log('hi', room);
             socket.emit('join-room', room);
             setRoom(room);
+            setRecipient(user)
         }
     }
 
@@ -60,14 +55,14 @@ function Chat() {
             const id: any = message._id;
             const payload = {
                 text: message.text,
-                sender: {userId: '', userName: {first: '', last: ''}},
+                sender: message.sender,
                 recipients: [...message.recipients],
                 file: '',
                 time: dateFromObjectId(id),
             };
-            console.log(payload, 'payload');
+
             setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
-            console.log('data text:' + message.text);
+
             setScroll('0');
         });
 
@@ -77,27 +72,34 @@ function Chat() {
         };
     }, [socket]);
 
-    function handleSendMessage(ev: any) {
-        // console.log(ev);
-
-        const payload = {
-            text: sentMessage,
-            sender: {userId: '', userName: {first: '', last: ''}},
-            recipients: [{userId: room, userName: {first: '', last: ''}}],
-            file: '',
-        };
-        socket.emit('send-message', payload);
-        setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
+    function handleChatSearchBar () {
+        setSearchMessagesToggle((p:boolean) => !p);
+    }
+    function handleSendMessage() {
+        try {
+            
+            const id:any = recipient?._id
+            const fullName:any = recipient?.fullName
+            if(sentMessage === '') throw new Error('Type something!')
+            const payload = {
+                text: sentMessage,
+                sender: {userId: '', fullName: ''},
+                recipients: [{userId: id, fullName: fullName}],
+                file: '',
+            };
+            socket.emit('send-message', payload);
+            setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
+        } catch (error) {
+            console.log(error);
+            
+        }
     }
 
     async function getMessageList() {
         try {
             const {data} = await axios.post('/api/messages/get-messages', {ok: true});
-            console.log(data.allMessages, 'messageList');
-            setMessageList(data.allMessages);
-            // return()=>{
 
-            // }
+            setMessageList(data.allMessages);
         } catch (error) {
             console.log(error);
         }
@@ -106,7 +108,7 @@ function Chat() {
         try {
             const {data} = await axios.post('/api/users/get-all-recipients', {ok: true});
             console.log(data.allUsers, 'userList');
-            // setUserList(data.allUsers);
+            setUserList(data.allUsers);
         } catch (error) {
             console.log(error);
         }
@@ -114,7 +116,7 @@ function Chat() {
     return (
         <div className='chat'>
             <SideBar handleJoinRoom={handleJoinRoom} getUserList={getUserList} userList={userList} />
-            <CurrentRecipient />
+            {recipient ? <CurrentRecipient recipient={recipient} handleChatSearchBar={handleChatSearchBar} searchMessagesToggle={searchMessagesToggle}/> : null}
             <ChatWindow dateFromObjectId={dateFromObjectId} scroll={scroll} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} getMessageList={getMessageList} messageList={messageList} setMessageList={setMessageList} />
         </div>
     );

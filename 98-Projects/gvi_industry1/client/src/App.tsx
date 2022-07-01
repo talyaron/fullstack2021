@@ -13,6 +13,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 
 
+
 function App() {
 
   const [mentorsList, setMentorsList] = useState([])
@@ -30,8 +31,11 @@ function App() {
   return (
           <Router>
       <Routes>
-      <Route path="/chat" element={<Chat/>}/>
-        <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} selectedUser={selectedUser}/>} />
+        <Route>
+        <Route path="/" element={<HomePage/>}/>
+      <Route path="chat" element={<Chat/>}/>
+        <Route path="matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} selectedUser={selectedUser}/>} />
+        </Route>
       </Routes>
        </Router>
   );
