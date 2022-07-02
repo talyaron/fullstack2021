@@ -1,44 +1,27 @@
 import {socket} from './index';
-
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 import './App.css';
 import React,{useEffect,useState} from 'react';
+import ChatRoom from './Components/ChatRoom';
+import Login from './Components/Login';
+import RoomsNavigator from './Components/RoomsNavigator';
 
 function App() {
-  const [textMessage,setTextMessage]=useState('')
-  useEffect(()=>{
-  socket.on('msg',({text})=>{
-    console.log(text)
-    setTextMessage(text)
-    //The setTextMessage has to be here
-   
-});
-return()=>{
-  // turns off/cleans when the component is unmounted. when changing pages it cleans it as if to clear the interval
-  console.log("off")
-  socket.off("msg")
-};
-  },[])
-
-function handleText(ev:any){
-  ev.preventDefault()
-const text=ev.target.value;
-console.log(text)
-socket.emit('msg',{text})
-//client מפיץ to the שרת  
-
-
-}
-console.log(textMessage)
+  const [user,setUser]=useState<string>('')
+  console.log(user)
   return (
-    <div style={{textAlign:'center', marginTop:'50px',margin:'10px'}}>
-     
-      
-      <input type="text" placeholder="text message" name="text" onKeyUp={handleText}/>
-
-      
-     <p>text:{textMessage}</p>
-      
-    </div>
+    <BrowserRouter>
+    <Routes>
+     <Route path='/' element={<Login setUser={setUser} user={user}/>} />
+     <Route path='rooms' element={<RoomsNavigator/>}/>
+     <Route path=':chatRoomNumber' element={<ChatRoom user={user}/>}/>
+    
+    </Routes>
+  </BrowserRouter>
    
   );
 }

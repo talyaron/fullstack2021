@@ -6,12 +6,18 @@ const app = express();
 const port = process.env.PORT || 4001;
 const mongoDB_URI = process.env.mongoDB_URI;
 
+const cookieParser = require('cookie-parser')
+app.use(cookieParser()); // if not , we’ll not get the cookie  
+
 
 app.use(express.static('client/build'))
 app.use(express.json());
 
-import userRoute from './client/route/userRoute' 
+import userRoute from './route/userRoute' 
 app.use('/user' , userRoute)
+
+import articleRoute from './route/articleRoute' 
+app.use('/article' , articleRoute)
 
 mongoose.connect(mongoDB_URI)
     .then(res => {

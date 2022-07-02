@@ -21,16 +21,23 @@ const io = new Server(server, {
 //why needed if i didnd use it
 
 io.on('connection',(socket)=>{
-  console.log('a user is connected')
-  console.log(socket.id)
+  socket.on('connectionToRoom',({chatRoomNumber,user})=>{
+    socket.join(chatRoomNumber)
+    console.log(`${user} got into room ${chatRoomNumber}`)
+  })
+  // console.log('a user is connected')
+  // console.log(socket.id)
 
-  socket.on('msg',({text})=>{
-    console.log(text)
-    socket.broadcast.emit('msg',{text});
+  socket.on('send-msg',({text,chatRoomNumber,user})=>{
+    console.log(`${user} send ${text}`);
+    socket.to(chatRoomNumber).emit('get-msg',{text,user});
+
+
     //if its io.emit then its sends to everyone and the person who sent it
     //makes it that it sends to everyone except the person who wrote it
-    //sends it to the clients
+    //sends it to the client
   })
+
   
 
 
