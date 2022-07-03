@@ -28,13 +28,16 @@ function App() {
   // }, [])
 
   return (
-          <Router>
-      <Routes>
-      <Route path="/chat" element={<Chat/>}/>
-        <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} selectedUser={selectedUser}/>} />
-      </Routes>
-       </Router>
+      //     <Router>
+      // <Routes>
+      // <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} selectedUser={selectedUser}/>} />
+      //   <Route path="/chat" element={<Chat/>}/>
+      // </Routes>
+      //  </Router>
+      <Card />
   );
 }
 
 export default App;
+
+

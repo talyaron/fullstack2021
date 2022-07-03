@@ -6,11 +6,6 @@ import MailOutlineTwoToneIcon from "@mui/icons-material/MailOutlineTwoTone";
 import PushPinRoundedIcon from "@mui/icons-material/PushPinRounded";
 import './style/card.scss';
 
-
-// interface Card {
-//   Name: String;
-// }
-
 const Card = () => {
   // function Card() {
   //   // useEffect(() => {
