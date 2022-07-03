@@ -47,7 +47,10 @@ const Card = () => {
         <p className="card__name"> {userDetails.name}</p>
         <div className="card__flex">
           <img src={`${userDetails.country}`} alt="" />
-          <LinkedInIcon className="card__flex__linkdIn" style={{fontSize:"30px" }}>
+          <LinkedInIcon
+            className="card__flex__linkdIn"
+            style={{ fontSize: "30px" }}
+          >
             {userDetails.linkedInProfile}
           </LinkedInIcon>
         </div>
