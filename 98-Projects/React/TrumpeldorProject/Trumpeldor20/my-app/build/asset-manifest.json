@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.afe8dec4.css",
+    "main.js": "/static/js/main.83595bde.js",
+    "static/js/787.28cb0dcd.chunk.js": "/static/js/787.28cb0dcd.chunk.js",
+    "static/media/mike-PxJ9zkM2wdA-unsplash.jpg": "/static/media/mike-PxJ9zkM2wdA-unsplash.ae09939ecc5f504d17b3.jpg",
+    "static/media/melissa-walker-horn-wcDru6t-aCg-unsplash.jpg": "/static/media/melissa-walker-horn-wcDru6t-aCg-unsplash.bb8e74f0772ae82f8849.jpg",
+    "static/media/pablo-merchan-montes-hyIE90CN6b0-unsplash.jpg": "/static/media/pablo-merchan-montes-hyIE90CN6b0-unsplash.c2b00d00aff9b3ed90b3.jpg",
+    "static/media/mae-mu-I7A_pHLcQK8-unsplash.jpg": "/static/media/mae-mu-I7A_pHLcQK8-unsplash.c5210b3aa31d01432839.jpg",
+    "static/media/hamburger-svgrepo-com.svg": "/static/media/hamburger-svgrepo-com.0c66b5ae9131727d4e0e.svg",
+    "static/media/branch-svgrepo-com.svg": "/static/media/branch-svgrepo-com.6a7224f9add64f331d57.svg",
+    "index.html": "/index.html",
+    "main.afe8dec4.css.map": "/static/css/main.afe8dec4.css.map",
+    "main.83595bde.js.map": "/static/js/main.83595bde.js.map",
+    "787.28cb0dcd.chunk.js.map": "/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.afe8dec4.css",
+    "static/js/main.83595bde.js"
+  ]
+}
