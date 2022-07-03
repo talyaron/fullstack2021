@@ -1,4 +1,4 @@
-import User from '../models/UsersModel'
+qimport User from '../models/UsersModel'
 
 export const getUsers = async (req, res) => {
     const allUsers = await User.find({})
