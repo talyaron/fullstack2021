@@ -3,16 +3,14 @@ Body {
 }
 
 .Navbar {
-  height: 15vh;
+  height: 10vh;
   width: 100vw;
-  background-color: #ffff;
-  display: flex;
-  flex-direction: row;
+  background-color: white;
+  display: grid;
   border: solid black;
   gap: 3vw;
   justify-content: center;
   align-items: center;
-  position: fixed;
   top: 0;
 
 
@@ -248,4 +246,20 @@ background-repeat: no-repeat;
   height: 40vh;
   background-color: aquamarine;
 
+}
+.icon{
+  background-image: url(./Photos/hamburger-svgrepo-com.svg);
+  width: 5vw;
+  height: 5vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+}
+.button{
+  color: black;
+  
+  }
+  .button:hover{
+    color: orange;
 }
