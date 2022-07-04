@@ -33,7 +33,7 @@ const userCompany = {
     linkToPresentation:''
 }
 interface ProfileProps{
-    _id:String
+    user:Object
 }
 
 
@@ -42,16 +42,7 @@ export function Profile (props:ProfileProps) {
      const id = props;
      const [userId , setUserId] = useState(id)
      const [MenteeDetails , setMenteeDetails] = useState({userDetails})
-
-    //  useEffect(() => {
-    //     getUserDetails()
-    //  } ,[])
-    //  async function getUserDetails(){
-    //     axios.get(`/get-userDetails?id=${userId}`).then(async(result) =>{
-    //         const {data} = result;
-    //         setMenteeDetails(data.data)
-    //  }
-
+     
   return (
     <div className='profile'>
         <div className="profile_profilePic" style={{backgroundImage:`url(${userDetails.img})`}}>
@@ -86,19 +77,9 @@ export function Profile (props:ProfileProps) {
                     return(
                 <div className='profile_companyDetails-sections-section'>{section}</div>
                     )
-                })}
-                    
-                    
-                </div>
-                
-                
-
-                
-
-            
+                })}       
+                </div>            
         </div>
-        
-    
     </div>
   )
 }
