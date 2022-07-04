@@ -33,7 +33,7 @@ function App() {
         <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
         <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />
-        <Route path="/" element={<Profile _id={'1234'} />} />
+        
       </Routes>
     </Router>
   );
