@@ -42,7 +42,7 @@ enum Sector{
   DIGIATL_HEALTH = "digital-health"
 }
 
-const UserSchema = new mongoose.Schema({
+export const UserSchema = new mongoose.Schema({
   name: NameSchema,
   fullName: String,
   description: String,
