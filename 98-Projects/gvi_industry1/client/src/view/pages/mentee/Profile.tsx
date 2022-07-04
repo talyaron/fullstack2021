@@ -55,7 +55,9 @@ export function Profile (props:ProfileProps) {
   return (
     <div className='profile'>
         <div className="profile_profilePic" style={{backgroundImage:`url(${userDetails.img})`}}>
-        <div className='profile_profilePic-changeImg'></div>
+        <label htmlFor="changeImage" className='profile_profilePic-changeImg' >
+            <input type="file" id='changeImage' />
+        </label>
         </div>
         <div className='profile_contactInfo'>
         <div className='profile_contactInfo-edit' style={{gridColumn:'9/11',gridRow:'2/3'}}>✏️</div>
