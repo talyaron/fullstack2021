@@ -16,7 +16,6 @@ function App() {
   const [mentorsList, setMentorsList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
 
-  const [currentUser, setCurrentUser] = useState({})
 
 
   useEffect(() => {
