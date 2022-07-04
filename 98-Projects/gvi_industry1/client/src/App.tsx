@@ -1,7 +1,7 @@
 import { socket } from "./index";
 import Profile from "./view/pages/mentee/Profile";
 // import Card from "./view/pages/mentee/Card"//
-import SearchMentor from "./view/components/SearchMentor";
+import SearchMentor from "./view/Components/SearchMentor";
 import React from "react";
 import "./view/styles/global.scss";
 import HomePage from "./view/Components/HomePage";
@@ -10,7 +10,7 @@ import Chat from "./view/pages/Chat/Chat";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Button from "./view/components/Button";
+import Button from "./view/Components/Button";
 
 function App() {
   const [mentorsList, setMentorsList] = useState([]);
