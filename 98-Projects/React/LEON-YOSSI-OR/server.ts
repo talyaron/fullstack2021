@@ -4,7 +4,7 @@ import userRouter from './routes/UserRouters'
 
 
 const app = express()
-const port = process.env.PORT || 4007;
+const port = process.env.PORT || 4003;
 
 require('dotenv').config()
 
