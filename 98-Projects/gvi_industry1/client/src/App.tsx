@@ -1,6 +1,6 @@
 import { socket } from "./index";
 import Profile from "./view/pages/mentee/Profile";
-import Card from "./view/pages/mentee/Card";
+// import Card from "./view/pages/mentee/Card"//
 import SearchMentor from "./view/components/SearchMentor";
 import React from "react";
 import "./view/styles/global.scss";
@@ -16,6 +16,7 @@ function App() {
   const [mentorsList, setMentorsList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
 
+  const [currentUser, setCurrentUser] = useState({})
 
 
   useEffect(() => {
@@ -33,6 +34,7 @@ function App() {
         <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
         <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />
+        <Route path="/" element={<Profile _id={'1234'} />} />
       </Routes>
     </Router>
   );
