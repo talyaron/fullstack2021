@@ -14,10 +14,9 @@ import Button from "./view/components/Button";
 
 function App() {
   const [mentorsList, setMentorsList] = useState([]);
-  const [selectedUser, setSelectedUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({});
 
-  const [mentorsList, setMentorsList] = useState([])
-  const [currentUser, setCurrentUser] = useState({})
+
 
   useEffect(() => {
     (async () => {
