@@ -16,10 +16,10 @@ const Card = () => {
   //   //     const {result}  = data;
   //   //     console.log(data);
 
-  //   //     console.log(result[0].country);
+//   //   //     console.log(result[0].country);
 
-  //   })();
-  // }, []);
+//   //   })();
+//   // }, []);
 
   const userDetails = {
     name: "artur yaski",
@@ -65,4 +65,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+// export default Card;

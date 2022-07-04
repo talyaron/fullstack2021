@@ -10,7 +10,7 @@ const server = http.createServer(app);
 import {Server} from 'socket.io';
 import cors from 'cors';
 // pictures storage:
-import multer from 'multer';
+import multer from 'multer'
 import path from 'path';
 
 const storage = multer.diskStorage({
@@ -40,7 +40,6 @@ app.use("/api/users",CardRoute)
 app.use('/api/companies',CardRoute)
 
 
-
 console.log(process.env.ENV)
  console.log(process.env.JWT_SECRET);
 const cookieParser = require('cookie-parser');
@@ -51,7 +50,7 @@ const url = process.env.MONGODB_URI
 
 mongoose
     // .set('debug', { shell: true })
-    .connect(url)
+    .connect('mongodb+srv://alexroz:T9g3STOIzq3kppvy@cluster0.x62d1.mongodb.net/gvi?retryWrites=true&w=majority')
     .then(() => {
         console.log('connected to Mongoose');
     })
