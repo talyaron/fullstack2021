@@ -8,7 +8,7 @@ import StarIcon from "@mui/icons-material/Star";
 import { Button } from "@mui/material";
 import "./style/card.scss";
 
-const Card = () => {
+const SelectedMentor = () => {
   // function Card() {
   //   // useEffect(() => {
   //   //   (async () => {
@@ -65,4 +65,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default SelectedMentor;

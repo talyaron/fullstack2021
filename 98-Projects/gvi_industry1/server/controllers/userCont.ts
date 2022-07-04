@@ -87,7 +87,7 @@ export const login = async (req, res) => {
 export const addUser = async (req, res) => {
     try {
         const { user } = req.body;
-        console.log(user);
+        console.log('user.sector:',user.sector);
 
 
         let newUser = new UserModel(user)
