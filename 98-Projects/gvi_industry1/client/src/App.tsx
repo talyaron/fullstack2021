@@ -4,7 +4,7 @@ import Profile from "./view/pages/mentee/Profile";
 import SearchMentor from "./view/components/SearchMentor";
 import React from "react";
 import "./view/styles/global.scss";
-import HomePage from "./view/components/HomePage";
+import HomePage from "./view/Components/HomePage";
 import Matching from "./view/pages/matching/Matching";
 import Chat from "./view/pages/Chat/Chat";
 import { useState, useEffect } from "react";
