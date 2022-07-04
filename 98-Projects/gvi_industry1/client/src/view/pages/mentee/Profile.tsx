@@ -33,7 +33,7 @@ const userCompany = {
     linkToPresentation:''
 }
 interface ProfileProps{
-    _id:String
+    user:Object
 }
 
 

@@ -14,6 +14,7 @@ import Button from "./view/components/Button";
 import SelectedMentor from "./view/pages/mentee/SelectedMentor";
 
 function App() {
+
   const [mentorsList, setMentorsList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
 
@@ -29,10 +30,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<HomePage />}/>
+        <Route path="profile/_id" element={<Profile user={currentUser}/>}
+        {/* <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
-        <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />
-        <Route path="/" element={<Profile _id={'1234'} />} />
+        <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} /> */}
       </Routes>
     </Router>
   );
