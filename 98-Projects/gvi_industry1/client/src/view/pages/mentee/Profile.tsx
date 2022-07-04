@@ -1,7 +1,8 @@
 import React , {useState,useEffect} from 'react'
-import './style/profile.scss';
+// import '../../Styles/global';
 import motion from 'framer-motion';
 import axios from 'axios';
+import { url } from 'inspector';
 
 
 const userDetails = {
@@ -33,7 +34,7 @@ const userCompany = {
     linkToPresentation:''
 }
 interface ProfileProps{
-    _id:String
+    _id:String;
 }
 
 
@@ -41,21 +42,42 @@ export function Profile (props:ProfileProps) {
 
      const id = props;
      const [userId , setUserId] = useState(id)
-     const [MenteeDetails , setMenteeDetails] = useState({userDetails})
+     const [isMentee , setIsMentee] =useState(false)
+     const [isMentor , setIsMentor] =useState(false)
+     const [MenteeDetails , setMenteeDetails] = useState({userDetails});
 
-    //  useEffect(() => {
-    //     getUserDetails()
-    //  } ,[])
-    //  async function getUserDetails(){
-    //     axios.get(`/get-userDetails?id=${userId}`).then(async(result) =>{
-    //         const {data} = result;
-    //         setMenteeDetails(data.data)
-    //  }
 
+         useEffect(() => {
+            getUserDetails()
+         } ,[])
+
+
+         async function getUserDetails(){
+            axios.get(`/get-user?id=${userId}`).then((result) =>{
+                const {data} = result;
+                const user = data;
+                if(user.type === 'mentee'){
+                    setIsMentor(false)
+                    setIsMentee(!isMentee)
+                }
+                setMenteeDetails(user)
+
+         })
+         }
+        // async function changeProfilePic(){
+        //     axios.patch('/get-changeProfilePic',{id}).then((result) => {
+        //         const {data} = result
+
+        //     })
+        // }
+
+    
   return (
     <div className='profile'>
         <div className="profile_profilePic" style={{backgroundImage:`url(${userDetails.img})`}}>
-        <div className='profile_profilePic-changeImg'></div>
+        <label className='profile_profilePic-changeImg' htmlFor='profilePic'>
+            <input id='profilePic' type="file" accept="image/png, image/jpg, image/gif, image/jpeg"/>
+        </label>    
         </div>
         <div className='profile_contactInfo'>
         <div className='profile_contactInfo-edit' style={{gridColumn:'9/11',gridRow:'2/3'}}>✏️</div>
@@ -68,7 +90,7 @@ export function Profile (props:ProfileProps) {
             <p className='profile_contactInfo-email'>{userDetails.email}</p>
             <p className='profile_contactInfo-phone'>{userDetails.phone}</p>
             <a className='profile_contactInfo-linkDinLink' style={{gridColumn:'3/4',gridRow:'9/11',height:'75%',width:'150%'}} 
-            href="http://linkdin.com"><img style={{height:'100%',width:'100%'}} src="https://seeklogo.com/images/L/linkedin-icon-logo-32AA14A009-seeklogo.com.png" alt="" /></a>
+            href="https://www.linkedin.com"><img style={{height:'100%',width:'100%'}} src="https://seeklogo.com/images/L/linkedin-icon-logo-32AA14A009-seeklogo.com.png" alt="" /></a>
         </div>
         <div className='profile_nameProffession'>
             <h1 style={{marginTop:'-5px'}}>{userDetails.name}</h1>
@@ -85,18 +107,9 @@ export function Profile (props:ProfileProps) {
                 <div className='profile_companyDetails-sections-section'>{section}</div>
                     )
                 })}
-                    
-                    
+                          
                 </div>
-                
-                
-
-                
-
-            
         </div>
-        
-    
     </div>
   )
 }

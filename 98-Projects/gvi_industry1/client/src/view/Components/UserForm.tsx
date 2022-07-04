@@ -3,9 +3,6 @@ import { useEffect, useState } from "react";
 import StepperBar from "./StepperBar"
 
 
-
-
-
 const steps = ['Personal Details', 'Your Company', 'Payment Details'];
 
 const UserForm = (props: any) => {
