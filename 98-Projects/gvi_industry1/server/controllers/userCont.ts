@@ -50,18 +50,18 @@ const secret = process.env.JWT_SECRET
 
 export const login = async (req, res) => {
     try {
-        const { username, password } = req.body;
-        console.log(username, password, 'loggedIn');
-        if (typeof username === "string" && typeof password === "string") {
-            console.log(username, 'loggedIn 2');
+        const { email, password } = req.body;
+        console.log(email, password, 'loggedIn');
+        if (typeof email === "string" && typeof password === "string") {
+            console.log(email, 'loggedIn 2');
 
-            const user = await UserModel.findOne({ email: username })
+            const user = await UserModel.findOne({ email })
             console.log(user);
             if (user) {
 
-                //checking if password is right for the username that was put
+                //checking if password is right for the email that was put
                 if (user.password === password) {
-                    const payload = { username, id: user._id, loggedInUser: true, type: user.type }
+                    const payload = { email, id: user._id, loggedInUser: true, type: user.type }
                     const token = JWT.encode(payload, secret)
                     //made that the cookie is coded and cant be hacked into
                     //we put the secret in the .env so that cant be taken either
@@ -70,9 +70,9 @@ export const login = async (req, res) => {
                     return
                 }
             }
-            throw new Error("username or password are incorrect")
+            throw new Error("email or password are incorrect")
         } else {
-            throw new Error("username or password is missing")
+            throw new Error("email or password is missing")
         }
 
     } catch (error) {

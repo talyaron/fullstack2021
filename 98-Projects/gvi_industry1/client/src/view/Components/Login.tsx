@@ -19,10 +19,10 @@ const Login = (props:LoginProps) => {
    
     async function handleLoginForm(ev:any){
       ev.preventDefault()
-      const username=ev.target.elements.username.value;
+      const email=ev.target.elements.email.value;
       const password=ev.target.elements.password.value;
-      console.log(username,password)
-      const {data} = await axios.post('api/users/login',{username,password})
+      console.log(email,password)
+      const {data} = await axios.post('api/users/login',{email,password})
       console.log(data);
 
       if(data.login===true){
@@ -50,8 +50,8 @@ const Login = (props:LoginProps) => {
       
       <div className='login__form'>
         <form onSubmit={handleLoginForm}>            
-        <label htmlFor='username'>Username or email</label>
-          <input type='text' id="username" name="username" placeholder='username'/>
+        <label htmlFor='email'>Email</label>
+          <input type='text' id="email" name="email" placeholder='email'/>
         <label htmlFor='password'> Password</label> 
             <div className='password'>
                 <input type={showPassword?'password':"text"} id="password" name="password" placeholder='password'/>         

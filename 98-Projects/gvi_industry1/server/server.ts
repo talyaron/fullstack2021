@@ -85,6 +85,9 @@ io.on('connection', (socket: any) => {
     });
 });
 
+import initiativesRouter from './routes/initiativesRoute';
+app.use('/api/initiatives', initiativesRouter);
+
 import userRouter from './routes/userRoute';
 app.use('/api/users', userRouter);
 

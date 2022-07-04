@@ -40,11 +40,13 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         const initiative = { sector, companyName, description, stage, website, linkToOnePager, presentations }
         console.log(user);
         console.log(initiative);
-        //initaitive not addded yet to mongo
+        //company not addded yet to mongo
 
-        const {data} = await axios.post('/api/users/add-user', {user});
+        const userData = await axios.post('/api/users/add-user', {user});
 
-        console.log(data)
+        console.log(userData)
+
+        const intiativeData = await axios.post('/api/initiatives/add-initiative', {initiative});
 
 
 
@@ -125,7 +127,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                             <div className="form__text">Sector</div>
                             <select name="sector" >
                                 <option hidden></option>
-                                <option value="eduction">Eduction</option>
+                                <option value="education">Education</option>
                                 <option value="digital-health">digital health</option>
                                 <option value="c">c</option>
                                 <option value="d">d</option>
