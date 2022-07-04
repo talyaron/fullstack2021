@@ -28,9 +28,9 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        <Route path='/' element={<HomePage />} />
-        <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} selectedUser={selectedUser}/>} />
-
+        {/* <Route path='/' element={<HomePage />} />
+        <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} selectedUser={selectedUser}/>} /> */}
+        <Route path='/' element={<Profile _id={'1234'} />} />
       </Routes>
     </BrowserRouter>
   );

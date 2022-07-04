@@ -27,12 +27,12 @@ console.log(process.env.ENV)
 const cookieParser = require('cookie-parser');
 app.use(express.json());
 app.use(cookieParser());
-const MONGODB_URI = process.env.MONGODB_URI;
+const URI = process.env.MONGODB_URI;
 
 
 
 mongoose.connect(
-  MONGODB_URI
+  ('mongodb+srv://alexroz:T9g3STOIzq3kppvy@cluster0.x62d1.mongodb.net/gvi?retryWrites=true&w=majority')
 ).then(res=>{
   console.log("Connected to DB");
 }).catch(err=>{
