@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Button from "./view/components/Button";
+import { Card } from "@mui/material";
 
 function App() {
   const [mentorsList, setMentorsList] = useState([]);
@@ -35,6 +36,8 @@ function App() {
         <Route path="/chat" element={<Chat />} />
         <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />
         <Route path="/" element={<Profile _id={'1234'} />} />
+        <Route path="/card" element={<Card />} />
+
       </Routes>
     </Router>
   );
