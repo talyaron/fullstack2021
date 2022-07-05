@@ -37,7 +37,7 @@ const HomePage = () => {
          <>video</>
         </div>
         <Login loginWindow={loginWindow} setLoginWindow={setLoginWindow}/>
-        <UserSelection registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} setMenteeWindowFirstSectionForm={setMenteeWindowFirstSectionForm} menteeWindowFirstSectionForm={menteeWindowFirstSectionForm}/>
+        <UserSelection registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} setMenteeWindowFirstSectionForm={setMenteeWindowFirstSectionForm} menteeWindowFirstSectionForm={menteeWindowFirstSectionForm} menteeWindow={menteeWindow} setMenteeWindow={setMenteeWindow}/>
         <RegisterMentee menteeWindow={menteeWindow} setMenteeWindow={setMenteeWindow} setMenteeWindowFirstSectionForm={setMenteeWindowFirstSectionForm} menteeWindowFirstSectionForm={menteeWindowFirstSectionForm} countryArray={countryArray} />
         <div className='feed'>
             

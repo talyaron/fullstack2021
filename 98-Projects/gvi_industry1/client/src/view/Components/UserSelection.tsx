@@ -6,10 +6,12 @@ interface RegisterProps{
     registerWindow:boolean;
     setRegisterWindow:Function;
     menteeWindowFirstSectionForm:boolean;
-    setMenteeWindowFirstSectionForm:Function
+    setMenteeWindowFirstSectionForm:Function;
+    menteeWindow:boolean;
+    setMenteeWindow:Function
 } 
 const UserSelection = (props:RegisterProps) => {
-    const {registerWindow,setRegisterWindow,menteeWindowFirstSectionForm,setMenteeWindowFirstSectionForm}=props
+    const {registerWindow,setRegisterWindow,menteeWindowFirstSectionForm,setMenteeWindowFirstSectionForm,menteeWindow,setMenteeWindow}=props
     // function handleCheck(ev:any){
     //     const name= ev.target.value
     //     console.log(name)
@@ -24,7 +26,8 @@ const UserSelection = (props:RegisterProps) => {
 
   
   function handleRegisterWindow(){
-    setMenteeWindowFirstSectionForm(!menteeWindowFirstSectionForm)
+     setMenteeWindowFirstSectionForm(!menteeWindowFirstSectionForm)
+    setMenteeWindow(!menteeWindow)
     setRegisterWindow(false)
     
   }
