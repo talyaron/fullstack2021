@@ -1,8 +1,8 @@
-const express = require("express");
+const express = require('express');
 import mongoose from 'mongoose';
-import CardRoute from "./routes/CardRoute"
+import CardRoute from './routes/CardRoute';
 const app = express();
-require('dotenv').config()
+require('dotenv').config();
 const port = process.env.PORT || 4001;
 //socket.io:
 import http from 'http';
@@ -10,7 +10,7 @@ const server = http.createServer(app);
 import {Server} from 'socket.io';
 import cors from 'cors';
 // pictures storage:
-import multer from 'multer'
+import multer from 'multer';
 import path from 'path';
 
 const storage = multer.diskStorage({
@@ -32,21 +32,19 @@ const io = new Server(server, {
 import cookieParser from 'cookie-parser';
 import MessageModel from './models/messageModel';
 
-
 app.use(express.json());
 
-app.use(express.static('client/build'))
-app.use("/api/users",CardRoute)
-app.use('/api/companies',CardRoute)
+app.use(express.static('client/build'));
+app.use('/api/users', CardRoute);
+app.use('/api/companies', CardRoute);
 
-
-console.log(process.env.ENV)
- console.log(process.env.JWT_SECRET);
+console.log(process.env.ENV);
+console.log(process.env.JWT_SECRET);
 const cookieParser = require('cookie-parser');
 app.use(express.json());
 app.use(cookieParser());
 
-const url = process.env.MONGODB_URI
+const url = process.env.MONGODB_URI;
 
 mongoose
     // .set('debug', { shell: true })
@@ -57,19 +55,20 @@ mongoose
     .catch((err) => {
         console.log('Failed to connect to Mongoose:');
         console.log(err.message);
-      
     });
 
 io.on('connection', (socket: any) => {
     console.log('user connected', socket.id);
     socket.on('join-room', (data) => {
+        console.log(data, 'server data -join');
+
         socket.join(data);
         console.log(`User with ID: ${socket.id} joined room: ${data}`);
     });
 
     socket.on('send-message', (data) => {
         console.log(data, 'data, send-message -server.ts');
-        const message = new MessageModel({text: data.text, file:data.file, sender: data.sender, recipients: data.recipients, time: data.time});
+        const message = new MessageModel({text: data.text, file: data.file, sender: data.sender, recipients: data.recipients, time: data.time});
         message.save();
 
         let recipients = (data) => {
@@ -90,26 +89,18 @@ app.use('/api/users', userRouter);
 
 import messageRoute from './routes/messageRoute';
 app.use('/api/messages', messageRoute);
-app.post('/images', 
-upload.single('image'), 
-(req, res) => {
-    try { 
-        res.send("g")
+app.post('/images', upload.single('image'), (req, res) => {
+    try {
+        res.send('g');
     } catch (error) {
         console.log(error);
-        res.send({error: error.message })
-        
+        res.send({error: error.message});
     }
-})
+});
 
 server.listen(port, () => {
     console.log(`listening on *:${port}`);
 });
-
-
-
-
-
 
 // app.use(cors());
 
