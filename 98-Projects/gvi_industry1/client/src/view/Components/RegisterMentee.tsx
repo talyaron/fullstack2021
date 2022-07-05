@@ -4,13 +4,14 @@ import axios from 'axios';
 
 interface RegisterMenteeProps {
     countryArray: Array<object>,
-    registerWindow: boolean,
-    setRegisterWindow: Function,
-    menteeWindow:boolean
+    menteeWindow:boolean,
+    setMenteeWindow:Function,
+    menteeWindowFirstSectionForm:boolean,
+    setMenteeWindowFirstSectionForm:Function
 }
 
 const RegisterMentee = (props: RegisterMenteeProps) => {
-    const { registerWindow, setRegisterWindow, countryArray,menteeWindow } = props;
+    const { countryArray,menteeWindow,setMenteeWindow,menteeWindowFirstSectionForm,setMenteeWindowFirstSectionForm } = props;
 
 
     async function handleMenteeForm(ev: any) {
@@ -55,16 +56,19 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
     return (
         
-        <div className={menteeWindow?"form__wrapper":"back"}>
-            <button className="closeButton" onClick={() => { setRegisterWindow(false) }}>X</button>
+        // <div className={menteeWindow?"form__wrapper showMenteeform":"dontShowMenteeform"}>
+        <div className="form__wrapper">
+            <button className="closeButton" onClick={() => {setMenteeWindowFirstSectionForm(false) }}>X</button>
+           
             <div className="progressBar">
                 <div className="progressBar__stage-1">personal details</div>
                 <div className="progressBar__stage-2">Your company</div>
                 <div className="progressBar__stage-3">payment details</div>
             </div>
             <form onSubmit={handleMenteeForm}>
-                <div className="firstSectionWrapper">
-                    <div className="firstSection">
+                <div className={menteeWindowFirstSectionForm?"form__wrapper showFirstSectionMenteeWrapper":"hideFirstSectionMenteeWrapper"}>
+                
+                    <div className="firstSectionMentee">
                         <div className="inputBox">
                             <div className="form__text">First Name</div>
                             <input type="text" name="firstName" />
@@ -106,8 +110,8 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                     </div>
                 </div>
 
-                <div className="secondSection-menteeWrapper">
-                    <div className="secondSection-mentee">
+                <div className="secondSectionMenteeWrapper">
+                    <div className="secondSectionMentee">
                         <div className="inputBox">
                             <div className="form__text">Company Name</div>
                             <input type="text" name="companyName" />
