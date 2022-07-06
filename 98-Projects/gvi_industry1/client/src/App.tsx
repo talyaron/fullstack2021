@@ -4,7 +4,7 @@ import Profile from "./view/pages/mentee/Profile";
 
 import React from "react";
 // import "./view/styles/global.scss";
-import './view/Styles/global.scss'
+import './view/styles/global.scss'
 // import HomePage from "./view/components/HomePage";
 import HomePage from "./view/components/HomePage";
 import Matching from "./view/pages/matching/Matching";
