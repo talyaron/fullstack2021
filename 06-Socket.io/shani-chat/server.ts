@@ -20,30 +20,30 @@ const io = new Server(server, {
 //app.use(cors());
 //why needed if i didnd use it
 
-io.on('connection',(socket)=>{
-  socket.on('connectionToRoom',({chatRoomNumber,user})=>{
+io.on('connection', (socket) => {
+  socket.on('connectionToRoom', ({ chatRoomNumber, user }) => {
     socket.join(chatRoomNumber)
     console.log(`${user} got into room ${chatRoomNumber}`)
   })
   // console.log('a user is connected')
   // console.log(socket.id)
 
-  socket.on('send-msg',({text,chatRoomNumber,user})=>{
-    console.log(`${user} send ${text}`);
-    socket.to(chatRoomNumber).emit('get-msg',{text,user});
-
+  socket.on('send-msg', ({ text, chatRoomNumber, user }) => {
+    console.log(`from room ${chatRoomNumber}: ${user} send ${text}`);
+    io.to(chatRoomNumber).emit("get-msg", { text, user });
+    // console.log(socket)
 
     //if its io.emit then its sends to everyone and the person who sent it
     //makes it that it sends to everyone except the person who wrote it
     //sends it to the client
   })
 
-  
 
 
-socket.on('disconnect',()=>{
-console.log('user disconnected')
-});
+
+  socket.on('disconnect', () => {
+    console.log('user disconnected')
+  });
 });
 
 
