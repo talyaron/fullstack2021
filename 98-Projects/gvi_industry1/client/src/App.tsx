@@ -11,6 +11,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Button from "./view/components/Button";
+<<<<<<< Updated upstream
+=======
+import SelectedMentor from "./view/pages/mentee/SelectedMentor";
+import { Card } from "@mui/material";
+import MatchingCards from "./view/pages/matching/components/MatchingCards";
+>>>>>>> Stashed changes
 
 function App() {
   const [mentorsList, setMentorsList] = useState([]);
@@ -29,6 +35,7 @@ function App() {
 
   return (
     <Router>
+<<<<<<< Updated upstream
       <Routes>
         <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
@@ -36,6 +43,12 @@ function App() {
         
       </Routes>
     </Router>
+=======
+        <Route path="/" element={<Card />}>
+          <Route path="/Matching" element={<Matching />} />
+        </Route>
+      </Router>
+>>>>>>> Stashed changes
   );
 }
 
