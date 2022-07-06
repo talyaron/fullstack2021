@@ -33,7 +33,7 @@ useEffect(()=>{
     useEffect(() => {
         const messages = getMessageList();
         console.log(messages, 'messages ChatWindow');
-    }, []);
+    }, [])
 
 
     return (
