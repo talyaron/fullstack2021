@@ -58,7 +58,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         
         <div className={menteeWindow?"form__wrapper showMenteeform":"dontShowMenteeform"}>
         {/* // <div className="form__wrapper"> */}
-            
+        <button className="closeButton" onClick={() => {setMenteeWindowFirstSectionForm(false) }}>X</button>
            
             <div className="progressBar">
                 <div className="progressBar__stage-1">personal details</div>
@@ -67,7 +67,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             </div>
             <form onSubmit={handleMenteeForm}>
                 <div className={menteeWindowFirstSectionForm?"form__wrapper showFirstSectionMenteeWrapper":"hideFirstSectionMenteeWrapper"}>
-                <button className="closeButton" onClick={() => {setMenteeWindowFirstSectionForm(false) }}>X</button>
+                   
                 
                     <div className="firstSectionMentee">
                         <div className="inputBox">

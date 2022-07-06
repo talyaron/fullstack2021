@@ -26,8 +26,8 @@ const UserSelection = (props:RegisterProps) => {
 
   
   function handleRegisterWindow(){
-     setMenteeWindowFirstSectionForm(!menteeWindowFirstSectionForm)
-    setMenteeWindow(!menteeWindow)
+    setMenteeWindowFirstSectionForm(!menteeWindowFirstSectionForm)
+     setMenteeWindow(!menteeWindow)
     setRegisterWindow(false)
     
   }
