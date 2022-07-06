@@ -10,10 +10,22 @@ body{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    // font-size: 20px;
     line-height: 24px;
     // border:6px solid rgba(0, 0, 255, 0.543);
     display:block;
+
+    width: 800px;
+    height: 500px;
+    background-color: rgb(213, 142, 243);
+    border: 1px solid rgb(106, 3, 103);
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    left: 0;
+    margin: auto;
+    top: 50%;
+    bottom: 50%;
 
 }
 .back{
