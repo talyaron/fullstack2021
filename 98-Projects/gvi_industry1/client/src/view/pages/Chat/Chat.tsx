@@ -37,6 +37,8 @@ function Chat() {
     function handleTabChange(ev) {
         ev.preventDefault();
         const pickedTab = ev.target.textContent;
+        console.dir(ev.target);
+        
         setChatArea(`${pickedTab}`)
     }
     function dateFromObjectId(messageId: string) {

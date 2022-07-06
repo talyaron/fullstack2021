@@ -20,10 +20,12 @@ function CurrentRecipient(props: CurrentRecipientProps) {
     const id = useId();
 
     useEffect(() => {
-        const pickedTab: any = document.querySelector(`.${chatArea.replace(' ', '_')}`);
-        pickedTab.style.backgroundColor = 'red';
+        const pickedTab:any = document.querySelector(`.${chatArea.replace(' ', '_')}`);
+        pickedTab.style.backgroundColor = 'transparent';
+        pickedTab.setAttribute('picked', true)
         return () => {
             pickedTab.style.backgroundColor = 'blue';
+            pickedTab.removeAttribute('picked')
         }
     }, [chatArea]);
     return (
@@ -33,14 +35,16 @@ function CurrentRecipient(props: CurrentRecipientProps) {
                 <div className={`text` + id}>
                     <p className='userName'>{recipient.fullName}</p>
 
-                    <p
+                    <div
                         onClick={(ev) => {
                             handleTabChange(ev);
                         }}
                         className='activity'>
                         <button className='Conversation'>Conversation</button>
+                        <div className="line"></div>
                         <button className='Shared_Docs'>Shared Docs</button>
-                    </p>
+                        <div className="line"></div>
+                    </div>
                 </div>
             </div>
             <ul className='chat__currentRecipient__Buttons'>
