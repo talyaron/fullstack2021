@@ -14,5 +14,5 @@ const MatchingFiltersSchema = new mongoose.Schema({
 })
 
 
-//   const MatchingModel = mongoose.model('matchings', MatchingFiltersSchema);
-//   export default MatchingModel;
+  const MatchingModel = mongoose.model('matchings', MatchingFiltersSchema);
+  export default MatchingModel;
