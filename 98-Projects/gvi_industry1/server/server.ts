@@ -39,7 +39,6 @@ app.use(express.static('client/build'))
 app.use("/api/users",CardRoute)
 app.use('/api/companies',CardRoute)
 
-
 console.log(process.env.ENV)
  console.log(process.env.JWT_SECRET);
 const cookieParser = require('cookie-parser');
@@ -50,7 +49,7 @@ const url = process.env.MONGODB_URI
 
 mongoose
     // .set('debug', { shell: true })
-    .connect('mongodb+srv://alexroz:T9g3STOIzq3kppvy@cluster0.x62d1.mongodb.net/gvi?retryWrites=true&w=majority')
+    .connect(url)
     .then(() => {
         console.log('connected to Mongoose');
     })
@@ -87,6 +86,9 @@ io.on('connection', (socket: any) => {
 
 import userRouter from './routes/userRoute';
 app.use('/api/users', userRouter);
+
+import matchingRoute from './routes/matchingRoute'
+app.use('/api/matching', matchingRoute)
 
 import messageRoute from './routes/messageRoute';
 app.use('/api/messages', messageRoute);
