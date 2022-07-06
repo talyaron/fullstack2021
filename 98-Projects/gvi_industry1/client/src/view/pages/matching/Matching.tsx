@@ -14,11 +14,10 @@ const Matching = (props: MatchingProps) => {
   const { mentorsList, setMentorsList, currentUser } = props;
   useEffect(() => {
     (async () => {
-      const { data } = await axios.post("/api/users/get-mentors", {
-        currentUser,
-      });
-      const { allMentors } = data;
-      setMentorsList(allMentors);
+      const { data } = await axios.post("/api/users/get-mentors", {currentUser});
+
+      const { filterMentors } = data;
+      setMentorsList(filterMentors);
       console.log(currentUser);
     })();
   }, [currentUser]);

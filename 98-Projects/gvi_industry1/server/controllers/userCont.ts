@@ -1,14 +1,18 @@
 
 import UserModel from '../models/userModel'
+import selectedUserModel from '../models/selectedUsers'
 import JWT from 'jwt-simple'
 
 export const getMentors = async (req, res) => {
 
     try {
-        // const {selectedUser} = req.body
+        const { currentUser } = req.body
+        console.log(currentUser)
         const allMentors = await UserModel.find({})
-        // const filterMentors = allMentors.filter((mentor) =>mentor.sectors === selectedUser.sector || mentor.country === selectedUser.country)
-        res.send({ allMentors, ok: true })
+        //not showing the correct results
+        const filterMentors = allMentors.filter((mentor) => mentor.country === currentUser.country)
+        res.send({ filterMentors, ok: true })
+        console.log(filterMentors)
 
     } catch (error) {
         console.log(error.error)
@@ -30,6 +34,31 @@ export const getUser = async (req: any, res: any) => {
         res.send({ error: error.message })
     }
 
+}
+
+export const selectedUser = async (req: any, res: any) => {
+    try {
+        const { userInfo } = req.cookies
+        const payload = JWT.decode(userInfo, secret)
+        const { id } = payload
+        const { selectedUserId } = req.body
+        const selectedUser = await UserModel.find({ _id: selectedUserId })
+        console.log(selectedUser)
+
+        const addedUser = {
+            selectingUserId: id,
+            selectedUsers: selectedUser
+        }
+
+        let newSelectedUser = new selectedUserModel(addedUser)
+        const result = await newSelectedUser.save()
+        res.send(result)
+
+
+    } catch (error) {
+        console.log(error.error)
+        res.send({ error: error.message })
+    }
 }
 
 
