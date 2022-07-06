@@ -1,5 +1,5 @@
-import React from "react";
-import "../mentee/style/selectedPage.scss";
+ import React from "react";
+// import "../mentee/style/selectedPage.scss";
 // import Card from "./Card";
 // function SelctedMentors() {
 //   return (
