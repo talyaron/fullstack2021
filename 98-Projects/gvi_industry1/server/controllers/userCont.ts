@@ -22,7 +22,7 @@ export const getUser = async (req: any, res: any) => {
         const { id } = payload
         console.log(id)
 
-        const user = await UserModel.find({ _id: id })
+        const user = await UserModel.find({_id:id})
         res.send({ user })
 
     } catch (error) {

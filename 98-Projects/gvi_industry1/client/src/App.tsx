@@ -22,22 +22,21 @@ function App() {
   const [mentorsList, setMentorsList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
 
-
-
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get('/api/users/get-user')
-      const {user} = data
-      setCurrentUser(user)
-      console.log(user)
-    })();
-  }, [])
+  // useEffect(() => {
+  //   (async () => {
+  //     const { data } = await axios.get('/api/users/get-user')
+  //     const {user} = data
+  //     setCurrentUser(user)
+  //     console.log(user)
+  //   })();
+  // }, [])
 
   return (
     <Router>
 <<<<<<< Updated upstream
       <Routes>
-        <Route path='/' element={<HomePage />}/>
+        <Route path="/" element={<Profile id="1234"/>} />
+        {/* <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
         <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />
         
