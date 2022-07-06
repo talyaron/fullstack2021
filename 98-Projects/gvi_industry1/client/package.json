@@ -2,11 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-<<<<<<< Updated upstream
   "proxy":"http://localhost:4000",
-=======
-  
->>>>>>> Stashed changes
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
