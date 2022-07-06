@@ -1,41 +1,34 @@
 import React,{useEffect,useState} from 'react'
 import axios from 'axios';
 // import RegisterMentee from './RegisterMentee';
-// import RegisterMentor from './RegisterMentor'
+import RegisterMentee from './RegisterMentee';
+import RegisterMentor from './RegisterMentor'
 interface RegisterProps{
     registerWindow:boolean;
     setRegisterWindow:Function;
-    menteeWindowFirstSectionForm:boolean;
-    setMenteeWindowFirstSectionForm:Function;
-    menteeWindow:boolean;
+    menteeWindow:Boolean;
     setMenteeWindow:Function
 } 
 const UserSelection = (props:RegisterProps) => {
-    const {registerWindow,setRegisterWindow,menteeWindowFirstSectionForm,setMenteeWindowFirstSectionForm,menteeWindow,setMenteeWindow}=props
+    const {registerWindow,setRegisterWindow, menteeWindow, setMenteeWindow}=props
     // function handleCheck(ev:any){
     //     const name= ev.target.value
     //     console.log(name)
     // }
-    
-    
+
     // const [mentorWindow,setMentorWindow]=useState()
 
+    function handleRegisterWindow(){
+      setMenteeWindow(true)
+      setRegisterWindow(false)
+    }
 
 
-  
-
-  
-  function handleRegisterWindow(){
-     setMenteeWindowFirstSectionForm(!menteeWindowFirstSectionForm)
-    setMenteeWindow(!menteeWindow)
-    setRegisterWindow(false)
-    
-  }
   return (
     <div className={ registerWindow?'register showRegister':'register dontShowRegister'}>
        
         <button className='closeButton' onClick={()=>{setRegisterWindow(false)}} >X</button>
-       
+        
         <div className='register__text'>
         <h1 >Join Now The GVI <span>Global Accelerator</span></h1>
         </div>

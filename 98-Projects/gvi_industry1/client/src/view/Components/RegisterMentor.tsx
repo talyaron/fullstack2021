@@ -94,10 +94,6 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                         </div>
                     </div>
                 </div>
-
-
-
-
             </form>
         </div>
 

@@ -1,22 +1,31 @@
-import react from "react";
+import react, { useState } from "react";
 import axios from 'axios';
 
 
 interface RegisterMenteeProps {
     countryArray: Array<object>,
-    menteeWindow:boolean,
-    setMenteeWindow:Function,
-    menteeWindowFirstSectionForm:boolean,
-    setMenteeWindowFirstSectionForm:Function
+    registerWindow: boolean,
+    setRegisterWindow: Function,
+    menteeWindow: boolean
+    handleCloseRegisterWindow:Function
+        
+    
 }
 
 const RegisterMentee = (props: RegisterMenteeProps) => {
-    const { countryArray,menteeWindow,setMenteeWindow,menteeWindowFirstSectionForm,setMenteeWindowFirstSectionForm } = props;
+    const { registerWindow, setRegisterWindow, countryArray, menteeWindow, handleCloseRegisterWindow } = props;
+    const [secondtSection, setSecondSection] = useState('showSecondSection-none')
+    const [firstSection, setFirstSection] = useState('')
+    const [showProgressBar, setShowProgressBar] = useState('')
+    const [closeForm, setCloseForm] = useState('')
 
+    
+    
 
     async function handleMenteeForm(ev: any) {
         ev.preventDefault();
         console.dir(ev.target);
+
 
         const first = ev.target.elements.firstName.value;
         const last = ev.target.elements.lastName.value;
@@ -37,135 +46,158 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
         const name = { first, last };
 
-        const user = { name,password,profilePic, description,linkdinProfile, email, country, phone, sector, stage }
+        const user = { name, password, profilePic, description, linkdinProfile, email, country, phone, sector, stage }
         const initiative = { sector, companyName, description, stage, website, linkToOnePager, presentations }
         console.log(user);
         console.log(initiative);
         //company not addded yet to mongo
 
-        const userData = await axios.post('/api/users/add-user', {user});
+        const userData = await axios.post('/api/users/add-user', { user });
 
         console.log(userData)
+        // Already exists CHECK
+        if (userData.data === 'Already exists') {
+            window.alert('Already Exists')
+        }
+        // Already exists CHECK
 
-        const intiativeData = await axios.post('/api/initiatives/add-initiative', {initiative});
+        const intiativeData = await axios.post('/api/initiatives/add-initiative', { initiative });
 
 
 
     }
+    function handleToggleShowSections() {
+        setSecondSection('showSecondSection-block')
+        setFirstSection('showFirstSectionSection-none')
+    }
+    function handleBackToggleShowSections() {
+        setSecondSection('showSecondSection-none')
+        setFirstSection('showFirstSectionSection-block')
+    }
+
+    // function handleCloseForm() {
+    //     // setCloseForm('closeForm-on')
+    //     setSecondSection('showSecondSection-none')
+    //     setFirstSection('showFirstSectionSection-none')
+    //     setShowProgressBar('showProgressBar-none')
+    // }
+
 
 
     return (
-        
-        <div className={menteeWindow?"form__wrapper showMenteeform":"dontShowMenteeform"}>
-        {/* // <div className="form__wrapper"> */}
-            
-           
-            <div className="progressBar">
-                <div className="progressBar__stage-1">personal details</div>
-                <div className="progressBar__stage-2">Your company</div>
-                <div className="progressBar__stage-3">payment details</div>
+        // <div className={closeForm? "closeForm-on":"closeForm-off" }>
+        <div>
+            <div className={menteeWindow ? "form__wrapper" : "back"}>
+                <div className={showProgressBar}>
+                <button className="closeButton" onClick={() => { handleCloseRegisterWindow() }}>X</button>
+                <div className="progressBar">
+                    <div className="progressBar__stage-1">personal details</div>
+                    <div className="progressBar__stage-2">Your company</div>
+                    <div className="progressBar__stage-3">payment details</div>
+                </div>
+                </div>
+                <form onSubmit={handleMenteeForm}>
+                    <div className={firstSection}>
+                        <div className="firstSectionWrapper">
+                            <div className="firstSection">
+                                <div className="inputBox">
+                                    <div className="form__text">First Name</div>
+                                    <input type="text" name="firstName" />
+                                </div>
+                                <div className="inputBox">
+                                    <div className="form__text">Last Name</div>
+                                    <input type="text" name="lastName" />
+                                </div>
+                                <div className="inputBox">
+                                    <div className="form__text">Password</div>
+                                    <input type="password" name="password" />
+                                </div>
+                                <div className="inputBox">
+                                    <div className="form__text">Email</div>
+                                    <input type="email" name="email" />
+                                </div>
+                                <div className="inputBox">
+                                    <div className="form__text">Phone</div>
+                                    <input type="text" name="phone" />
+                                </div>
+                                <div className="inputBox">
+                                    <div className="form__text">LinkdIN profile</div>
+                                    <input type="text" name="linkdinProfile" />
+                                </div>
+                                <div className="inputBox">
+                                    <div className="form__text">Country</div>
+                                    <select name="country">
+                                        <option hidden></option>
+                                        {countryArray.map((country: any, i) => { return <option key={i} value={`${country.name.common}`}>{country.name.common}</option> })}
+                                    </select>
+                                </div>
+                                <div className="inputBox">
+                                    <div className="form__text">Upload Profile Image</div>
+                                    <input type="file" name="profilePic" />
+                                </div>
+
+                                <button onClick={() => { setRegisterWindow(false) }}>BACK</button>
+                                <button onClick={() => handleToggleShowSections()}>NEXT</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={secondtSection}>
+                        <div className="secondSection-menteeWrapper">
+                            <div className="secondSection-mentee">
+                                <div className="inputBox">
+                                    <div className="form__text">Company Name</div>
+                                    <input type="text" name="companyName" />
+                                </div>
+                                <div className="inputBox">
+                                    <div className="form__text">Startup Stage</div>
+                                    <select name="startupStage" >
+                                        <option hidden></option>
+                                        <option value="friends-and-family">friends and family</option>
+                                        <option value="pre-seed">pre-seed</option>
+                                        <option value="seed">seed</option>
+                                        <option value="round-a">round a</option>
+                                        <option value="round-b-and-above">round b and above</option>
+                                    </select>
+                                </div>
+                                <div className="inputBox">
+                                    <div className="form__text">Sector</div>
+                                    <select name="sector" >
+                                        <option hidden></option>
+                                        <option value="education">Education</option>
+                                        <option value="digital-health">digital health</option>
+                                        <option value="c">c</option>
+                                        <option value="d">d</option>
+                                        <option value="e">E</option>
+                                    </select>
+                                </div>
+                                <div className="inputBox">
+                                    <div className="form__text">Website</div>
+                                    <input type="text" name="website" />
+                                </div>
+                                <div className="inputBox">
+                                    <div className="form__text">Link To Presentations</div>
+                                    <input type="text" name="presentations" id="" />
+                                </div>
+                                <div className="inputBox">
+                                    <div className="form__text">Link To One Pager</div>
+                                    <input type="text" name="linkToOnePager" />
+                                </div>
+                                <div className="inputBox-7">
+                                    <div className="form__text">A brief description fo the company concept</div>
+                                    <input type="text" name="description" id="descriptionBox" />
+                                </div>
+
+                                <button onClick={() => handleBackToggleShowSections()}>BACK</button>
+                                <button value='submit'>NEXT</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
             </div>
-            <form onSubmit={handleMenteeForm}>
-                <div className={menteeWindowFirstSectionForm?"form__wrapper showFirstSectionMenteeWrapper":"hideFirstSectionMenteeWrapper"}>
-                <button className="closeButton" onClick={() => {setMenteeWindowFirstSectionForm(false) }}>X</button>
-                
-                    <div className="firstSectionMentee">
-                        <div className="inputBox">
-                            <div className="form__text">First Name</div>
-                            <input type="text" name="firstName" />
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Last Name</div>
-                            <input type="text" name="lastName" />
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Password</div>
-                            <input type="password" name="password" />
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Email</div>
-                            <input type="email" name="email" />
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Phone</div>
-                            <input type="text" name="phone" />
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">LinkdIN profile</div>
-                            <input type="text" name="linkdinProfile" />
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Country</div>
-                            <select name="country">
-                                <option hidden></option>
-                                {countryArray.map((country: any, i) => { return <option key={i} value={`${country.name.common}`}>{country.name.common}</option> })}
-                            </select>
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Upload Profile Image</div>
-                            <input type="file" name="profilePic" />
-                        </div>
-                        
-                        <button>BACK</button>
-                        <button>NEXT</button>
-                    </div>
-                </div>
-
-                <div className="secondSectionMenteeWrapper">
-                    <div className="secondSectionMentee">
-                        <div className="inputBox">
-                            <div className="form__text">Company Name</div>
-                            <input type="text" name="companyName" />
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Startup Stage</div>
-                            <select name="startupStage" >
-                                <option hidden></option>
-                                <option value="friends-and-family">friends and family</option>
-                                <option value="pre-seed">pre-seed</option>
-                                <option value="seed">seed</option>
-                                <option value="round-a">round a</option>
-                                <option value="round-b-and-above">round b and above</option>
-                            </select>
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Sector</div>
-                            <select name="sector" >
-                                <option hidden></option>
-                                <option value="education">Education</option>
-                                <option value="digital-health">digital health</option>
-                                <option value="c">c</option>
-                                <option value="d">d</option>
-                                <option value="e">E</option>
-                            </select>
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Website</div>
-                            <input type="text" name="website" />
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Link To Presentations</div>
-                            <input type="text" name="presentations" id="" />
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Link To One Pager</div>
-                            <input type="text" name="linkToOnePager" />
-                        </div>
-                        <div className="inputBox-7">
-                            <div className="form__text">A brief description fo the company concept</div>
-                            <input type="text" name="description" id="descriptionBox" />
-                        </div>
-
-                        <button>BACK</button>
-                        <button value='submit'>NEXT</button>
-
-
-                    </div>
-                </div>
-            </form>
-
         </div>
-
     )
 
 }
