@@ -1,0 +1,30 @@
+{"users" : {
+    "fullName": "Tamir Dadon",
+     "description": "lorem ipsum",
+     "country": "israel",
+     "linkedInProfile": "https://linkedin.com",
+     "type":"mentor",
+     "fieldsOfKnowledge": "business",
+     "sector":"economy"
+   },
+ 
+"users":{
+    "fullName": "Norit Dor",
+     "description": "lorem ipsum",
+     "country": "USA",
+     "linkedInProfile": "https://linkedin.com",
+     "type":"mentor",
+     "fieldsOfKnowledge": "psychology",
+     "sector":"economy"
+   },
+ 
+   "users":{
+    "fullName": "Nachom Ashkenzi",
+     "description": "lorem ipsum",
+     "country": "france",
+     "linkedInProfile": "https://linkedin.com",
+     "type":"mentee",
+     "fieldsOfKnowledge": "hitech",
+     "sector":"economy"
+   }
+ }

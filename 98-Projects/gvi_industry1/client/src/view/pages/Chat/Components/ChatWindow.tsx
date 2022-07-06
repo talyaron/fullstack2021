@@ -1,8 +1,9 @@
 import {useEffect,useState} from 'react';
-import {ReactComponent as PaperPlaneIcon} from '../Icons/paper-plane-right.svg';
+import PaperPlaneIcon from '../Icons/paper-plane-right.svg';
 import {InputBase} from '@mui/material';
 import {MessageInterface, MessageUserInterface } from '../Chat';
 import { socket } from '../../../../index'
+
 
 
 interface ChatWindowProps {
@@ -12,11 +13,12 @@ interface ChatWindowProps {
     setMessageList: Function;
     handleSendMessage: Function;
     setSentMessage: Function;
+    dateFromObjectId: Function;
 }
 
 function ChatWindow(props: ChatWindowProps) {
 const [click, setClick] = useState<Boolean>(true)
-    const {getMessageList, messageList, setMessageList, setSentMessage, handleSendMessage, scroll } = props;
+    const {dateFromObjectId ,getMessageList, messageList, setMessageList, setSentMessage, handleSendMessage, scroll } = props;
 
     
 
@@ -40,13 +42,19 @@ useEffect(()=>{
                 {messageList
                     ? messageList.map((message, i) => {
                           return <li key={i} className='messageCard'>{message.text}
-                          {
-                            message.time && 
-                           `, ${message.time}`}</li>;
+                         
+                            {dateFromObjectId(message._id)}</li>;
                       })
                     : null}
             </ul>
             <div className='chat__chatWindow__messageBar'>
+                <form method="POST" action="/upload" encType="multipart/form-data">
+                <label>
+    <input style={{display: 'none'}} type="submit" />
+    <PaperPlaneIcon/>
+  </label>
+            <input type="file" name="image"/>
+                </form>
                 <InputBase
                     onChange={(ev) => {
                         // console.log(ev);
@@ -54,6 +62,8 @@ useEffect(()=>{
                     }}
                     placeholder='Message'
                 />
+
+               
                 <PaperPlaneIcon onClick={(ev)=>{handleSendMessage(ev)}}/>
             </div>
         </div>

@@ -1,9 +1,9 @@
 import {useId, useEffect} from 'react';
 import {InputBase} from '@mui/material';
 import {UserInterface} from '../Chat';
-import {ReactComponent as SearchUsersIcon} from '../Icons/SearchUsers.svg';
-import {ReactComponent as SVGHamburgerIcon} from '../Icons/HamburgerIcon.svg';
-import {ReactComponent as SideBarDivider} from '../Icons/SideBarDivider.svg';
+import SearchUsersIcon from '../Icons/SearchUsers.svg';
+import SVGHamburgerIcon from '../Icons/HamburgerIcon.svg';
+import SideBarDivider from '../Icons/SideBarDivider.svg';
 import { socket } from '../../../../index';
 
 interface SideBarProps {
@@ -22,6 +22,7 @@ function SideBar(props: SideBarProps) {
     const id = useId();
 
     
+    
 
     return (
         <div className='chat__sideBar'>
@@ -34,11 +35,12 @@ function SideBar(props: SideBarProps) {
                 </div>
             </div>
             <ul className='chat__sideBar__recipientsList'>
+
                 {userList ? (
                     userList.map((user, i) => {
                         return (
                             <li key={i} onClick={(ev) => handleJoinRoom(ev, user._id)}>
-                                <p>{user.userName.last}</p>
+                                <p>{user.fullName.last}</p>
                             </li>
                         );
                     })

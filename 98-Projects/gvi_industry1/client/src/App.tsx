@@ -1,21 +1,40 @@
-import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import './view/styles/global.scss';
-import Chat from './view/pages/Chat/Chat';
 import { socket } from './index'
+import Profile from './view/pages/mentee/Profile';
+import Card from './view/pages/mentee/Card';
+import SearchMentor from './view/components/SearchMentor';
+import React from "react";
+import "./view/Styles/global.scss";
+import HomePage from './view/components/HomePage'
+import Matching from './view/pages/matching/Matching';
+import Chat from './view/pages/Chat/Chat'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
+
 
 function App() {
 
+  const [mentorsList, setMentorsList] = useState([])
+  const [selectedUser, setSelectedUser] = useState({})
 
-    return (
-      <div className="wrapper">
-       <Router>
-        <Routes>
-          <Route path="/chat" element={<Chat/>}/>
-        </Routes>
+  // useEffect(() => {
+  //   (async () => {
+  //     const { data } = await axios.get('/api/get-user')
+  //     const {user} = data
+  //     setSelectedUser(user)
+  //     console.log(user)
+  //   })();
+  // }, [])
+
+  return (
+          <Router>
+      <Routes>
+      <Route path="/chat" element={<Chat/>}/>
+        <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} selectedUser={selectedUser}/>} />
+      </Routes>
        </Router>
-      </div>
-    );
+  );
 }
 
 export default App;
