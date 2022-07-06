@@ -43,7 +43,7 @@ function ChatRoom(props: ChatRoomProps) {
     return () => {
       // turns off/cleans when the component is unmounted. when changing pages it cleans it as if to clear the interval
       console.log("off");
-      socket.off("msg");
+      socket.off("get-msg");
     };
   }, [chatRoomNumber]);
 
