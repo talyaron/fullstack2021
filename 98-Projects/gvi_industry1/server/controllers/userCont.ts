@@ -90,10 +90,27 @@ export const addUser = async (req, res) => {
         console.log('user.sector:',user.sector);
 
 
-        let newUser = new UserModel(user)
-        const result = await newUser.save()
-        console.log(newUser)
-        res.send(result)
+        // Already exists CHECK
+        const userFound: any = await UserModel.findOne({ email: user.email })
+
+        if (userFound) {
+            res.send('Already exists')
+        }
+        // Already exists CHECK
+        else {
+            let newUser = new UserModel(user)
+            const result = await newUser.save()
+            console.log(newUser)
+
+            // const payload = { id: user._id }
+            // const token = JWT.encode(payload, secret)
+            // res.cookie('newUserInfoId', token, { httpOnly: true })
+
+            // res.send({result, ok: true, login: true})
+
+
+            res.send(result)
+        }
 
 
     } catch (err) {

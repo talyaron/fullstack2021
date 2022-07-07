@@ -30,16 +30,15 @@ const UserSelection = (props:RegisterProps) => {
         <button className='closeButton' onClick={()=>{setRegisterWindow(false)}} >X</button>
         
         <div className='register__text'>
-        <h1 >Join Now The GVI <span>Global Accelerator</span></h1>
+        <h1 >Join Now The GVI <br></br> <span>Global Accelerator</span></h1>
         </div>
        
         <div className='register__options' >
            
             <input type="button"  name="entreprenuer" value="Entreprenuer" onClick={handleRegisterWindow} />
             <input type="button"  name="mentor" value="Mentor" />
-            <input type="button"  name="investor" value="Investor" />
             <input type="button"  name="gviPartner" value="GVI Partner" />
-            
+            <input type="button"  name="investor" value="Investor" />
            
         </div>
         {/* <RegisterMentor registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} countryArray={countryArray} /> */}

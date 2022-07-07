@@ -20,34 +20,39 @@ const HomePage = () => {
   function handleCloseRegisterWindow() {
     setMenteeWindow(false)
   }
+
   return (
+
     <div className='homeContainer'>
 
       <div className='welcomeText'>
-        <h1>Welcome to GVI</h1>
-        <h3>Global Accelerator</h3>
-        <p>The GVI Global Accelerator would assist startups from  ideation to global expansion hand in hand with GVI global partners across borders</p>
+        <div className='logo'><img src="/gvi-logo.png" alt="logo" /></div>
+        <div className='text-btn-wrapper'>
+          <div >
+            <h1>Welcome to GVI</h1>
+            <h3>Global Accelerator</h3>
+            <p>The GVI Global Accelerator would assist startups from  ideation to global expansion hand in hand with GVI global partners across borders</p>
+          </div>
+          <div className='loginBtns'>
+            <button className='button-login' onClick={() => { setLoginWindow(!loginWindow) }}>Login </button>
 
-        <div className='loginBtns'>
-          <button onClick={() => { setLoginWindow(!loginWindow) }}>Login </button>
-
-          <button onClick={() => { setRegisterWindow(!registerWindow) }}>Request Access</button>
+            <button className='button-request' onClick={() => { setRegisterWindow(!registerWindow) }}>Request Access</button>
+          </div>
         </div>
-
       </div>
 
       <div className='videoWindow'>
-        <>video</>
+        <img src="/video.png" alt="" />
       </div>
       <Login loginWindow={loginWindow} setLoginWindow={setLoginWindow} />
       <UserSelection registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} setMenteeWindow={setMenteeWindow} />
       <RegisterMentee registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} countryArray={countryArray} handleCloseRegisterWindow={handleCloseRegisterWindow} />
-      <div className='feed'>
+      {/* <div className='feed'>
 
         <div className='feed__news' id="news"> news</div>
 
         <div className='feed__events' id="events"> events</div>
-      </div>
+      </div> */}
 
     </div>
   )

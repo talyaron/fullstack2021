@@ -7,9 +7,9 @@ interface RegisterMenteeProps {
     registerWindow: boolean,
     setRegisterWindow: Function,
     menteeWindow: boolean
-    handleCloseRegisterWindow:Function
-        
-    
+    handleCloseRegisterWindow: Function
+
+
 }
 
 const RegisterMentee = (props: RegisterMenteeProps) => {
@@ -19,8 +19,8 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
     const [showProgressBar, setShowProgressBar] = useState('')
     const [closeForm, setCloseForm] = useState('')
 
-    
-    
+
+
 
     async function handleMenteeForm(ev: any) {
         ev.preventDefault();
@@ -86,15 +86,15 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
     return (
         // <div className={closeForm? "closeForm-on":"closeForm-off" }>
-        <div>
+        <div >
             <div className={menteeWindow ? "form__wrapper" : "back"}>
                 <div className={showProgressBar}>
-                <button className="closeButton" onClick={() => { handleCloseRegisterWindow() }}>X</button>
-                <div className="progressBar">
-                    <div className="progressBar__stage-1">personal details</div>
-                    <div className="progressBar__stage-2">Your company</div>
-                    <div className="progressBar__stage-3">payment details</div>
-                </div>
+                    <button className="closeButton" onClick={() => { handleCloseRegisterWindow() }}>X</button>
+                    <div className="progressBar">
+                        <div className="progressBar__stage-1">personal details</div>
+                        <div className="progressBar__stage-2">Your company</div>
+                        <div className="progressBar__stage-3">payment details</div>
+                    </div>
                 </div>
                 <form onSubmit={handleMenteeForm}>
                     <div className={firstSection}>
@@ -133,11 +133,12 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                 </div>
                                 <div className="inputBox">
                                     <div className="form__text">Upload Profile Image</div>
-                                    <input type="file" name="profilePic" />
+                                    <input className="file-input" type="file" name="profilePic" />
                                 </div>
-
-                                <button onClick={() => { setRegisterWindow(false) }}>BACK</button>
-                                <button onClick={() => handleToggleShowSections()}>NEXT</button>
+                            </div>
+                            <div className="btn-back-next">
+                            <div><button onClick={() => { setRegisterWindow(false) }}>BACK</button></div>
+                            <div><button onClick={() => handleToggleShowSections()}>NEXT</button></div>
                             </div>
                         </div>
                     </div>
