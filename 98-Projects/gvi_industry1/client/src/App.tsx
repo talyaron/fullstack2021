@@ -2,8 +2,8 @@ import { socket } from "./index";
 import Profile from "./view/pages/mentee/Profile";
 // import Card from "./view/pages/mentee/Card"//
 import React from "react";
-import "./view/styles/global.scss";
-import HomePage from "./view/Components/HomePage";
+import "./view/Styles/global.scss";
+import HomePage from "./view/components/HomePage";
 import Matching from "./view/pages/matching/Matching";
 import Chat from "./view/pages/Chat/Chat";
 import { useState, useEffect } from "react";
@@ -34,13 +34,11 @@ function App() {
   return (
     <Router>
       <Routes>
-         <Route path='/' element={<HomePage />}/>
+        <Route path="/Profile" element={<Profile id="1234"/>} />
+        <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
-        <Route path="/profile" element={<Profile id="1234"/>} />
         <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />
-                <Route path="/selected-mentors" element={<SelectedMentor />} />
-
-
+                {/* <Route path="/selected-mentors" element={<SelectedMentors />} /> */}
       </Routes>
     </Router>
   );

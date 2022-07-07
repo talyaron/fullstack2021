@@ -73,7 +73,13 @@
         }
 
         &-edit{
-            left: 100px;
+            margin: 25px 10px 0 0;
+            grid-column: 10;
+            grid-row: 1;
+
+            &:hover{
+                cursor: pointer;
+            }
         }
 
         &-address{
@@ -107,8 +113,16 @@
             grid-row: 6/8;
             text-align: center;
             // border: 1px solid red;
-          }    
-    }
+          }
+          .formAdress{
+            grid-row: 4/10;
+            grid-column: 1/10;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+          }
+        }
     
     &_nameProffession{
         grid-column: 4/10;

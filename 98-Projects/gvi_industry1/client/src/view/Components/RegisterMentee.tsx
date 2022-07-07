@@ -40,9 +40,11 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         const initiative = { sector, companyName, description, stage, website, linkToOnePager, presentations }
         console.log(user);
         console.log(initiative);
+        
         //initaitive not addded yet to mongo
 
         const {data} = await axios.post('/api/users/add-user', {user});
+        
 
         console.log(data)
 

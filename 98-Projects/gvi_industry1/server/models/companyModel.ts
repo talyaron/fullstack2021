@@ -2,7 +2,13 @@ import mongoose from 'mongoose'
 
 export const companySchema= new mongoose.Schema({
     userId:String,
-    company:String
+    name:String,
+    sector:String,
+    stage:String,
+    description:String,
+    linkToOnePager:String,
+    website:String,
+    presentations:String
 })
 
 const CompanyModel = mongoose.model('companies', companySchema);
