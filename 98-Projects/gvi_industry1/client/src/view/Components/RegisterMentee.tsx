@@ -6,15 +6,16 @@ interface RegisterMenteeProps {
     countryArray: Array<object>,
     registerWindow: boolean,
     setRegisterWindow: Function,
-    menteeWindow: boolean
+    menteeWindow: boolean,
+    setMenteeWindow:Function,
     handleCloseRegisterWindow:Function
         
     
 }
 
 const RegisterMentee = (props: RegisterMenteeProps) => {
-    const { registerWindow, setRegisterWindow, countryArray, menteeWindow, handleCloseRegisterWindow } = props;
-    const [secondtSection, setSecondSection] = useState('showSecondSection-none')
+    const { registerWindow, setRegisterWindow, countryArray, menteeWindow,setMenteeWindow, handleCloseRegisterWindow } = props;
+    const [secondSection, setSecondSection] = useState('showSecondSection-none')
     const [firstSection, setFirstSection] = useState('')
     const [showProgressBar, setShowProgressBar] = useState('')
     const [closeForm, setCloseForm] = useState('')
@@ -80,6 +81,10 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         setSecondSection('showSecondSection-none')
         setFirstSection('showFirstSectionSection-block')
     }
+    function handleBackToSelection(){
+        setRegisterWindow(true) 
+        setMenteeWindow(false)
+    }
 
     // function handleCloseForm() {
     //     // setCloseForm('closeForm-on')
@@ -142,13 +147,13 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                     <input type="file" name="profilePic" />
                                 </div>
 
-                                <button type="button" onClick={(ev:any) => {ev.stopPropagation(); setRegisterWindow(false) }}>BACK</button>
+                                <button type="button" onClick={() => handleBackToSelection()}>BACK</button>
                                 <button type="button" onClick={() => handleToggleShowSections()}>NEXT</button>
                             </div>
                         </div>
                     </div>
 
-                    <div className={secondtSection}>
+                    <div className={secondSection}>
                         <div className="secondSection-menteeWrapper">
                             <div className="secondSection-mentee">
                                 <div className="inputBox">

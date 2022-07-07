@@ -7,11 +7,12 @@ interface RegisterMentorProps {
     registerWindow: boolean,
     setRegisterWindow: Function,
     mentorWindow: boolean,
+    setMenteeWindow:Function,
     handleCloseRegisterWindow: Function
 }
 
 const RegisterMentor = (props: RegisterMentorProps) => {
-    const { registerWindow, setRegisterWindow, countryArray, mentorWindow, handleCloseRegisterWindow } = props;
+    const { registerWindow, setRegisterWindow, countryArray, mentorWindow,setMenteeWindow, handleCloseRegisterWindow } = props;
 
     async function handleMentorForm(ev: any) {
         ev.preventDefault()
@@ -86,8 +87,8 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                             <div className="form__text">Upload Profile Image</div>
                             <input type="file" name="profilePic" />
                         </div>
-                        <button value='button'>BACK</button>
-                        <button value='button'>NEXT</button>
+                        <button type='button'>BACK</button>
+                        <button type='button'>NEXT</button>
                     </div>
                 </div>
 
@@ -141,8 +142,8 @@ const RegisterMentor = (props: RegisterMentorProps) => {
 
                         </div>
 
-                        <button value='button'>BACK</button>
-                        <button value='submit'>next</button>
+                        <button type='button'>BACK</button>
+                        <button type='submit'>next</button>
                     </div>
                 </div>
             </form>

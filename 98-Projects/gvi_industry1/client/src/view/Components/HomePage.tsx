@@ -10,6 +10,8 @@ const HomePage = () => {
   const [countryArray, setCountryArray] = useState([]);
   const [menteeWindow, setMenteeWindow] = useState(false)
   const [mentorWindow,setMentorWindow] = useState(false)
+
+
   useEffect(() => {
     getCountries()
   }, [])
@@ -44,8 +46,8 @@ const HomePage = () => {
       </div>
       <Login loginWindow={loginWindow} setLoginWindow={setLoginWindow} />
       <UserSelection registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} setMenteeWindow={setMenteeWindow} mentorWindow={mentorWindow} setMentorWindow={setMentorWindow}/>
-      <RegisterMentee registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} countryArray={countryArray} handleCloseRegisterWindow={handleCloseRegisterWindow} />
-      <RegisterMentor countryArray={countryArray} registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} mentorWindow={mentorWindow} handleCloseRegisterWindow={handleCloseRegisterWindow}/>
+      <RegisterMentee registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} setMenteeWindow={setMenteeWindow} countryArray={countryArray} handleCloseRegisterWindow={handleCloseRegisterWindow} />
+      <RegisterMentor countryArray={countryArray} registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} mentorWindow={mentorWindow} setMenteeWindow={setMenteeWindow} handleCloseRegisterWindow={handleCloseRegisterWindow}/>
       <div className='feed'>
 
         <div className='feed__news' id="news"> news</div>
