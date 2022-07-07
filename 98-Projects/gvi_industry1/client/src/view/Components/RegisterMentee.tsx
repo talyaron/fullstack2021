@@ -24,6 +24,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
     async function handleMenteeForm(ev: any) {
         ev.preventDefault();
+        console.log('submit')
         try {
             console.dir(ev.target);
     
@@ -141,8 +142,8 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                     <input type="file" name="profilePic" />
                                 </div>
 
-                                <button onClick={() => { setRegisterWindow(false) }}>BACK</button>
-                                <button onClick={() => handleToggleShowSections()}>NEXT</button>
+                                <button type="button" onClick={(ev:any) => {ev.stopPropagation(); setRegisterWindow(false) }}>BACK</button>
+                                <button type="button" onClick={() => handleToggleShowSections()}>NEXT</button>
                             </div>
                         </div>
                     </div>
@@ -193,9 +194,8 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                     <input type="text" name="description" id="descriptionBox" />
                                 </div>
 
-                                <button onClick={() => handleBackToggleShowSections()}>BACK</button>
-                                <button type='submit'>NEXT</button>
-
+                                <button type="button" onClick={() => handleBackToggleShowSections()}>BACK</button>
+                                <input type='submit' value='NEXT33' />
                             </div>
                         </div>
                     </div>
