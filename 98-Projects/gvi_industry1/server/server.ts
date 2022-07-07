@@ -10,7 +10,7 @@ const server = http.createServer(app);
 import {Server} from 'socket.io';
 import cors from 'cors';
 // pictures storage:
-import multer from 'multer'
+import multer from 'multer';
 import path from 'path';
 
 const storage = multer.diskStorage({
