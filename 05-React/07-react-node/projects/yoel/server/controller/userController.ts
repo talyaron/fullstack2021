@@ -1,4 +1,5 @@
 import User from '../model/userModel'
+import Article from '../model/articleModel'
 
 export const register = async (req, res) => {
     try {
@@ -49,6 +50,11 @@ export const logIn = async (req, res) => {
                     { existUser },
                     {}
                 )
+                // const idOfExistUser = existUser._id.toString()
+                // const check = await Article.find({ _id: idOfExistUser })
+                // console.log(check);
+
+
                 res.send({ existUser , ok:true });
             }
         }

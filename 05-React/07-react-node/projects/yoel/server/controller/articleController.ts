@@ -1,12 +1,10 @@
 // i need model for this 
 import Article from '../model/articleModel';
+import {articleSchema} from '../model/articleModel';
 
 export const saveArticle = async (req, res) => {
     try {
-
-
         const { title, articleText } = req.body;
-        // console.log(title , articleText);
 
         const { yoel } = req.cookies;
         if (yoel) {
@@ -21,10 +19,18 @@ export const saveArticle = async (req, res) => {
 
             // const article = new Article([title, articleText], ownerId);
             const article = new Article({ title, articleText, ownerId })
-
             await article.save();
-
-            res.send({ ok: true, article , username})
+          const result =   await Article.findOneAndUpdate({
+                ownerId,
+            },{
+                $pull:{
+                    article:{
+                        title,
+                        articleText             
+                    }   
+                }
+            })
+            res.send({ ok: true ,  username, result})
         } else {
             res.send({ error: false, message: "we don't get the cookies" })
         }

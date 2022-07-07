@@ -5,15 +5,16 @@ import mongoose from "mongoose";
 //   articleText: string,
 // }
 
-const articleSchema = new mongoose.Schema({
-  // article: [
-  //   {
-  //    text: String,
-  //    articleText: String,             
-  //   }],
-  ///////////////// i need to change it to the array of ({text , articleText})
-  title:String, 
-  articleText:String,
+export const articleSchema = new mongoose.Schema({
+  article: [
+    {
+     title: String,
+     articleText: String,             
+    }
+  ],
+                         ///////////////// i need to change it to the array of ({text , articleText})
+  // title:String, 
+  // articleText:String,
   ownerId: String,
 })
 const Article = mongoose.model('article ', articleSchema);

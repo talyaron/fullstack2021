@@ -18,11 +18,19 @@ async function handleAddArticle(ev: any, article: any, setArticle: Function) {
 
 
   const { data } = await axios.post('/article/save-article', { title, articleText })
+  const { result } = data;
+  console.log(result.article);
 
   if (data.ok) {
     console.log(data);
-    const newArticle = { username: data.username, title: data.article.title, text: data.article.articleText }
-    //  setArticle(...article , newArticle) // delete everything
+    let i = -1;
+    for (; i < result.article.length; i++);
+
+
+    const newArticle = { username: data.username, title: result.article[i].title, text: result.article[i].articleText }
+    console.log('needddddddddddddddddddddw');
+    console.log(newArticle);
+    // setArticle([...article , newArticle]) 
 
   }
 
