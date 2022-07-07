@@ -16,8 +16,8 @@ const Matching = (props: MatchingProps) => {
     (async () => {
       const { data } = await axios.post("/api/users/get-mentors", {currentUser});
 
-      const { filterMentors } = data;
-      setMentorsList(filterMentors);
+      const { allMentors } = data;
+      setMentorsList(allMentors);
       console.log(currentUser);
     })();
   }, []);

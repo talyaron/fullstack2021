@@ -11,7 +11,7 @@ export const getMentors = async (req, res) => {
         const allMentors = await UserModel.find({})
         //not showing the correct results
         const filterMentors = allMentors.filter((mentor) => mentor.country === currentUser.country)
-        res.send({ filterMentors, ok: true })
+        res.send({ allMentors, ok: true })
         console.log(filterMentors)
 
     } catch (error) {
@@ -41,6 +41,7 @@ export const selectedUser = async (req: any, res: any) => {
         const { userInfo } = req.cookies
         const payload = JWT.decode(userInfo, secret)
         const { id } = payload
+
         const { selectedUserId } = req.body
         const selectedUser = await UserModel.find({ _id: selectedUserId })
         console.log(selectedUser)
@@ -50,23 +51,32 @@ export const selectedUser = async (req: any, res: any) => {
             selectingUserId: id,
             selectedUsers: selectedUser
         }
-        // const userSelected =selectedUserModel.find(addedUser) 
+        const userSelected = selectedUserModel.find(addedUser)
 
-        // if(!userSelected){
-            
-            let newSelectedUser = new selectedUserModel(addedUser)
-            const result = await newSelectedUser.save()
-            res.send(result)
+        if (!userSelected) {
+            try {
+                let newSelectedUser = new selectedUserModel(addedUser)
+                const result = await newSelectedUser.save()
+                res.send(result)
+            } catch (error) {
+                console.log(error.error)
+                res.send({ error: error.message })
+            }
+
+
+        }else {
+        const foundUser = selectedUserModel.find({ selectedUsers: { selectedUser } })
+        console.log(foundUser)
+        // if (!foundUser) {
+        //     // selectedUsers.push(foundUser)
         // }
-        // }else{
-        //     const result = selectedUserModel.updateOne({selectedUsers:selectedUser})
-        //     res.send(result)
-        // }
-        
-    } catch (error) {
-        console.log(error.error)
-        res.send({ error: error.message })
+
     }
+
+} catch (error) {
+    console.log(error.error)
+    res.send({ error: error.message })
+}
 }
 
 
