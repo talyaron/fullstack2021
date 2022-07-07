@@ -7,12 +7,18 @@ interface RegisterMentorProps {
     registerWindow: boolean,
     setRegisterWindow: Function,
     mentorWindow: boolean,
-    setMenteeWindow:Function,
+    setMenteeWindow: Function,
     handleCloseRegisterWindow: Function
+    firstSection: string,
+    secondSection: string,
+    showProgressBar: string,
+    handleToggleShowSections: Function,
+    handleBackToggleShowSections: Function,
+    handleBackToSelection: Function
 }
 
 const RegisterMentor = (props: RegisterMentorProps) => {
-    const { registerWindow, setRegisterWindow, countryArray, mentorWindow,setMenteeWindow, handleCloseRegisterWindow } = props;
+    const { firstSection, secondSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, mentorWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
 
     async function handleMentorForm(ev: any) {
         ev.preventDefault()
@@ -43,107 +49,112 @@ const RegisterMentor = (props: RegisterMentorProps) => {
 
     return (
         <div className={mentorWindow ? "form__wrapper" : "back"}>
-            <button className="closeButton" onClick={() => { handleCloseRegisterWindow() }}>X</button>
-            <div className="progressBar">
-                <div className="progressBar__stage-1">personal details</div>
-                <div className="progressBar__stage-2">Professional Details</div>
-                <div className="progressBar__stage-3">payment details</div>
+            <div className={showProgressBar}>
+                <button className="closeButton" onClick={() => { handleCloseRegisterWindow() }}>X</button>
+                <div className="progressBar">
+                    <div className="progressBar__stage-1">personal details</div>
+                    <div className="progressBar__stage-2">Professional Details</div>
+                    <div className="progressBar__stage-3">payment details</div>
+                </div>
             </div>
             <form onSubmit={handleMentorForm}>
-                <div className="firstSectionWrapper">
-                    <div className="firstSection">
-                        <div className="inputBox">
-                            <div className="form__text">First Name</div>
-                            <input type="text" name="firstName" />
+                <div className={firstSection}>
+                    <div className="firstSectionWrapper">
+                        <div className="firstSection">
+                            <div className="inputBox">
+                                <div className="form__text">First Name</div>
+                                <input type="text" name="firstName" />
+                            </div>
+                            <div className="inputBox">
+                                <div className="form__text">Last Name</div>
+                                <input type="text" name="lastName" />
+                            </div>
+                            <div className="inputBox">
+                                <div className="form__text">Password</div>
+                                <input type="password" name="password" />
+                            </div>
+                            <div className="inputBox">
+                                <div className="form__text">Email</div>
+                                <input type="email" name="email" />
+                            </div>
+                            <div className="inputBox">
+                                <div className="form__text">Phone</div>
+                                <input type="text" name="phone" />
+                            </div>
+                            <div className="inputBox">
+                                <div className="form__text">LinkdIN profile</div>
+                                <input type="text" name="linkdinProfile" />
+                            </div>
+                            <div className="inputBox">
+                                <div className="form__text">Country</div>
+                                <select name="country">
+                                    <option hidden></option>
+                                    {countryArray.map((country: any, i) => { return <option key={i} value={`${country.name.common}`}>{country.name.common}</option> })}
+                                </select>
+                            </div>
+                            <div className="inputBox">
+                                <div className="form__text">Upload Profile Image</div>
+                                <input type="file" name="profilePic" />
+                            </div>
+                            <button type="button" onClick={() => handleBackToSelection()}>BACK</button>
+                            <button type="button" onClick={() => handleToggleShowSections()}>NEXT</button>
                         </div>
-                        <div className="inputBox">
-                            <div className="form__text">Last Name</div>
-                            <input type="text" name="lastName" />
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Password</div>
-                            <input type="password" name="password" />
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Email</div>
-                            <input type="email" name="email" />
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Phone</div>
-                            <input type="text" name="phone" />
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">LinkdIN profile</div>
-                            <input type="text" name="linkdinProfile" />
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Country</div>
-                            <select name="country">
-                                <option hidden></option>
-                                {countryArray.map((country: any, i) => { return <option key={i} value={`${country.name.common}`}>{country.name.common}</option> })}
-                            </select>
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Upload Profile Image</div>
-                            <input type="file" name="profilePic" />
-                        </div>
-                        <button type='button'>BACK</button>
-                        <button type='button'>NEXT</button>
                     </div>
                 </div>
+                <div className={secondSection}>
+                    <div className="secondSection-mentorWrapper">
+                        <div className="secondSection-mentor">
+                            <div className="inputBox-1">
+                                <div className="form__text">Fields Of Knowledged</div>
+                                <select name="FieldsOfKnowledged" id='FieldsOfKnowledged'>
+                                    <option hidden></option>
+                                    <option value="ux">UX</option>
+                                    <option value="businessDevelopment">Business Development</option>
 
-                <div className="secondSection-mentorWrapper">
-                    <div className="secondSection-mentor">
-                        <div className="inputBox-1">
-                            <div className="form__text">Fields Of Knowledged</div>
-                            <select name="FieldsOfKnowledged" id='FieldsOfKnowledged'>
-                                <option hidden></option>
-                                <option value="ux">UX</option>
-                                <option value="businessDevelopment">Business Development</option>
+                                </select>
+                            </div>
+                            <div className="inputBox">
+                                <div className="form__text">Startup Stage that you are willing to work on</div>
+                                <select name="startupStage" >
+                                    <option hidden></option>
+                                    <option value="friends-and-family">friends and family</option>
+                                    <option value="pre-seed">pre-seed</option>
+                                    <option value="seed">seed</option>
+                                    <option value="round-a">round a</option>
+                                    <option value="round-b-and-above">round b and above</option>
+                                </select>
+                            </div>
+                            <div className="inputBox">
+                                <div className="form__text">Steps in the learning system that I am willing to accompany</div>
+                                <select name="100steps" >
+                                    <option hidden></option>
+                                    <option value="step-one">Step one</option>
+                                    <option value="step-ten">Step ten</option>
+                                    <option value="a">a</option>
+                                    <option value="b">b</option>
+                                    <option value="c">c</option>
+                                </select>
+                            </div>
+                            <div className="inputBox">
+                                <div className="form__text">Sector</div>
+                                <select name="sector" >
+                                    <option hidden></option>
+                                    <option value="eduction">Eduction</option>
+                                    <option value="digital-health">digital health</option>
+                                    <option value="c">c</option>
+                                    <option value="d">d</option>
+                                    <option value="e">E</option>
+                                </select>
+                            </div>
+                            <div className="inputBox-4">
+                                <div className="form__text">Description of the field of specialization</div>
+                                <input type="text" name="description" id="SpecializationDescription" />
 
-                            </select>
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Startup Stage that you are willing to work on</div>
-                            <select name="startupStage" >
-                                <option hidden></option>
-                                <option value="friends-and-family">friends and family</option>
-                                <option value="pre-seed">pre-seed</option>
-                                <option value="seed">seed</option>
-                                <option value="round-a">round a</option>
-                                <option value="round-b-and-above">round b and above</option>
-                            </select>
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Steps in the learning system that I am willing to accompany</div>
-                            <select name="startupStage" >
-                                <option hidden></option>
-                                <option value="step-one">Step one</option>
-                                <option value="step-ten">Step ten</option>
-                                <option value="a">a</option>
-                                <option value="b">b</option>
-                                <option value="c">c</option>
-                            </select>
-                        </div>
-                        <div className="inputBox">
-                            <div className="form__text">Sector</div>
-                            <select name="sector" >
-                                <option hidden></option>
-                                <option value="eduction">Eduction</option>
-                                <option value="digital-health">digital health</option>
-                                <option value="c">c</option>
-                                <option value="d">d</option>
-                                <option value="e">E</option>
-                            </select>
-                        </div>
-                        <div className="inputBox-4">
-                            <div className="form__text">Description of the field of specialization</div>
-                            <input type="text" name="description" id="SpecializationDescription" />
+                            </div>
 
+                            <button type="button" onClick={() => handleBackToggleShowSections()}>BACK</button>
+                            <button type='submit'>NEXT</button>
                         </div>
-
-                        <button type='button'>BACK</button>
-                        <button type='submit'>next</button>
                     </div>
                 </div>
             </form>

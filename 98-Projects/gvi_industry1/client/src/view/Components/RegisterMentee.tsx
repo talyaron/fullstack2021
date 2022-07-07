@@ -7,29 +7,32 @@ interface RegisterMenteeProps {
     registerWindow: boolean,
     setRegisterWindow: Function,
     menteeWindow: boolean,
-    setMenteeWindow:Function,
-    handleCloseRegisterWindow:Function
-        
-    
+    setMenteeWindow: Function,
+    handleCloseRegisterWindow: Function
+    firstSection: string,
+    secondSection: string,
+    showProgressBar: string,
+    handleToggleShowSections: Function,
+    handleBackToggleShowSections: Function,
+    handleBackToSelection: Function
+
+
 }
 
 const RegisterMentee = (props: RegisterMenteeProps) => {
-    const { registerWindow, setRegisterWindow, countryArray, menteeWindow,setMenteeWindow, handleCloseRegisterWindow } = props;
-    const [secondSection, setSecondSection] = useState('showSecondSection-none')
-    const [firstSection, setFirstSection] = useState('')
-    const [showProgressBar, setShowProgressBar] = useState('')
-    const [closeForm, setCloseForm] = useState('')
+    const { firstSection, secondSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, menteeWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
 
-    
-    
+
+
+
 
     async function handleMenteeForm(ev: any) {
         ev.preventDefault();
         console.log('submit')
         try {
             console.dir(ev.target);
-    
-    
+
+
             const first = ev.target.elements.firstName.value;
             const last = ev.target.elements.lastName.value;
             const password = ev.target.elements.password.value;
@@ -45,27 +48,27 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             const linkToOnePager = ev.target.elements.linkToOnePager.value;
             const description = ev.target.elements.description.value;
             const profilePic = ev.target.elements.profilePic.value;
-    
-    
+
+
             const name = { first, last };
-    
+
             const user = { name, password, profilePic, description, linkdinProfile, email, country, phone, sector, stage }
             const initiative = { sector, companyName, description, stage, website, linkToOnePager, presentations }
             console.log(user);
             console.log(initiative);
             //company not addded yet to mongo
-    
+
             const userData = await axios.post('/api/users/add-user', { user });
-    
+
             console.log(userData)
             // Already exists CHECK
             if (userData.data === 'Already exists') {
                 window.alert('Already Exists')
             }
             // Already exists CHECK
-    
+
             const intiativeData = await axios.post('/api/initiatives/add-initiative', { initiative });
-            
+
         } catch (error) {
             console.error(error);
         }
@@ -73,25 +76,9 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
 
     }
-    function handleToggleShowSections() {
-        setSecondSection('showSecondSection-block')
-        setFirstSection('showFirstSectionSection-none')
-    }
-    function handleBackToggleShowSections() {
-        setSecondSection('showSecondSection-none')
-        setFirstSection('showFirstSectionSection-block')
-    }
-    function handleBackToSelection(){
-        setRegisterWindow(true) 
-        setMenteeWindow(false)
-    }
 
-    // function handleCloseForm() {
-    //     // setCloseForm('closeForm-on')
-    //     setSecondSection('showSecondSection-none')
-    //     setFirstSection('showFirstSectionSection-none')
-    //     setShowProgressBar('showProgressBar-none')
-    // }
+
+
 
 
 
@@ -100,12 +87,12 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         <div>
             <div className={menteeWindow ? "form__wrapper" : "back"}>
                 <div className={showProgressBar}>
-                <button className="closeButton" onClick={() => { handleCloseRegisterWindow() }}>X</button>
-                <div className="progressBar">
-                    <div className="progressBar__stage-1">personal details</div>
-                    <div className="progressBar__stage-2">Your company</div>
-                    <div className="progressBar__stage-3">payment details</div>
-                </div>
+                    <button className="closeButton" onClick={() => { handleCloseRegisterWindow() }}>X</button>
+                    <div className="progressBar">
+                        <div className="progressBar__stage-1">personal details</div>
+                        <div className="progressBar__stage-2">Your company</div>
+                        <div className="progressBar__stage-3">payment details</div>
+                    </div>
                 </div>
                 <form onSubmit={handleMenteeForm}>
                     <div className={firstSection}>
