@@ -6,81 +6,79 @@ interface RegisterMenteeProps {
     countryArray: Array<object>,
     registerWindow: boolean,
     setRegisterWindow: Function,
-    menteeWindow: boolean
+    menteeWindow: boolean,
+    setMenteeWindow: Function,
     handleCloseRegisterWindow: Function
+    firstSection: string,
+    secondSection: string,
+    showProgressBar: string,
+    handleToggleShowSections: Function,
+    handleBackToggleShowSections: Function,
+    handleBackToSelection: Function
 
 
 }
 
 const RegisterMentee = (props: RegisterMenteeProps) => {
-    const { registerWindow, setRegisterWindow, countryArray, menteeWindow, handleCloseRegisterWindow } = props;
-    const [secondtSection, setSecondSection] = useState('showSecondSection-none')
-    const [firstSection, setFirstSection] = useState('')
-    const [showProgressBar, setShowProgressBar] = useState('')
-    const [closeForm, setCloseForm] = useState('')
+    const { firstSection, secondSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, menteeWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
+
 
 
 
 
     async function handleMenteeForm(ev: any) {
         ev.preventDefault();
-        console.dir(ev.target);
+        console.log('submit')
+        try {
+            console.dir(ev.target);
 
 
-        const first = ev.target.elements.firstName.value;
-        const last = ev.target.elements.lastName.value;
-        const password = ev.target.elements.password.value;
-        const email = ev.target.elements.email.value;
-        const phone = ev.target.elements.phone.value;
-        const linkdinProfile = ev.target.elements.linkdinProfile.value;
-        const country = ev.target.elements.country.value;
-        const companyName = ev.target.elements.companyName.value;
-        const stage = ev.target.elements.startupStage.value;
-        const sector = ev.target.elements.sector.value;
-        const website = ev.target.elements.website.value;
-        const presentations = ev.target.elements.presentations.value;
-        const linkToOnePager = ev.target.elements.linkToOnePager.value;
-        const description = ev.target.elements.description.value;
-        const profilePic = ev.target.elements.profilePic.value;
+            const first = ev.target.elements.firstName.value;
+            const last = ev.target.elements.lastName.value;
+            const password = ev.target.elements.password.value;
+            const email = ev.target.elements.email.value;
+            const phone = ev.target.elements.phone.value;
+            const linkdinProfile = ev.target.elements.linkdinProfile.value;
+            const country = ev.target.elements.country.value;
+            const companyName = ev.target.elements.companyName.value;
+            const stage = ev.target.elements.startupStage.value;
+            const sector = ev.target.elements.sector.value;
+            const website = ev.target.elements.website.value;
+            const presentations = ev.target.elements.presentations.value;
+            const linkToOnePager = ev.target.elements.linkToOnePager.value;
+            const description = ev.target.elements.description.value;
+            const profilePic = ev.target.elements.profilePic.value;
 
 
-        const name = { first, last };
+            const name = { first, last };
 
-        const user = { name, password, profilePic, description, linkdinProfile, email, country, phone, sector, stage }
-        const initiative = { sector, companyName, description, stage, website, linkToOnePager, presentations }
-        console.log(user);
-        console.log(initiative);
-        //company not addded yet to mongo
+            const user = { name, password, profilePic, description, linkdinProfile, email, country, phone, sector, stage }
+            const initiative = { sector, companyName, description, stage, website, linkToOnePager, presentations }
+            console.log(user);
+            console.log(initiative);
+            //company not addded yet to mongo
 
-        const userData = await axios.post('/api/users/add-user', { user });
+            const userData = await axios.post('/api/users/add-user', { user });
 
-        console.log(userData)
-        // Already exists CHECK
-        if (userData.data === 'Already exists') {
-            window.alert('Already Exists')
+            console.log(userData)
+            // Already exists CHECK
+            if (userData.data === 'Already exists') {
+                window.alert('Already Exists')
+            }
+            // Already exists CHECK
+
+            const intiativeData = await axios.post('/api/initiatives/add-initiative', { initiative });
+
+        } catch (error) {
+            console.error(error);
         }
-        // Already exists CHECK
-
-        const intiativeData = await axios.post('/api/initiatives/add-initiative', { initiative });
 
 
 
     }
-    function handleToggleShowSections() {
-        setSecondSection('showSecondSection-block')
-        setFirstSection('showFirstSectionSection-none')
-    }
-    function handleBackToggleShowSections() {
-        setSecondSection('showSecondSection-none')
-        setFirstSection('showFirstSectionSection-block')
-    }
 
-    // function handleCloseForm() {
-    //     // setCloseForm('closeForm-on')
-    //     setSecondSection('showSecondSection-none')
-    //     setFirstSection('showFirstSectionSection-none')
-    //     setShowProgressBar('showProgressBar-none')
-    // }
+
+
 
 
 
@@ -135,6 +133,9 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                     <div className="form__text">Upload Profile Image</div>
                                     <input className="file-input" type="file" name="profilePic" />
                                 </div>
+
+                                <button type="button" onClick={() => handleBackToSelection()}>BACK</button>
+                                <button type="button" onClick={() => handleToggleShowSections()}>NEXT</button>
                             </div>
                             <div className="btn-back-next">
                             <div><button onClick={() => { setRegisterWindow(false) }}>BACK</button></div>
@@ -143,7 +144,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                         </div>
                     </div>
 
-                    <div className={secondtSection}>
+                    <div className={secondSection}>
                         <div className="secondSection-menteeWrapper">
                             <div className="secondSection-mentee">
                                 <div className="inputBox">
@@ -189,9 +190,8 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                     <input type="text" name="description" id="descriptionBox" />
                                 </div>
 
-                                <button onClick={() => handleBackToggleShowSections()}>BACK</button>
-                                <button value='submit'>NEXT</button>
-
+                                <button type="button" onClick={() => handleBackToggleShowSections()}>BACK</button>
+                                <input type='submit' value='NEXT' />
                             </div>
                         </div>
                     </div>
