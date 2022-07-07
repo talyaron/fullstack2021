@@ -46,7 +46,7 @@ enum Sector{
 
 //const {User} =  UserModel.find{_id:OnliceUserId};
 
-// UserModel.selectedUsers.push(_id)
+// User.selectedUsers.push(_id)
 
 
 const UserSchema = new mongoose.Schema({

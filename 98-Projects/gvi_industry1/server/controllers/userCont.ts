@@ -102,3 +102,26 @@ export const addUser = async (req, res) => {
     }
 }
 
+// export const updateUser = async (req, res) => {
+//     try {
+//         const { newDetails,userId } = req.body;
+        
+//         const {data} = await UserModel.find({_id:userId})
+
+//         data.email = newDetails.email
+//         data.country = newDetails.country
+//         data.phone = newDetails.phone
+//         data.linkdinProfile = newDetails.email
+
+
+        
+        
+//         res.send(data)
+
+
+//     } catch (err) {
+//         console.error(err);
+//         res.send({ error: err.message, ok: false });
+//     }
+// }
+
