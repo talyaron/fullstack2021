@@ -45,7 +45,6 @@ const UserSelection = (props:RegisterProps) => {
             <input type="button"  name="mentor" value="Mentor"  onClick={handleMentorRegisterWindow}/>
             <input type="button"  name="investor" value="Investor" />
             <input type="button"  name="gviPartner" value="GVI Partner" />
-            <input type="button"  name="investor" value="Investor" />
            
         </div>
     </div>

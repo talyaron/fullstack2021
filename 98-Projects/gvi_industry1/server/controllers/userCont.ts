@@ -102,14 +102,15 @@ export const addUser = async (req, res) => {
             const result = await newUser.save()
             console.log(newUser)
 
-            // const payload = { id: user._id }
-            // const token = JWT.encode(payload, secret)
-            // res.cookie('newUserInfoId', token, { httpOnly: true })
+            const payload = { id: newUser._id }
+            const token = JWT.encode(payload, secret)
+            res.cookie('newUserInfoId', token, { httpOnly: true })
 
-            // res.send({result, ok: true, login: true})
+            res.send({result, ok: true, login: true})
 
 
             res.send(result)
+            return
         }
 
 

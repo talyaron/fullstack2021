@@ -73,7 +73,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             console.error(error);
         }
 
-
+        // window.location.reload();
 
     }
 
@@ -138,8 +138,8 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                 <button type="button" onClick={() => handleToggleShowSections()}>NEXT</button> */}
                             </div>
                             <div className="btn-back-next">
-                            <div><button type="button" onClick={() => handleBackToSelection()}>BACK</button></div>
-                            <div><button type="button" onClick={() => handleToggleShowSections()}>NEXT</button></div>
+                                <div><button type="button" onClick={() => handleBackToSelection()}>BACK</button></div>
+                                <div><button type="button" onClick={() => handleToggleShowSections()}>NEXT</button></div>
                             </div>
                         </div>
                     </div>
