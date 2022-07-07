@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
         cb(null, 'images');
     },
     filename: (req, file, cb) => {
-        console.log(file);
+        // console.log(file);
         cb(null, Date.now() + path.extname(file.originalname));
     },
 });
@@ -37,7 +37,6 @@ app.use(express.json());
 app.use(express.static('client/build'));
 app.use('/api/users', CardRoute);
 app.use('/api/companies', CardRoute);
-
 console.log(process.env.ENV);
 console.log(process.env.JWT_SECRET);
 const cookieParser = require('cookie-parser');
@@ -48,7 +47,7 @@ const url = process.env.MONGODB_URI;
 
 mongoose
     // .set('debug', { shell: true })
-    .connect('mongodb+srv://alexroz:T9g3STOIzq3kppvy@cluster0.x62d1.mongodb.net/gvi?retryWrites=true&w=majority')
+    .connect(`${url}`)
     .then(() => {
         console.log('connected to Mongoose');
     })
@@ -60,8 +59,13 @@ mongoose
 io.on('connection', (socket: any) => {
     console.log('user connected', socket.id);
     socket.on('join-room', (data) => {
-        console.log(data, 'server data -join');
-
+        let recipients = (data) => {
+            let array = [];
+            for (let i = 0; i < data.recipients.length; i++) {
+                array.push(data.recipients[i].userId);
+            }
+            return array;
+        };
         socket.join(data);
         console.log(`User with ID: ${socket.id} joined room: ${data}`);
     });
@@ -89,14 +93,15 @@ app.use('/api/users', userRouter);
 
 import messageRoute from './routes/messageRoute';
 app.use('/api/messages', messageRoute);
-app.post('/images', upload.single('image'), (req, res) => {
-    try {
-        res.send('g');
-    } catch (error) {
-        console.log(error);
-        res.send({error: error.message});
-    }
-});
+
+// app.post('/images', upload.single('image'), (req, res) => {
+//     try {
+//         res.send('g');
+//     } catch (error) {
+//         console.log(error);
+//         res.send({error: error.message});
+//     }
+// });
 
 server.listen(port, () => {
     console.log(`listening on *:${port}`);

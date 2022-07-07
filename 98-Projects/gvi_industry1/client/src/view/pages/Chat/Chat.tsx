@@ -46,14 +46,13 @@ function Chat() {
             return `${new Date(parseInt(messageId.substring(0, 8), 16) * 1000)}`;
         }
     }
-    // function handleJoinRoom(ev: any, user: UserInterface) {
-    //     const room:any = user._id;
-    //     if (room !== '' || room) {
-    //         socket.emit('join-room', room);
-    //         setRoom(room);
-    //         setRecipient(user)
-    //     }
-    // }
+    function handleJoinRoom() {
+        if (userList !== [] && userList) {
+            socket.emit('join-room', userList);
+        }
+    }
+
+    
 
     useEffect(() => {
         console.log('on');
@@ -79,6 +78,14 @@ function Chat() {
         };
     }, [socket]);
 
+    useEffect(() => {
+        return () => {
+            // how to clean requests so it doesn't happen again on unmount?
+            getUserList();
+            handleJoinRoom();          
+        };
+    }, []);
+useEffect(() => {getMessageList(recipient)},[recipient])
     function handleChatSearchBar() {
         setSearchMessagesToggle((p: boolean) => !p);
     }
@@ -100,11 +107,14 @@ function Chat() {
         }
     }
 
-    async function getMessageList() {
+    async function getMessageList(recipient) {
         try {
-            const {data} = await axios.post('/api/messages/get-messages', {ok: true});
-
+            const {data} = await axios.post('/api/messages/get-messages', 
+            // {recipientId: recipient._id}
+            );
             setMessageList(data.allMessages);
+            console.log(data.allMessages);
+            
         } catch (error) {
             console.log(error);
         }
@@ -120,7 +130,7 @@ function Chat() {
     }
     return (
         <div className='chat'>
-            <SideBar setRecipient={setRecipient} getUserList={getUserList} userList={userList} />
+            <SideBar setRecipient={setRecipient} userList={userList} />
             {recipient ? <CurrentRecipient chatArea={chatArea} handleTabChange={handleTabChange} recipient={recipient} handleChatSearchBar={handleChatSearchBar} searchMessagesToggle={searchMessagesToggle} /> : null}
             <ChatWindow chatArea={chatArea} dateFromObjectId={dateFromObjectId} scroll={scroll} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} getMessageList={getMessageList} messageList={messageList} setMessageList={setMessageList} />
         </div>

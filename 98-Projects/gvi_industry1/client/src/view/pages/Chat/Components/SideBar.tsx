@@ -1,24 +1,20 @@
 import {useId, useEffect} from 'react';
 import {InputBase} from '@mui/material';
 import {UserInterface} from '../Chat';
-
 import SearchUsersIcon from '../Icons/SearchUsers';
 import SideBarDivider from '../Icons/SideBarDivider';
 import {socket} from '../../../../index';
 
 interface SideBarProps {
     userList?: Array<UserInterface>;
-    getUserList: Function;
+
     setRecipient: Function;
+
 }
 
 function SideBar(props: SideBarProps) {
-    const {userList, getUserList, setRecipient} = props;
-    useEffect(() => {
-        return () => {
-            getUserList();
-        };
-    }, []);
+    const {userList, setRecipient} = props;
+    
     const id = useId();
 
     return (
