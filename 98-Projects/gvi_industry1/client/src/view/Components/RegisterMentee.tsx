@@ -194,7 +194,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                 </div>
 
                                 <button onClick={() => handleBackToggleShowSections()}>BACK</button>
-                                <button value='submit'>NEXT</button>
+                                <button type='submit'>NEXT</button>
 
                             </div>
                         </div>
