@@ -45,16 +45,24 @@ export const selectedUser = async (req: any, res: any) => {
         const selectedUser = await UserModel.find({ _id: selectedUserId })
         console.log(selectedUser)
 
+        //check if it exists
         const addedUser = {
             selectingUserId: id,
             selectedUsers: selectedUser
         }
+        // const userSelected =selectedUserModel.find(addedUser) 
 
-        let newSelectedUser = new selectedUserModel(addedUser)
-        const result = await newSelectedUser.save()
-        res.send(result)
-
-
+        // if(!userSelected){
+            
+            let newSelectedUser = new selectedUserModel(addedUser)
+            const result = await newSelectedUser.save()
+            res.send(result)
+        // }
+        // }else{
+        //     const result = selectedUserModel.updateOne({selectedUsers:selectedUser})
+        //     res.send(result)
+        // }
+        
     } catch (error) {
         console.log(error.error)
         res.send({ error: error.message })

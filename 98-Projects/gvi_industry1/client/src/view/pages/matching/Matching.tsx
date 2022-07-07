@@ -20,7 +20,7 @@ const Matching = (props: MatchingProps) => {
       setMentorsList(filterMentors);
       console.log(currentUser);
     })();
-  }, [currentUser]);
+  }, []);
 
   return (
     <div className="matching">

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import UserSchema  from "./userModel";
+import {UserSchema} from "./userModel";
 
 const selectedUserSchema = new mongoose.Schema({
   selectingUserId: {
@@ -7,7 +7,7 @@ const selectedUserSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-//   selectedUsers: [UserSchema],
+  selectedUsers: [UserSchema]
 });
 
 const selectedUserModel = mongoose.model('selectedUsers', selectedUserSchema);
