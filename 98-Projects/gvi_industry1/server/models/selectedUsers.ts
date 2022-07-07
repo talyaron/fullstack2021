@@ -10,6 +10,6 @@ const selectedUserSchema = new mongoose.Schema({
   selectedUsers: [UserSchema]
 });
 
-const selectedUserModel = mongoose.model('selectedUsers', selectedUserSchema);
+const selectedUsersModel = mongoose.model('selectedUsers', selectedUserSchema);
 
-export default selectedUserModel;
+export default selectedUsersModel;
