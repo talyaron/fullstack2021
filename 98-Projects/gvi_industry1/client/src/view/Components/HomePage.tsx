@@ -78,7 +78,7 @@ const HomePage = () => {
         <div className='feed__news' id="news"> news</div>
 
         <div className='feed__events' id="events"> events</div>
-      </div> */}
+      </div>
 
     </div>
   )

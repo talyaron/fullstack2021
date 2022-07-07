@@ -134,12 +134,12 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                     <input className="file-input" type="file" name="profilePic" />
                                 </div>
 
-                                <button type="button" onClick={() => handleBackToSelection()}>BACK</button>
-                                <button type="button" onClick={() => handleToggleShowSections()}>NEXT</button>
+                                {/* <button type="button" onClick={() => handleBackToSelection()}>BACK</button>
+                                <button type="button" onClick={() => handleToggleShowSections()}>NEXT</button> */}
                             </div>
                             <div className="btn-back-next">
-                            <div><button onClick={() => { setRegisterWindow(false) }}>BACK</button></div>
-                            <div><button onClick={() => handleToggleShowSections()}>NEXT</button></div>
+                            <div><button type="button" onClick={() => handleBackToSelection()}>BACK</button></div>
+                            <div><button type="button" onClick={() => handleToggleShowSections()}>NEXT</button></div>
                             </div>
                         </div>
                     </div>
