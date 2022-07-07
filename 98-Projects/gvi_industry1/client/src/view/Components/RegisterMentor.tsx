@@ -6,10 +6,12 @@ interface RegisterMentorProps {
     countryArray: Array<object>,
     registerWindow: boolean,
     setRegisterWindow: Function,
+    mentorWindow: boolean,
+    handleCloseRegisterWindow: Function
 }
 
 const RegisterMentor = (props: RegisterMentorProps) => {
-    const { registerWindow, setRegisterWindow, countryArray } = props;
+    const { registerWindow, setRegisterWindow, countryArray, mentorWindow, handleCloseRegisterWindow } = props;
 
     async function handleMentorForm(ev: any) {
         ev.preventDefault()
@@ -34,13 +36,13 @@ const RegisterMentor = (props: RegisterMentorProps) => {
 
         const userData = await axios.post('/api/users/add-user', { user });
 
-        
+
     }
 
 
     return (
-        <div className="form__wrapper">
-            <button className="closeButton" onClick={() => { setRegisterWindow(false) }}>X</button>
+        <div className={mentorWindow ? "form__wrapper" : "back"}>
+            <button className="closeButton" onClick={() => { handleCloseRegisterWindow() }}>X</button>
             <div className="progressBar">
                 <div className="progressBar__stage-1">personal details</div>
                 <div className="progressBar__stage-2">Professional Details</div>
@@ -84,8 +86,8 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                             <div className="form__text">Upload Profile Image</div>
                             <input type="file" name="profilePic" />
                         </div>
-                        <button>BACK</button>
-                        <button>NEXT</button>
+                        <button value='button'>BACK</button>
+                        <button value='button'>NEXT</button>
                     </div>
                 </div>
 
@@ -139,7 +141,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
 
                         </div>
 
-                        <button>BACK</button>
+                        <button value='button'>BACK</button>
                         <button value='submit'>next</button>
                     </div>
                 </div>

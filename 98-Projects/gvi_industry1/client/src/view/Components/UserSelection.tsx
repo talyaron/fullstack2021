@@ -8,9 +8,11 @@ interface RegisterProps{
     setRegisterWindow:Function;
     menteeWindow:Boolean;
     setMenteeWindow:Function
+    mentorWindow:boolean
+    setMentorWindow:Function
 } 
 const UserSelection = (props:RegisterProps) => {
-    const {registerWindow,setRegisterWindow, menteeWindow, setMenteeWindow}=props
+    const {registerWindow,setRegisterWindow, menteeWindow, setMenteeWindow,mentorWindow,setMentorWindow}=props
     // function handleCheck(ev:any){
     //     const name= ev.target.value
     //     console.log(name)
@@ -20,6 +22,10 @@ const UserSelection = (props:RegisterProps) => {
 
     function handleRegisterWindow(){
       setMenteeWindow(true)
+      setRegisterWindow(false)
+    }
+    function handleMentorRegisterWindow(){
+      setMentorWindow(true)
       setRegisterWindow(false)
     }
 
@@ -36,7 +42,7 @@ const UserSelection = (props:RegisterProps) => {
         <div className='register__options' >
            
             <input type="button"  name="entreprenuer" value="Entreprenuer" onClick={handleRegisterWindow} />
-            <input type="button"  name="mentor" value="Mentor" />
+            <input type="button"  name="mentor" value="Mentor"  onClick={handleMentorRegisterWindow}/>
             <input type="button"  name="investor" value="Investor" />
             <input type="button"  name="gviPartner" value="GVI Partner" />
             
