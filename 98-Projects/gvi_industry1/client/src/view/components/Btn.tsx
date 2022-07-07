@@ -1,6 +1,6 @@
 import React from 'react'
  import "../pages/mentee/style/btn.scss";
-function Button() {
+function Btn() {
   return (
     <>
     <button className='btn'>hello</button>
@@ -8,4 +8,4 @@ function Button() {
   )
 }
 
-export default Button
+export default Btn

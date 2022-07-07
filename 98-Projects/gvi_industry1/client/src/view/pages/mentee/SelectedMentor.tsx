@@ -7,6 +7,7 @@ import PushPinRoundedIcon from "@mui/icons-material/PushPinRounded";
 import StarIcon from "@mui/icons-material/Star";
 import { Button } from "@mui/material";
 import "./style/card.scss";
+import Btn from "../../components/Btn";
 
 const SelectedMentor = () => {
   // function Card() {
@@ -37,11 +38,12 @@ const SelectedMentor = () => {
     sectors: "eduction",
     profession: "Finance",
   };
+  
 
   return (
     <div className="card">
       <div className="card__photo">
-        <img src={`${userDetails.img}`} alt="" />
+        <img src={`${userDetails.img}`} alt=""  />
       </div>
       <div className="card__center">
         <p className="card__name"> {userDetails.name}</p>
