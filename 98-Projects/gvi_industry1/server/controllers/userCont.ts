@@ -42,46 +42,47 @@ export const selectUser = async (req: any, res: any) => {
     const { selectedUserId } = req.body;
     //add err check
     const selectedUser = await UserModel.findById(selectedUserId);
-    console.log(selectedUser);
 
     //check if it exists
     if (!selectedUser) throw new Error("couldnt find the user in the DB");
 
-    const selectedUsers: any = selectedUsersModel.find(id);
+    const {email, name, image} = selectedUser;
+    console.log('selectedUser',selectedUser)
+    const searchSelecting = {
+      selectedUser: { email: selectedUser.email }
+    };
+    const selectingUser: any = await selectedUsersModel.findOne(
+      searchSelecting
+    );
+    console.log("selectingUser", selectingUser);
 
-    if (!selectedUsers) {
-      const addedUser = {
+    let newSelection: any;
+    if (!selectingUser) {
+      console.log("no record in DB - saving");
+      const newSelectionDB = new selectedUsersModel({
+        bothId:`${id}-${selectedUser._id}`,
         selectingUserId: id,
-        selectedUsers: [selectedUser],
-      };
-      let newSelectedUser = new selectedUsersModel(addedUser);
-      const result = await newSelectedUser.save();
-      res.send(result);
+        selectedUser:{email, name, image},
+        selected: true,
+      });
+      newSelection = await newSelectionDB.save();
     } else {
-      //look insdie the array and find the selected user
-
-      const index = selectedUsers.selectedUsers.findIndex(
-        (user) => user._id === selectedUserId
-      );
-      let newSelectedUsers = Object.assign({}, selectedUsers);
-      if (index > -1) {
-        newSelectedUsers = selectedUsers.selectedUsers.splice(index, 1);
+      if (selectingUser.selected === true) {
+        console.log("a record in DB - turning off");
+        newSelection = await selectedUsersModel.findOneAndUpdate(
+          searchSelecting,
+          { selected: false }
+        );
       } else {
-        newSelectedUsers.selectedUsers.push(selectedUser);
+        console.log("a record in DB - turning on");
+        newSelection = await selectedUsersModel.findOneAndUpdate(
+          searchSelecting,
+          { selected: true }
+        );
       }
-
-     const newSelction = await selectedUsersModel.updateOne({selectingUserId:id},newSelectedUsers)
-
-      //   const foundUser = selectedUsersModel.find({
-      //     selectedUsers: { selectedUser },
-      //   });
-      //   console.log(foundUser);
-      //   if (!foundUser) {
-      //     // selectedUsers.push(foundUser)
-      //   }
-
-      res.send({succes:true, selectedUsers:newSelction})
     }
+
+    res.send({ succes: true, selection: newSelection });
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
