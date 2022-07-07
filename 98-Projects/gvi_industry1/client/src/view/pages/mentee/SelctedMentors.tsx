@@ -1,7 +1,6 @@
 import React from "react";
 import "../mentee/style/selectedPage.scss";
 import SelectedMentor from "./SelectedMentor";
-import Card from "./SelectedMentor";
 import StarIcon from "@mui/icons-material/Star";
 
 function SelctedMentors() {

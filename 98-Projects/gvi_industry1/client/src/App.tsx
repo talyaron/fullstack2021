@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Button from "./view/components/Button";
-import SelectedMentor from "./view/pages/mentee/SelectedMentor";
+import SelectedMentors from "./view/pages/mentee/SelctedMentors";
 
 function App() {
 
@@ -33,6 +33,9 @@ function App() {
         {/* <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
         <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} /> */}
+                <Route path="/selected-mentors" element={<SelectedMentors />} />
+
+
       </Routes>
     </Router>
   );
