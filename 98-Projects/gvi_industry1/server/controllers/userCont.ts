@@ -36,14 +36,15 @@ export const getUser = async (req: any, res: any) => {
 
 }
 
-export const selectedUser = async (req: any, res: any) => {
+export const selectUser = async (req: any, res: any) => {
     try {
         const { userInfo } = req.cookies
         const payload = JWT.decode(userInfo, secret)
         const { id } = payload
 
         const { selectedUserId } = req.body
-        const selectedUser = await UserModel.find({ _id: selectedUserId })
+        //add err check
+        const selectedUser = await UserModel.findById(selectedUserId)
         console.log(selectedUser)
 
         //check if it exists
@@ -67,9 +68,9 @@ export const selectedUser = async (req: any, res: any) => {
         }else {
         const foundUser = selectedUserModel.find({ selectedUsers: { selectedUser } })
         console.log(foundUser)
-        // if (!foundUser) {
-        //     // selectedUsers.push(foundUser)
-        // }
+        if (!foundUser) {
+            // selectedUsers.push(foundUser)
+        }
 
     }
 
