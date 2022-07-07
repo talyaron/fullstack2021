@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Login from './Login'
 import RegisterMentee from './RegisterMentee'
+import RegisterMentor from './RegisterMentor'
 import UserSelection from './UserSelection'
 const HomePage = () => {
   const [loginWindow, setLoginWindow] = useState(false)
@@ -42,6 +43,7 @@ const HomePage = () => {
       <Login loginWindow={loginWindow} setLoginWindow={setLoginWindow} />
       <UserSelection registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} setMenteeWindow={setMenteeWindow} />
       <RegisterMentee registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} countryArray={countryArray} handleCloseRegisterWindow={handleCloseRegisterWindow} />
+      {/* <RegisterMentor countryArray={countryArray} registerWindow={registerWindow} setRegisterWindow={setRegisterWindow}/> */}
       <div className='feed'>
 
         <div className='feed__news' id="news"> news</div>

@@ -42,7 +42,6 @@ const UserSelection = (props:RegisterProps) => {
             
            
         </div>
-        {/* <RegisterMentor registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} countryArray={countryArray} /> */}
     </div>
   )
 }

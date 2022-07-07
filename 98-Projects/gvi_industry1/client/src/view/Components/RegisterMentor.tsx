@@ -1,4 +1,5 @@
 import react from "react";
+import axios from 'axios'
 
 
 interface RegisterMentorProps {
@@ -10,7 +11,32 @@ interface RegisterMentorProps {
 const RegisterMentor = (props: RegisterMentorProps) => {
     const { registerWindow, setRegisterWindow, countryArray } = props;
 
-    
+    async function handleMentorForm(ev: any) {
+        ev.preventDefault()
+
+        const first = ev.target.elements.firstName.value;
+        const last = ev.target.elements.lastName.value;
+        const password = ev.target.elements.password.value;
+        const email = ev.target.elements.email.value;
+        const phone = ev.target.elements.phone.value;
+        const linkdinProfile = ev.target.elements.linkdinProfile.value;
+        const country = ev.target.elements.country.value;
+        const FieldsOfKnowledged = ev.target.elements.FieldsOfKnowledged.value;
+        const stage = ev.target.elements.startupStage.value;
+        const sector = ev.target.elements.sector.value;
+        const description = ev.target.elements.description.value;
+        const profilePic = ev.target.elements.profilePic.value;
+        const type = 'mentor';
+        const name = { first, last };
+
+        const user = { name, password, profilePic, description, linkdinProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
+        console.log(user);
+
+        const userData = await axios.post('/api/users/add-user', { user });
+
+        
+    }
+
 
     return (
         <div className="form__wrapper">
@@ -20,7 +46,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                 <div className="progressBar__stage-2">Professional Details</div>
                 <div className="progressBar__stage-3">payment details</div>
             </div>
-            <form >
+            <form onSubmit={handleMentorForm}>
                 <div className="firstSectionWrapper">
                     <div className="firstSection">
                         <div className="inputBox">
@@ -32,12 +58,16 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                             <input type="text" name="lastName" />
                         </div>
                         <div className="inputBox">
+                            <div className="form__text">Password</div>
+                            <input type="password" name="password" />
+                        </div>
+                        <div className="inputBox">
                             <div className="form__text">Email</div>
-                            <input type="email" name="Email" />
+                            <input type="email" name="email" />
                         </div>
                         <div className="inputBox">
                             <div className="form__text">Phone</div>
-                            <input type="tel" name="phone" />
+                            <input type="text" name="phone" />
                         </div>
                         <div className="inputBox">
                             <div className="form__text">LinkdIN profile</div>
@@ -49,6 +79,10 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                                 <option hidden></option>
                                 {countryArray.map((country: any, i) => { return <option key={i} value={`${country.name.common}`}>{country.name.common}</option> })}
                             </select>
+                        </div>
+                        <div className="inputBox">
+                            <div className="form__text">Upload Profile Image</div>
+                            <input type="file" name="profilePic" />
                         </div>
                         <button>BACK</button>
                         <button>NEXT</button>
@@ -78,6 +112,17 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                             </select>
                         </div>
                         <div className="inputBox">
+                            <div className="form__text">Steps in the learning system that I am willing to accompany</div>
+                            <select name="startupStage" >
+                                <option hidden></option>
+                                <option value="step-one">Step one</option>
+                                <option value="step-ten">Step ten</option>
+                                <option value="a">a</option>
+                                <option value="b">b</option>
+                                <option value="c">c</option>
+                            </select>
+                        </div>
+                        <div className="inputBox">
                             <div className="form__text">Sector</div>
                             <select name="sector" >
                                 <option hidden></option>
@@ -91,7 +136,11 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                         <div className="inputBox-4">
                             <div className="form__text">Description of the field of specialization</div>
                             <input type="text" name="description" id="SpecializationDescription" />
+
                         </div>
+
+                        <button>BACK</button>
+                        <button value='submit'>next</button>
                     </div>
                 </div>
             </form>

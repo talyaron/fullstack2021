@@ -24,44 +24,49 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
     async function handleMenteeForm(ev: any) {
         ev.preventDefault();
-        console.dir(ev.target);
-
-
-        const first = ev.target.elements.firstName.value;
-        const last = ev.target.elements.lastName.value;
-        const password = ev.target.elements.password.value;
-        const email = ev.target.elements.email.value;
-        const phone = ev.target.elements.phone.value;
-        const linkdinProfile = ev.target.elements.linkdinProfile.value;
-        const country = ev.target.elements.country.value;
-        const companyName = ev.target.elements.companyName.value;
-        const stage = ev.target.elements.startupStage.value;
-        const sector = ev.target.elements.sector.value;
-        const website = ev.target.elements.website.value;
-        const presentations = ev.target.elements.presentations.value;
-        const linkToOnePager = ev.target.elements.linkToOnePager.value;
-        const description = ev.target.elements.description.value;
-        const profilePic = ev.target.elements.profilePic.value;
-
-
-        const name = { first, last };
-
-        const user = { name, password, profilePic, description, linkdinProfile, email, country, phone, sector, stage }
-        const initiative = { sector, companyName, description, stage, website, linkToOnePager, presentations }
-        console.log(user);
-        console.log(initiative);
-        //company not addded yet to mongo
-
-        const userData = await axios.post('/api/users/add-user', { user });
-
-        console.log(userData)
-        // Already exists CHECK
-        if (userData.data === 'Already exists') {
-            window.alert('Already Exists')
+        try {
+            console.dir(ev.target);
+    
+    
+            const first = ev.target.elements.firstName.value;
+            const last = ev.target.elements.lastName.value;
+            const password = ev.target.elements.password.value;
+            const email = ev.target.elements.email.value;
+            const phone = ev.target.elements.phone.value;
+            const linkdinProfile = ev.target.elements.linkdinProfile.value;
+            const country = ev.target.elements.country.value;
+            const companyName = ev.target.elements.companyName.value;
+            const stage = ev.target.elements.startupStage.value;
+            const sector = ev.target.elements.sector.value;
+            const website = ev.target.elements.website.value;
+            const presentations = ev.target.elements.presentations.value;
+            const linkToOnePager = ev.target.elements.linkToOnePager.value;
+            const description = ev.target.elements.description.value;
+            const profilePic = ev.target.elements.profilePic.value;
+    
+    
+            const name = { first, last };
+    
+            const user = { name, password, profilePic, description, linkdinProfile, email, country, phone, sector, stage }
+            const initiative = { sector, companyName, description, stage, website, linkToOnePager, presentations }
+            console.log(user);
+            console.log(initiative);
+            //company not addded yet to mongo
+    
+            const userData = await axios.post('/api/users/add-user', { user });
+    
+            console.log(userData)
+            // Already exists CHECK
+            if (userData.data === 'Already exists') {
+                window.alert('Already Exists')
+            }
+            // Already exists CHECK
+    
+            const intiativeData = await axios.post('/api/initiatives/add-initiative', { initiative });
+            
+        } catch (error) {
+            console.error(error);
         }
-        // Already exists CHECK
-
-        const intiativeData = await axios.post('/api/initiatives/add-initiative', { initiative });
 
 
 
