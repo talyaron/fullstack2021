@@ -4,17 +4,6 @@ body {
 }
 
 .form__wrapper {
-
-    // width: 604px;
-    // // height: 71px;
-
-    // font-family: 'Inter';
-    // font-style: normal;
-    // font-weight: 400;
-    // font-size: 20px;
-    // line-height: 24px;
-    // // border:6px solid rgba(0, 0, 255, 0.543);
-    // display:block;
     box-sizing: border-box;
     width: 500px;
     height: 440px;
@@ -31,14 +20,6 @@ body {
     margin: auto;
     top: 50%;
     bottom: 80%;
-
-    // input {
-    //     box-sizing: border-box;
-    //     border-radius: 1em;
-    //     // width: 20px;
-    //     padding: 2em;
-    // }
-
 }
 
 .back {
@@ -46,71 +27,51 @@ body {
 }
 
 .progressBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: auto;
-    padding: 4px;
     width: 80%;
     font-size: 12px;
 
+    .stage-icon {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 4px;
+    }
+
+    .stage-text {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .form__text {
     margin-bottom: 4px;
 }
 
-// :root {
-//     --line-border-fill: #3498db;
-//     --line-border-empty: #e0e0e0;
-// }
-
-.progressBar {
-
-
-    display: flex;
-    justify-content: space-between;
-    // border:4px solid rgb(169, 251, 5);
-
-    &__stage-1 {
-        // border: 3px solid rgb(237, 20, 20);
-
-        &:after {
-            content: ''
-        }
-    }
-
+* input,
+select {
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid rgb(112, 112, 112);
 }
-
-
-#descriptionBox {
-    height: 60px;
-    width: 95%;
-}
-
-#SpecializationDescription {
-    height: 60px;
-    width: 550px;
-}
-
-// .firstSectionWrapper {
-//     position: relative;
-
-
-// }
 
 .firstSection {
-   
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
     margin: auto;
     padding: 1em;
-    // width: 300px;
-    // height: 320px;
-
-
 
     .inputBox {
         padding: 10px;
-        // max-width: 60%;
+
         .file-input {
             box-sizing: border-box;
             padding: 4px;
@@ -119,27 +80,15 @@ body {
     }
 
     input {
-        // display: flex;
-        // justify-content: center;
-        // margin: auto;
         width: 100%;
         height: 30px;
         box-sizing: border-box;
-        border-radius: 10px;
-        // width: 20px;
-        // padding: 2em;
-        border: 1px solid rgb(112, 112, 112);
-        font-size: 14px;
-
     }
 
     select {
         width: 100%;
         height: 30px;
-        border-radius: 1em;
-        // margin: auto;
     }
-
 }
 
 .btn-back-next {
@@ -154,66 +103,67 @@ body {
         border: none;
         padding: 4px 12px;
         background-color: rgb(188, 188, 188);
-
     }
 
-
-
+    input {
+        border: none;
+        padding: 4px 12px;
+        background-color: rgb(188, 188, 188);
+        cursor: pointer;
+    }
 }
 
-
-
-// .secondSection-menteeWrapper{
-//     position: relative;
-
-
-// }
-.secondSection-mentee {
-    // border: 3px solid pink;
+.secondSection {
     display: grid;
+    grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 0.75fr);
+    margin: auto;
+    padding: 1em;
+
+    .inputBox {
+        padding: 10px;
+
+        .file-input {
+            box-sizing: border-box;
+            padding: 4px;
+            border: none;
+        }
+    }
 
     input {
-        width: 95%;
+        width: 100%;
+        height: 30px;
+        box-sizing: border-box;
     }
 
     select {
-        width: 95%;
+        width: 100%;
+        height: 30px;
     }
-
-    .inputBox-7 {
-        grid-area: 4 / 1 / 5 / 3;
-    }
-
 }
 
-.secondSection-mentor {
-    // border: 3px solid limegreen;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 0.75fr);
+.inputBox-description {
+    width: 90%;
+    margin: auto;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
 
     input {
-        width: 95%;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        padding: 0%;
+        box-sizing: border-box;
     }
+}
 
-    select {
-        width: 95%;
-    }
-
-    #FieldsOfKnowledged {
-        height: 70%;
-    }
-
-    .inputBox-1 {
-        grid-area: 1 / 1 / 3 / 2;
-    }
-
-    .inputBox-4 {
-        grid-area: 3 / 1 / 4 / 3;
-    }
-
+.inputBox-SectorMentor {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px;
 }
 
 .showSecondSection-none {
@@ -228,12 +178,6 @@ body {
     display: none;
 }
 
-// .closeForm-on{
-//     display: none;
-// }
-// .closeForm-off{
-//     display: block;
-// }
 
 
 // div {

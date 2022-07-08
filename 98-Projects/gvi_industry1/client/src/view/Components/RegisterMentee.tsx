@@ -2,6 +2,15 @@ import react, { useState } from "react";
 import axios from 'axios';
 
 
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+
+
+
+
 interface RegisterMenteeProps {
     countryArray: Array<object>,
     registerWindow: boolean,
@@ -19,10 +28,17 @@ interface RegisterMenteeProps {
 
 }
 
+
+const steps = [
+    'personal details',
+    'Your company',
+    'payment details',
+];
+
 const RegisterMentee = (props: RegisterMenteeProps) => {
     const { firstSection, secondSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, menteeWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
 
-
+    const [activeStep, setActiveStep] = React.useState(0);
 
 
 
@@ -74,26 +90,23 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         }
 
         window.location.reload();
-
     }
 
-
-
-
-
-
     return (
-        // <div className={closeForm? "closeForm-on":"closeForm-off" }>
         <div >
             <div className={menteeWindow ? "form__wrapper" : "back"}>
                 <div className={showProgressBar}>
                     <button className="closeButton" onClick={() => { handleCloseRegisterWindow() }}>X</button>
-                    <div className="progressBar">
-                        <div className="progressBar__stage-1">personal details</div>
-                        <div className="progressBar__stage-2">Your company</div>
-                        <div className="progressBar__stage-3">payment details</div>
-                    </div>
                 </div>
+                <Box sx={{ width: '100%' }}>
+                    <Stepper activeStep={activeStep} alternativeLabel>
+                        {steps.map((label) => (
+                            <Step key={label}>
+                                <StepLabel>{label}</StepLabel>
+                            </Step>
+                        ))}
+                    </Stepper>
+                </Box>
                 <form onSubmit={handleMenteeForm}>
                     <div className={firstSection}>
                         <div className="firstSectionWrapper">
@@ -133,20 +146,17 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                     <div className="form__text">Upload Profile Image</div>
                                     <input className="file-input" type="file" name="profilePic" />
                                 </div>
-
-                                {/* <button type="button" onClick={() => handleBackToSelection()}>BACK</button>
-                                <button type="button" onClick={() => handleToggleShowSections()}>NEXT</button> */}
                             </div>
                             <div className="btn-back-next">
-                                <div><button type="button" onClick={() => handleBackToSelection()}>BACK</button></div>
-                                <div><button type="button" onClick={() => handleToggleShowSections()}>NEXT</button></div>
+                                <div><button type="button" onClick={() => { handleBackToSelection(); setActiveStep(0) }}>BACK</button></div>
+                                <div><button type="button" onClick={() => { handleToggleShowSections(); setActiveStep(1) }}>NEXT</button></div>
                             </div>
                         </div>
                     </div>
 
                     <div className={secondSection}>
-                        <div className="secondSection-menteeWrapper">
-                            <div className="secondSection-mentee">
+                        <div className="secondSectionWrapper">
+                            <div className="secondSection">
                                 <div className="inputBox">
                                     <div className="form__text">Company Name</div>
                                     <input type="text" name="companyName" />
@@ -185,13 +195,14 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                     <div className="form__text">Link To One Pager</div>
                                     <input type="text" name="linkToOnePager" />
                                 </div>
-                                <div className="inputBox-7">
-                                    <div className="form__text">A brief description fo the company concept</div>
-                                    <input type="text" name="description" id="descriptionBox" />
-                                </div>
-
-                                <button type="button" onClick={() => handleBackToggleShowSections()}>BACK</button>
-                                <input type='submit' value='NEXT' />
+                            </div>
+                            <div className="inputBox-description">
+                                <div className="form__text">A brief description fo the company concept</div>
+                                <input type="text" name="description" id="descriptionBox" />
+                            </div>
+                            <div className="btn-back-next">
+                                <div><button type="button" onClick={() => { handleBackToggleShowSections(); setActiveStep(0) }}>BACK</button></div>
+                                <div><input type='submit' value='NEXT' onClick={() => { handleToggleShowSections(); setActiveStep(2) }} /></div>
                             </div>
                         </div>
                     </div>
