@@ -107,12 +107,7 @@ export const addUser = async (req, res) => {
             res.cookie('newUserInfoId', token, { httpOnly: true })
 
             res.send({result, ok: true, login: true})
-
-
-            res.send(result)
-            return
         }
-
 
     } catch (err) {
         console.error(err);

@@ -73,7 +73,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             console.error(error);
         }
 
-        // window.location.reload();
+        window.location.reload();
 
     }
 
