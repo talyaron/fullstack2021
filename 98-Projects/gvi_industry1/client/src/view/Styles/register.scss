@@ -3,18 +3,30 @@ body {
     justify-content: center;
 }
 
+.backgroungd-overlay {
+    width: 100vw;
+    max-height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.484);
+}
+
 .form__wrapper {
+
     box-sizing: border-box;
     width: 500px;
     height: 440px;
     padding: 4px;
-    background-color: rgb(233, 233, 233);
-    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    // border: 1px solid rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     right: 0;
     left: 0;
     margin: auto;
@@ -58,8 +70,8 @@ body {
 * input,
 select {
     font-size: 14px;
-    border-radius: 10px;
-    border: 1px solid rgb(112, 112, 112);
+    border-radius: 4px;
+    border: 1px solid rgb(149, 149, 149);
 }
 
 .firstSection {
@@ -102,14 +114,28 @@ select {
         border-radius: 6px;
         border: none;
         padding: 4px 12px;
-        background-color: rgb(188, 188, 188);
+        background-color: #d5d5d5;
     }
 
     input {
         border: none;
         padding: 4px 12px;
-        background-color: rgb(188, 188, 188);
+        background-color: #d5d5d5;
         cursor: pointer;
+        font-size: 12px;
+    }
+
+    .back-btn{
+
+        padding-top: 4px;
+        button {
+            font-size: 12px;
+            background-color: rgb(255, 255, 255);
+            border-bottom: 1px solid rgb(0, 0, 0);
+            border-radius: 0px;
+            padding: 0%;
+            margin: 0%;
+        }
     }
 }
 

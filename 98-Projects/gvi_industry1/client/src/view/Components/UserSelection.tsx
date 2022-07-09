@@ -31,6 +31,7 @@ const UserSelection = (props:RegisterProps) => {
 
 
   return (
+    <div className={ registerWindow?'backgroungd-overlay':'register dontShowRegister'}>
     <div className={ registerWindow?'register showRegister':'register dontShowRegister'}>
        
         <button className='closeButton' onClick={()=>{setRegisterWindow(false)}} >X</button>
@@ -47,6 +48,7 @@ const UserSelection = (props:RegisterProps) => {
             <input type="button"  name="gviPartner" value="GVI Partner" />
            
         </div>
+    </div>
     </div>
   )
 }

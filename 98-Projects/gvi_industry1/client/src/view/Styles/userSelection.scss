@@ -1,8 +1,8 @@
 .showRegister {
     width: 800px;
     height: 300px;
-    background-color: rgb(245, 245, 245);
-    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    // border: 1px solid rgb(0, 0, 0);
     display: block;
     position: fixed;
     z-index: 1;
@@ -11,6 +11,17 @@
     margin: auto;
     top: 50%;
     bottom: 90%;
+}
+
+.backgroungd-overlay {
+    width: 100vw;
+    max-height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.484);
 }
 
 .dontShowRegister {
@@ -48,7 +59,7 @@
             width: 150px;
             height: 50px;
             border: none;
-            background-color: rgb(160, 160, 160);
+            background-color: rgb(185, 184, 184);
             font-size: 20px;
         }
     }
