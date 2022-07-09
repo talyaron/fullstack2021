@@ -1,6 +1,6 @@
 import React from 'react';
-import {InputBase} from '@mui/material'
-import {MessageInterface} from '../Chat';
+import { InputBase } from '@mui/material'
+import { MessageInterface } from '../Chat';
 import PaperPlaneIcon from '../Icons/PaperPlaneRight';
 
 interface conversationsTabProps {
@@ -8,22 +8,29 @@ interface conversationsTabProps {
     dateFromObjectId: Function;
     setSentMessage: Function;
     handleSendMessage: Function;
-    }
+}
 function ConversationsTab(props: conversationsTabProps) {
     const { messageList, dateFromObjectId, setSentMessage, handleSendMessage } = props;
-  return (
-    <div className="chat__chatWindowTabs">
-<ul className='chat__chatWindow__messagesList'>
+    return (
+        <div className="chat__chatWindowTabs">
+            <ul className='chat__chatWindow__messagesList'>
                 {messageList
                     ? messageList.map((message, i) => {
-                          return (
-                              <li key={i} className='messageCard'>
-                                  {message.text}
+                        return (
+                                <li key={i} className='messageCard'>
 
-                                  {dateFromObjectId(message._id)}
-                              </li>
-                          );
-                      })
+                                    <div className='content'>
+                                    {message.text}
+                                    </div>
+
+                                    <div className='time'>
+                                    {dateFromObjectId(message._id).slice(15, 21)}
+                                    </div>
+
+                                    <div className="left-point"></div>
+                                </li>
+                        );
+                    })
                     : null}
             </ul>
             <div className='chat__chatWindow__messageBar'>
@@ -35,16 +42,17 @@ function ConversationsTab(props: conversationsTabProps) {
                 />
                 <label>
                     <button
-                        style={{display: 'none'}}
+                        style={{ display: 'none' }}
                         onClick={(ev) => {
                             handleSendMessage(ev);
                         }}
+                        className='sendButton'
                     />
                     <PaperPlaneIcon />
                 </label>
             </div>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default ConversationsTab
