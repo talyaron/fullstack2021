@@ -6,6 +6,7 @@ import SideBar from './Components/SideBar';
 import {socket} from '../../../index';
 import {ObjectId} from 'mongoose';
 import {text} from 'node:stream/consumers';
+import UserList from './Untitled.json';
 
 export interface MessageUserInterface {
     userId: String;
@@ -31,13 +32,14 @@ function Chat() {
     const [room, setRoom] = useState('');
     const [messageList, setMessageList] = useState<Array<MessageInterface>>([]);
     const [recipient, setRecipient] = useState<UserInterface>();
-    const [userList, setUserList] = useState<Array<UserInterface>>([]);
+    const [userList, setUserList] = useState<Array<any>>([UserList]);
     const [searchMessagesToggle, setSearchMessagesToggle] = useState<boolean>(false);
+
+
 
     function handleTabChange(ev) {
         ev.preventDefault();
         const pickedTab = ev.target.textContent;
-        console.dir(ev.target);
         
         setChatArea(`${pickedTab}`)
     }
@@ -56,6 +58,7 @@ function Chat() {
 
     useEffect(() => {
         console.log('on');
+
         socket.on('receive-message', (message: MessageInterface) => {
             console.log('received');
             const id: any = message._id;
@@ -113,7 +116,6 @@ useEffect(() => {getMessageList(recipient)},[recipient])
             // {recipientId: recipient._id}
             );
             setMessageList(data.allMessages);
-            console.log(data.allMessages);
             
         } catch (error) {
             console.log(error);
@@ -123,7 +125,7 @@ useEffect(() => {getMessageList(recipient)},[recipient])
         try {
             const {data} = await axios.post('/api/users/get-all-recipients', {ok: true});
             console.log(data.allUsers, 'userList');
-            setUserList(data.allUsers);
+            // setUserList(data.allUsers);
         } catch (error) {
             console.log(error);
         }

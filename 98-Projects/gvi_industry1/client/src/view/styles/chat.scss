@@ -204,11 +204,13 @@
             place-self: flex-start;
             .messageCard {
 
+                position: relative;
                 width: fit-content;
                 padding: 5px 5px 5px 10px;
                 border-radius: 5px;
                 background: white;
                 margin: 10px 0;
+                
                 .left-point {
                     width: 0;
                     height: 0;
@@ -216,7 +218,7 @@
                     border-right: 1vh solid transparent;
                     border-top: 2vh solid  white;
                     position: absolute;
-                    top: 15%;
+                    top: 50%;
                     right: 99.5%;
                     transform: rotate(70deg);
                 }

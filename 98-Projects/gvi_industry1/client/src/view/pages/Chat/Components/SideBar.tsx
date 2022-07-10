@@ -1,4 +1,4 @@
-import {useId, useEffect} from 'react';
+import {useId, useEffect, useState, useRef} from 'react';
 import {InputBase} from '@mui/material';
 import {UserInterface} from '../Chat';
 import SearchUsersIcon from '../Icons/SearchUsers';
@@ -6,16 +6,30 @@ import SideBarDivider from '../Icons/SideBarDivider';
 import {socket} from '../../../../index';
 
 interface SideBarProps {
-    userList?: Array<UserInterface>;
+
+    userList: Array<any>;
 
     setRecipient: Function;
 
 }
 
 function SideBar(props: SideBarProps) {
+
     const {userList, setRecipient} = props;
+
+    const [userListMap,setUserListMap] = useState(userList[0])
+
+    const [selectedRec, setSelectedRec] = useState(false)
+
+    const SelectedRef = useRef(null);
     
     const id = useId();
+
+    useEffect(()=>{
+        return (()=>{
+            console.log('userlistmap sidebar'+ userListMap)
+        })
+    },[])
 
     return (
         <div className='chat__sideBar'>
@@ -26,15 +40,17 @@ function SideBar(props: SideBarProps) {
                 </div>
             </div>
             <ul className='chat__sideBar__recipientsList'>
-                {userList ? (
-                    userList.map((user, i) => {
+                {userListMap ? (
+                    userListMap.map((user, i) => {
                         return (
-                            <li
+                            <li className={selectedRec ? "selected": "notSelected"}
                                 key={i}
                                 onClick={() => {
-                                    setRecipient(user);
-                                }}>
-                                <p>{user.fullName}</p>
+                                    // setRecipient(user);
+                                    setSelectedRec(true)
+                                }}
+                                >
+                                <p ref={SelectedRef}>{user.userName.first} {user.userName.last}</p>
                             </li>
                         );
                     })
