@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import MatchingCard from "./components/MatchingCards";
 import FilterMenu from "./components/FilterMenu";
 import Search from "./components/Search";
+import { Link } from "react-router-dom";
 
 interface MatchingProps {
   mentorsList: any;
@@ -24,6 +25,8 @@ const Matching = (props: MatchingProps) => {
 
   return (
     <div className="matching">
+      <Link to="/selected-mentors">Selected-mentors</Link>
+    
       <Search />
       <MatchingCard mentorsList={mentorsList} />
       <FilterMenu />
