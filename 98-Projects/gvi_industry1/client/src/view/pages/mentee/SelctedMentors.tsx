@@ -8,7 +8,7 @@ function SelctedMentors() {
     console.log(selectedUserId)
   return (
     <div className="selectedPage">
-      <h5>Selcted-Mentors</h5>
+      <h5 className="selectedPage__title">Selcted-Mentors</h5>
       <div className="selectedPage__wrapper">
         <Card />
         <Card />
