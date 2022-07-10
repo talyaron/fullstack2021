@@ -40,7 +40,7 @@ export const SectorSchema = new mongoose.Schema({
 })
 
 
-const UserSchema = new mongoose.Schema({
+export const UserSchema = new mongoose.Schema({
   name: NameSchema,
   description: String,
   image: String,
