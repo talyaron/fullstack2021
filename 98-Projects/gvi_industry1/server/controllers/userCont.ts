@@ -89,7 +89,6 @@ export const addUser = async (req, res) => {
         const { user } = req.body;
         console.log('user.sector:',user.sector);
 
-
         let newUser = new UserModel(user)
         const result = await newUser.save()
         console.log(newUser)
@@ -102,26 +101,21 @@ export const addUser = async (req, res) => {
     }
 }
 
-// export const updateUser = async (req, res) => {
-//     try {
-//         const { newDetails,userId } = req.body;
+export const updateUserDetails = async (req, res) => {
+    try{
+
+        const { updatedDetails } = req.body;
         
-//         const {data} = await UserModel.find({_id:userId})
-
-//         data.email = newDetails.email
-//         data.country = newDetails.country
-//         data.phone = newDetails.phone
-//         data.linkdinProfile = newDetails.email
-
-
+        console.log(updatedDetails);
         
-        
-//         res.send(data)
+        // await UserModel.updateOne({_id:userId,country:newDetails.country,email:newDetails.email,
+        //     phone:newDetails.phone,linkedInProfile:newDetails.linkdinProfile})
 
+        res.send({ok:true})
 
-//     } catch (err) {
-//         console.error(err);
-//         res.send({ error: err.message, ok: false });
-//     }
-// }
+    } catch(err) {
+        console.error(err);
+        res.send({ error: err.message, ok: false });
+    }
+}
 

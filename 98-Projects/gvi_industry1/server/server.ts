@@ -1,9 +1,10 @@
 const express = require("express");
 import mongoose from 'mongoose';
 import CardRoute from "./routes/CardRoute"
+
 const app = express();
 require('dotenv').config()
-const port = process.env.PORT || 4005;
+const port = process.env.PORT || 4001;
 //socket.io:
 import http from 'http';
 const server = http.createServer(app);
@@ -50,7 +51,7 @@ const url = process.env.MONGODB_URI
 
 mongoose
     // .set('debug', { shell: true })
-    .connect('mongodb+srv://alexroz:T9g3STOIzq3kppvy@cluster0.x62d1.mongodb.net/gvi?retryWrites=true&w=majority')
+    .connect('mongodb+srv://alexroz:7lp57kVN4lvYZb0k@cluster0.x62d1.mongodb.net/gvi?retryWrites=true&w=majority')
     .then(() => {
         console.log('connected to Mongoose');
     })
@@ -84,6 +85,7 @@ io.on('connection', (socket: any) => {
         socket.to(recipients(data)).emit('receive-message', message);
     });
 });
+
 
 import userRouter from './routes/userRoute';
 app.use('/api/users', userRouter);

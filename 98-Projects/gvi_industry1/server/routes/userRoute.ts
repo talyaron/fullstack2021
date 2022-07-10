@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 
-import { addUser,login,getMentors, getUser,getAllRecipients } from '../controllers/userCont'
+import { addUser,login,getMentors, getUser,getAllRecipients ,updateUserDetails} from '../controllers/userCont'
 
 router
 .post('/add-user',addUser)
@@ -9,7 +9,7 @@ router
 .post('/get-mentors', getMentors)
 .post('/get-all-recipients', getAllRecipients)
 .get('/get-user', getUser)
-// .patch('/updateUserDetails',updateUser)
+.post('/updateUserDetails',updateUserDetails)
 
 export default router;
 
