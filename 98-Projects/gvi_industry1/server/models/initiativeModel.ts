@@ -40,6 +40,6 @@ export const InitiativeSchema = new mongoose.Schema({
     /////initiative
     
 })
-const InitiativeModel = mongoose.model("initiatives",InitiativeSchema)
 
+const InitiativeModel = mongoose.model("initiatives",InitiativeSchema)
 export default InitiativeModel

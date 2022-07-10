@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Button from "./view/components/Btn";
 import SelctedMentors from "./view/pages/mentee/SelctedMentors";
 
+
 function App() {
 
   const [mentorsList, setMentorsList] = useState([]);
@@ -29,9 +30,9 @@ function App() {
   return (
     <Router>
       <Routes>
-         <Route path='/' element={<HomePage />}/>
+        <Route path="/Profile" element={<Profile id="1234"/>} />
+        <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
-        <Route path="/profile" element={<Profile id="1234"/>} />
         <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />
                 <Route path="/selected-mentors" element={<SelctedMentors />} />
 

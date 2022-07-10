@@ -25,8 +25,8 @@ function ProffesionalDetails(props:ProffesionalDetailsProps) {
         <div key={i} className='profile_companyDetails-sections-section'>{section}</div>
             )
         })}
-        {/* {isMentee?<a className='profile_companyDetails-sections-section' 
-        href='https://trello.com/b/6geq1VEQ/gvi'>Link to presentation</a>:null} */}
+        {isMentee?<a className='profile_companyDetails-sections-section' 
+        href='https://trello.com/b/6geq1VEQ/gvi'>Link to presentation</a>:null}
         </div>  
     )
   

@@ -42,7 +42,15 @@ enum Sector{
   DIGIATL_HEALTH = "digital-health"
 }
 
+// axios.patch('/api/get-addSelectedUser',{_id,onlineUserId})
+
+//const {User} =  UserModel.find{_id:OnliceUserId};
+
+// User.selectedUsers.push(_id)
+
+
 const UserSchema = new mongoose.Schema({
+  // selectedUsers:[]
   name: NameSchema,
   fullName: String,
   description: String,

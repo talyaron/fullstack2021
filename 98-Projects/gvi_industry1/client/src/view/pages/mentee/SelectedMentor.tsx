@@ -9,13 +9,7 @@ import { Button } from "@mui/material";
 import "./style/card.scss";
 import Btn from "../../components/Btn";
 
-
-
-const SelectedMentor = () => {
-  const [openProfile, setopenProfile] = useState(false)
-  const [userId, setuserId] = useState("")
-
-
+const SelectedMentors = () => {
   // function Card() {
   //   // useEffect(() => {
   //   //   (async () => {
@@ -80,4 +74,4 @@ const SelectedMentor = () => {
   );
 };
 
-export default SelectedMentor;
+export default SelectedMentors;

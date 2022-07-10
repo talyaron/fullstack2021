@@ -9,6 +9,7 @@ router
 .post('/get-mentors', getMentors)
 .post('/get-all-recipients', getAllRecipients)
 .get('/get-user', getUser)
+// .patch('/updateUserDetails',updateUser)
 
 export default router;
 
