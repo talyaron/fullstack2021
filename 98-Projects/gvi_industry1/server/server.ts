@@ -50,7 +50,9 @@ const url = process.env.MONGODB_URI
 
 mongoose
     // .set('debug', { shell: true })
-    .connect('mongodb+srv://alexroz:T9g3STOIzq3kppvy@cluster0.x62d1.mongodb.net/gvi?retryWrites=true&w=majority')
+
+    // .connect('mongodb+srv://alexroz:T9g3STOIzq3kppvy@cluster0.x62d1.mongodb.net/gvi?retryWrites=true&w=majority')
+    .connect(url)
     .then(() => {
         console.log('connected to Mongoose');
     })
