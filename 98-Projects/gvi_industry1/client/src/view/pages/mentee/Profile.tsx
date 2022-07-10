@@ -5,7 +5,7 @@ import axios from 'axios';
 import FormAddress from './profileComp/FormAddress';
 import ProffesionalDetails from './profileComp/ProffesionalDetails';
 import FormProffesion from './profileComp/FormProffesion';
-import ContactDetails from './profileComp/ContactDetails'
+import ContactDetails from './profileComp/ContactDetails';
 
 const userDemo = {
     name:'Romy Yuval',
