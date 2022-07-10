@@ -26,7 +26,6 @@ const Matching = (props: MatchingProps) => {
   return (
     <div className="matching">
       <Link to="/selected-mentors">Selected-mentors</Link>
-    
       <Search />
       <MatchingCard mentorsList={mentorsList} />
       <FilterMenu />

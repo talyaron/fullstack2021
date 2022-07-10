@@ -35,9 +35,7 @@ function App() {
         <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
         <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />
-        <Route path="/" element={<Profile _id={'1234'} />} />
-        <Route path="/selected-mentors" element={<SelctedMentors />} />
-
+        <Route path=":selectedUserId" element={<SelctedMentors />} />
       </Routes>
     </Router>
   );
