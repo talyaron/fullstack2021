@@ -35,7 +35,7 @@ function App() {
         <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
         <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />
-        <Route path=":selectedUserId" element={<SelctedMentors />} />
+        <Route path=":id" element={<SelctedMentors />} />
       </Routes>
     </Router>
   );

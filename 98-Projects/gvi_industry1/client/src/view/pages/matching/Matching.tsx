@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import MatchingCard from "./components/MatchingCards";
 import FilterMenu from "./components/FilterMenu";
 import Search from "./components/Search";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 interface MatchingProps {
   mentorsList: any;
@@ -23,12 +23,17 @@ const Matching = (props: MatchingProps) => {
     })();
   }, []);
 
+  //  function handleSelectedUserId(currentUser:any){
+  //     // console.log(currentUser)
+  //  }
+
   return (
     <div className="matching">
       <Link to="/selected-mentors">Selected-mentors</Link>
       <Search />
       <MatchingCard mentorsList={mentorsList} />
       <FilterMenu />
+      <Outlet />
     </div>
   );
 };

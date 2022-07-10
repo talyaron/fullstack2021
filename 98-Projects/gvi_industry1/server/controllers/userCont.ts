@@ -46,8 +46,8 @@ export const selectUser = async (req: any, res: any) => {
     //check if it exists
     if (!selectedUser) throw new Error("couldnt find the user in the DB");
 
-    const {email, name, image} = selectedUser;
-    console.log('selectedUser',selectedUser)
+    const { email, name, image } = selectedUser;
+    console.log('selectedUser', selectedUser)
     const searchSelecting = {
       selectedUser: { email: selectedUser.email }
     };
@@ -60,9 +60,9 @@ export const selectUser = async (req: any, res: any) => {
     if (!selectingUser) {
       console.log("no record in DB - saving");
       const newSelectionDB = new selectedUsersModel({
-        bothId:`${id}-${selectedUser._id}`,
+        bothId: `${id}-${selectedUser._id}`,
         selectingUserId: id,
-        selectedUser:{email, name, image},
+        selectedUser: { email, name, image },
         selected: true,
       });
       newSelection = await newSelectionDB.save();
@@ -88,6 +88,18 @@ export const selectUser = async (req: any, res: any) => {
     res.send({ error: error.message });
   }
 };
+
+export async function getSelectedUserId(req, res) {
+  try {
+    const { userInfo } = req.cookies;
+    const payload = JWT.decode(userInfo, secret);
+    const { id } = payload;
+    res.send(id);
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+}
 
 export async function getAllRecipients(req, res) {
   try {
