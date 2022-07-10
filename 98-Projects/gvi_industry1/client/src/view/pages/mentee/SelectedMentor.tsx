@@ -38,19 +38,12 @@ const SelectedMentors = () => {
     sectors: "eduction",
     profession: "Finance",
   };
-  function HandleOpenProfile(ev:any){
-    setopenProfile(!openProfile)
-    const userId = ev.target.id
-    setuserId(userId)
-
-    
-
-  }
+  
 
   return (
     <div className="card">
       <div className="card__photo">
-        <img src={`${userDetails.img}`} alt="" id="shsfh45" onClick={HandleOpenProfile} />
+        <img src={`${userDetails.img}`} alt="" id="shsfh45"  />
       </div>
       <div className="card__center">
         <p className="card__name"> {userDetails.name}</p>
