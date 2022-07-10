@@ -3,19 +3,14 @@ import Profile from "./view/pages/mentee/Profile";
 // import Card from "./view/pages/mentee/Card"//
 import React from "react";
 import "./view/styles/global.scss";
-import HomePage from "./view/Components/HomePage";
+import HomePage from "./view/components/HomePage";
 import Matching from "./view/pages/matching/Matching";
 import Chat from "./view/pages/Chat/Chat";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-<<<<<<< Updated upstream
-import Button from "./view/Components/Button";
-import SelectedMentor from "./view/pages/mentee/SelectedMentor";
-=======
 import Button from "./view/components/Btn";
-import SelectedMentors from "./view/pages/mentee/SelctedMentors";
->>>>>>> Stashed changes
+import SelctedMentors from "./view/pages/mentee/SelctedMentors";
 
 function App() {
 
@@ -38,7 +33,7 @@ function App() {
         <Route path="/chat" element={<Chat />} />
         <Route path="/profile" element={<Profile id="1234"/>} />
         <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />
-                <Route path="/selected-mentors" element={<SelectedMentor />} />
+                <Route path="/selected-mentors" element={<SelctedMentors />} />
 
 
       </Routes>

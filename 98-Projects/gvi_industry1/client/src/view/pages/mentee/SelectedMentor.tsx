@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect } from "react";
+import React , {useState,useEffect} from 'react'
 import mongoose from "mongoose";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailOutlineTwoToneIcon from "@mui/icons-material/MailOutlineTwoTone";
@@ -9,7 +9,13 @@ import { Button } from "@mui/material";
 import "./style/card.scss";
 import Btn from "../../components/Btn";
 
+
+
 const SelectedMentor = () => {
+  const [openProfile, setopenProfile] = useState(false)
+  const [userId, setuserId] = useState("")
+
+
   // function Card() {
   //   // useEffect(() => {
   //   //   (async () => {
@@ -38,12 +44,19 @@ const SelectedMentor = () => {
     sectors: "eduction",
     profession: "Finance",
   };
-  
+  function HandleOpenProfile(ev:any){
+    setopenProfile(!openProfile)
+    const userId = ev.target.id
+    setuserId(userId)
+
+    
+
+  }
 
   return (
     <div className="card">
       <div className="card__photo">
-        <img src={`${userDetails.img}`} alt=""  />
+        <img src={`${userDetails.img}`} alt="" id="shsfh45" onClick={HandleOpenProfile} />
       </div>
       <div className="card__center">
         <p className="card__name"> {userDetails.name}</p>

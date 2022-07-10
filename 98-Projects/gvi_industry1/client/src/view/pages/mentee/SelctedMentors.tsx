@@ -1,7 +1,8 @@
-import React from "react";
+import React , {useState,useEffect} from 'react'
 import "../mentee/style/selectedPage.scss";
 import SelectedMentor from "./SelectedMentor";
 import StarIcon from "@mui/icons-material/Star";
+
 
 function SelctedMentors() {
   return (
