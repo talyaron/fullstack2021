@@ -1,0 +1,52 @@
+.App {
+  text-align: center;
+}
+
+.home{
+  background-color: blueviolet;
+}
+
+.Top-Card,.Bottom-Card{
+   
+    position: relative;
+    top: 40px;  
+    display: grid;
+    grid-template-columns:repeat(3,   1fr);
+    grid-gap: 1em;
+    grid-auto-rows: minmax(100px, auto);
+    width: 70%;
+    height: 20%;
+    left: 200px;
+   
+}
+.header{
+  padding-top: 50px;
+}
+.menuHeader{
+
+  
+  display: flex;
+  justify-content:left;
+  
+  padding: 8px;
+  border: 1px solid brown;
+  /* background-color: #dddddd;   */
+}
+
+.menu{
+  position: relative;
+  top:110px;
+  padding: 30px;
+  margin: 10px; 
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;  
+  background-color: #5e615e; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
