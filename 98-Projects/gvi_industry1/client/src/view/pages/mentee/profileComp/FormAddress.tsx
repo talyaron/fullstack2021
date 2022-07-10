@@ -22,11 +22,12 @@ async function updateContactInfo(ev:any){
   
 
     const updatedDetails = {country,email,phone,linkDin}
-    console.log(updatedDetails.country);
+    console.log(updatedDetails);
     
-    const data = await axios.post('/users/updateUserDetails',{updatedDetails})
+    const data = await axios.post('/api/users/updateUserDetails' , {updatedDetails})
 
     console.log(data);
+    
 }
   
     return (

@@ -102,6 +102,7 @@ export const addUser = async (req, res) => {
 }
 
 export const updateUserDetails = async (req, res) => {
+    
     try{
 
         const { updatedDetails } = req.body;

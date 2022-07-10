@@ -2,7 +2,7 @@ import { socket } from "./index";
 import Profile from "./view/pages/mentee/Profile";
 // import Card from "./view/pages/mentee/Card"//
 import React from "react";
-import "./view/styles/global.scss";
+import "./view/Styles/global.scss";
 import HomePage from "./view/components/HomePage";
 import Matching from "./view/pages/matching/Matching";
 import Chat from "./view/pages/Chat/Chat";
