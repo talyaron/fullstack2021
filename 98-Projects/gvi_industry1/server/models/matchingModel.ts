@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import {SectorSchema, FieldsOfKnowledgeSchema} from '../Models/userModel'
+import { FieldsOfKnowledgeSchema} from '../Models/userModel'
 
 
 
