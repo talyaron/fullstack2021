@@ -1,0 +1,36 @@
+.matching-grid {
+    display: grid;
+    grid-template-columns: 400px 400px;
+    gap: 20px;
+
+}
+
+.matching-card {
+    width: 348px;
+    height: 393px;
+    border-radius: 5% 5% 0 0 ;
+    background-color: #E1E1E1;
+    
+    &__pic{
+        width: 348px;
+        height: 250px;
+        border-radius: 5% 5% 0 0 ;
+
+    }
+    &__details{
+        padding: 1rem;
+    }
+    &-flex{
+        display: flex;
+        justify-content: space-between;
+        &__linkedin{
+            width: 30px;
+            aspect-ratio: 1/1;
+        }
+        &__request{
+            border: none;
+            background-color: #ADADAD;
+            border-radius: 15px;
+        }
+    }
+}

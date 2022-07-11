@@ -1,29 +1,31 @@
 import axios from 'axios'
 import { useEffect } from 'react'
+import MatchingCard from './components/MatchingCards'
+
 interface MatchingProps {
   mentorsList: any,
   setMentorsList: Function
-  selectedUser: any
+  currentUser: any
 }
 
 const Matching = (props: MatchingProps) => {
 
-  const { mentorsList, setMentorsList, selectedUser } = props
+  const { mentorsList, setMentorsList, currentUser } = props
   useEffect(() => {
     (async () => {
-      const { data } = await axios.post('/api/get-mentors', {selectedUser} )
-      const {filterMentors} = data
-      setMentorsList(filterMentors)
-      console.log(selectedUser)
+      const { data } = await axios.post('/api/users/get-mentors', { currentUser })
+      const { allMentors } = data
+      setMentorsList(allMentors)
+      console.log(currentUser)
     })();
-  }, [])
+  }, [currentUser])
 
 
   return (
     <div>
-      {mentorsList.map((mentor: any) =>
-        <div key={mentor._id}>{mentor.fullName}</div>
-      )}
+
+      <MatchingCard mentorsList={mentorsList} />
+
     </div>
   )
 }

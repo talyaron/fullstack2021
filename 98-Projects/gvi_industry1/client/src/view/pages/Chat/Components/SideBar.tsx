@@ -41,7 +41,7 @@ function SideBar(props: SideBarProps) {
             </div>
             <ul className='chat__sideBar__recipientsList'>
                 {userListMap ? (
-                    userListMap.map((user, i) => {
+                    userListMap.map((user:any, i:any) => {
                         return (
                             <li className={selectedRec ? "selected": "notSelected"}
                                 key={i}
