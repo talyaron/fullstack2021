@@ -1,5 +1,5 @@
-import UserModel from '../models/userModel';
-import JWT from 'jwt-simple';
+
+
 const secret = process.env.JWT_SECRET;
 import UserModel from "../models/userModel";
 import selectedUsersModel from "../models/selectedUsers";
@@ -84,7 +84,7 @@ export const selectUser = async (req: any, res: any) => {
         );
       }
     }
-};
+
 
     res.send({ succes: true, selection: newSelection });
   } catch (error) {
@@ -146,7 +146,7 @@ export async function getAllRecipients(req, res) {
     }
 }
 
-const secret = process.env.JWT_SECRET;
+
 
 export const login = async (req, res) => {
     try {
@@ -175,11 +175,7 @@ export const login = async (req, res) => {
         } else {
             throw new Error("email or password is missing")
         }
-      }
-      throw new Error("username or password are incorrect");
-    } else {
-      throw new Error("username or password is missing");
-    }
+        
   } catch (error) {
     console.error(error.message);
     res.send({ error: error.message });
@@ -195,12 +191,6 @@ export const addUser = async (req, res) => {
     const result = await newUser.save();
     console.log(newUser);
     res.send(result);
-  } catch (err) {
-    console.error(err);
-    res.send({ error: err.message, ok: false });
-  }
-};
-
         // Already exists CHECK
         const userFound: any = await UserModel.findOne({ email: user.email })
 

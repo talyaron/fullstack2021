@@ -49,8 +49,8 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             console.dir(ev.target);
 
 
-            const first = ev.target.elements.firstName.value;
-            const last = ev.target.elements.lastName.value;
+            const firstName = ev.target.elements.firstName.value;
+            const lastName = ev.target.elements.lastName.value;
             const password = ev.target.elements.password.value;
             const email = ev.target.elements.email.value;
             const phone = ev.target.elements.phone.value;
@@ -66,7 +66,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             const profilePic = ev.target.elements.profilePic.value;
 
 
-        const user = { name,password,profilePic, description,linkdinProfile, email, country, phone, sector, stage }
+        const user = { firstName, lastName,password,profilePic, description,linkdinProfile, email, country, phone, sector, stage }
         const initiative = { sector, companyName, description, stage, website, linkToOnePager, presentations }
         console.log(user);
         console.log(initiative);
