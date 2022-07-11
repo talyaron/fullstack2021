@@ -94,9 +94,9 @@ export async function getSelectingUser(req, res) {
     const { userInfo } = req.cookies;
     const payload = JWT.decode(userInfo, secret);
     const { id } = payload;
-    if(!id) throw new Error('id not found');
+    if (!id) throw new Error('id not found');
     const selectingUser = await UserModel.findById(id);
-    if(!selectUser) throw new Error('User not found');
+    if (!selectUser) throw new Error('User not found');
     res.send(selectingUser);
   } catch (error) {
     console.log(error.error);
@@ -106,11 +106,11 @@ export async function getSelectingUser(req, res) {
 
 export async function getSelectedUserdata(req, res) {
   try {
-    const currentUserId = req.body;
+    const { _id } = req.body;
     const users = await selectedUsersModel.find({})
     // console.log(users);
-    // const selectedUsers = users.filter((user) => selectingUserId === currentUserId);
-    res.send({ok:true, users})
+    const selectedUsers = users.filter((user) => user.selectingUserId === _id && user.selected === true);
+    res.send({ ok: true, selectedUsers })
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
