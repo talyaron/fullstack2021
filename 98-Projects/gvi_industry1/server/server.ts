@@ -4,7 +4,7 @@ import CardRoute from "./routes/CardRoute"
 
 const app = express();
 require('dotenv').config()
-const port = process.env.PORT || 4001;
+const port = process.env.PORT || 4000;
 //socket.io:
 import http from 'http';
 const server = http.createServer(app);
