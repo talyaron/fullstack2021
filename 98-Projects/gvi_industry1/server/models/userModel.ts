@@ -49,7 +49,6 @@ export const UserSchema = new mongoose.Schema({
   },
   country: String,
   lastEntry: Date,
-  companies: companySchema,
   linkedInProfile: String,
   phone: String,
   // initiatives: InitiativeSchema,
@@ -59,6 +58,7 @@ export const UserSchema = new mongoose.Schema({
     enum:  UserTypeSchema,
     default:  UserTypeSchema.MENTEE,
   },
+  mentees:[{ String }],
   fieldsOfKnowledge: {
     type: String,
     enum: FieldsOfKnowledgeSchema,
