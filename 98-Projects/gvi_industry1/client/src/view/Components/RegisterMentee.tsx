@@ -73,10 +73,10 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         
         //initaitive not addded yet to mongo
 
-        const {data} = await axios.post('/api/users/add-user', {user});
+        // const {data} = await axios.post('/api/users/add-user', {user});
         
 
-            const userData = await axios.post('/api/users/add-user', { user });
+            const userData = await axios.post('/api/users/add-user', {user});
 
             console.log(userData)
             // Already exists CHECK
@@ -85,13 +85,13 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             }
             // Already exists CHECK
 
-            const intiativeData = await axios.post('/api/initiatives/add-initiative', { initiative });
-
+            const initiativeData = await axios.post('/api/initiatives/add-initiative', { initiative });
+            console.log(initiativeData)
         } catch (error) {
             console.error(error);
         }
 
-        window.location.reload();
+        // window.location.reload();
     }
 
     return (

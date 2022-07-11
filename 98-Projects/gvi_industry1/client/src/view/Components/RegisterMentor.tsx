@@ -55,7 +55,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             const user = { name, password, profilePic, description, linkdinProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
             console.log(user);
 
-            const userData = await axios.post('/api/users/add-user', { user });
+            const userData = await axios.post('/api/users/add-user', {user});
             console.log(userData)
             // Already exists CHECK
             if (userData.data === 'Already exists') {
@@ -67,7 +67,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             console.error(error);
         }
 
-        window.location.reload();
+        // window.location.reload();
     }
 
     return (
@@ -169,7 +169,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                                     <div className="form__text">Sector</div>
                                     <select name="sector" >
                                         <option hidden></option>
-                                        <option value="eduction">Eduction</option>
+                                        <option value="education">Education</option>
                                         <option value="digital-health">digital health</option>
                                         <option value="c">c</option>
                                         <option value="d">d</option>

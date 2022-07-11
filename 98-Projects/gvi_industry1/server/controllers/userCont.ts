@@ -6,6 +6,7 @@ import selectedUsersModel from "../models/selectedUsers";
 import JWT from "jwt-simple";
 
 
+
 export const getMentors = async (req, res) => {
   try {
     const { currentUser } = req.body;
@@ -185,13 +186,13 @@ export const login = async (req, res) => {
 
 export const addUser = async (req, res) => {
   try {
-    const { user } = req.body;
+    const {user} = req.body;
     console.log(user);
 
-    let newUser = new UserModel(user);
-    const result = await newUser.save();
+    const newUser = new UserModel(user);
+    // const result = await newUser.save();
     console.log(newUser);
-    res.send(result);
+    // res.send(result);
         // Already exists CHECK
         const userFound: any = await UserModel.findOne({ email: user.email })
 
@@ -200,15 +201,14 @@ export const addUser = async (req, res) => {
         }
         // Already exists CHECK
         else {
-            let newUser = new UserModel(user)
+            const newUser = new UserModel(user)
             const result = await newUser.save()
             console.log(newUser)
-
-            const payload = { id: newUser._id }
+            const payload = { loggedInUser: true, type: newUser.type,id: newUser._id }
             const token = JWT.encode(payload, secret)
-            res.cookie('newUserInfoId', token, { httpOnly: true })
-
+            res.cookie('newUser', token, { httpOnly: true })
             res.send({result, ok: true, login: true})
+            return
         }
 
     } catch (err) {
