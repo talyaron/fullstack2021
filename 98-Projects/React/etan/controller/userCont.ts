@@ -52,7 +52,7 @@ export const loginUser = async (req, res) => {
     //   let email = username;
     //   const lookup = await user
     //     .findOne({ email: email })
-    //     .collation({ locale: "en_US", strength: 1 });
+        // .collation({ locale: "en_US", strength: 1 });
 
     // }else{
 

@@ -1,8 +1,9 @@
 import { Router } from 'express'
-import {getMatches} from '../Controllers/matchingCont'
+import {searchMatches,getMatches} from '../Controllers/matchingCont'
 const router = Router();
 
 router
-.get('/get-matches', getMatches)
+.post('/get-matches', getMatches)
+.post('/search-matches', searchMatches)
 
 export default router

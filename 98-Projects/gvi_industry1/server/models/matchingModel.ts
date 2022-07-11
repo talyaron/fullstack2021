@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import {SectorSchema, FieldsOfKnowledgeSchema} from '../Models/userModel'
+import { FieldsOfKnowledgeSchema} from '../Models/userModel'
 
 
 
@@ -14,5 +14,5 @@ const MatchingFiltersSchema = new mongoose.Schema({
 })
 
 
-//   const MatchingModel = mongoose.model('matchings', MatchingFiltersSchema);
-//   export default MatchingModel;
+  const MatchingModel = mongoose.model('matchings', MatchingFiltersSchema);
+  export default MatchingModel;

@@ -7,9 +7,10 @@ const NameSchema = new mongoose.Schema ({
   });
 
   
-const MenteeSchema = new mongoose.Schema({
+export const MenteeSchema = new mongoose.Schema({
     userId: String,
-    name: NameSchema
+    name: NameSchema,
+    image: String
 })
 
 export const InitiativeSchema = new mongoose.Schema({
@@ -24,6 +25,7 @@ export const InitiativeSchema = new mongoose.Schema({
     mentors: [{
         userId: String,
         name: NameSchema,
+    image: String,
         fieldsOfKnowledge: {
             type: String,
             // enum: FieldsOfKnowledge,
@@ -40,6 +42,6 @@ export const InitiativeSchema = new mongoose.Schema({
     /////initiative
     
 })
-const InitiativeModel = mongoose.model("initiatives",InitiativeSchema)
 
+const InitiativeModel = mongoose.model("initiatives",InitiativeSchema)
 export default InitiativeModel

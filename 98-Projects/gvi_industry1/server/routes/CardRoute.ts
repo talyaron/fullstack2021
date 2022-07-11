@@ -1,10 +1,10 @@
 import express from 'express';
 const router = express.Router();
-import {getUser} from "../controllers/cardCont"
+
 
 
 router
-.get('/get-UserData',getUser)
+// .get('/get-selected-user',getSelectedUser)
 
 
 export default router;

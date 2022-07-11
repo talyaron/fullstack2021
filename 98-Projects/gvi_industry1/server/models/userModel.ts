@@ -1,43 +1,38 @@
 import mongoose from "mongoose";
 import InitiativeModel, { InitiativeSchema } from "./initiativeModel";
 import company, { companySchema } from "./companyModel";
+import {MenteeSchema} from './initiativeModel'
 
 export const NameSchema = new mongoose.Schema({
   first: String,
   last: String,
 });
 
-export const FieldsOfKnowledgeSchema = new mongoose.Schema({
-  userType: {
-    type: String,
-    enum: ["ux", "devlopment"],
-    default: "ux",
-  },
-});
+export enum FieldsOfKnowledgeSchema{
+  
+    
+    UX="ux",
+    DEVELOPMENT= "devlopment",
+   
+ 
+}
 
-export const StageSchema = new mongoose.Schema({
-  userType: {
-    type: String,
-    enum: ["fff", "pre-seed", "seed", "round A", "round b and above"],
-    default: "fff",
-  },
-});
 
-export const UserTypeSchema = new mongoose.Schema({
-  userType: {
-    type: String,
-    enum: ["mentee", "admin", "mentor"],
-    default: "mentee",
-  },
-});
+export enum StageSchema{
+  FFF="fff",
+  PRE_SEED="pre-seed",
+  SEED="seed",
+  ROUND_A="round A",
+  ROUND_B_AND_ABOVE="round b and above",
+}
 
-// export const SectorSchema = new mongoose.Schema({
-//   type: String,
-//   enum: ["eduction", "digital-health"],
-//   default: "eduction",
-// });
+export enum UserTypeSchema{
+  MENTEE="mentee",
+  ADMIN="admin",
+  MENTOR="mentor"
+}
 
-enum Sector{
+export enum Sector{
   EDUCATION = 'education',
   DIGIATL_HEALTH = "digital-health"
 }
@@ -52,6 +47,7 @@ export const UserSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
+  mentees:[MenteeSchema],
   country: String,
   lastEntry: Date,
   companies: companySchema,
@@ -59,8 +55,16 @@ export const UserSchema = new mongoose.Schema({
   phone: String,
   initiatives: InitiativeSchema,
   password: String,
-  type: UserTypeSchema,
-  fieldsOfKnowledge: FieldsOfKnowledgeSchema,
+  type: {
+    type: String,
+    enum:  UserTypeSchema,
+    default:  UserTypeSchema.MENTEE,
+  },
+  fieldsOfKnowledge: {
+    type: String,
+    enum: FieldsOfKnowledgeSchema,
+    default: FieldsOfKnowledgeSchema.UX,
+  },
   sector: {
     type: String,
     enum: Sector,

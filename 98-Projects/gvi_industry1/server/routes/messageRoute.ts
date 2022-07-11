@@ -1,9 +1,8 @@
-import express from 'express'
-const router = express.Router()
+import express from 'express';
+const router = express.Router();
 
-import{getMessages} from '../controllers/messageConts'
+import {getMessages} from '../controllers/messageConts';
 
-router
-.post('/get-messages', getMessages)
+router.post('/get-messages', getMessages);
 
-export default router
+export default router;
