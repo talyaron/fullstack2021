@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import InitiativeModel, { InitiativeSchema } from "./initiativeModel";
+import InitiativeModel, { InitiativeSchema, MentorSchema } from "./initiativeModel";
 import company, { companySchema } from "./companyModel";
-import {MenteeSchema} from './initiativeModel'
+
 
 export const NameSchema = new mongoose.Schema({
   first: String,
@@ -47,13 +47,12 @@ export const UserSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-  mentees:[MenteeSchema],
   country: String,
   lastEntry: Date,
   companies: companySchema,
   linkedInProfile: String,
   phone: String,
-  initiatives: InitiativeSchema,
+  // initiatives: InitiativeSchema,
   password: String,
   type: {
     type: String,

@@ -131,12 +131,12 @@ export async function getAllRecipients(req, res) {
         const {id} = userDecodedInfo;
         const currentUser = await UserModel.findOne({_id: id});
         console.log(currentUser, 'userCont -47');
-        let allUsers = [];
+        let allUsers:Array<any> = [];
         if (currentUser.type === 'mentee') {
-            allUsers = currentUser.initiatives.mentors;
+            // allUsers = currentUser.initiatives.mentors;
         }
         if (currentUser.type === 'mentor') {
-            allUsers = currentUser.mentees;
+            // allUsers = currentUser.mentees;
         }
         if (allUsers === []) throw new Error('no Users were found');
         res.send({allUsers, ok: true});
