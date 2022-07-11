@@ -131,7 +131,7 @@ export async function getAllRecipients(req, res) {
         const {id} = userDecodedInfo;
         const currentUser = await UserModel.findOne({_id: id});
         console.log(currentUser, 'userCont -47');
-        let allUsers = [];
+        let allUsers:any = [];
         if (currentUser.type === 'mentee') {
             allUsers = currentUser.initiatives.mentors;
         }
