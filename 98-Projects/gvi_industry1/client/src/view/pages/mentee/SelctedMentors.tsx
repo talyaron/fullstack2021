@@ -4,15 +4,20 @@ import "../mentee/style/selectedPage.scss";
 import axios from "axios"
 import Card from "./Card";
 const SelctedMentors = () => {
-  const { id } = useParams();
-  console.log(id)
+  // const { id } = useParams();
+  // console.log(id)
+  const [selectingUserId, setSelectingUserId] = useState<String>('');
 
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get("/api/users/get-selected-user-id");
-      console.log(data);
+      const { data } = await axios.get("/api/users/get-selecteing-user");
+      // console.log(data);
+      const { _id } = data;
+      const user = await axios.post('/api/users/get-selected-users', {_id})
+      // setSelectingUserId(data);
+
     })();
-  }, []);
+  }, [selectingUserId]);
 
 
 
