@@ -9,7 +9,7 @@ import Matching from "./view/pages/matching/Matching";
 import Chat from "./view/pages/Chat/Chat";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,useParams } from "react-router-dom";
 import Button from "./view/components/Button";
 import Card from "./view/pages/mentee/Card";
 import SelctedMentors from "./view/pages/mentee/SelctedMentors";
@@ -17,6 +17,8 @@ import SelctedMentors from "./view/pages/mentee/SelctedMentors";
 function App() {
   const [mentorsList, setMentorsList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
+
+  let { userId } = useParams();
 
 
 
@@ -28,7 +30,7 @@ function App() {
       console.log(user)
     })();
   }, [])
-
+  // const sid = currentUser._id
   return (
     <Router>
       <Routes>

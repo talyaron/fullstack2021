@@ -22,6 +22,8 @@ const Matching = (props: MatchingProps) => {
       console.log(currentUser);
     })();
   }, []);
+//   const userid:any =  `{currentUser._id} `
+//  let  userId  = useParams();
 
   //  function handleSelectedUserId(currentUser:any){
   //     // console.log(currentUser)
