@@ -106,11 +106,11 @@ export async function getSelectingUser(req, res) {
 
 export async function getSelectedUserdata(req, res) {
   try {
-    const selectingUserId = req.body;
-    const users = await selectedUsersModel.find(selectingUserId)
-    console.log(users);
-    // const selectedUsers =
-    res.send({ok:true})
+    const currentUserId = req.body;
+    const users = await selectedUsersModel.find({})
+    // console.log(users);
+    // const selectedUsers = users.filter((user) => selectingUserId === currentUserId);
+    res.send({ok:true, users})
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
