@@ -2,7 +2,7 @@ import React from 'react'
 
 const Mentee = () => {
   return (
-    <div>Mentee</div>
+    <div>mentee</div>
   )
 }
 

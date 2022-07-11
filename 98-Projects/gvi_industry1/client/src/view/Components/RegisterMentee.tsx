@@ -66,13 +66,15 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             const profilePic = ev.target.elements.profilePic.value;
 
 
-            const name = { first, last };
+        const user = { name,password,profilePic, description,linkdinProfile, email, country, phone, sector, stage }
+        const initiative = { sector, companyName, description, stage, website, linkToOnePager, presentations }
+        console.log(user);
+        console.log(initiative);
+        
+        //initaitive not addded yet to mongo
 
-            const user = { name, password, profilePic, description, linkdinProfile, email, country, phone, sector, stage }
-            const initiative = { sector, companyName, description, stage, website, linkToOnePager, presentations }
-            console.log(user);
-            console.log(initiative);
-            //company not addded yet to mongo
+        const {data} = await axios.post('/api/users/add-user', {user});
+        
 
             const userData = await axios.post('/api/users/add-user', { user });
 

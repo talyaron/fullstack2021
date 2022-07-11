@@ -6,6 +6,7 @@ import axios from "axios";
 const Article = () => {
 
     const { articleId } = useParams()
+    console.log(articleId)
     const [tempArticle, setTempArticle] = useState<string>('')
     const [title, setTitle] = useState<string>('');
 
