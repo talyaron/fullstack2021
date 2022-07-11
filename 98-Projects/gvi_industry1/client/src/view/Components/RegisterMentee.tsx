@@ -78,8 +78,8 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
             console.log(userData)
             // Already exists CHECK
-            if (userData.data === 'Already exists') {
-                window.alert('Already Exists')
+            if (userData.data === 'Already exists' || userData.data == null) {
+                window.alert('User Already Exists. Please try deferent email:)')
             }
             // Already exists CHECK
 
