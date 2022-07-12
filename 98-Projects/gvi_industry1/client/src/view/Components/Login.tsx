@@ -42,7 +42,7 @@ const Login = (props:LoginProps) => {
        <h2 className='login__greeting'>Welcome Back!</h2>
        <div className='login__with'>
         
-        <button><div><img src="/googleLogo.png" alt="google logo" className='login__with--googleLoginButtonImg'/></div><div>Continue with google</div></button>
+        <button><div><img src="./googleLogo.png" alt="google logo" className='login__with--googleLoginButtonImg'/></div><div>Continue with google</div></button>
         
        </div>
        
