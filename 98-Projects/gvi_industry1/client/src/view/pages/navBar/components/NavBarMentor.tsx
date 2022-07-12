@@ -78,8 +78,8 @@ function NavBarMentor(props:navBarMentorProps) {
       </div>
     </div>
      <Profile  myProfile={myProfile} id={id}/>
-     <Matching matching={matching}/>
-        
+     {/* <Matching matching={matching}/>
+         */}
       </div>
     </div>
   )
