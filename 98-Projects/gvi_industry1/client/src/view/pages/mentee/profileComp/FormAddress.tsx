@@ -10,11 +10,12 @@ function FormAddress(props:FormAddressProps){
   
   const {contactInfo,userId} = props;
 
+
+
 async function updateContactInfo(ev:any){
 
   ev.preventDefault()
   
-
   const country = ev.target.elements.country.value;
   const email = ev.target.elements.email.value;
   const phone = ev.target.elements.phone.value;
@@ -26,7 +27,7 @@ async function updateContactInfo(ev:any){
     
     const data = await axios.post('/api/users/updateUserDetails' , {updatedDetails})
 
-    console.log(data);
+    console.log(data)
     
 }
   

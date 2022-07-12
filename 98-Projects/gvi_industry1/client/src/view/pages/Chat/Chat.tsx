@@ -1,8 +1,8 @@
 import {useState, useEffect, useId} from 'react';
 import axios from 'axios';
-import ChatWindow from './Components/ChatWindow';
-import CurrentRecipient from './Components/CurrentRecipient';
-import SideBar from './Components/SideBar';
+import ChatWindow from './components/ChatWindow';
+import CurrentRecipient from './components/CurrentRecipient';
+import SideBar from './components/SideBar';
 import {socket} from '../../../index';
 import {ObjectId} from 'mongoose';
 import {text} from 'node:stream/consumers';
