@@ -9,11 +9,11 @@ interface MatchingProps {
   mentorsList: any;
   setMentorsList: Function;
   currentUser: any;
-  matching:boolean;
+  // matching:boolean;
 }
 
 const Matching = (props: MatchingProps) => {
-  const { mentorsList, setMentorsList, currentUser, matching} = props;
+  const { mentorsList, setMentorsList, currentUser} = props;
   useEffect(() => {
     (async () => {
       const { data } = await axios.post("/api/users/get-mentors", {currentUser});
@@ -31,7 +31,8 @@ const Matching = (props: MatchingProps) => {
   //  }
 
   return (
-    <div className={matching?"matching showMatching":"dontShowMatching"}>
+    //<div className={matching?"matching showMatching":"dontShowMatching"}>
+    <div className="matching ">
       <Link to="/selected-mentors">Selected-mentors</Link>
       <Search />
       <MatchingCard mentorsList={mentorsList} />

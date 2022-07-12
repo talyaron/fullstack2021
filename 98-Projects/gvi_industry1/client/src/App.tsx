@@ -18,7 +18,7 @@ function App() {
 
   const [mentorsList, setMentorsList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
-
+  const [myProfile, setMyProfile]= useState(false);
   let { userId } = useParams();
 
 
@@ -34,7 +34,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/Profile" element={<Profile id="1234"/>} />
+        <Route path="/Profile" element={<Profile id="1234" myProfile={myProfile}/>} />
         <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
         <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />
