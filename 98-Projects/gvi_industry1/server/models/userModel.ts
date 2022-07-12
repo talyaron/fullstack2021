@@ -8,13 +8,9 @@ export const NameSchema = new mongoose.Schema({
   last: String,
 });
 
-export enum FieldsOfKnowledgeSchema{
-  
-    
+export enum FieldsOfKnowledgeSchema{  
     UX="ux",
     DEVELOPMENT= "devlopment",
-   
- 
 }
 
 
