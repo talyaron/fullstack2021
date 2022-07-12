@@ -112,16 +112,16 @@
                 color: #707991;
                 font-size: 14px;
                 line-height: 18px;
-                line-height: 2;
+                line-height: 1;
                 border-radius: 50px;
                 border: none;
                 outline: none;
-                padding-inline: 1.5em;
-                padding-block: 0.9em;
+                margin-block: 0.5em;
                 &:-webkit-autofill {
                     box-shadow: 0 0 0 30px white inset;
                 }
                 button {
+                    margin-inline-end: 1.5em;
                     background: none;
                     color: inherit;
                     border: none;

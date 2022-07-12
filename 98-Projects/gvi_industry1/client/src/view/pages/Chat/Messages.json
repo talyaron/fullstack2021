@@ -4,14 +4,14 @@
   },
   "sender": {
     "userId": "62b50ec96bd21c886f8fc3ad",
-    "userName": {
+    "name": {
       "first": "Etan",
       "last": "Heyman"
     }
   },
   "recipients": [
     {
-      "userName": {
+      "name": {
         "first": "Michael",
         "last": "Dubovyk"
       },
@@ -19,14 +19,14 @@
     },
     {
       "userId": "62b50f5b6bd21c886f8fc3af",
-      "userName": {
+      "name": {
         "first": "Michael",
         "last": "Frankel"
       }
     },
     {
       "userId": "62b50fc26bd21c886f8fc3b0",
-      "userName": {
+      "name": {
         "first": "Andrew",
         "last": "Lishafay"
       }

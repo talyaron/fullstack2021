@@ -82,11 +82,11 @@ function SideBar(props: SideBarProps) {
                                 onClick={() => {
 
                                     setSelectedRec(user)
-                                    // setRecipient(user);
+                                    setRecipient(user);
                                     // setSelected()
                                 }}
                             >
-                                <p >{user.userName.first} {user.userName.last}</p>
+                                <p >{user.name.first} {user.name.last}</p>
                             </li>
                         );
                     })

@@ -2,7 +2,7 @@
   "_id": {
     "$oid": "62b50ec96bd21c886f8fc3ad"
   },
-  "userName": {
+  "name": {
     "first": "Etan",
     "last": "Heyman"
   }
@@ -10,7 +10,7 @@
   "_id": {
     "$oid": "62b50f046bd21c886f8fc3ae"
   },
-  "userName": {
+  "name": {
     "first": "Michael",
     "last": "Dubovyk"
   }
@@ -18,7 +18,7 @@
   "_id": {
     "$oid": "62b50f5b6bd21c886f8fc3af"
   },
-  "userName": {
+  "name": {
     "first": "Michael",
     "last": "Frankel"
   }
@@ -26,7 +26,7 @@
   "_id": {
     "$oid": "62b50fc26bd21c886f8fc3b0"
   },
-  "userName": {
+  "name": {
     "first": "Andrew",
     "last": "Lishafay"
   }

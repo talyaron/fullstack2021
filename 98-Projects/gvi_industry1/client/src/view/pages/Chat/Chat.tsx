@@ -1,20 +1,23 @@
 import {useState, useEffect, useId} from 'react';
 import axios from 'axios';
-import ChatWindow from './Components/ChatWindow';
-import CurrentRecipient from './Components/CurrentRecipient';
-import SideBar from './Components/SideBar';
+import ChatWindow from './components/ChatWindow';
+import CurrentRecipient from './components/CurrentRecipient';
+import SideBar from './components/SideBar';
 import {socket} from '../../../index';
 import {ObjectId} from 'mongoose';
 import {text} from 'node:stream/consumers';
 import UserList from './Untitled.json';
-
+export interface nameInterface {
+    first: string;
+    last: string;
+}
 export interface MessageUserInterface {
     userId: String;
-    fullName: String;
+    name: nameInterface;
 }
 export interface UserInterface {
     _id: String;
-    fullName: String;
+    name: nameInterface;
 }
 export interface MessageInterface {
     _id?: String;
@@ -31,7 +34,8 @@ function Chat() {
     const [sentMessage, setSentMessage] = useState('');
     const [room, setRoom] = useState('');
     const [messageList, setMessageList] = useState<Array<MessageInterface>>([]);
-    const [recipient, setRecipient] = useState<UserInterface>();
+    //set to empty so we don't get errors about undefined userInterface:
+    const [recipient, setRecipient] = useState<UserInterface>({_id:'', name: {first: 'a', last: 'a'}});
     const [userList, setUserList] = useState<Array<any>>([UserList]);
     const [searchMessagesToggle, setSearchMessagesToggle] = useState<boolean>(false);
 
@@ -95,12 +99,12 @@ useEffect(() => {getMessageList(recipient)},[recipient])
     function handleSendMessage() {
         try {
             const id: any = recipient?._id;
-            const fullName: any = recipient?.fullName;
+            const name:nameInterface = recipient?.name;
             if (sentMessage === '') throw new Error('Type something!');
             const payload = {
                 text: sentMessage,
-                sender: {userId: '', fullName: ''},
-                recipients: [{userId: id, fullName: fullName}],
+                sender: {userId: '', name: {first:'', last: ''}},
+                recipients: [{userId: id, name: name}],
                 file: '',
             };
             socket.emit('send-message', payload);
