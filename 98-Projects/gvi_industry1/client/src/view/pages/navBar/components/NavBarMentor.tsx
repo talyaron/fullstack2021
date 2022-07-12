@@ -12,7 +12,7 @@ interface navBarMentorProps{
   myMentee:Boolean;
   setMatching:Function;
   matching:Boolean;
-  loggedInUser:Array<any>;
+  loggedInUser:any;
   setMyProfile:Function;
   myProfile:Boolean;
 }
