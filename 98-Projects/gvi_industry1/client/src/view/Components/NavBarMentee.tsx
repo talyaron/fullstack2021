@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Profile from '../pages/mentee/Profile'
 interface navBarProps{
     id:String
@@ -11,6 +11,32 @@ function NavBarMentee(props:navBarProps) {
     const [request, setRequest]= useState(false);
     const [mentorMatching, setMentorMatching]= useState(false);
     const [myTask, setMyTask]= useState(false);
+    const [loggedInUser,setloggedInUser]=useState<any>([]);
+
+
+useEffect(() => {
+    //get data on the user and show the chosen user by id
+
+    (async () => {
+      try {
+        const { data } = await axios.post('/get-all-recipients');
+
+        const {loggedInUserObj} = data;
+        // console.log(data);
+          //console.log(profileId +"profile id from navbar")
+         
+        setloggedInUser(loggedInUserObj);
+        if (!loggedInUserObj) {
+          throw new Error("no profile");
+        }
+        
+        
+      } catch (err: any) {
+        console.error(err.message);
+      }
+    })();
+  }, []);
+
     const {image, id}=props;
   return (
     <div>
