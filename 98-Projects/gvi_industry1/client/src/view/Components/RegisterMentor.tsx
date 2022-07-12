@@ -61,9 +61,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             if (userData.data === 'Already exists') {
                 window.alert('Already Exists')
             }
-            // Already exists CHECK
-
-            // const intiativeData = await axios.post('/api/initiatives/add-initiative', { initiative });
+          
 
         } catch (error) {
             console.error(error);
