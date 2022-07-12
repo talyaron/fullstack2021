@@ -115,7 +115,7 @@ export async function getSelectedUserdata(req, res) {
     // console.log(users);
     const selectedUsers = users.filter((user) => user.selectingUserId === _id && user.selected === true);
     const selectedUsersData = selectedUsers.forEach(user => {
-      await UserModel.findById(  );
+      await UserModel.findById(user._id);
     });
     res.send({ ok: true, selectedUsers })
   } catch (error) {
