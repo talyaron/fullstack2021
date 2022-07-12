@@ -26,6 +26,7 @@
         grid-area: b;
         box-shadow: inset -1px 0px 0px 0px rgba(128, 128, 128, 0.38);
         &__searchBar {
+        height: 56px;
             display: flex;
             place-items: center;
             place-content: space-evenly;
