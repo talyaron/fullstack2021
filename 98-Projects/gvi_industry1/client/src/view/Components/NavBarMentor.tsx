@@ -55,7 +55,7 @@ useEffect(() => {
       <div><button onClick={() => { setMyMentee(!myMentee) }}>My Mentees</button></div>
       <div><button onClick={() => { setMatching(!matching) }}>Matching</button></div>
       <div className="profileIMG">
-        <img src='image' alt="profile logo" onClick={(id) => { setMyProfile(!myProfile) }}/>
+        <img src={loggedInUser && loggedInUser.profileImg ? loggedInUser.profileImg : null} alt="profile logo" onClick={(id) => { setMyProfile(!myProfile) }}/>
         </div>
       </div>
       </div>
