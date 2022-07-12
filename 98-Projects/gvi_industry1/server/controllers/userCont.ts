@@ -157,8 +157,8 @@ export const login = async (req, res) => {
         if (typeof email === "string" && typeof password === "string") {
             console.log(email, 'loggedIn 2');
 
-            const user = await UserModel.findOne({ email })
-        // .collation({ locale: "en_US", strength: 1 });
+            const user = await UserModel.findOne({ email }).collation({ locale: "en_US", strength: 1 });
+            //collation strength 1 performs comparisons of the base characters only, ignoring other differences such as diacritics and case.
             console.log(user);
             if (user) {
 
