@@ -216,3 +216,19 @@ export const addUser = async (req, res) => {
     }
 }
 
+export const getUserProfile = async (req, res) => {
+  try {
+    const { id } = req.body;
+
+
+    const user = await UserModel.findOne({_id:id})
+    
+    res.send({user, ok: true})
+    
+    } catch (err) {
+        console.error(err);
+        res.send({ error: err.message, ok: false });
+    }
+  }
+
+

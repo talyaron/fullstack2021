@@ -48,7 +48,6 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         try {
             console.dir(ev.target);
 
-
             const firstName = ev.target.elements.firstName.value;
             const lastName = ev.target.elements.lastName.value;
             const password = ev.target.elements.password.value;
