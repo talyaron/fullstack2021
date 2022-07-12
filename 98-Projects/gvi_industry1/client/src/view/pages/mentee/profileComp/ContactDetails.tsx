@@ -8,6 +8,9 @@ function ContactDetails (props:ContactDetailsProps) {
   
 const {contactInfo} =props;
 
+console.log(contactInfo);
+
+
     return (
       
       <>
@@ -18,8 +21,9 @@ const {contactInfo} =props;
             </div>
             <p className='profile_contactInfo-email'>{contactInfo.email}</p>
             <p className='profile_contactInfo-phone'>{contactInfo.phone}</p>
-            <a className='profile_contactInfo-linkDinLink' style={{gridColumn:'3/4',gridRow:'9/11',height:'75%',width:'150%'}} 
-            href={contactInfo.linkDinLink}><img style={{height:'100%',width:'100%'}} 
+            <a className='profile_contactInfo-linkDinLink' 
+            style={{gridColumn:'3/4',gridRow:'9/11',height:'75%',width:'150%'}} 
+            href={contactInfo.linkdInProfile}><img style={{height:'100%',width:'100%'}} 
             src="https://seeklogo.com/images/L/linkedin-icon-logo-32AA14A009-seeklogo.com.png" alt="" /></a>
       </>
     )

@@ -230,5 +230,25 @@ export const getUserProfile = async (req, res) => {
         res.send({ error: err.message, ok: false });
     }
   }
+  export const updateUserDetails = async (req, res) => {
+    try {
+      const {updatedDetails, userId } = req.body;
+
+      const user = await UserModel.findOne({_id:userId})
+
+      if(updatedDetails.country !== " ") user.country = updatedDetails.country
+      if(updatedDetails.email !== " ") user.email = updatedDetails.email 
+      if(updatedDetails.phone !== " ") user.phone = updatedDetails.phone
+      if(updatedDetails.linkdin !== " ") user.linkedInProfile = updatedDetails.linkdin
+
+      await UserModel.updateOne({ _id:userId}, user);
+      
+      res.send({user, ok: true})
+      
+      } catch (err) {
+          console.error(err);
+          res.send({ error: err.message, ok: false });
+      }
+    }
 
 
