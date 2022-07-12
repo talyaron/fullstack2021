@@ -1,0 +1,25 @@
+.logo{
+   width: 93px;
+   height: 81px; 
+}
+.navBar{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+.btn{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+button{
+    width: 134px;
+    height: 39px;
+    border-radius: 15px;
+}
+.profileIMG{
+    width: 60px;
+     height: 60px;
+      border-radius: 100%;
+}
