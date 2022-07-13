@@ -27,7 +27,7 @@ useEffect(() => {
 
     (async () => {
       try {
-        const { data } = await axios.post('/get-LoggedIn-Profile');
+        const { data } = await axios.post('api/users/get-LoggedIn-Profile');
 
         const {loggedInUserObj} = data;
         // console.log(data);
