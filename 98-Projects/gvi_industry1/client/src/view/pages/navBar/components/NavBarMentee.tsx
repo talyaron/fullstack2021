@@ -50,7 +50,7 @@ function NavBarMentee(props:navBarMenteeProps) {
     </div>
     </div>
   </div>
-   <Profile  myProfile={myProfile} id={loggedInUser._id}/>
+   {/* <Profile  myProfile={myProfile} id={loggedInUser._id}/> */}
 
       
     </div>

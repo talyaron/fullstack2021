@@ -12,6 +12,6 @@ router
     .post('/selected-user', selectUser)
     .get('/get-selecteing-user',getSelectingUser)
     .post('/get-selected-users',getSelectedUserdata)
-    .post('/ get-LoggedIn-Profile',  getLoggedInProfile)
+    .post('/get-LoggedIn-Profile', getLoggedInProfile)
 export default router;
 

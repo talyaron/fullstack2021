@@ -46,7 +46,7 @@ function NavBarMentor(props:navBarMentorProps) {
       </div>
       </div>
     </div>
-     <Profile  myProfile={myProfile} id={loggedInUser._id}/>
+     {/* <Profile  myProfile={myProfile} id={loggedInUser._id}/> */}
      {/* <Matching matching={matching}/>
          */}
       </div>
