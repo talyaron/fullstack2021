@@ -94,9 +94,6 @@ app.use('/api/initiatives', initiativesRouter);
 import userRouter from './routes/userRoute';
 app.use('/api/users', userRouter);
 
-import matchingRoute from './routes/matchingRoute'
-app.use('/api/matching', matchingRoute)
-
 import messageRoute from './routes/messageRoute';
 app.use('/api/messages', messageRoute);
 

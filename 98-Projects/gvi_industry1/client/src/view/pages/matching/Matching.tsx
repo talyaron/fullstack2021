@@ -9,32 +9,52 @@ interface MatchingProps {
   mentorsList: any;
   setMentorsList: Function;
   currentUser: any;
+  currentSearch: any;
+  setCurrentSearch: Function;
+  checked: any;
+  setChecked: Function;
 }
 
 const Matching = (props: MatchingProps) => {
-  const { mentorsList, setMentorsList, currentUser } = props;
+  const {
+    mentorsList,
+    setMentorsList,
+    currentUser,
+    currentSearch,
+    setCurrentSearch,
+    checked,
+    setChecked,
+  } = props;
+
   useEffect(() => {
     (async () => {
-      const { data } = await axios.post("/api/users/get-mentors", {currentUser});
+      const { data } = await axios.post("/api/users/get-mentors", {
+        currentUser,
+      });
 
       const { allMentors } = data;
       setMentorsList(allMentors);
-      console.log(currentUser);
+      console.log(allMentors);
     })();
   }, []);
-//   const userid:any =  `{currentUser._id} `
-//  let  userId  = useParams();
+
+  //   const userid:any =  `{currentUser._id} `
+  //  let  userId  = useParams();
 
   //  function handleSelectedUserId(currentUser:any){
-  //     // console.log(currentUser)
   //  }
 
   return (
     <div className="matching">
       <Link to="/selected-mentors">Selected-mentors</Link>
-      <Search />
+      <Search
+        currentSearch={currentSearch}
+        setCurrentSearch={setCurrentSearch}
+      />
+      <FilterMenu checked={checked} setChecked={setChecked} />
+
       <MatchingCard mentorsList={mentorsList} />
-      <FilterMenu />
+
       <Outlet />
     </div>
   );
