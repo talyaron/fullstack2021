@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Matching from "../../matching/Matching";
 import Profile from "../..//mentee/Profile";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 
 interface navBarMentorProps {
   setRequest: Function;
@@ -29,13 +29,13 @@ function NavBarMentor(props: navBarMentorProps) {
     myProfile,
   } = props;
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
-  useEffect(()=>{
-    if(myProfile===true) {
-      navigate('/profile')
-    }
-  },[myProfile])
+  // useEffect(()=>{
+  //   if(myProfile===true) {
+  //     navigate('/profile')
+  //   }
+  // },[myProfile])
 
   return (
     <div className="navBar">
@@ -71,15 +71,22 @@ function NavBarMentor(props: navBarMentorProps) {
             Matching
           </button>
         </div>
-        <div className="profileIMG" onClick={(id) => {
-              setMyProfile(!myProfile);
-            }}>
+        <div className="profileIMG"> 
+        {/* onClick={(id) => { */}
+        {/* //       setMyProfile(!myProfile);
+        //     }} */}
+            
           {/* {myProfile == true ? navigate("/profile") : <></>} */}
+          <Link to="profile">
           <img
-            src={loggedInUser && loggedInUser.image ? loggedInUser.image : null}
+            src={
+              loggedInUser && loggedInUser.image
+                ? loggedInUser.image
+                : null
+            }
             alt="profile logo"
-           
-          />
+         
+          /></Link>
         </div>
       </div>
       {/* <Profile  myProfile={myProfile} id={loggedInUser._id}/> */}
