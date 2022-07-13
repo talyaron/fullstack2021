@@ -3,6 +3,7 @@
 const secret = process.env.JWT_SECRET;
 import UserModel from "../models/userModel";
 import selectedUsersModel from "../models/selectedUsers";
+import initiativeModel from "../models/initiativeModel";
 import JWT from "jwt-simple";
 
 export const getMentors = async (req, res) => {
