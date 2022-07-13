@@ -216,3 +216,26 @@ export const addUser = async (req, res) => {
     }
 }
 
+export async function getLoggedInProfile(req, res) {
+  // get logged in user id from cookie,
+  // insert it inside the find.
+  // check if user type is mentor or mentee
+  try {
+      const {userInfo} = req.cookies;
+      const userDecodedInfo = JWT.decode(userInfo, secret);
+      const {id} = userDecodedInfo;
+      const currentUser = await UserModel.findOne({_id: id});
+      console.log(currentUser);
+      if (currentUser.type === 'mentee') {
+          // allUsers = currentUser.initiatives.mentors;
+      }
+      if (currentUser.type === 'mentor') {
+          // allUsers = currentUser.mentees;
+      }
+      if (currentUser === null) throw new Error('no Users were found');
+      res.send({currentUser, ok: true});
+  } catch (error) {
+      console.log(error.error);
+      res.send({error: error.message});
+  }
+}

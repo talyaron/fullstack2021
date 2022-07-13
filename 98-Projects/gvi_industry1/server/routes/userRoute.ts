@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 
-import { addUser, login, getMentors, getUser, getAllRecipients, selectUser,getSelectingUser,getSelectedUserdata } from '../controllers/userCont'
+import { addUser, login, getMentors, getUser, getAllRecipients, selectUser,getSelectingUser,getSelectedUserdata , getLoggedInProfile} from '../controllers/userCont'
 
 router
     .post('/add-user', addUser)
@@ -12,6 +12,6 @@ router
     .post('/selected-user', selectUser)
     .get('/get-selecteing-user',getSelectingUser)
     .post('/get-selected-users',getSelectedUserdata)
-
+    .post('/ get-LoggedIn-Profile',  getLoggedInProfile)
 export default router;
 

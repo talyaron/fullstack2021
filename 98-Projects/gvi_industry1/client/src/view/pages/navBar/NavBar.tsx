@@ -2,13 +2,14 @@ import React from 'react'
 import NavBarMentee from './components/NavBarMentee'
 import NavBarMentor from './components/NavBarMentor'
 import {useState, useEffect} from 'react';
-interface navBarProps{
-    id:String;
-    image:String;
+import axios from 'axios';
+// interface navBarProps{
+//     id:String;
+//     image:String;
 
-}
-function NavBar(props:navBarProps) {
-    const{image, id} =props
+// }
+function NavBar() {
+    //const{image, id} =props
     const [myMentors, setMyMentors]= useState(false);
     const [myProfile, setMyProfile]= useState(false);
     const [request, setRequest]= useState(false);
@@ -19,21 +20,22 @@ function NavBar(props:navBarProps) {
     const [matching, setMatching]= useState(false);
     const [mentee, setMentee]= useState(false);
     const[mentor, setMentor]=useState(false);
-   
+   const [image, setImage]= useState("")
+   const id=""
 useEffect(() => {
     //get data on the user and show the chosen user by id
 
     (async () => {
       try {
-        const { data } = await axios.post('/get-all-recipients');
+        const { data } = await axios.post('/get-LoggedIn-Profile');
 
         const {loggedInUserObj} = data;
         // console.log(data);
           //console.log(profileId +"profile id from navbar")
-         if(data.type== mentee){
+         if(data.type== "mentee"){
             setMentee(mentee)
          }else{
-            if(data.type==mentor){
+            if(data.type=="mentor"){
                 setMentor(mentor)
             }
          }

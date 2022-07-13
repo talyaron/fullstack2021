@@ -12,7 +12,12 @@ import axios from 'axios';
 import {BrowserRouter as Router, Routes, Route, useParams} from 'react-router-dom';
 
 import SelctedMentors from "./view/pages/mentee/SelctedMentors";
+import NavBar from "./view/pages/navBar/NavBar";
+// interface app{
+//   id:String;
+//   image:String;
 
+// }
 
 function App() {
 
@@ -34,11 +39,14 @@ function App() {
   return (
     <Router>
       <Routes>
+         <Route path='/' element={<HomePage />}/>
+         <Route path='/navbar'element={<NavBar />}>
         <Route path="/Profile" element={<Profile id="1234" myProfile={myProfile}/>} />
-        <Route path='/' element={<HomePage />}/>
+       
         <Route path="/chat" element={<Chat />} />
         <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />
         <Route path=":id" element={<SelctedMentors />} />
+        </Route> 
       </Routes>
     </Router>
   );
