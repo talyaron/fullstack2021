@@ -41,7 +41,7 @@ function App() {
     <Router>
       <Routes>
          <Route path='/' element={<HomePage />}/>
-         <Route path='/navbar'element={<NavBarMentee />}/>
+         <Route path='/navbar'element={<NavBar />}/>
         <Route path="/Profile" element={<Profile id="1234" myProfile={myProfile}/>} />
        
         <Route path="/chat" element={<Chat />} />

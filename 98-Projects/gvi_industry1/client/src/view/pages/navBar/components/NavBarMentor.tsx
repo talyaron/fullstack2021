@@ -4,8 +4,6 @@ import Matching from '../../matching/Matching';
 import Profile from '../..//mentee/Profile'
 
 interface navBarMentorProps{
-  id:String;
-  image:String;
   setRequest:Function;
   request:Boolean;
   setMyMentee:Function;
@@ -18,38 +16,9 @@ interface navBarMentorProps{
 }
 
 function NavBarMentor(props:navBarMentorProps) {
-//   const [myMentee, setMyMentee]= useState(false);
-//   const [matching, setMatching]= useState(false);
-//   const [request, setRequest]= useState(false);
-//   const [myProfile, setMyProfile]= useState(false);
-//   const [loggedInUser,setloggedInUser]=useState<any>([]);
 
 
-// useEffect(() => {
-//     //get data on the user and show the chosen user by id
-
-//     (async () => {
-//       try {
-//         const { data } = await axios.post('/get-all-recipients');
-
-//         const {allUsers} = data;
-//         // console.log(data);
-//           //console.log(profileId +"profile id from navbar")
-         
-//         setloggedInUser(allUsers);
-//         if (!allUsers) {
-//           throw new Error("no profile");
-//         }
-        
-        
-//       } catch (err: any) {
-//         console.error(err.message);
-//       }
-//     })();
-//   }, []);
-
-
-  const {image, id,setRequest,
+  const {setRequest,
     request,
     setMyMentee,
     myMentee,
@@ -77,7 +46,7 @@ function NavBarMentor(props:navBarMentorProps) {
       </div>
       </div>
     </div>
-     <Profile  myProfile={myProfile} id={id}/>
+     <Profile  myProfile={myProfile} id={loggedInUser._id}/>
      {/* <Matching matching={matching}/>
          */}
       </div>
