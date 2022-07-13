@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Profile from "../../mentee/Profile";
 interface navBarMenteeProps {
   setRequest: Function;
@@ -28,6 +29,16 @@ function NavBarMentee(props: navBarMenteeProps) {
     setMyProfile,
     myProfile,
   } = props;
+
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+    if(myProfile===true) {
+      navigate('/profile')
+    }
+    console.log(myProfile)
+  },[myProfile])
+
   return (
           <div className="navBar">
             <div className="logo">
@@ -71,7 +82,9 @@ function NavBarMentee(props: navBarMenteeProps) {
                   100Task
                 </button>
               </div>
-              <div className="profileIMG">
+              <div className="profileIMG"    onClick={(id) => {
+                    setMyProfile(!myProfile);
+                  }}>
                 <img
                   src={
                     loggedInUser && loggedInUser.image
@@ -79,9 +92,7 @@ function NavBarMentee(props: navBarMenteeProps) {
                       : null
                   }
                   alt="profile logo"
-                  onClick={(id) => {
-                    setMyProfile(!myProfile);
-                  }}
+               
                 />
               </div>
             </div>

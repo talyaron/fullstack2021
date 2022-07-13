@@ -29,7 +29,6 @@ function NavBar() {
 
     (async () => {
       try {
-        console.log(`hi before`)
         const { data } = await axios.post("/api/users/get-LoggedIn-Profile");
         const { currentUser } = data;
         console.log(currentUser);
