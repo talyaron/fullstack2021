@@ -17,10 +17,13 @@ interface RegisterMentorProps {
     handleCloseRegisterWindow: Function
     firstSection: string,
     secondSection: string,
+    thirdSection: string,
     showProgressBar: string,
     handleToggleShowSections: Function,
     handleBackToggleShowSections: Function,
-    handleBackToSelection: Function
+    handleBackToSelection: Function,
+    handleBackToggleShowThirdSection: Function
+    handleToggleShowThirdSection: Function
 }
 
 const steps = [
@@ -30,7 +33,7 @@ const steps = [
 ];
 
 const RegisterMentor = (props: RegisterMentorProps) => {
-    const { firstSection, secondSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, mentorWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
+    const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, mentorWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
 
     const [activeStep, setActiveStep] = React.useState(0);
 
@@ -42,7 +45,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             const password = ev.target.elements.password.value;
             const email = ev.target.elements.email.value;
             const phone = ev.target.elements.phone.value;
-            const linkdinProfile = ev.target.elements.linkdinProfile.value;
+            const linkdInProfile = ev.target.elements.linkdinProfile.value;
             const country = ev.target.elements.country.value;
             const FieldsOfKnowledged = ev.target.elements.FieldsOfKnowledged.value;
             const stage = ev.target.elements.startupStage.value;
@@ -52,16 +55,16 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             const type = 'mentor';
             const name = { first, last };
 
-            const user = { name, password, profilePic, description, linkdinProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
+            const user = { name, password, profilePic, description, linkdInProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
             console.log(user);
 
-            const userData = await axios.post('/api/users/add-user', {user});
+            const userData = await axios.post('/api/users/add-user', { user });
             console.log(userData)
             // Already exists CHECK
             if (userData.data === 'Already exists') {
                 window.alert('Already Exists')
             }
-          
+
 
         } catch (error) {
             console.error(error);
@@ -183,11 +186,21 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                             </div>
                             <div className="btn-back-next">
                                 <div className="back-btn"><button type="button" onClick={() => { handleBackToggleShowSections(); setActiveStep(0) }}><span className="fa fa-angle-left"></span> BACK</button></div>
-                                <div><input type='submit' value='NEXT' onClick={() => { handleToggleShowSections(); setActiveStep(2) }} /></div>
+                                <div><input type='submit' value='NEXT' onClick={() => { handleToggleShowThirdSection(); setActiveStep(2) }} /></div>
                             </div>
                         </div>
                     </div>
                 </form>
+
+                <div className={thirdSection}>
+                    <h1 className="welcomeNote__title">We're so happy to welcome you!</h1>
+                    <div className="pic"></div>
+                    <p className="welcomeNote__text">Since you are part of the founding generation, we would like to offer you 15 days of free use without any additional commitment on your part</p>
+                    <div className="btn-back-next">
+                                    <div className="back-btn"><button type="button" onClick={() => { handleBackToggleShowThirdSection(); setActiveStep(0) }}><span className="fa fa-angle-left"></span> BACK</button></div>
+                                    <div><input type='submit' value='NEXT' onClick={() => { setActiveStep(3) }} /></div>
+                                </div>
+                </div>
             </div>
         </div>
 
