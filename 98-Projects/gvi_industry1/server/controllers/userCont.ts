@@ -12,9 +12,9 @@ export const getMentors = async (req, res) => {
       const filterMentors = allMentors.filter(
         (mentor) => mentor.country === currentUser.country
       );
+      res.send({ allMentors, ok: true });
+      console.log(filterMentors);
     }
-    res.send({ allMentors, ok: true });
-    console.log(filterMentors);
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
