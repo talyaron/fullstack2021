@@ -1,6 +1,6 @@
 const express = require('express');
 import mongoose from 'mongoose';
-import CardRoute from './routes/CardRoute';
+
 const app = express();
 require('dotenv').config();
 const port = process.env.PORT || 4000;
@@ -35,7 +35,10 @@ import MessageModel from './models/messageModel';
 app.use(express.json());
 
 app.use(express.static('client/build'));
-app.use('/api/users', CardRoute);
+import CardRoute from './routes/CardRoute';
+
+
+
 app.use('/api/companies', CardRoute);
 console.log(process.env.ENV);
 console.log(process.env.JWT_SECRET);
@@ -91,11 +94,13 @@ io.on('connection', (socket: any) => {
 import initiativesRouter from './routes/initiativesRoute';
 app.use('/api/initiatives', initiativesRouter);
 
-import userRouter from './routes/userRoute';
-app.use('/api/users', userRouter);
+import userRoute from './routes/userRoute';
+app.use('/api/users',testServer, userRoute);
 
-import matchingRoute from './routes/matchingRoute'
-app.use('/api/matching', matchingRoute)
+function testServer(req, res, next){
+    console.log('test server')
+    next()
+}
 
 import messageRoute from './routes/messageRoute';
 app.use('/api/messages', messageRoute);

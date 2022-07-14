@@ -18,18 +18,20 @@ function App() {
 
   const [mentorsList, setMentorsList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
+  const [currentSearch, setCurrentSearch] =useState([])
+  const [checked, setChecked] = useState([0]);
 
   let { userId } = useParams();
 
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const { data } = await axios.get('/api/users/get-user')
-  //     const {user} = data
-  //     setCurrentUser(user)
-  //     console.log(user)
-  //   })();
-  // }, [])
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('/api/users/get-user')
+      const {user} = data
+      setCurrentUser(user)
+      console.log(user)
+    })();
+  }, [])
 
   return (
     <Router>
@@ -37,7 +39,7 @@ function App() {
         <Route path="/Profile" element={<Profile id="1234"/>} />
         <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
-        <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />
+        <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} currentSearch={currentSearch} setCurrentSearch={setCurrentSearch} checked={checked} setChecked={setChecked} />} />
         <Route path=":id" element={<SelctedMentors />} />
       </Routes>
     </Router>
