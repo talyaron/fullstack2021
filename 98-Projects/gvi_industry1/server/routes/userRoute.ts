@@ -6,7 +6,8 @@ import { addUser, login, getMentors, getSearch, getUser, getAllRecipients, selec
 router
     .post('/add-user', addUser)
     .post('/login', login)
-    .post('/get-mentors', getMentors)
+    .post('/get-mentors',test, getMentors)
+    .get('/get-mentors',getSearch)
     .post('/get-all-recipients', getAllRecipients)
     .get('/get-user', getUser)
     .get('/get-search', getSearch)
@@ -16,3 +17,7 @@ router
 
 export default router;
 
+function test(req, res, next){
+    console.log('test')
+    next()
+}

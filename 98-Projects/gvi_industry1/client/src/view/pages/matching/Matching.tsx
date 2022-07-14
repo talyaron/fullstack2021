@@ -28,12 +28,21 @@ const Matching = (props: MatchingProps) => {
 
   useEffect(() => {
     (async () => {
-      if (Object.keys(currentUser).length !== 0) {
-        const { data } = await axios.post("/api/users/get-mentors", { currentUser });
+      try {
+        console.log("get mentors2");
+        if (Object.keys(currentUser).length === 0)
+          throw new Error("User is not logged in");
+          
+        console.log("get mentors");
+        const { data } = await axios.post("/api/users/get-mentors", {
+          currentUser,
+        });
 
         const { allMentors } = data;
         setMentorsList(allMentors);
         console.log(allMentors);
+      } catch (err) {
+        console.error(err);
       }
     })();
   }, []);
