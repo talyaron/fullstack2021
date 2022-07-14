@@ -82,7 +82,7 @@ function SideBar(props: SideBarProps) {
                                     // setSelected()
                                 }}
                             >
-                                <p>{user.name.first} {user.name.last}</p>
+                                <p >{user.name.first} {user.name.last}</p>
                             </li>
                         );
                     })

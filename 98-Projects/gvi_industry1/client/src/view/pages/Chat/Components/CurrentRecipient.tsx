@@ -17,7 +17,7 @@ function CurrentRecipient(props: CurrentRecipientProps) {
     const {chatArea, recipient, handleChatSearchBar, searchMessagesToggle, handleTabChange} = props;
     const fullName:any = `${recipient.name.first + ' ' + recipient.name.last}` ;
     
-    const initial = fullName.match(/\b(\w)/g).join('');
+    const initial = fullName.match(/\b(\w)/g).join('').toUpperCase();
     const id = useId();
     
     useEffect(() => {
