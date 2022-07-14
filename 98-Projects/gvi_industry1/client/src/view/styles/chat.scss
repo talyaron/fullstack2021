@@ -56,24 +56,37 @@
             padding: 0;
             margin: 0;
         }
-        &__Buttons {
-            display: flex;
-            flex-direction: column;
-            place-items: center;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            gap: 34px;
-            & * {
-                text-align: center;
-                background-color: #1818184d;
-                align-content: center;
-                padding: 14px 35px;
-                min-width: 88px;
-                height: 25px;
-                border-radius: 100vmax;
-            }
+
+
+
+        .selected{
+            background:#cdcdcd;
         }
+
+        .recipient{
+            display: flex;
+            justify-content: space-around;
+            height: 7vh;
+            width: 25vh;
+        }
+        // &__Buttons {
+        //     display: flex;
+        //     flex-direction: column;
+        //     place-items: center;
+        //     list-style: none;
+        //     padding: 0;
+        //     margin: 0;
+        //     gap: 34px;
+        //     & * {
+        //         text-align: center;
+        //         background-color: #1818184d;
+        //         align-content: center;
+        //         padding: 14px 35px;
+        //         min-width: 88px;
+        //         height: 25px;
+        //         border-radius: 100vmax;
+        //     }
+        // }
     }
     &__currentRecipient {
         display: flex;

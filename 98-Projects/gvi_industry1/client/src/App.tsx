@@ -3,7 +3,7 @@ import Profile from "./view/pages/mentee/Profile";
 // import Card from "./view/pages/mentee/Card"//
 import React from "react";
 import SelectedMentor from "./view/pages/mentee/SelectedMentor";
-import "./view/styles/global.scss";
+import "./view/Styles/global.scss";
 import HomePage from './view/components/HomePage'
 import Matching from './view/pages/matching/Matching';
 import Chat from './view/pages/Chat/Chat'
@@ -34,7 +34,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/Profile" element={<Profile id="1234"/>} />
+        <Route path="/Profile" element={<Profile id={'62ca90381d0a5f8508965518'}/>} />
         <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
         <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />

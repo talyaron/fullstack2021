@@ -11,6 +11,7 @@ interface conversationsTabProps {
 }
 function ConversationsTab(props: conversationsTabProps) {
     const { messageList, dateFromObjectId, setSentMessage, handleSendMessage } = props;
+
     return (
         <div className="chat__chatWindowTabs">
             <ul className='chat__chatWindow__messagesList'>
