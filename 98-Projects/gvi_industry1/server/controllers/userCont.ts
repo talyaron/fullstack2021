@@ -6,19 +6,52 @@ import JWT from 'jwt-simple';
 
 
 export const getMentors = async (req, res) => {
-    try {
-        const {currentUser} = req.body;
-        console.log(currentUser);
-        const allMentors = await UserModel.find({});
-        //not showing the correct results
-        const filterMentors = allMentors.filter((mentor) => mentor.country === currentUser.country);
-        res.send({allMentors, ok: true});
-        console.log(filterMentors);
-    } catch (error) {
-        console.log(error.error);
-        res.send({error: error.message});
+  try {
+    const { currentUser } = req.body;
+    if (Object.keys(currentUser).length === 0) throw new Error("no user connected");
+    console.log('current',currentUser);
+    if (currentUser.type === 'mentee') {
+      const allMentors = await UserModel.find({ type: 'mentor' });
+      //not showing the correct results
+      const filterMentors = allMentors.filter(
+        (mentor) => mentor.country === currentUser.country
+      );
+      res.send({ allMentors, ok: true });
+      console.log(filterMentors);
+    } else if (currentUser.type === 'mentor') {
+      const allMentees = await UserModel.find({ type: 'mentee' });
+      //not showing the correct results
+      const filterMentees = allMentees.filter(
+        (mentee) => mentee.country === currentUser.country
+      );
+      res.send({ allMentees, ok: true });
+      console.log(filterMentees);
     }
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
 };
+
+export const getSearch = async (req, res) => {
+  try {
+    const { currentSearch } = req.body;
+    console.log(currentSearch)
+
+    let searchPattern = new RegExp(`${currentSearch}`, 'i')
+    console.log(searchPattern);
+
+
+    const allSearches = await UserModel.find({ country: 'Monaco' });
+    res.send({ allSearches, ok: true });
+
+  } catch (error) {
+    console.error(error);
+    res.send({ error: error.message });
+
+  }
+}
+
 export const getUser = async (req: any, res: any) => {
     try {
         const {userInfo} = req.cookies;
@@ -152,14 +185,23 @@ export async function getAllRecipients(req, res) {
         console.log(error.error);
         res.send({error: error.message});
     }
+    if (currentUser.type === 'mentor') {
+      // allUsers = currentUser.mentees;
+    }
+    if (allUsers === []) throw new Error('no Users were found');
+    res.send({ allUsers, ok: true });
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
 }
 
 export const login = async (req, res) => {
-    try {
-        const { email, password } = req.body;
-        console.log(email, password, 'loggedIn');
-        if (typeof email === "string" && typeof password === "string") {
-            console.log(email, 'loggedIn 2');
+  try {
+    const { email, password } = req.body;
+    console.log(email, password, 'loggedIn');
+    if (typeof email === "string" && typeof password === "string") {
+      console.log(email, 'loggedIn 2');
 
             const user = await UserModel.findOne({ email }).collation({ locale: "en_US", strength: 1 });
             //collation strength 1 performs comparisons of the base characters only, ignoring other differences such as diacritics and case.
