@@ -3,6 +3,8 @@ import UserModel from '../models/userModel';
 import selectedUsersModel from '../models/selectedUsers';
 import JWT from 'jwt-simple';
 
+
+
 export const getMentors = async (req, res) => {
     try {
         const {currentUser} = req.body;
@@ -110,6 +112,8 @@ export async function getSelectedUserdata(req, res) {
 
 export async function getAllRecipients(req, res) {
     try {
+        console.log('got to get all recipients');
+        
         const {userInfo} = req.cookies;
         const userDecodedInfo = JWT.decode(userInfo, secret);
         const {id} = userDecodedInfo;
@@ -152,10 +156,13 @@ export async function getAllRecipients(req, res) {
 
 export const login = async (req, res) => {
     try {
-        const {email, password} = req.body;
-        if (typeof email === 'string' && typeof password === 'string') {
-            const user = await UserModel.findOne({email});
-            // .collation({ locale: "en_US", strength: 1 });
+        const { email, password } = req.body;
+        console.log(email, password, 'loggedIn');
+        if (typeof email === "string" && typeof password === "string") {
+            console.log(email, 'loggedIn 2');
+
+            const user = await UserModel.findOne({ email }).collation({ locale: "en_US", strength: 1 });
+            //collation strength 1 performs comparisons of the base characters only, ignoring other differences such as diacritics and case.
             console.log(user);
             if (user) {
                 //checking if password is right for the email that was put
@@ -180,14 +187,14 @@ export const login = async (req, res) => {
 };
 
 export const addUser = async (req, res) => {
-    try {
-        const {user} = req.body;
-        console.log(user, 'new user');
+  try {
+    const {user} = req.body;
+    console.log(user);
 
-        let newUser = new UserModel(user);
-        const result = await newUser.save();
-        console.log(newUser);
-        res.send(result);
+    const newUser = new UserModel(user);
+    // const result = await newUser.save();
+    console.log(newUser);
+    // res.send(result);
         // Already exists CHECK
         const userFound: any = await UserModel.findOne({email: user.email});
 
@@ -196,15 +203,14 @@ export const addUser = async (req, res) => {
         }
         // Already exists CHECK
         else {
-            let newUser = new UserModel(user);
-            const result = await newUser.save();
-            console.log(newUser);
-
-            const payload = {id: newUser._id};
-            const token = JWT.encode(payload, secret);
-            res.cookie('newUserInfoId', token, {httpOnly: true});
-
-            res.send({result, ok: true, login: true});
+            const newUser = new UserModel(user)
+            const result = await newUser.save()
+            console.log(newUser)
+            const payload = { loggedInUser: true, type: newUser.type,id: newUser._id, name: user.name }
+            const token = JWT.encode(payload, secret)
+            res.cookie('userInfo', token, { httpOnly: true })
+            res.send({result, ok: true, login: true})
+            return
         }
     } catch (err) {
         console.error(err);

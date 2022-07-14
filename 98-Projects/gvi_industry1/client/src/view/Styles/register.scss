@@ -18,7 +18,7 @@ body {
 
     box-sizing: border-box;
     width: 500px;
-    height: 440px;
+    height: 500px;
     padding: 4px;
     background-color: rgb(255, 255, 255);
     // border: 1px solid rgb(0, 0, 0);
@@ -108,6 +108,7 @@ select {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: flex-end;
 
     button {
         font-size: 12px;
@@ -125,9 +126,10 @@ select {
         font-size: 12px;
     }
 
-    .back-btn{
+    .back-btn {
 
         padding-top: 4px;
+
         button {
             font-size: 12px;
             background-color: rgb(255, 255, 255);
@@ -145,6 +147,7 @@ select {
     grid-template-columns: repeat(2, 1fr);
     margin: auto;
     padding: 1em;
+    align-items: end;
 
     .inputBox {
         padding: 10px;
@@ -200,11 +203,37 @@ select {
     display: none;
 }
 
+.showThirdSection-none {
+    display: none;
+}
+
 .showProgressBar-none {
     display: none;
 }
 
+.showThirdSection-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .welcomeNote__text {
+        background-color: #d5d5d5;
+        padding: 5px;
+        border-radius: 5px;
+        tab-size: 15px;
 
+    }
+
+    .pic {
+        margin: 1rem;
+        width: 70px;
+        height: 70px;
+        background-image: url('http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/confetti-ball.png');
+        background-size: contain;
+
+    }
+
+}
 
 // div {
 //     border: 1px solid red;
