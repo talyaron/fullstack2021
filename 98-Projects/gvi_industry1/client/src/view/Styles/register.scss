@@ -108,6 +108,7 @@ select {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: flex-end;
 
     button {
         font-size: 12px;
@@ -146,6 +147,7 @@ select {
     grid-template-columns: repeat(2, 1fr);
     margin: auto;
     padding: 1em;
+    align-items: end;
 
     .inputBox {
         padding: 10px;
