@@ -9,6 +9,8 @@ import Matching from "./view/pages/matching/Matching";
 import Chat from "./view/pages/Chat/Chat";
 import WelcomePage from "./view/Components/WelcomePage";
 import { useState, useEffect } from "react";
+import AdminPage from "./view/Components/AdminPage";
+import AdminLayout from "./view/pages/AdminLayout";
 import axios from "axios";
 import {
   BrowserRouter as Router,
@@ -27,13 +29,35 @@ function App() {
   const [mentorsList, setMentorsList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [myProfile, setMyProfile] = useState(false);
+  const [loggedInUser, setloggedInUser] = useState({});
+  const [currentUserType, setCurrentUserType] = useState("");
   let { userId } = useParams();
+  useEffect(() => {
+    //get data on the user and show the chosen user by id
+
+    (async () => {
+      try {
+        const { data } = await axios.post("/api/users/get-LoggedIn-Profile");
+        const { currentUser } = data;
+    
+     
+        setloggedInUser(currentUser);
+          setCurrentUserType(currentUser.type);
+
+        if (!loggedInUser) {
+          throw new Error("no profile");
+        }
+      } catch (err: any) {
+        console.error(err.message);
+      }
+    })();
+  }, []);
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="navBar" element={<Layout />}>
+        <Route path="navBar" element={<Layout  loggedInUser={loggedInUser}  currentUserType={ currentUserType}/>}>
           <Route index element={<WelcomePage/>} />
           <Route path="profile" element={<Profile id="" />} />
           <Route path="chat" element={<Chat />} />
@@ -48,6 +72,9 @@ function App() {
             }
           />
           <Route path=":id" element={<SelctedMentors />} />
+        </Route>
+        <Route path="navBarAdmin" element={<AdminLayout  loggedInUser={loggedInUser}/>}>
+          <Route index element={<AdminPage />}/>
         </Route>
       </Routes>
     </Router>

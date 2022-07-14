@@ -5,28 +5,16 @@ import Profile from "../..//mentee/Profile";
 import {Link, useNavigate } from "react-router-dom";
 
 interface navBarMentorProps {
-  setRequest: Function;
-  request: Boolean;
-  setMyMentee: Function;
-  myMentee: Boolean;
-  setMatching: Function;
-  matching: Boolean;
+
   loggedInUser: any;
-  setMyProfile: Function;
-  myProfile: Boolean;
+
 }
 
 function NavBarMentor(props: navBarMentorProps) {
   const {
-    setRequest,
-    request,
-    setMyMentee,
-    myMentee,
-    setMatching,
-    matching,
+
     loggedInUser,
-    setMyProfile,
-    myProfile,
+
   } = props;
 
 

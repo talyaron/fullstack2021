@@ -1,6 +1,7 @@
 //need to check cookie and decode and check if admin 
 
 import jwt from "jwt-simple";
+const secret = process.env.JWT_SECRET;
 
 export function isAdmin(req, res, next) {
   try {
@@ -8,7 +9,7 @@ export function isAdmin(req, res, next) {
 
     if (!userInfo)
       throw new Error('"userInfo" cookie is missing in client request');
-    const secret = process.env.JWT_SECRET;
+    
     if (!secret) throw new Error("No secert in server");
     const decoded = jwt.decode(userInfo, secret);
 

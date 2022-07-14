@@ -25,12 +25,14 @@ const Login = (props:LoginProps) => {
       const {data} = await axios.post('api/users/login',{email,password})
       console.log(data);
 
-      if(data.login===true){
+      if(data.type==='admin'){
         setTimeout(() => {
-          navigate(`/`);
+          navigate(`navBarAdmin`);
         }, 1500);
       }else{
-        console.log(data)
+        setTimeout(() => {
+          navigate(`navBar`);
+        }, 1500);
       }
 
 
