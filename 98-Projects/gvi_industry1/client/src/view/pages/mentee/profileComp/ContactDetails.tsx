@@ -8,7 +8,6 @@ function ContactDetails (props:ContactDetailsProps) {
   
 const {contactInfo} =props;
 
-console.log(contactInfo);
 
 
     return (
