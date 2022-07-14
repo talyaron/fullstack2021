@@ -6,11 +6,13 @@ export const getMentors = async (req, res) => {
   try {
     const { currentUser } = req.body;
     console.log(currentUser);
-    const allMentors = await UserModel.find({});
-    //not showing the correct results
-    const filterMentors = allMentors.filter(
-      (mentor) => mentor.country === currentUser.country
-    );
+    if (currentUser.type === 'mentee') {
+      const allMentors = await UserModel.find({ type: 'mentor' });
+      //not showing the correct results
+      const filterMentors = allMentors.filter(
+        (mentor) => mentor.country === currentUser.country
+      );
+    }
     res.send({ allMentors, ok: true });
     console.log(filterMentors);
   } catch (error) {
@@ -46,8 +48,8 @@ export const selectUser = async (req: any, res: any) => {
     //check if it exists
     if (!selectedUser) throw new Error("couldnt find the user in the DB");
 
-    const {email, name, image} = selectedUser;
-    console.log('selectedUser',selectedUser)
+    const { email, name, image } = selectedUser;
+    console.log('selectedUser', selectedUser)
     const searchSelecting = {
       selectedUser: { email: selectedUser.email }
     };
@@ -60,9 +62,9 @@ export const selectUser = async (req: any, res: any) => {
     if (!selectingUser) {
       console.log("no record in DB - saving");
       const newSelectionDB = new selectedUsersModel({
-        bothId:`${id}-${selectedUser._id}`,
+        bothId: `${id}-${selectedUser._id}`,
         selectingUserId: id,
-        selectedUser:{email, name, image},
+        selectedUser: { email, name, image },
         selected: true,
       });
       newSelection = await newSelectionDB.save();
