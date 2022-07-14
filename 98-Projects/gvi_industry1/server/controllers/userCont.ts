@@ -6,15 +6,15 @@ export const getMentors = async (req, res) => {
   try {
     const { currentUser } = req.body;
     console.log(currentUser);
-    if (currentUser.type === 'mentee') {
-      const allMentors = await UserModel.find({ type: 'mentor' });
+    // if (currentUser.type === 'mentee') {                 
+      const allMentors = await UserModel.find({});
       //not showing the correct results
       const filterMentors = allMentors.filter(
         (mentor) => mentor.country === currentUser.country
       );
       res.send({ allMentors, ok: true });
       console.log(filterMentors);
-    }
+    // }
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
