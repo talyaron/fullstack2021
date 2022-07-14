@@ -32,9 +32,6 @@ function App() {
   return (
     <Router>
       <Routes>
-
-      
-
         <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
         <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />
