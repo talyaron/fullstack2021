@@ -31,63 +31,59 @@ function NavBarMentee(props: navBarMenteeProps) {
     myProfile,
   } = props;
 
-  // const navigate = useNavigate()
-
-  // useEffect(()=>{
-  //   if(myProfile===true) {
-  //     navigate('/profile')
-  //   }
-  //   console.log(myProfile)
-  // },[myProfile])
 
   return (
           <div className="navBar">
             <div className="logo">
+              <Link to='/'>
               <img src="./gvi-logo.png" alt="logo" />
+              </Link>
             </div>
 
             <div className="btn">
               <div>
-                <button
+                {/* <button
                   onClick={() => {
                     setRequest(!request);
                   }}
                 >
                   Requests
-                </button>
+                </button> */}
+                <Link to="/request">Requuests</Link>
               </div>
               <div>
-                <button
+                {/* <button
                   onClick={() => {
                     setMyMentors(!myMentors);
                   }}
                 >
                   My Mentors
-                </button>
+                </button> */}
+                 <Link to="/mymentor">My Mentors</Link>
               </div>
               <div>
-                <button
+                {/* <button
                   onClick={() => {
                     setMentorMatching(!mentorMatching);
                   }}
                 >
                   Mentor Matching
-                </button>
+                </button> */}
+                <Link to='matching'> Mentor Matching</Link>
               </div>
               <div>
-                <button
+                {/* <button
                   onClick={() => {
                     setMyTask(!myTask);
                   }}
                 >
                   100Task
-                </button>
+                </button> */}
+                <Link to='/task'>
+                100Task
+                </Link>
               </div>
-              <div className="profileIMG" >
-                {/* onClick={(id) => {
-                   setMyProfile(!myProfile);
-                 }} */}
-                  
+              <div className="profileIMG" >  
                     <Link to="profile">
                 <img
                   src={
@@ -100,7 +96,7 @@ function NavBarMentee(props: navBarMenteeProps) {
                 /></Link>
               </div>
             </div>
-            {/* <Profile  myProfile={myProfile} id={loggedInUser._id}/> */}
+
           </div>
 
   );

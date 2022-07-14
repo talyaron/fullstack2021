@@ -29,54 +29,48 @@ function NavBarMentor(props: navBarMentorProps) {
     myProfile,
   } = props;
 
-  // const navigate = useNavigate()
-
-  // useEffect(()=>{
-  //   if(myProfile===true) {
-  //     navigate('/profile')
-  //   }
-  // },[myProfile])
 
   return (
     <div className="navBar">
       <div className="logo">
+      <Link to='/'>
         <img src="./gvi-logo.png" alt="logo" />
+        </Link>
       </div>
 
       <div className="btn">
         <div>
-          <button
+          {/* <button
             onClick={() => {
               setRequest(!request);
             }}
           >
             Requests
-          </button>
+          </button> */}
+
         </div>
         <div>
-          <button
+          {/* <button
             onClick={() => {
               setMyMentee(!myMentee);
             }}
           >
             My Mentees
-          </button>
+          </button> */}
+          <Link to='myMentee'>My Mentees</Link>
         </div>
         <div>
-          <button
+          {/* <button
             onClick={() => {
               setMatching(!matching);
             }}
           >
             Matching
-          </button>
+          </button> */}
+           <Link to='matching'>Matching</Link>
         </div>
         <div className="profileIMG"> 
-        {/* onClick={(id) => { */}
-        {/* //       setMyProfile(!myProfile);
-        //     }} */}
-            
-          {/* {myProfile == true ? navigate("/profile") : <></>} */}
+
           <Link to="profile">
           <img
             src={
@@ -89,7 +83,7 @@ function NavBarMentor(props: navBarMentorProps) {
           /></Link>
         </div>
       </div>
-      {/* <Profile  myProfile={myProfile} id={loggedInUser._id}/> */}
+    
     </div>
   );
 }

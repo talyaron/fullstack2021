@@ -7,6 +7,7 @@ import "./view/styles/global.scss";
 import HomePage from "./view/Components/HomePage";
 import Matching from "./view/pages/matching/Matching";
 import Chat from "./view/pages/Chat/Chat";
+import WelcomePage from "./view/Components/WelcomePage";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import {
@@ -33,7 +34,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="profile" element={<Layout />}>
-          <Route index element={<Profile id="1234"/>} />
+          <Route index element={<WelcomePage/>} />
 
           <Route path="chat" element={<Chat />} />
           <Route
