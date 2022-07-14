@@ -20,11 +20,7 @@ import SelctedMentors from "./view/pages/mentee/SelctedMentors";
 import NavBar from "./view/pages/navBar/NavBar";
 import NavBarMentee from "./view/pages/navBar/components/NavBarMentee";
 import Layout from "./view/pages/Layout";
-// interface app{
-//   id:String;
-//   image:String;
 
-// }
 
 function App() {
   const [mentorsList, setMentorsList] = useState([]);
@@ -32,21 +28,12 @@ function App() {
   const [myProfile, setMyProfile] = useState(false);
   let { userId } = useParams();
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const { data } = await axios.get('/api/users/get-user')
-  //     const {user} = data
-  //     setCurrentUser(user)
-  //     console.log(user)
-  //   })();
-  // }, [])
-
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="profile" element={<Layout />}>
-          <Route index element={<Profile id="1234" myProfile={myProfile} />} />
+          <Route index element={<Profile id="1234"/>} />
 
           <Route path="chat" element={<Chat />} />
           <Route
