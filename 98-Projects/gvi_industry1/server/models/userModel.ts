@@ -58,7 +58,7 @@ export const UserSchema = new mongoose.Schema({
     enum:  UserTypeSchema,
     default:  UserTypeSchema.MENTEE,
   },
-  mentees:[{ String }],
+  mentees:[String],
   fieldsOfKnowledge: {
     type: String,
     enum: FieldsOfKnowledgeSchema,

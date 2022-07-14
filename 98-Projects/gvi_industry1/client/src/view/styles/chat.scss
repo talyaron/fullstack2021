@@ -53,6 +53,7 @@
             }
         }
         &__recipientsList {
+            width:100%;
             list-style: none;
             padding: 0;
             margin: 0;
@@ -68,7 +69,7 @@
             display: flex;
             justify-content: space-around;
             height: 7vh;
-            width: 25vh;
+            // width: 25vh;
         }
         // &__Buttons {
         //     display: flex;

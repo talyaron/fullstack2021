@@ -36,7 +36,7 @@ function Chat() {
     const [messageList, setMessageList] = useState<Array<MessageInterface>>([]);
     //set to empty so we don't get errors about undefined userInterface:
     const [recipient, setRecipient] = useState<UserInterface>({_id:'', name: {first: 'a', last: 'a'}});
-    const [userList, setUserList] = useState<Array<any>>([UserList]);
+    const [userList, setUserList] = useState<Array<any>>([]);
     const [searchMessagesToggle, setSearchMessagesToggle] = useState<boolean>(false);
 
 
@@ -88,7 +88,7 @@ function Chat() {
     useEffect(() => {
         return () => {
             // how to clean requests so it doesn't happen again on unmount?
-            getUserList();
+            getRecipientsList();
             handleJoinRoom();          
         };
     }, []);
@@ -125,11 +125,14 @@ useEffect(() => {getMessageList(recipient)},[recipient])
             console.log(error);
         }
     }
-    async function getUserList() {
+    async function getRecipientsList() {
         try {
             const {data} = await axios.post('/api/users/get-all-recipients', {ok: true});
-            console.log(data.allUsers, 'userList');
-            // setUserList(data.allUsers);
+            const recipients = data.allRecipients;
+            console.log(recipients, 'recipients');
+            setUserList(recipients);
+            console.log(userList, 'userList');
+            
         } catch (error) {
             console.log(error);
         }
