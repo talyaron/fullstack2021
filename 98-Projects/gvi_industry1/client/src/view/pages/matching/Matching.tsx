@@ -32,7 +32,7 @@ const Matching = (props: MatchingProps) => {
         console.log("get mentors2");
         if (Object.keys(currentUser).length === 0)
           throw new Error("User is not logged in");
-          
+
         console.log("get mentors");
         const { data } = await axios.post("/api/users/get-mentors", {
           currentUser,
@@ -60,7 +60,7 @@ const Matching = (props: MatchingProps) => {
         currentSearch={currentSearch}
         setCurrentSearch={setCurrentSearch}
       />
-      <FilterMenu checked={checked} setChecked={setChecked} />
+      {/* <FilterMenu checked={checked} setChecked={setChecked} /> */}
 
       <MatchingCard mentorsList={mentorsList} />
 

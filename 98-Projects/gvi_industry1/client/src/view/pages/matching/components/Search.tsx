@@ -12,15 +12,18 @@ const Search = (props: MatchingProps) => {
   async function getSearchResults(ev: any) {
     const currentSearch = ev.target.value;
     console.log(currentSearch);
-
-    const { data } = await axios.get("/api/users/get-search");
-    const { allSearches } = data;
-    setCurrentSearch(allSearches);
-    console.log(allSearches);
+    if (currentSearch && currentSearch.length>1) {
+      const { data } = await axios.post("/api/users/get-search",{currentSearch});
+      const { allSearches } = data;
+      console.log(allSearches);
+      if (Array.isArray(allSearches) && allSearches.length > 0) {
+        setCurrentSearch(allSearches);
+      }
+    }
   }
 
   return (
-    <div className={'matching__search'}>
+    <div className={"matching__search"}>
       <input type="text" name="inputText" onChange={getSearchResults} />
       <button>search</button>
       {currentSearch.map((search: any) => {

@@ -36,13 +36,14 @@ export const getMentors = async (req, res) => {
 export const getSearch = async (req, res) => {
   try {
     const { currentSearch } = req.body;
-    console.log(currentSearch)
+   if(!currentSearch) throw new Error('No search term')
 
-    let searchPattern = new RegExp(`${currentSearch}`, 'i')
-    console.log(searchPattern);
+  
+  console.log(currentSearch)
+const regExS = new RegExp(currentSearch,'i')
 
-
-    const allSearches = await UserModel.find({ country: 'Monaco' });
+    const allSearches = await UserModel.find({ country:regExS});
+    console.log(allSearches)
     res.send({ allSearches, ok: true });
 
   } catch (error) {

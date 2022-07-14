@@ -10,7 +10,7 @@ router
     .get('/get-mentors',getSearch)
     .post('/get-all-recipients', getAllRecipients)
     .get('/get-user', getUser)
-    .get('/get-search', getSearch)
+    .post('/get-search', getSearch)
     .post('/selected-user', selectUser)
     .get('/get-selecteing-user',getSelectingUser)
     .post('/get-selected-users',getSelectedUserdata)
