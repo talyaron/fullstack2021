@@ -95,6 +95,7 @@ margin-right: 50px;
         grid-column: 1/2;
         grid-row: 2/2;
 
+
         &_section {
             &_title {}
 
@@ -106,5 +107,34 @@ margin-right: 50px;
         }
     }
 
+    &--wrapper {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top:19vh;
+        right:34vw;
+        
 
+
+        border: 1px solid black;
+        padding: 24px;
+        padding-top: 0px;
+        // padding-bottom: px;
+
+        h1 {
+            border-bottom: 1px black solid;
+        }
+
+        // &__btn {
+        //     font-size: 1.5em;
+        //     border-radius: 30px;
+        //     cursor: pointer;
+        // }
+        select,
+        button {
+            font-size: 1.5em;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+    }
 }
