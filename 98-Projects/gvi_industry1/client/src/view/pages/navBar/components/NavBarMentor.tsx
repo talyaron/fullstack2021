@@ -33,41 +33,21 @@ function NavBarMentor(props: navBarMentorProps) {
   return (
     <div className="navBar">
       <div className="logo">
-      <Link to='/'>
+      <Link className="link" to='/'>
         <img src="./gvi-logo.png" alt="logo" />
         </Link>
       </div>
 
+      <div className="btns">
       <div className="btn">
-        <div>
-          {/* <button
-            onClick={() => {
-              setRequest(!request);
-            }}
-          >
-            Requests
-          </button> */}
-
+          
+          <Link className="link" to="request">Requests</Link>
         </div>
-        <div>
-          {/* <button
-            onClick={() => {
-              setMyMentee(!myMentee);
-            }}
-          >
-            My Mentees
-          </button> */}
-          <Link to='myMentee'>My Mentees</Link>
+        <div className="btn">
+          <Link className="link" to='chat'>My Mentees</Link>
         </div>
-        <div>
-          {/* <button
-            onClick={() => {
-              setMatching(!matching);
-            }}
-          >
-            Matching
-          </button> */}
-           <Link to='matching'>Matching</Link>
+        <div className="btn">
+           <Link className="link" to='matching'>Matching</Link>
         </div>
         <div className="profileIMG"> 
 

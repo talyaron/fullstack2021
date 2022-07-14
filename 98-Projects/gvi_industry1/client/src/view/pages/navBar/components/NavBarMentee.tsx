@@ -35,51 +35,27 @@ function NavBarMentee(props: navBarMenteeProps) {
   return (
           <div className="navBar">
             <div className="logo">
-              <Link to='/'>
+              <Link className="link" to='/'>
               <img src="./gvi-logo.png" alt="logo" />
               </Link>
             </div>
 
-            <div className="btn">
-              <div>
-                {/* <button
-                  onClick={() => {
-                    setRequest(!request);
-                  }}
-                >
-                  Requests
-                </button> */}
-                <Link to="/request">Requuests</Link>
+            <div className="btns">
+              <div className="btn">
+          
+                <Link className="link" to="request">Requests</Link>
               </div>
-              <div>
-                {/* <button
-                  onClick={() => {
-                    setMyMentors(!myMentors);
-                  }}
-                >
-                  My Mentors
-                </button> */}
-                 <Link to="/mymentor">My Mentors</Link>
+              <div className="btn">
+       
+                 <Link className="link" to="chat">My Mentors</Link>
               </div>
-              <div>
-                {/* <button
-                  onClick={() => {
-                    setMentorMatching(!mentorMatching);
-                  }}
-                >
-                  Mentor Matching
-                </button> */}
-                <Link to='matching'> Mentor Matching</Link>
+              <div className="btn">
+   
+                <Link className="link" to='matching'> Mentor Matching</Link>
               </div>
-              <div>
-                {/* <button
-                  onClick={() => {
-                    setMyTask(!myTask);
-                  }}
-                >
-                  100Task
-                </button> */}
-                <Link to='/task'>
+              <div className="btn">
+
+                <Link className="link" to='task'>
                 100Task
                 </Link>
               </div>

@@ -3,7 +3,7 @@ import Profile from "./view/pages/mentee/Profile";
 // import Card from "./view/pages/mentee/Card"//
 import React from "react";
 import SelectedMentor from "./view/pages/mentee/SelectedMentor";
-import "./view/styles/global.scss";
+import "./view/Styles/global.scss";
 import HomePage from "./view/Components/HomePage";
 import Matching from "./view/pages/matching/Matching";
 import Chat from "./view/pages/Chat/Chat";
@@ -33,9 +33,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="profile" element={<Layout />}>
+        <Route path="navBar" element={<Layout />}>
           <Route index element={<WelcomePage/>} />
-
+          <Route path="profile" element={<Profile id="" />} />
           <Route path="chat" element={<Chat />} />
           <Route
             path="matching"
