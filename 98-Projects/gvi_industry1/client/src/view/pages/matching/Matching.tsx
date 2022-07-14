@@ -27,9 +27,11 @@ const Matching = (props: MatchingProps) => {
   } = props;
 
   useEffect(() => {
+    console.log('mounted');
+    
     (async () => {
       try {
-        console.log("get mentors2");
+        console.log(currentUser,"get mentors2");
         if (Object.keys(currentUser).length === 0)
           throw new Error("User is not logged in");
           
@@ -45,7 +47,11 @@ const Matching = (props: MatchingProps) => {
         console.error(err);
       }
     })();
-  }, []);
+    return () => {
+      console.log('unMounted');
+      
+    }
+  }, [currentUser]);
 
   //   const userid:any =  `{currentUser._id} `
   //  let  userId  = useParams();

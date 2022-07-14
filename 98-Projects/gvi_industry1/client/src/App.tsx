@@ -29,7 +29,6 @@ function App() {
       const { data } = await axios.get('/api/users/get-user')
       const {user} = data
       setCurrentUser(user)
-      console.log(user)
     })();
   }, [])
 

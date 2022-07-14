@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 
-import { addUser, login, getMentors, getUser, getAllRecipients, selectUser,getSelectingUser,getSelectedUserdata } from '../controllers/userCont'
+import { addUser, login, getMentors, getUser, getAllRecipients, selectUser,getSelectingUser,getSelectedUserdata,getSearch } from '../controllers/userCont'
 // import { addUser, login, getMentors, getUser, selectUser,getSelectingUser,getSelectedUserdata } from '../controllers/userCont'
 
 router

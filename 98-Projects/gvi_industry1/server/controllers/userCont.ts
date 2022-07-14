@@ -57,7 +57,7 @@ export const getUser = async (req: any, res: any) => {
         const {id} = payload;
         console.log(id);
 
-        const user = await UserModel.find({_id: id});
+        const user = await UserModel.findOne({_id: id});
         res.send({user});
     } catch (error) {
         console.log(error.error);
@@ -83,6 +83,7 @@ export const selectUser = async (req: any, res: any) => {
         const searchSelecting = {
             selectedUser: {email: selectedUser.email},
         };
+
         const selectingUser: any = await selectedUsersModel.findOne(searchSelecting);
         console.log('selectingUser', selectingUser);
 
@@ -96,7 +97,10 @@ export const selectUser = async (req: any, res: any) => {
                 selected: true,
             });
             newSelection = await newSelectionDB.save();
+            console.log(selectingUser, 'selectingUser -99 userCont');
         } else {
+            console.log(selectingUser, 'selectingUser -101 userCont');
+            
             if (selectingUser.selected === true) {
                 console.log('a record in DB - turning off');
                 newSelection = await selectedUsersModel.findOneAndUpdate(searchSelecting, {selected: false});
@@ -106,7 +110,7 @@ export const selectUser = async (req: any, res: any) => {
             }
         }
 
-        res.send({succes: true, selection: newSelection});
+        res.send({success: true, selection: newSelection});
     } catch (error) {
         console.log(error.error);
         res.send({error: error.message});
@@ -180,15 +184,11 @@ export async function getAllRecipients(req, res) {
         if (allRecipients !== []) {
             res.send({allRecipients, ok: true});
         }
-    } catch (error) {
-        console.log(error.error);
-        res.send({error: error.message});
-    }
     if (currentUser.type === 'mentor') {
       // allUsers = currentUser.mentees;
     }
-    if (allUsers === []) throw new Error('no Users were found');
-    res.send({ allUsers, ok: true });
+    if (allRecipients === []) throw new Error('no Users were found');
+    res.send({ allRecipients, ok: true });
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
