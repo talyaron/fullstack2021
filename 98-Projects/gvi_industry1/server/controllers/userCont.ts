@@ -9,13 +9,23 @@ export const getMentors = async (req, res) => {
   try {
     const { currentUser } = req.body;
     console.log(currentUser);
-    const allMentors = await UserModel.find({});
-    //not showing the correct results
-    const filterMentors = allMentors.filter(
-      (mentor) => mentor.country === currentUser.country
-    );
-    res.send({ allMentors, ok: true });
-    console.log(filterMentors);
+    if (currentUser.type === 'mentee') {
+      const allMentors = await UserModel.find({ type: 'mentor' });
+      //not showing the correct results
+      const filterMentors = allMentors.filter(
+        (mentor) => mentor.country === currentUser.country
+      );
+      res.send({ allMentors, ok: true });
+      console.log(filterMentors);
+    } else if (currentUser.type === 'mentor') {
+      const allMentees = await UserModel.find({ type: 'mentee' });
+      //not showing the correct results
+      const filterMentees = allMentees.filter(
+        (mentee) => mentee.country === currentUser.country
+      );
+      res.send({ allMentees, ok: true });
+      console.log(filterMentees);
+    }
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
