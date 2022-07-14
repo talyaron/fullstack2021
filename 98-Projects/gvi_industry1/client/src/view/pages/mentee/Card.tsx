@@ -7,8 +7,13 @@ import PushPinRoundedIcon from "@mui/icons-material/PushPinRounded";
 import StarIcon from "@mui/icons-material/Star";
 import { Button } from "@mui/material";
 import "./style/card.scss";
+interface Props{//add user interface
+  name:string
 
-const Card = () => {
+}
+
+const Card = (props:Props) => { //add user interface
+  const {user} = props;
   // function Card() {
   //   // useEffect(() => {
   //   //   (async () => {
@@ -37,14 +42,14 @@ const Card = () => {
     sectors: "eduction",
     profession: "Finance",
   };
-
+// change everything from userdatail to user
   return (
     <div className="card">
       <div className="card__photo">
         <img src={`${userDetails.img}`} alt="" />
       </div>
       <div className="card__center">
-        <p className="card__name"> {userDetails.name}</p>
+        <p className="card__name"> {user.name}</p>
         <div className="card__flex">
           <img src={`${userDetails.country}`} alt="" />
           <LinkedInIcon

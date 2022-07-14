@@ -7,6 +7,7 @@ const SelctedMentors = () => {
   // const { id } = useParams();
   // console.log(id)
   const [selectingUserId, setSelectingUserId] = useState<String>('');
+  const [allUsersSelcted, setallUsersSelcted] = useState([]); //add user interface
 
   useEffect(() => {
     (async () => {
@@ -14,11 +15,12 @@ const SelctedMentors = () => {
       // console.log(data);
       const { _id, type } = data;
       const users = await axios.post('/api/users/get-selected-users', {_id,type});
-      console.log(users);
+      console.log(users.data.selectedUsers);
       // setSelectingUserId(data);
-
+      setallUsersSelcted(users.data.selectedUsers)
     })();
   }, [selectingUserId]);
+  
 
 
 
@@ -26,12 +28,14 @@ const SelctedMentors = () => {
     <div className="selectedPage">
       <h5 className="selectedPage__title">Selcted-Mentors</h5>
       <div className="selectedPage__wrapper">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {allUsersSelcted.map(user=>{
+          return(
+            <>
+            <Card user={user}/>
+            </>
+          )
+        })}
+      
       </div>
     </div>
   );
