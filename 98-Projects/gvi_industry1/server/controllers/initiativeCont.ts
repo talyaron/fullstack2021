@@ -17,3 +17,17 @@ export const addInitiative = async (req, res) => {
         res.send({ error: err.message, ok: false });
     }
 }
+
+export const getAllRecipients = async (req, res) => {
+    try {
+        const id = req.body.menteeId;
+        const currentUsersInitiative = await InitiativeModel.findOne({ownerUserId: id});
+        const recipients = currentUsersInitiative.mentors;
+        res.send(recipients);
+    } catch (error) {
+        console.log(error);
+        res.send({ error: error.message, ok: false });
+
+        
+    }
+}

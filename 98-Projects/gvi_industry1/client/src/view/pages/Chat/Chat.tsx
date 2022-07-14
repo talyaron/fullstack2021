@@ -129,10 +129,16 @@ useEffect(() => {getMessageList(recipient)},[recipient])
         try {
             const {data} = await axios.post('/api/users/get-all-recipients', {ok: true});
             const recipients = data.allRecipients;
-            console.log(recipients, 'recipients');
-            setUserList(recipients);
-            console.log(userList, 'userList');
+            const menteeId = data
             
+            if(recipients){
+                setUserList(recipients);
+            }
+            if(recipients === undefined) {
+                const {data} = await axios.post('api/initiatives/get-all-recipients', {menteeId});
+                const recipients = data;   
+                setUserList(recipients);
+            }
         } catch (error) {
             console.log(error);
         }

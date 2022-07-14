@@ -3,8 +3,6 @@ import UserModel from '../models/userModel';
 import selectedUsersModel from '../models/selectedUsers';
 import JWT from 'jwt-simple';
 
-
-
 export const getMentors = async (req, res) => {
     try {
         const {currentUser} = req.body;
@@ -112,22 +110,23 @@ export async function getSelectedUserdata(req, res) {
 
 export async function getAllRecipients(req, res) {
     try {
-        console.log('got to get all recipients');
-        
         const {userInfo} = req.cookies;
         const userDecodedInfo = JWT.decode(userInfo, secret);
         const {id} = userDecodedInfo;
         const currentUser = await UserModel.findOne({_id: id});
         let allRecipients = [];
         if (currentUser.type === 'mentee') {
-            // allUsers = currentUser.initiatives.mentors;
+            res.send(id);
+            console.log('id was sent -120 userCont', id);
+            
+            return;
         }
         if (currentUser.type === 'mentor') {
             const allRecipientsIds = currentUser.mentees;
             let localArr: Array<any> = [];
             const getRecipientsList = async () => {
                 for (let recipient of allRecipientsIds) {
-                    let rec = await UserModel.findOne({_id: recipient }, {password: 0});
+                    let rec = await UserModel.findOne({_id: recipient}, {password: 0});
                     localArr.push(rec);
                 }
                 // allRecipientsIds.forEach(async (recipient) => {
@@ -146,7 +145,7 @@ export async function getAllRecipients(req, res) {
 
         if (allRecipients === []) throw new Error('no Users were found');
         if (allRecipients !== []) {
-          res.send({allRecipients, ok: true});
+            res.send({allRecipients, ok: true});
         }
     } catch (error) {
         console.log(error.error);
@@ -156,12 +155,12 @@ export async function getAllRecipients(req, res) {
 
 export const login = async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const {email, password} = req.body;
         console.log(email, password, 'loggedIn');
-        if (typeof email === "string" && typeof password === "string") {
+        if (typeof email === 'string' && typeof password === 'string') {
             console.log(email, 'loggedIn 2');
 
-            const user = await UserModel.findOne({ email }).collation({ locale: "en_US", strength: 1 });
+            const user = await UserModel.findOne({email}).collation({locale: 'en_US', strength: 1});
             //collation strength 1 performs comparisons of the base characters only, ignoring other differences such as diacritics and case.
             console.log(user);
             if (user) {
@@ -187,14 +186,14 @@ export const login = async (req, res) => {
 };
 
 export const addUser = async (req, res) => {
-  try {
-    const {user} = req.body;
-    console.log(user);
+    try {
+        const {user} = req.body;
+        console.log(user);
 
-    const newUser = new UserModel(user);
-    // const result = await newUser.save();
-    console.log(newUser);
-    // res.send(result);
+        const newUser = new UserModel(user);
+        // const result = await newUser.save();
+        console.log(newUser);
+        // res.send(result);
         // Already exists CHECK
         const userFound: any = await UserModel.findOne({email: user.email});
 
@@ -203,14 +202,14 @@ export const addUser = async (req, res) => {
         }
         // Already exists CHECK
         else {
-            const newUser = new UserModel(user)
-            const result = await newUser.save()
-            console.log(newUser)
-            const payload = { loggedInUser: true, type: newUser.type,id: newUser._id, name: user.name }
-            const token = JWT.encode(payload, secret)
-            res.cookie('userInfo', token, { httpOnly: true })
-            res.send({result, ok: true, login: true})
-            return
+            const newUser = new UserModel(user);
+            const result = await newUser.save();
+            console.log(newUser);
+            const payload = {loggedInUser: true, type: newUser.type, id: newUser._id, name: user.name};
+            const token = JWT.encode(payload, secret);
+            res.cookie('userInfo', token, {httpOnly: true});
+            res.send({result, ok: true, login: true});
+            return;
         }
     } catch (err) {
         console.error(err);
