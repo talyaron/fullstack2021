@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import "../mentee/style/selectedPage.scss";
 import axios from "axios"
 import Card from "./Card";
+ interface user{
+  name:string
+ }
 const SelctedMentors = () => {
   // const { id } = useParams();
   // console.log(id)
@@ -31,7 +34,7 @@ const SelctedMentors = () => {
         {allUsersSelcted.map(user=>{
           return(
             <>
-            <Card user={user}/>
+            {/* <Card user={users}/> */}
             </>
           )
         })}

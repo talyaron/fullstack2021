@@ -7,13 +7,13 @@ import PushPinRoundedIcon from "@mui/icons-material/PushPinRounded";
 import StarIcon from "@mui/icons-material/Star";
 import { Button } from "@mui/material";
 import "./style/card.scss";
-interface Props{//add user interface
+ export interface Props{//add user interface
   name:string
 
 }
 
 const Card = (props:Props) => { //add user interface
-  const {user} = props;
+  const {user}:any = props;
   // function Card() {
   //   // useEffect(() => {
   //   //   (async () => {
