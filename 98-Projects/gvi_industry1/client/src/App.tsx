@@ -24,14 +24,14 @@ function App() {
   let { userId } = useParams();
 
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const { data } = await axios.get('/api/users/get-user')
-  //     const {user} = data
-  //     setCurrentUser(user)
-  //     console.log(user)
-  //   })();
-  // }, [])
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('/api/users/get-user')
+      const {user} = data
+      setCurrentUser(user)
+      console.log(user)
+    })();
+  }, [])
 
   return (
     <Router>

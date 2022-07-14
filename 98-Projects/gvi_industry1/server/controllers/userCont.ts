@@ -8,7 +8,8 @@ import JWT from "jwt-simple";
 export const getMentors = async (req, res) => {
   try {
     const { currentUser } = req.body;
-    console.log(currentUser);
+    if (Object.keys(currentUser).length === 0) throw new Error("no user connected");
+    console.log('current',currentUser);
     if (currentUser.type === 'mentee') {
       const allMentors = await UserModel.find({ type: 'mentor' });
       //not showing the correct results
@@ -36,12 +37,12 @@ export const getSearch = async (req, res) => {
   try {
     const { currentSearch } = req.body;
     console.log(currentSearch)
-  
-    let searchPattern = new RegExp(`${currentSearch}`,'i')
+
+    let searchPattern = new RegExp(`${currentSearch}`, 'i')
     console.log(searchPattern);
 
-    
-    const allSearches = await UserModel.find({country:'Monaco'});
+
+    const allSearches = await UserModel.find({ country: 'Monaco' });
     res.send({ allSearches, ok: true });
 
   } catch (error) {

@@ -28,13 +28,13 @@ const Matching = (props: MatchingProps) => {
 
   useEffect(() => {
     (async () => {
-      const { data } = await axios.post("/api/users/get-mentors", {
-        currentUser,
-      });
+      if (Object.keys(currentUser).length !== 0) {
+        const { data } = await axios.post("/api/users/get-mentors", { currentUser });
 
-      const { allMentors } = data;
-      setMentorsList(allMentors);
-      console.log(allMentors);
+        const { allMentors } = data;
+        setMentorsList(allMentors);
+        console.log(allMentors);
+      }
     })();
   }, []);
 
