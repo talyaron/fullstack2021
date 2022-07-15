@@ -16,7 +16,7 @@ export interface MessageUserInterface {
     name: nameInterface;
 }
 export interface UserInterface {
-    _id: String;
+    userId: String;
     name: nameInterface;
 }
 export interface MessageInterface {
@@ -35,7 +35,8 @@ function Chat() {
     const [room, setRoom] = useState('');
     const [messageList, setMessageList] = useState<Array<MessageInterface>>([]);
     //set to empty so we don't get errors about undefined userInterface:
-    const [recipient, setRecipient] = useState<UserInterface>({_id:'', name: {first: 'a', last: 'a'}});
+    const [recipient, setRecipient] = useState<UserInterface>({userId:'', name: {first: 'a', last: 'a'}});
+    const [sender, setSender] = useState<MessageUserInterface>({userId: '', name: {first:'', last: ''}})
     const [userList, setUserList] = useState<Array<any>>([]);
     const [searchMessagesToggle, setSearchMessagesToggle] = useState<boolean>(false);
 
@@ -98,12 +99,14 @@ useEffect(() => {getMessageList(recipient)},[recipient])
     }
     function handleSendMessage() {
         try {
-            const id: any = recipient?._id;
+            const id: any = recipient?.userId;
             const name:nameInterface = recipient?.name;
+            console.log(recipient, name, 'id and name 104');
+            
             if (sentMessage === '') throw new Error('Type something!');
             const payload = {
                 text: sentMessage,
-                sender: {userId: '', name: {first:'', last: ''}},
+                sender: sender,
                 recipients: [{userId: id, name: name}],
                 file: '',
             };
@@ -129,14 +132,14 @@ useEffect(() => {getMessageList(recipient)},[recipient])
         try {
             const {data} = await axios.post('/api/users/get-all-recipients', {ok: true});
             const recipients = data.allRecipients;
-            const menteeId = data
-            
-            if(recipients){
+            const {user} = data
+            setSender({userId: user.id, name: {first: user.name.first, last: user.name.last}})
+            if(recipients){                
                 setUserList(recipients);
             }
             if(recipients === undefined) {
-                const {data} = await axios.post('api/initiatives/get-all-recipients', {menteeId});
-                const recipients = data;   
+                const {data} = await axios.post('api/initiatives/get-all-recipients', {user});
+                const recipients = data; 
                 setUserList(recipients);
             }
         } catch (error) {

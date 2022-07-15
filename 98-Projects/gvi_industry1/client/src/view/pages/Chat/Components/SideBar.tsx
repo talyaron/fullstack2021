@@ -76,10 +76,8 @@ function SideBar(props: SideBarProps) {
                                 id={user._id}
                                 className='recipient'
                                 onClick={() => {
-
                                     setSelectedRec(user)
                                     setRecipient(user);
-                                    // setSelected()
                                 }}
                             >
                                 <p >{user.name.first} {user.name.last}</p>

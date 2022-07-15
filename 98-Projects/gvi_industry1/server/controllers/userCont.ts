@@ -153,9 +153,7 @@ export async function getAllRecipients(req, res) {
         const currentUser = await UserModel.findOne({_id: id});
         let allRecipients = [];
         if (currentUser.type === 'mentee') {
-            res.send(id);
-            console.log('id was sent -120 userCont', id);
-            
+            res.send({user:userDecodedInfo});
             return;
         }
         if (currentUser.type === 'mentor') {
@@ -182,13 +180,8 @@ export async function getAllRecipients(req, res) {
 
         if (allRecipients === []) throw new Error('no Users were found');
         if (allRecipients !== []) {
-            res.send({allRecipients, ok: true});
+            res.send(allRecipients, {user:userDecodedInfo});
         }
-    if (currentUser.type === 'mentor') {
-      // allUsers = currentUser.mentees;
-    }
-    if (allRecipients === []) throw new Error('no Users were found');
-    res.send({ allRecipients, ok: true });
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });

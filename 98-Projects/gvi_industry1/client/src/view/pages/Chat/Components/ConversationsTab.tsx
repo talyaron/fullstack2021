@@ -25,7 +25,7 @@ function ConversationsTab(props: conversationsTabProps) {
                                     </div>
 
                                     <div className='time'>
-                                    {dateFromObjectId(message._id).slice(15, 21)}
+                                    {/* {dateFromObjectId(message._id).slice(15, 21)} */}
                                     </div>
 
                                     <div className="left-point"></div>
