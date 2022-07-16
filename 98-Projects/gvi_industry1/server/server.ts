@@ -75,19 +75,20 @@ io.on('connection', (socket: any) => {
 
     socket.on('send-message', (data) => {
         console.log(data, 'data, send-message -server.ts');
-        const message = new MessageModel({text: data.text, file: data.file, sender: data.sender, recipients: data.recipients, time: data.time});
+        const message = new MessageModel({text: data.text, file: data.file, sender: data.sender, recipient: data.recipient, time: data.time});
         message.save();
+        console.log(data.recipient.userId, 'data recipient');
+        
+        // let recipients = (data) => {
+        //     let array = [];
+        //     for (let i = 0; i < data.recipients.length; i++) {
+        //         array.push(data.recipients[i].userId);
+        //     }
+        //     return array;
+        // };
+        // console.log(recipients(data));
 
-        let recipients = (data) => {
-            let array = [];
-            for (let i = 0; i < data.recipients.length; i++) {
-                array.push(data.recipients[i].userId);
-            }
-            return array;
-        };
-        console.log(recipients(data));
-
-        socket.to(recipients(data)).emit('receive-message', message);
+        // socket.to(recipients(data)).emit('receive-message', message);
     });
 });
 

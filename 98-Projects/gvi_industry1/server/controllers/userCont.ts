@@ -145,18 +145,65 @@ export async function getSelectedUserdata(req, res) {
     }
 }
 
+// export async function getAllRecipients(req, res) {
+//     try {
+//         console.log('got to get all recipients');
+        
+//         const {userInfo} = req.cookies;
+//         const userDecodedInfo = JWT.decode(userInfo, secret);
+        
+//         const {id} = userDecodedInfo;
+        
+//         const currentUser = await UserModel.findOne({_id: id});
+//         let allRecipients = [];
+//         if (currentUser.type === 'mentee') {
+//             // allUsers = currentUser.initiatives.mentors;
+//         }
+//         if (currentUser.type === 'mentor') {
+//             console.log('im a mentor');
+            
+//             const allRecipientsIds = currentUser.mentees;
+//             let localArr: Array<any> = [];
+//             const getRecipientsList = async () => {
+//                 for (let recipient of allRecipientsIds) {
+//                     let rec = await UserModel.findOne({_id: recipient }, {password: 0});
+//                     localArr.push(rec);
+//                 }
+//                 return localArr;
+//             };
+//             allRecipients = await getRecipientsList();
+            
+//             // console.log(await getRecipientsList(), 'recipientsList');
+//         }
+
+//         if (allRecipients === []) throw new Error('no Users were found');
+//         if (allRecipients !== []) {
+//           res.send({allRecipients, ok: true});
+//         }
+//     } catch (error) {
+//         console.log(error.error);
+//         res.send({error: error.message});
+//     }
+// }
+
 export async function getAllRecipients(req, res) {
     try {
         const {userInfo} = req.cookies;
         const userDecodedInfo = JWT.decode(userInfo, secret);
         const {id} = userDecodedInfo;
         const currentUser = await UserModel.findOne({_id: id});
+        console.log(currentUser);
+        console.log(userDecodedInfo);
+        
         let allRecipients = [];
-        if (currentUser.type === 'mentee') {
-            res.send({user:userDecodedInfo});
-            return;
-        }
+        // if (currentUser.type === 'mentee') {
+        //     console.log('im a mentee');
+            
+        //     res.send({user:userDecodedInfo});
+        //     return;
+        // }
         if (currentUser.type === 'mentor') {
+            console.log('im a mentor');
             const allRecipientsIds = currentUser.mentees;
             let localArr: Array<any> = [];
             const getRecipientsList = async () => {
@@ -164,14 +211,8 @@ export async function getAllRecipients(req, res) {
                     let rec = await UserModel.findOne({_id: recipient}, {password: 0});
                     localArr.push(rec);
                 }
-                // allRecipientsIds.forEach(async (recipient) => {
-                //     let rec = await UserModel.findById(recipient);
-                //     localArr = [...localArr, rec];
-                //     // console.log(rec, 'rec');
-                //     // console.log(localArr, 'localArr');
-                // });
-                // console.log(localArr, 'localArr1');
-
+                console.log(localArr, 'localArr');
+                
                 return localArr;
             };
             allRecipients = await getRecipientsList();
@@ -180,7 +221,8 @@ export async function getAllRecipients(req, res) {
 
         if (allRecipients === []) throw new Error('no Users were found');
         if (allRecipients !== []) {
-            res.send(allRecipients, {user:userDecodedInfo});
+            console.log(allRecipients, 'allRecipients');
+            res.send({allRecipients, user:userDecodedInfo});
         }
   } catch (error) {
     console.log(error.error);
@@ -191,9 +233,9 @@ export async function getAllRecipients(req, res) {
 export const login = async (req, res) => {
     try {
         const {email, password} = req.body;
-        console.log(email, password, 'loggedIn');
+        // console.log(email, password, 'loggedIn');
         if (typeof email === 'string' && typeof password === 'string') {
-            console.log(email, 'loggedIn 2');
+            // console.log(email, 'loggedIn 2');
 
             const user = await UserModel.findOne({email}).collation({locale: 'en_US', strength: 1});
             //collation strength 1 performs comparisons of the base characters only, ignoring other differences such as diacritics and case.

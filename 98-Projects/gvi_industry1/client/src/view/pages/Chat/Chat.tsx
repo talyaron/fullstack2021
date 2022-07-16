@@ -22,7 +22,7 @@ export interface UserInterface {
 export interface MessageInterface {
     _id?: String;
     sender: MessageUserInterface;
-    recipients: Array<MessageUserInterface>;
+    recipient: MessageUserInterface;
     text?: String;
     file?: String;
     time?: String;
@@ -30,23 +30,22 @@ export interface MessageInterface {
 
 function Chat() {
     const [chatArea, setChatArea] = useState('Conversation');
+    // const recipientList:any = getRecipientsList()
     const [scroll, setScroll] = useState('');
     const [sentMessage, setSentMessage] = useState('');
     const [room, setRoom] = useState('');
     const [messageList, setMessageList] = useState<Array<MessageInterface>>([]);
     //set to empty so we don't get errors about undefined userInterface:
-    const [recipient, setRecipient] = useState<UserInterface>({userId:'', name: {first: 'a', last: 'a'}});
-    const [sender, setSender] = useState<MessageUserInterface>({userId: '', name: {first:'', last: ''}})
+    const [recipient, setRecipient] = useState<UserInterface>({userId: '1', name: {first: 'a', last: 'a'}});
+    const [sender, setSender] = useState<MessageUserInterface>({userId: '', name: {first: '', last: ''}});
     const [userList, setUserList] = useState<Array<any>>([]);
     const [searchMessagesToggle, setSearchMessagesToggle] = useState<boolean>(false);
 
-
-
-    function handleTabChange(ev:any) {
+    function handleTabChange(ev: any) {
         ev.preventDefault();
         const pickedTab = ev.target.textContent;
-        
-        setChatArea(`${pickedTab}`)
+
+        setChatArea(`${pickedTab}`);
     }
     function dateFromObjectId(messageId: string) {
         if (messageId) {
@@ -59,8 +58,6 @@ function Chat() {
         }
     }
 
-    
-
     useEffect(() => {
         console.log('on');
 
@@ -70,7 +67,7 @@ function Chat() {
             const payload = {
                 text: message.text,
                 sender: message.sender,
-                recipients: [...message.recipients],
+                recipient: message.recipient,
                 file: '',
                 time: dateFromObjectId(id),
             };
@@ -90,24 +87,24 @@ function Chat() {
         return () => {
             // how to clean requests so it doesn't happen again on unmount?
             getRecipientsList();
-            handleJoinRoom();          
+            handleJoinRoom();
         };
     }, []);
-useEffect(() => {getMessageList(recipient)},[recipient])
+    useEffect(() => {
+        getMessageList(recipient);
+    }, [recipient]);
     function handleChatSearchBar() {
         setSearchMessagesToggle((p: boolean) => !p);
     }
     function handleSendMessage() {
         try {
             const id: any = recipient?.userId;
-            const name:nameInterface = recipient?.name;
-            console.log(recipient, name, 'id and name 104');
-            
+            const name: nameInterface = recipient?.name;
             if (sentMessage === '') throw new Error('Type something!');
             const payload = {
                 text: sentMessage,
                 sender: sender,
-                recipients: [{userId: id, name: name}],
+                recipient: {userId: id, name: name},
                 file: '',
             };
             socket.emit('send-message', payload);
@@ -117,13 +114,35 @@ useEffect(() => {getMessageList(recipient)},[recipient])
         }
     }
 
-    async function getMessageList(recipient:any) {
+    async function getMessageList(recipient: any) {
         try {
-            const {data} = await axios.post('/api/messages/get-messages', 
-            // {recipientId: recipient._id}
+            const {data} = await axios.post(
+                '/api/messages/get-messages'
+                // {recipientId: recipient._id}
             );
             setMessageList(data.allMessages);
-            
+            if(sender.userId){
+                let myMessageList = data.allMessages.filter((message: any) => {
+                    return message.sender.userId === sender.userId;
+                });
+                myMessageList.forEach((message: any) => {
+                    console.log(message.sender, 'myMessageList');
+                });
+            }
+            console.log(recipient, 'recipient');
+            // if(!recipient.userId)
+            if(recipient){
+                console.log(recipient, 'recipient2');
+                let recipientsMessages = data.allMessages.filter((message: any) => {
+                    return message.recipient === recipient ;
+                });
+                recipientsMessages.forEach((message: any) => {
+                    console.log(message, 'recipientsMessages');
+                });
+            }
+
+
+            // console.log(recipientsMessages, 'recipientsMessages');
         } catch (error) {
             console.log(error);
         }
@@ -131,16 +150,24 @@ useEffect(() => {getMessageList(recipient)},[recipient])
     async function getRecipientsList() {
         try {
             const {data} = await axios.post('/api/users/get-all-recipients', {ok: true});
+            console.log(data, 'data 152');
+            
             const recipients = data.allRecipients;
-            const {user} = data
-            setSender({userId: user.id, name: {first: user.name.first, last: user.name.last}})
-            if(recipients){                
+            console.log(recipients, 'all recipients');
+            
+            const {user} = data;
+            setSender({userId: user.id, name: {first: user.name.first, last: user.name.last}});
+            if (recipients) {
+                console.log(recipients, 'user is a mentor');
                 setUserList(recipients);
+                setRecipient(recipients[0]);
             }
-            if(recipients === undefined) {
-                const {data} = await axios.post('api/initiatives/get-all-recipients', {user});
-                const recipients = data; 
+            if (recipients === undefined) {
+                const {data} = await axios.post('/api/initiatives/get-all-recipients', {user});
+                const recipients = data;
+                console.log(recipients, 'user is a mentee');
                 setUserList(recipients);
+                setRecipient(recipients[0]);
             }
         } catch (error) {
             console.log(error);
