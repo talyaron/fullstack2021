@@ -67,24 +67,30 @@ io.on('connection', (socket: any) => {
         // console.log(senderId, 'senderId');
         
         let recipients = (userList) => {
-            let array = [];
+
+            let array = [sender.userId];
             for (let i = 0; i < userList.length; i++) {
-                array.push(userList[i]._id);
+                if(userList[i]._id){
+                    array.push(userList[i]._id);
+                }
+                if(userList[i].userId){
+                    array.push(userList[i].userId);
+                }
             }
+            
             return array;
         };
 
-        console.log(recipients(userList), sender.userId);
-        
-        socket.join([recipients(data), sender.userId]);
+        socket.leaveAll();
+        socket.join(recipients(userList));
         console.log(`User with ID: ${socket.id} joined room: ${data}`);
+        console.log(io.sockets.adapter.rooms);
+        
     });
 
     socket.on('send-message', (data) => {
-        console.log(data, 'data, send-message -server.ts');
         const message = new MessageModel({text: data.text, file: data.file, sender: data.sender, recipient: data.recipient, time: data.time});
         message.save();
-        console.log(data.recipient, 'data recipient');
         
         // let recipients = (data) => {
         //     let array = [];
@@ -94,7 +100,8 @@ io.on('connection', (socket: any) => {
         //     return array;
         // };
         // console.log(recipients(data));
-
+        console.log(data.recipient._id,' send message server ts -103');
+        
         socket.to(data.recipient.userId).emit('receive-message', message);
     });
 });

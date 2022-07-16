@@ -35,7 +35,7 @@ function Chat() {
     const [sentMessage, setSentMessage] = useState('');
     const [messageList, setMessageList] = useState<Array<MessageInterface>>([]);
     //set to empty so we don't get errors about undefined userInterface:
-    const [recipient, setRecipient] = useState<UserInterface>({_id: '1', name: {first: 'a', last: 'a'}});
+    const [recipient, setRecipient] = useState<any>({_id: '1', name: {first: 'a', last: 'a'}});
     const [sender, setSender] = useState<MessageUserInterface>({userId: '', name: {first: '', last: ''}});
     const [userList, setUserList] = useState<Array<any>>([]);
     const [searchMessagesToggle, setSearchMessagesToggle] = useState<boolean>(false);
@@ -97,15 +97,20 @@ function Chat() {
     }
     function handleSendMessage() {
         try {
-            const id: any = recipient?._id;
+            let id: any = recipient?._id;
             const name: nameInterface = recipient?.name;
-            console.log(id, name, recipient,'id and name 103 -chattsx');
+            if(!id) {
+                id = recipient.userId
+            }
+            // console.log(id, name, recipient,'id and name 103 -chattsx');
             
             if (sentMessage === '') throw new Error('Type something!');
+            console.log({sentMessage:sentMessage}, {sender:sender}, {recipient: recipient}, 'sentMessage sender recipient');
+            
             const payload = {
                 text: sentMessage,
                 sender: sender,
-                recipient: {userId: id, name: name},
+                recipient: recipient,
                 file: '',
             };
             socket.emit('send-message', payload);
@@ -134,11 +139,18 @@ function Chat() {
             }
             // if(!recipient.userId)
             if(recipient){
+                
                 let recipientsMessages = data.allMessages.filter((message: any) => {
-                    return message.recipient.userId === recipient._id; ;
+                    console.log(sender, 'sender');
+                    if(message.recipient.userId){
+                        return message.recipient.userId === recipient._id; ;
+                    }
+                    if(message.recipient._id){
+                        return message.recipient._id === recipient._id; ;
+                    }
                 });
                 recipientsMessages.forEach((message: any) => {
-                    console.log(message.recipient.userId, 'recipientsMessages');
+                    console.log(message.recipient.userId,message.recipient._id, 'recipientsMessages');
                 });
                 // console.log(recipientsMessages, 'recipientsMessages');
                 
@@ -157,12 +169,16 @@ function Chat() {
             const {user} = data;
             setSender({userId: user.id, name: {first: user.name.first, last: user.name.last}});
             if (recipients.length > 0) {
+                console.log('im a mentor');
+                
                 setUserList(recipients);
                 setRecipient(recipients[0]);
             }
             if (recipients.length === 0) {
+                console.log('im a mentee');
                 const {data} = await axios.post('/api/initiatives/get-all-recipients', {user});
                 const recipients = data;
+                
                 setUserList(recipients);
                 setRecipient(recipients[0]);
             }
