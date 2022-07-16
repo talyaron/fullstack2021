@@ -7,27 +7,25 @@ import axios from 'axios'
 interface ProffesionalDetailsProps{
     
     isMentee:boolean
-    userInitiative:any
+    companyInfo:Array<any>;
     mentorDetails:Array<any>
 }
 
 
 function ProffesionalDetails(props:ProffesionalDetailsProps) {
 
-    const {isMentee,userInitiative,mentorDetails} = props;
+    const {isMentee,companyInfo,mentorDetails} = props;
+
+    const [companyDetails , setCompanyDetails] = useState(companyInfo)
     
-    console.log(userInitiative);
-    for(let field in userInitiative ){
-        console.log(field);
-        
-    }
-    // const sector = userInitiative.sector
-    // const companyDetails = [userInitiative.companyName,userInitiative.sector,userInitiative.Stage]
+    console.log('===========');
+    console.log(companyInfo);
 
 
     return (
         <div className='profile_companyDetails-sections'>
-        {/* {isMentee?companyDetails.map((section,i) => {
+            
+        {isMentee?companyInfo.map((section,i) => {
             return(
          <div key={i} className='profile_companyDetails-sections-section'>{section}</div>
             )
@@ -36,7 +34,7 @@ function ProffesionalDetails(props:ProffesionalDetailsProps) {
         <div key={i} className='profile_companyDetails-sections-section'>{section}</div>
             )
         })}
-        {isMentee?<a className='profile_companyDetails-sections-section' 
+        {/* {isMentee?<a className='profile_companyDetails-sections-section' 
         href='https://trello.com/b/6geq1VEQ/gvi'>Link to presentation</a>:null} */}
         </div>  
     )
