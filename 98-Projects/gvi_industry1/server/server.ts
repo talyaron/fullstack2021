@@ -62,14 +62,21 @@ mongoose
 io.on('connection', (socket: any) => {
     console.log('user connected', socket.id);
     socket.on('join-room', (data) => {
-        let recipients = (data) => {
+        const {sender} = data;
+        const {userList} = data;
+        // console.log(senderId, 'senderId');
+        
+        let recipients = (userList) => {
             let array = [];
-            for (let i = 0; i < data.recipients.length; i++) {
-                array.push(data.recipients[i].userId);
+            for (let i = 0; i < userList.length; i++) {
+                array.push(userList[i]._id);
             }
             return array;
         };
-        socket.join(data);
+
+        console.log(recipients(userList), sender.userId);
+        
+        socket.join([recipients(data), sender.userId]);
         console.log(`User with ID: ${socket.id} joined room: ${data}`);
     });
 
@@ -77,7 +84,7 @@ io.on('connection', (socket: any) => {
         console.log(data, 'data, send-message -server.ts');
         const message = new MessageModel({text: data.text, file: data.file, sender: data.sender, recipient: data.recipient, time: data.time});
         message.save();
-        console.log(data.recipient.userId, 'data recipient');
+        console.log(data.recipient, 'data recipient');
         
         // let recipients = (data) => {
         //     let array = [];
@@ -88,7 +95,7 @@ io.on('connection', (socket: any) => {
         // };
         // console.log(recipients(data));
 
-        // socket.to(recipients(data)).emit('receive-message', message);
+        socket.to(data.recipient.userId).emit('receive-message', message);
     });
 });
 

@@ -192,9 +192,6 @@ export async function getAllRecipients(req, res) {
         const userDecodedInfo = JWT.decode(userInfo, secret);
         const {id} = userDecodedInfo;
         const currentUser = await UserModel.findOne({_id: id});
-        console.log(currentUser);
-        console.log(userDecodedInfo);
-        
         let allRecipients = [];
         // if (currentUser.type === 'mentee') {
         //     console.log('im a mentee');
@@ -203,7 +200,7 @@ export async function getAllRecipients(req, res) {
         //     return;
         // }
         if (currentUser.type === 'mentor') {
-            console.log('im a mentor');
+
             const allRecipientsIds = currentUser.mentees;
             let localArr: Array<any> = [];
             const getRecipientsList = async () => {
@@ -211,17 +208,17 @@ export async function getAllRecipients(req, res) {
                     let rec = await UserModel.findOne({_id: recipient}, {password: 0});
                     localArr.push(rec);
                 }
-                console.log(localArr, 'localArr');
+
                 
                 return localArr;
             };
             allRecipients = await getRecipientsList();
-            // console.log(await getRecipientsList(), 'recipientsList');
+
         }
 
         if (allRecipients === []) throw new Error('no Users were found');
         if (allRecipients !== []) {
-            console.log(allRecipients, 'allRecipients');
+
             res.send({allRecipients, user:userDecodedInfo});
         }
   } catch (error) {
