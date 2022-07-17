@@ -235,11 +235,13 @@ export const getUserProfile = async (req, res) => {
 
       const user = await UserModel.findOne({_id:userId})
 
-      if(updatedDetails.country !== " ") user.country = updatedDetails.country
-      if(updatedDetails.email !== " ") user.email = updatedDetails.email 
-      if(updatedDetails.phone !== " ") user.phone = updatedDetails.phone
-      if(updatedDetails.linkdin !== " ") user.linkedInProfile = updatedDetails.linkdin
-
+      if(updatedDetails.country ) {user.country = updatedDetails.country}else{user.country = user.country}
+      if(updatedDetails.city ) {user.city = updatedDetails.city}else{user.city = user.city}
+      if(updatedDetails.address ) {user.address = updatedDetails.address}else{user.address = user.address}
+      if(updatedDetails.email) {user.email = updatedDetails.email}else{user.email = user.email}
+      if(updatedDetails.phone) {user.phone = updatedDetails.phone}else{user.phone = user.phone}
+      if(updatedDetails.linkedInProfile){user.linkedInProfile = updatedDetails.linkedInProfile}else{user.linkedInProfile = user.linkedInProfile}
+      
       await UserModel.updateOne({ _id:userId}, user);
       
       res.send({user, ok: true})

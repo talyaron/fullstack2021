@@ -46,8 +46,9 @@ export function Profile (props:ProfileProps) {
           MentorOrMentee(userFound.type)
           setUserName(userFound.name)
           setUserSector(userFound.sector)
-          const newContactInfo = {country:userFound.country,email:userFound.email,phone:userFound.phone,
-            linkdInProfile:userFound.linkdInProfile}
+          console.log(userFound);
+          const newContactInfo = {country:userFound.country,city:userFound.city,address:userFound.address,
+            email:userFound.email,phone:userFound.phone,linkdInProfile:userFound.linkdInProfile}
             setContactInfo(newContactInfo)
         })();
       }, [])
@@ -74,6 +75,8 @@ export function Profile (props:ProfileProps) {
 
     function changeImage(ev:any){
         console.dir(ev.target.files);
+        console.log(ev.target.files);
+        
         const [file] = ev.target.files;
         setProfileImg(URL.createObjectURL(file));
     }

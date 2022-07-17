@@ -32,9 +32,9 @@ export const getInitiative = async (req, res) => {
 }
 export const updateInitiative = async (req, res) => {
     try {
+
       const {newDetails , userId } = req.body;
 
-        
       const user = await InitiativeModel.findOne({ownerUserId:userId})
 
       if(newDetails.companyName) {user.companyName = newDetails.companyName}else{user.companyName = user.companyName}

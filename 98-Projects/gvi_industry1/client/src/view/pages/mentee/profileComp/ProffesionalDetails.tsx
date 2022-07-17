@@ -25,13 +25,9 @@ function ProffesionalDetails(props:ProffesionalDetailsProps) {
     return (
         <div className='profile_companyDetails-sections'>
             
-        {isMentee?companyInfo.map((section,i) => {
+        {companyInfo.map((section,i) => {
             return(
          <div key={i} className='profile_companyDetails-sections-section'>{section}</div>
-            )
-        }):mentorDetails.map((section,i) => {
-            return(
-        <div key={i} className='profile_companyDetails-sections-section'>{section}</div>
             )
         })}
         {/* {isMentee?<a className='profile_companyDetails-sections-section' 

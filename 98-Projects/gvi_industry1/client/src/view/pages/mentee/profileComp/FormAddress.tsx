@@ -17,6 +17,8 @@ function FormAddress(props:FormAddressProps){
   const [ISemail , setemail] = useState<boolean>()
   const [ISphone , setphone] = useState<boolean>()
   const [ISlinkdin , setlinkdin] = useState<boolean>()
+  const [IScity , setISCity] = useState<boolean>()
+  const [ISaddress , setISAddress] = useState<boolean>()
 
   useEffect(() => {
     if(contactInfo.country){setcountry(true)} else setcountry(false)
@@ -35,9 +37,11 @@ async function updateContactInfo(ev:any){
   const country = ev.target.elements.country.value;
   const email = ev.target.elements.email.value;
   const phone = ev.target.elements.phone.value;
-  const linkDin = ev.target.elements.linkDin.value;
+  const linkedInProfile = ev.target.elements.linkedInProfile.value;
+  const city = ev.target.elements.city.value;
+  const address = ev.target.elements.address.value;
   
-    const updatedDetails = {country:country,email:email,phone:phone,linkDin:linkDin}
+    const updatedDetails = {country:country,city:city,address:address,email:email,phone:phone,linkedInProfile:linkedInProfile}
     console.log(updatedDetails);
     setEditAddress(false)
 
@@ -45,7 +49,10 @@ async function updateContactInfo(ev:any){
       if(country !== " ") setcountry(true)
       if(email !== " ") setemail(true)
       if(phone !== " ") setphone(true)
-      if(linkDin !== " ") setlinkdin(true)
+      if(city !== " ") setlinkdin(true)
+      if(address !== " ") setISAddress(true)
+      if(city !== " ") setISCity(true)
+      
 
     }
     
@@ -60,8 +67,10 @@ async function updateContactInfo(ev:any){
       <form className="formAdress" onSubmit={updateContactInfo}>
         {IScountry?<input className="formAdress-input" type="text" name="country" id="" placeholder={contactInfo.country}/>:
         <input className="formAdress-input" type="text" name="country" id="" placeholder="country"/>}
-        <input className="formAdress-input" type="text" name="city" id="" placeholder="city..(not in DB yet)"/>
-        <input className="formAdress-input" type="text" name="address" id="" placeholder="address..(not in DB yet)"/>
+        {IScity?<input className="formAdress-input" type="text" name="city" id="" placeholder={contactInfo.city}/>:
+        <input className="formAdress-input" type="text" name="city" id="" placeholder="city..."/>}
+        {ISaddress?<input className="formAdress-input" type="text" name="address" id="" placeholder={contactInfo.adderess}/>:
+        <input className="formAdress-input" type="text" name="address" id="" placeholder="address..."/>}
         {ISemail?<input className="formAdress-input" type="email" name="email" id="" 
         placeholder={contactInfo.email}/>:
         <input className="formAdress-input" type="email" name="email" placeholder="email"/>}
@@ -69,7 +78,7 @@ async function updateContactInfo(ev:any){
         <input className="formAdress-input" type="number" name="phone" placeholder="enter phone number.."/>}        
         {ISlinkdin?<input className="formAdress-input" type="text" name="linkDin" id="" 
         placeholder={contactInfo.linkdInProfile}/>:
-        <input className="formAdress-input" type="text" name="linkDin" id="" 
+        <input className="formAdress-input" type="text" name="linkedInProfile" id="" 
         placeholder="linkDin profile link.. " />}
         <input className="formAdress-submit" type="submit" value="save Details" />
       </form>

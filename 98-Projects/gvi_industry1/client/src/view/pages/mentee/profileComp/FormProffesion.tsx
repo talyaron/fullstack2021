@@ -13,8 +13,8 @@ function FormProffesion (props:FormProffesionProps){
 
     const {isMentee,companyInfo,mentorDetails,userId} = props;
 
-    const [companySections , setCompanySection] = useState(["CompanyName" , "sector" , "description",
-    "stage","linkToOnePager"])
+    const [companySections , setCompanySection] = useState(
+        ["CompanyName" , "sector" , "description","stage","linkToOnePager"])
     
 
     console.log(userId);
@@ -39,8 +39,8 @@ function FormProffesion (props:FormProffesionProps){
                 if(element.name === "linkToOnePager") linkToOnePager = element.value  
             }
         }
-        const newDetails = {companyName:companyName,description:description,
-            sector:sector,stage:stage,linkToOnePager:linkToOnePager};
+        const newDetails = 
+        {companyName:companyName,description:description,sector:sector,stage:stage,linkToOnePager:linkToOnePager};
 
         const {data} = await axios.post('/api/initiatives/update-initiative',{newDetails,userId})
         
@@ -50,14 +50,10 @@ function FormProffesion (props:FormProffesionProps){
     
     return (
         <form className='profile_companyDetails-sections formProffesion' onSubmit={editUser}>
-
-        {isMentee?companyInfo.map((section,i) => {
+        
+        {companyInfo.map((section,i) => {
             return(
-         <input key={i} type="text" name={companySections[i]} className='formProffesion-input' placeholder={section} />
-            )
-        }):mentorDetails.map((section,i) => {
-            return(
-        <input key={i} type="text" name={companySections[i]} className='formProffesion-input' placeholder={section}/>
+         <input key={i} type="text" name={companySections[i]} className='formProffesion-input' placeholder={companySections[i]} />
             )
         })}
         <input className='formProffesion-submit' name="submit" type="submit" value="save Details"/>
