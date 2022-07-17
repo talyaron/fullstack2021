@@ -238,3 +238,18 @@ export async function getLoggedInProfile(req, res) {
       res.send({error: error.message});
   }
 }
+
+export const adminGetAllUsers = async (req, res) => {
+    try {      
+      
+      const allUsers = await UserModel.find({});
+      res.send({ allUsers});
+      console.log(allUsers)
+    //   const allMentors = await UserModel.find({type:{theType} });
+    //   res.send({ allMentors});
+    //   console.log(allMentors,"mentors")
+    } catch (error) {
+      console.log(error.error);
+      res.send({ error: error.message });
+    }
+  };

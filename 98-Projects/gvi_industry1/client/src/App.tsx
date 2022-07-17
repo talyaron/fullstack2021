@@ -4,12 +4,12 @@ import Profile from "./view/pages/mentee/Profile";
 import React from "react";
 import SelectedMentor from "./view/pages/mentee/SelectedMentor";
 import "./view/styles/global.scss";
-import HomePage from "./view/Components/HomePage";
+import HomePage from "./view/components/HomePage";
 import Matching from "./view/pages/matching/Matching";
 import Chat from "./view/pages/Chat/Chat";
-import WelcomePage from "./view/Components/WelcomePage";
+import WelcomePage from "./view/components/WelcomePage";
 import { useState, useEffect } from "react";
-import AdminPage from "./view/Components/AdminPage";
+import AdminPage from "./view/components/AdminPage";
 import AdminLayout from "./view/pages/AdminLayout";
 import axios from "axios";
 import {
