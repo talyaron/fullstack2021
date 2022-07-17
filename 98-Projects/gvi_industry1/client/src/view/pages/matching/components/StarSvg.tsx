@@ -1,15 +1,15 @@
 import React from 'react'
 interface StarSvgProps{
     handleSelectUser:Function
-    mentorId:string
+    userId:string
 }
 
 const StarSvg = (props:StarSvgProps) => {
-    const {handleSelectUser,mentorId} = props
+    const {handleSelectUser,userId} = props
 
     return (
         <div className='matching__wrapper_card_select'>
-            <svg className='matching__wrapper_card_select_star' onClick={() => handleSelectUser(mentorId)}
+            <svg className='matching__wrapper_card_select_star' onClick={() => handleSelectUser(userId)}
              width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <rect width="20.8263" height="20.8256" fill="url(#pattern0)" />
                 <defs>

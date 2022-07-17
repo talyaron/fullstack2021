@@ -16,7 +16,7 @@ import SelctedMentors from "./view/pages/mentee/SelctedMentors";
 
 function App() {
 
-  const [mentorsList, setMentorsList] = useState([]);
+  const [usersList, setUsersList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [currentSearch, setCurrentSearch] =useState([])
   const [checked, setChecked] = useState([0]);
@@ -38,7 +38,7 @@ function App() {
         <Route path="/Profile" element={<Profile id="1234"/>} />
         <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
-        <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} currentSearch={currentSearch} setCurrentSearch={setCurrentSearch} checked={checked} setChecked={setChecked} />} />
+        <Route path="/matching" element={<Matching usersList={usersList} setUsersList={setUsersList} currentUser={currentUser} currentSearch={currentSearch} setCurrentSearch={setCurrentSearch} checked={checked} setChecked={setChecked} />} />
         <Route path=":id" element={<SelctedMentors />} />
       </Routes>
     </Router>

@@ -3,28 +3,25 @@ import UserModel from '../models/userModel';
 import selectedUsersModel from '../models/selectedUsers';
 import JWT from 'jwt-simple';
 
-export const getMentors = async (req, res) => {
+export const getUsers = async (req, res) => {
   try {
     const { currentUser } = req.body;
     if (Object.keys(currentUser).length === 0) throw new Error("no user connected");
     console.log('current',currentUser);
     if (currentUser.type === 'mentee') {
-      const allMentors = await UserModel.find({ type: 'mentor' });
+      const users = await UserModel.find({ type: 'mentor' });
       //not showing the correct results
-      const filterMentors = allMentors.filter(
-        (mentor) => mentor.country === currentUser.country
+      const filterUsers = users.filter(
+        (mentor) => mentor.sector === currentUser.sector
       );
-      res.send({ allMentors, ok: true });
-      console.log(filterMentors);
+      res.send({ filterUsers, ok: true });
     } else if (currentUser.type === 'mentor') {
-      const allMentees = await UserModel.find({ type: 'mentee' });
+      const users = await UserModel.find({ type: 'mentee' });
       //not showing the correct results
-      const filterMentees = allMentees.filter(
-        (mentee) => mentee.country === currentUser.country
+      const filterUsers = users.filter(
+        (mentee) => mentee.sector === currentUser.sector
       );
-      res.send({ allMentees, ok: true });
-      console.log(filterMentees);
-    }
+      res.send({ filterUsers, ok: true });    }
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
@@ -69,7 +66,8 @@ export const selectUser = async (req: any, res: any) => {
     try {
         const {userInfo} = req.cookies;
         const payload = JWT.decode(userInfo, secret);
-        const {id} = payload;
+        const currentUserId = payload.id;
+        console.log('initial id',currentUserId)
 
         const {selectedUserId} = req.body;
         //add err check
@@ -80,8 +78,10 @@ export const selectUser = async (req: any, res: any) => {
 
         const {email, name, image} = selectedUser;
         console.log('selectedUser', selectedUser);
+
         const searchSelecting = {
-            selectedUser: {email: selectedUser.email},
+            'selectedUser.email': selectedUser.email,
+            'selectingUserId':currentUserId
         };
 
         const selectingUser: any = await selectedUsersModel.findOne(searchSelecting);
@@ -91,16 +91,13 @@ export const selectUser = async (req: any, res: any) => {
         if (!selectingUser) {
             console.log('no record in DB - saving');
             const newSelectionDB = new selectedUsersModel({
-                bothId: `${id}-${selectedUser._id}`,
-                selectingUserId: id,
+                // bothId: `${id}-${selectedUser._id}`,
+                selectingUserId: currentUserId,
                 selectedUser: {email, name, image},
                 selected: true,
             });
             newSelection = await newSelectionDB.save();
-            console.log(selectingUser, 'selectingUser -99 userCont');
         } else {
-            console.log(selectingUser, 'selectingUser -101 userCont');
-            
             if (selectingUser.selected === true) {
                 console.log('a record in DB - turning off');
                 newSelection = await selectedUsersModel.findOneAndUpdate(searchSelecting, {selected: false});
