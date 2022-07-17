@@ -1,15 +1,22 @@
 import mongoose from "mongoose";
-import {UserSchema} from "./userModel";
+import { UserSchema } from "./userModel";
 
 const selectedUserSchema = new mongoose.Schema({
   selectingUserId: {
     type: String,
-    unique: true,
     required: true,
   },
-  selectedUsers: [UserSchema]
+  selectedUser: {
+    email: String,
+    name: {
+      first: String,
+      last: String,
+    },
+    image: String,
+  },
+  selected: Boolean,
 });
 
-const selectedUserModel = mongoose.model('selectedUsers', selectedUserSchema);
+const selectedUsersModel = mongoose.model("selected-users", selectedUserSchema);
 
-export default selectedUserModel;
+export default selectedUsersModel;

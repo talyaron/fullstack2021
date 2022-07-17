@@ -1,45 +1,48 @@
-// import {Sector,Stage,FieldsOfKnowledge} from './userModel'
+import { Sector, StageSchema, FieldsOfKnowledgeSchema } from './userModel'
 import mongoose from 'mongoose'
 
-const NameSchema = new mongoose.Schema ({
+const NameSchema = new mongoose.Schema({
     first: String,
     last: String
-  });
+});
 
-  
-const MenteeSchema = new mongoose.Schema({
+
+export const MentorSchema = new mongoose.Schema({
     userId: String,
-    name: NameSchema
+    name: NameSchema,
+    image: String,
+
+    fieldsOfKnowledge: {
+        type: String,
+        enum: FieldsOfKnowledgeSchema,
+        default: FieldsOfKnowledgeSchema.UX,
+    },
 })
 
 export const InitiativeSchema = new mongoose.Schema({
-    mentee: MenteeSchema,
+    ownerName: NameSchema,
+    ownerUserId: String,
+    companyName: String,
     image: String,
-   sector: {
+    sector: {
         type: String,
-        // enum: Sector,
+        enum: Sector,
+        default: Sector.EDUCATION,
     },
-    title: String,
     description: String,
-    mentors: [{
-        userId: String,
-        name: NameSchema,
-        fieldsOfKnowledge: {
-            type: String,
-            // enum: FieldsOfKnowledge,
-        },
-    }],
-    stage:{
-        type:String,
-        // enum:Stage,
+    mentors: MentorSchema,
+    stage: {
+        type: String,
+        enum: StageSchema,
+        default: StageSchema.FFF,
     },
-    WebSite:String,
-    LinkToOnepager: String,
-    Presntations: [{String}]
+    webSite: String,
+    linkToOnePager: String,
+    presentations: [{ String }]
 
     /////initiative
-    
-})
-const InitiativeModel = mongoose.model("initiatives",InitiativeSchema)
 
+})
+
+const InitiativeModel = mongoose.model("initiatives", InitiativeSchema)
 export default InitiativeModel
