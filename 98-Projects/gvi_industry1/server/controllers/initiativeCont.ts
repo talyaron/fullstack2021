@@ -22,10 +22,8 @@ export const getInitiative = async (req, res) => {
         const { userId } = req.body;
                
         const userInitiative = await InitiativeModel.findOne({ownerUserId:userId})
-        console.log(userInitiative);
         
         res.send({userInitiative})
-
 
     } catch (err) {
         console.error(err);
@@ -36,13 +34,14 @@ export const updateInitiative = async (req, res) => {
     try {
       const {newDetails , userId } = req.body;
 
+        
       const user = await InitiativeModel.findOne({ownerUserId:userId})
 
-      if(newDetails.companyName !== " ") user.companyName = newDetails.companyName
-      if(newDetails.description !== " ") user.description = newDetails.description
-      if(newDetails.sector !== " ") user.sector = newDetails.sector
-      if(newDetails.stage !== " ") user.stage = newDetails.stage
-      if(newDetails.linkToOnePager !== " ") user.linkToOnePager = newDetails.linkToOnePager
+      if(newDetails.companyName) {user.companyName = newDetails.companyName}else{user.companyName = user.companyName}
+      if(newDetails.description) {user.description = newDetails.description}else{user.description = user.description}
+      if(newDetails.sector) user.sector = newDetails.sector
+      if(newDetails.stage) user.stage = newDetails.stage
+      if(newDetails.linkToOnePager) user.linkToOnePager = newDetails.linkToOnePager
 
       await InitiativeModel.updateOne({ ownerUserId:userId}, user);
       
@@ -53,4 +52,4 @@ export const updateInitiative = async (req, res) => {
           res.send({ error: err.message, ok: false });
       }
     }
-updateInitiative
+

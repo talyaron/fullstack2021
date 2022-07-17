@@ -13,7 +13,7 @@ function FormProffesion (props:FormProffesionProps){
 
     const {isMentee,companyInfo,mentorDetails,userId} = props;
 
-    const [companySections , setCompanySection] = useState(["companyName" , "sector" , "description",
+    const [companySections , setCompanySection] = useState(["CompanyName" , "sector" , "description",
     "stage","linkToOnePager"])
     
 
@@ -23,26 +23,27 @@ function FormProffesion (props:FormProffesionProps){
    async function editUser(ev:any){
         
         ev.preventDefault()
-        let companyName,discriptionComapny,sector,linkToOnePager,startUpStage
+        let companyName,description,sector,linkToOnePager,stage
         const inputs = ev.target.elements
         console.dir(ev.target.elements);
         for(let element of inputs){
             if(element.name !== "submit"){
                 if(element.name === "CompanyName") {
                     companyName = element.value;
-                    console.log('lala');
+                    console.log(companyName);
+                    
                 }      
-                if(element.name === "description") discriptionComapny = element.value
-                if(element.name === "stage") startUpStage = element.value
+                if(element.name === "description") description = element.value
+                if(element.name === "stage") stage = element.value
                 if(element.name === "sector") sector = element.value
-                if(element.name === "linkToOnePager") linkToOnePager = element.value
-                
+                if(element.name === "linkToOnePager") linkToOnePager = element.value  
             }
         }
-        const newDetails = {companyName:companyName,description:discriptionComapny,
-            sector:sector,stage:startUpStage,linkToOnePager:linkToOnePager};
+        const newDetails = {companyName:companyName,description:description,
+            sector:sector,stage:stage,linkToOnePager:linkToOnePager};
 
         const {data} = await axios.post('/api/initiatives/update-initiative',{newDetails,userId})
+        
         window.location.reload();
             
     }

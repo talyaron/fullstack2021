@@ -156,9 +156,10 @@
 
             &-section{
                 // border:1px soli  d black;
-                // padding-top: 15px;
+                padding-top: 10px;
+                font-size: 20px;
                 text-align: center;
-                height:15%;
+                height:20%;
                 width:50%;
             }
         }
@@ -202,8 +203,9 @@
     justify-content: space-around;
     overflow-y: auto;
 
+
     &-input{
-        height: 30px;
+        height: 40px;
     }
     &-submit{
         align-self: center;

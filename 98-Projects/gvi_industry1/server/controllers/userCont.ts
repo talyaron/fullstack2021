@@ -220,7 +220,6 @@ export const getUserProfile = async (req, res) => {
   try {
     const { id } = req.body;
 
-
     const user = await UserModel.findOne({_id:id})
     
     res.send({user, ok: true})
