@@ -42,7 +42,6 @@ async function updateContactInfo(ev:any){
   const address = ev.target.elements.address.value;
   
     const updatedDetails = {country:country,city:city,address:address,email:email,phone:phone,linkedInProfile:linkedInProfile}
-    console.log(updatedDetails);
     setEditAddress(false)
 
     for(let field in updatedDetails){
@@ -58,7 +57,6 @@ async function updateContactInfo(ev:any){
     
     const data = await axios.post('/api/users/updateUserDetails' , {updatedDetails,userId})
     
-    console.log(data)
     window.location.reload();
   }
   

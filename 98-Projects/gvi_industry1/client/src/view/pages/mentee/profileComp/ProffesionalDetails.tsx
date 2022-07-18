@@ -18,10 +18,6 @@ function ProffesionalDetails(props:ProffesionalDetailsProps) {
 
     const [companyDetails , setCompanyDetails] = useState(companyInfo)
     
-    console.log('===========');
-    console.log(companyInfo);
-
-
     return (
         <div className='profile_companyDetails-sections'>
             

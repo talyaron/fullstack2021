@@ -25,12 +25,10 @@ function FormProffesion (props:FormProffesionProps){
         ev.preventDefault()
         let companyName,description,sector,linkToOnePager,stage
         const inputs = ev.target.elements
-        console.dir(ev.target.elements);
         for(let element of inputs){
             if(element.name !== "submit"){
                 if(element.name === "CompanyName") {
                     companyName = element.value;
-                    console.log(companyName);
                     
                 }      
                 if(element.name === "description") description = element.value
