@@ -5,29 +5,39 @@ import initiativeModel from "../models/initiativeModel";
 import countryFlagModel from "../models/countryFlagModel";
 import JWT from "jwt-simple";
 
-export const getMentors = async (req, res) => {
+
+export const getUser = async (req: any, res: any) => {
+    try {
+        const {userInfo} = req.cookies;
+        const payload = JWT.decode(userInfo, secret);
+        const {id} = payload;
+        console.log(id);
+
+        const user = await UserModel.findOne({_id: id});
+        res.send({user});
+    } catch (error) {
+        console.log(error.error);
+        res.send({error: error.message});
+    }
+};
+
+export const getUsers = async (req, res) => {
   try {
     const { currentUser } = req.body;
-    if (Object.keys(currentUser).length === 0)
-      throw new Error("no user connected");
-    console.log("current", currentUser);
-    if (currentUser.type === "mentee") {
-      const allMentors = await UserModel.find({ type: "mentor" });
-      //not showing the correct results
-      const filterMentors = allMentors.filter(
-        (mentor) => mentor.country === currentUser.country
+    if (Object.keys(currentUser).length === 0) throw new Error("no user connected");
+    console.log('current',currentUser);
+    if (currentUser.type === 'mentee') {
+      const users = await UserModel.find({ type: 'mentor' });
+      const filterUsers = users.filter(
+        (mentor) => mentor.sector === currentUser.sector
       );
-      res.send({ allMentors, ok: true });
-      console.log(filterMentors);
-    } else if (currentUser.type === "mentor") {
-      const allMentees = await UserModel.find({ type: "mentee" });
-      //not showing the correct results
-      const filterMentees = allMentees.filter(
-        (mentee) => mentee.country === currentUser.country
+      res.send({ filterUsers, ok: true });
+    } else if (currentUser.type === 'mentor') {
+      const users = await UserModel.find({ type: 'mentee' });
+      const filterUsers = users.filter(
+        (mentee) => mentee.sector === currentUser.sector
       );
-      res.send({ allMentees, ok: true });
-      console.log(filterMentees);
-    }
+      res.send({ filterUsers, ok: true });    }
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
@@ -50,58 +60,48 @@ export const getSearch = async (req, res) => {
   }
 };
 
-export const getUser = async (req: any, res: any) => {
-  try {
-    const { userInfo } = req.cookies;
-    const payload = JWT.decode(userInfo, secret);
-    const { id } = payload;
-    console.log(id);
-
-    const user = await UserModel.findOne({ _id: id });
-    res.send({ user });
-  } catch (error) {
-    console.log(error.error);
-    res.send({ error: error.message });
-  }
-};
-
 export const selectUser = async (req: any, res: any) => {
-  try {
-    const { userInfo } = req.cookies;
-    const payload = JWT.decode(userInfo, secret);
-    const { id } = payload;
+    try {
+        const {userInfo} = req.cookies;
+        const payload = JWT.decode(userInfo, secret);
+        const currentUserId = payload.id;
+        
+        const {selectedUserId} = req.body;
+        const selectedUser = await UserModel.findById(selectedUserId);
+        if (!selectedUser) throw new Error('couldnt find the user in the DB');
 
-    const { selectedUserId } = req.body;
-    //add err check
-    const selectedUser = await UserModel.findById(selectedUserId);
+        const {email, name, image} = selectedUser;
+        console.log('selectedUser', selectedUser);
 
-    //check if it exists
-    if (!selectedUser) throw new Error("couldnt find the user in the DB");
-
-    const { email, name, image } = selectedUser;
-    console.log("selectedUser", selectedUser);
-    const searchSelecting = {
-      selectedUser: { email: selectedUser.email },
-    };
+        const searchSelecting = {
+            'selectedUser.email': selectedUser.email,
+            'selectingUserId':currentUserId
+        };
 
     const selectingUser: any = await selectedUsersModel.findOne(
       searchSelecting
     );
     console.log("selectingUser", selectingUser);
 
-    let newSelection: any;
-    if (!selectingUser) {
-      console.log("no record in DB - saving");
-      const newSelectionDB = new selectedUsersModel({
-        bothId: `${id}-${selectedUser._id}`,
-        selectingUserId: id,
-        selectedUser: { email, name, image },
-        selected: true,
-      });
-      newSelection = await newSelectionDB.save();
-      console.log(selectingUser, "selectingUser -99 userCont");
-    } else {
-      console.log(selectingUser, "selectingUser -101 userCont");
+        let newSelection: any;
+        if (!selectingUser) {
+            console.log('no record in DB - saving');
+            const newSelectionDB = new selectedUsersModel({
+                // bothId: `${id}-${selectedUser._id}`,
+                selectingUserId: currentUserId,
+                selectedUser: {email, name, image},
+                selected: true,
+            });
+            newSelection = await newSelectionDB.save();
+        } else {
+            if (selectingUser.selected === true) {
+                console.log('a record in DB - turning off');
+                newSelection = await selectedUsersModel.findOneAndUpdate(searchSelecting, {selected: false});
+            } else {
+                console.log('a record in DB - turning on');
+                newSelection = await selectedUsersModel.findOneAndUpdate(searchSelecting, {selected: true});
+            }
+        }
 
       if (selectingUser.selected === true) {
         console.log("a record in DB - turning off");

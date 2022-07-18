@@ -27,7 +27,8 @@ import Layout from "./view/pages/Layout";
 
 
 function App() {
-  const [mentorsList, setMentorsList] = useState([]);
+
+  const [usersList, setUsersList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [currentSearch, setCurrentSearch] =useState([])
   const [checked, setChecked] = useState([0]);

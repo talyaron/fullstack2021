@@ -6,8 +6,8 @@ import Search from "./components/Search";
 import { Link, Outlet } from "react-router-dom";
 
 interface MatchingProps {
-  mentorsList: any;
-  setMentorsList: Function;
+  usersList: any;
+  setUsersList: Function;
   currentUser: any;
   currentSearch: any;
   setCurrentSearch: Function;
@@ -17,8 +17,8 @@ interface MatchingProps {
 
 const Matching = (props: MatchingProps) => {
   const {
-    mentorsList,
-    setMentorsList,
+    usersList,
+    setUsersList,
     currentUser,
     currentSearch,
     setCurrentSearch,
@@ -26,9 +26,7 @@ const Matching = (props: MatchingProps) => {
     setChecked,
   } = props;
 
-  useEffect(() => {
-    console.log('mounted');
-    
+  useEffect(() => {    
     (async () => {
       try {
         console.log(currentUser,"get mentors2");
@@ -36,21 +34,18 @@ const Matching = (props: MatchingProps) => {
           throw new Error("User is not logged in");
           
         console.log("get mentors");
-        const { data } = await axios.post("/api/users/get-mentors", {
+        const { data } = await axios.post("/api/users/get-users", {
           currentUser,
         });
 
-        const { allMentors } = data;
-        setMentorsList(allMentors);
-        console.log(allMentors);
+        const { filterUsers } = data;
+        setUsersList(filterUsers);
+        console.log(filterUsers);
       } catch (err) {
         console.error(err);
       }
     })();
-    return () => {
-      console.log('unMounted');
-      
-    }
+
   }, [currentUser]);
 
   //   const userid:any =  `{currentUser._id} `
@@ -69,7 +64,7 @@ const Matching = (props: MatchingProps) => {
       />
       <FilterMenu checked={checked} setChecked={setChecked} />
 
-      <MatchingCard mentorsList={mentorsList} />
+      <MatchingCard usersList={usersList} />
 
       <Outlet />
     </div>

@@ -9,8 +9,8 @@ router
      
     .post('/add-user', addUser)
     .post('/login', login)
-    .post('/get-mentors',test, getMentors)
-    .get('/get-mentors',getMentors)
+    .post('/get-users',test, getUsers)
+    .get('/get-mentors',getSearch)
     .post('/get-all-recipients', getAllRecipients)
     .get('/get-user', getUser)
     .get('/get-search', getSearch)
