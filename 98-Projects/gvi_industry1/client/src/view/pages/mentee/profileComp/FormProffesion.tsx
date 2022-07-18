@@ -1,47 +1,57 @@
+import {useState ,useEffect} from 'react';
+import axios from 'axios'
+
 interface FormProffesionProps{
     isMentee:boolean
-    companyDetails:Array<any>
+    companyInfo:Array<any>
     mentorDetails:Array<any>;
+    userId:String;
 }
 
 
 function FormProffesion (props:FormProffesionProps){
 
-    const {isMentee,companyDetails,mentorDetails} = props;
+    const {isMentee,companyInfo,mentorDetails,userId} = props;
 
-    function editUser(ev:any){
+    const [companySections , setCompanySection] = useState(
+        ["CompanyName" , "sector" , "description","stage","linkToOnePager"])
+    
+
+    console.log(userId);
+    
+    
+   async function editUser(ev:any){
+        
         ev.preventDefault()
-        let companyName,discriptionComapny,sector,linkToPager,startUpStage,websit;
+        let companyName,description,sector,linkToOnePager,stage
         const inputs = ev.target.elements
-        console.dir(ev.target.elements);
         for(let element of inputs){
             if(element.name !== "submit"){
-                if(element.name === "Company Name") companyName = element.value
-                if(element.name === "Discription") discriptionComapny = element.value
-                if(element.name === "Startup Stage") startUpStage = element.value
-                if(element.name === "Sectors") sector = element.value
-                if(element.name === "Link One Page") linkToPager = element.value
-                if(element.name === "Website") websit = element.value  
+                if(element.name === "CompanyName") {
+                    companyName = element.value;
+                    
+                }      
+                if(element.name === "description") description = element.value
+                if(element.name === "stage") stage = element.value
+                if(element.name === "sector") sector = element.value
+                if(element.name === "linkToOnePager") linkToOnePager = element.value  
             }
         }
-        const newDetails = {companyName:companyName,discriptionComapny:discriptionComapny,
-            sector:sector,linkToPager:linkToPager,startUpStage:startUpStage,websit:websit};
-        console.log(newDetails);
-        
+        const newDetails = 
+        {companyName:companyName,description:description,sector:sector,stage:stage,linkToOnePager:linkToOnePager};
 
+        const {data} = await axios.post('/api/initiatives/update-initiative',{newDetails,userId})
         
+        window.location.reload();
+            
     }
     
     return (
         <form className='profile_companyDetails-sections formProffesion' onSubmit={editUser}>
-
-        {isMentee?companyDetails.map((section,i) => {
+        
+        {companyInfo.map((section,i) => {
             return(
-         <input key={i} type="text"  name={section} className='formProffesion-input' placeholder={section} />
-            )
-        }):mentorDetails.map((section,i) => {
-            return(
-        <input key={i} type="text" name={section} className='formProffesion-input' placeholder={section}/>
+         <input key={i} type="text" name={companySections[i]} className='formProffesion-input' placeholder={companySections[i]} />
             )
         })}
         <input className='formProffesion-submit' name="submit" type="submit" value="save Details"/>
