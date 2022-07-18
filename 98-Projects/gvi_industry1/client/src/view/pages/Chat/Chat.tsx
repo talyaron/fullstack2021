@@ -131,17 +131,15 @@ function Chat() {
                 let myMessageList = data.allMessages.filter((message: any) => {
                     return message.sender.userId === sender.userId;
                 });
-                myMessageList.forEach((message: any) => {
-                    console.log(message.sender.userId, 'myMessageList');
-                });
+                // myMessageList.forEach((message: any) => {
+                //     console.log(message.sender.userId, 'myMessageList');
+                // });
                 // console.log(myMessageList, 'myMessageList');
                 
             }
-            // if(!recipient.userId)
             if(recipient){
                 
                 let recipientsMessages = data.allMessages.filter((message: any) => {
-                    console.log(sender, 'sender');
                     if(message.recipient.userId){
                         return message.recipient.userId === recipient._id; ;
                     }
@@ -149,9 +147,9 @@ function Chat() {
                         return message.recipient._id === recipient._id; ;
                     }
                 });
-                recipientsMessages.forEach((message: any) => {
-                    console.log(message.recipient.userId,message.recipient._id, 'recipientsMessages');
-                });
+                // recipientsMessages.forEach((message: any) => {
+                //     console.log(message.recipient.userId,message.recipient._id, 'recipientsMessages');
+                // });
                 // console.log(recipientsMessages, 'recipientsMessages');
                 
             }

@@ -66,9 +66,6 @@ function SideBar(props: SideBarProps) {
                 </div>
             </div>
             <ul className='chat__sideBar__recipientsList'>
-                <>
-                {console.log(userList)}
-                </>
                 {userList ? ( 
                     userList.map((user: any, i: any) => {
                         return (

@@ -209,12 +209,6 @@ export async function getAllRecipients(req, res) {
     const { id } = userDecodedInfo;
     const currentUser = await UserModel.findOne({ _id: id });
     let allRecipients = [];
-    if (currentUser.type === 'mentee') {
-        console.log('im a mentee');
-
-        res.send({user:userDecodedInfo});
-        return;
-    }
     if (currentUser.type === "mentor") {
       const allRecipientsIds = currentUser.mentees;
       let localArr: Array<any> = [];
@@ -227,8 +221,9 @@ export async function getAllRecipients(req, res) {
           let updatedRec = {
             userId: rec._id, name: rec.name
           }
-
           localArr.push(updatedRec);
+          console.log(updatedRec, 'updatedRec');
+          
         }
 
         return localArr;
