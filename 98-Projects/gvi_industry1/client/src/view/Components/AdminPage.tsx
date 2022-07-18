@@ -20,7 +20,7 @@ function AdminPage() {
     
       setUsersList(typeMentor)
       
-      
+      console.log(userType)
       console.log(users);
     })();
   }, [userType]);
@@ -38,12 +38,8 @@ function AdminPage() {
                 <div key={i} >
                   {/* <img src={mentor.image}/>  */}
 
-                  {/* <div>
-                  {user.name.map((fullname:any,i:any) => {
-                    <p key={i}>{fullname.first} </p>
-                  })} 
-                  </div> */}
-                  <p>{user.name.first} {user.name.last}</p>
+            
+                  <p>{user.name?user.name.first:null} {user.name?user.name.last:null}</p>
                   <button>See all connections</button>
                   
                     
