@@ -4,7 +4,7 @@ import Profile from "./view/pages/mentee/Profile";
 import React from "react";
 import SelectedMentor from "./view/pages/mentee/SelectedMentor";
 import "./view/styles/global.scss";
-import HomePage from './view/Components/HomePage'
+import HomePage from './view/components/HomePage'
 import Matching from './view/pages/matching/Matching';
 import Chat from './view/pages/Chat/Chat'
 import { useState, useEffect } from 'react';
@@ -18,18 +18,19 @@ function App() {
 
   const [mentorsList, setMentorsList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
+  const [currentSearch, setCurrentSearch] =useState([])
+  const [checked, setChecked] = useState([0]);
 
   let { userId } = useParams();
 
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const { data } = await axios.get('/api/users/get-user')
-  //     const {user} = data
-  //     setCurrentUser(user)
-  //     console.log(user)
-  //   })();
-  // }, [])
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('/api/users/get-user')
+      const {user} = data
+      setCurrentUser(user)
+    })();
+  }, [])
 
   return (
     <Router>
@@ -37,7 +38,7 @@ function App() {
         <Route path="/Profile" element={<Profile id="1234"/>} />
         <Route path='/' element={<HomePage />}/>
         <Route path="/chat" element={<Chat />} />
-        <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} />} />
+        <Route path="/matching" element={<Matching mentorsList={mentorsList} setMentorsList={setMentorsList} currentUser={currentUser} currentSearch={currentSearch} setCurrentSearch={setCurrentSearch} checked={checked} setChecked={setChecked} />} />
         <Route path=":id" element={<SelctedMentors />} />
       </Routes>
     </Router>

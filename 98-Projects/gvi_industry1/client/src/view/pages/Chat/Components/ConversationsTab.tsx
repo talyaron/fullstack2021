@@ -25,7 +25,7 @@ function ConversationsTab(props: conversationsTabProps) {
                                     </div>
 
                                     <div className='time'>
-                                    {dateFromObjectId(message._id).slice(15, 21)}
+                                    {/* {dateFromObjectId(message._id).slice(15, 21)} */}
                                     </div>
 
                                     <div className="left-point"></div>
@@ -41,7 +41,10 @@ function ConversationsTab(props: conversationsTabProps) {
                     }}
                     placeholder='Message'
                 />
-                <label>
+<span>
+<button>Upload</button>
+    </span>   
+        <label>
                     <button
                         style={{ display: 'none' }}
                         onClick={(ev) => {

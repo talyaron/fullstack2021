@@ -28,11 +28,6 @@ function SideBar(props: SideBarProps) {
 
     const id = useId();
 
-    useEffect(() => {
-        return (() => {
-            console.log('userlistmap sidebar' + userListMap)
-        })
-    }, [])
 
     const addToRefs = (el: any) => {
 
@@ -50,7 +45,7 @@ function SideBar(props: SideBarProps) {
             }
 
             if (selectedRec) {
-                if (selectedRec._id.$oid === recipient.id) {
+                if (selectedRec._id === recipient.id) {
                     recipient.classList.add('selected')
                 }
             }
@@ -71,22 +66,23 @@ function SideBar(props: SideBarProps) {
                 </div>
             </div>
             <ul className='chat__sideBar__recipientsList'>
-                {userListMap ? (
-                    userListMap.map((user: any, i: any) => {
+                <>
+                {console.log(userList)}
+                </>
+                {userList ? ( 
+                    userList.map((user: any, i: any) => {
                         return (
                             <li
                                 ref={addToRefs}
                                 key={i}
-                                id={user._id.$oid}
+                                id={user._id}
                                 className='recipient'
                                 onClick={() => {
-
                                     setSelectedRec(user)
-                                    // setRecipient(user);
-                                    // setSelected()
+                                    setRecipient(user);
                                 }}
                             >
-                                <p >{user.userName.first} {user.userName.last}</p>
+                                <p >{user.name.first} {user.name.last}</p>
                             </li>
                         );
                     })

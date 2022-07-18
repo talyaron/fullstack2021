@@ -1,37 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 
-const Search = (props:any) => {
-  const {users,setUsers} = props;
+interface MatchingProps {
+  currentSearch: any;
+  setCurrentSearch: Function;
+}
 
-  async function searchData(ev: any) {
-    ev.preventDefault();
-    const searchText = ev.target.inputText.value;
-    console.log(searchText);
+const Search = (props: MatchingProps) => {
+  const { currentSearch, setCurrentSearch } = props;
 
-    // const regex = new RegExp(`${searchText}`, "i");
-    // console.log(regex);
-    // setUsers(searchText);
+  async function getSearchResults(ev: any) {
+    const currentSearch = ev.target.value;
+    console.log(currentSearch);
 
-    const data =  await axios("/matchings/search-matches",searchText).then((data) => console.log(data));
-    console.log(data);
-    
+    const { data } = await axios.get("/api/users/get-search");
+    const { allSearches } = data;
+    setCurrentSearch(allSearches);
+    console.log(allSearches);
   }
 
-  React.useEffect(() => {
-    axios("/api/matchings/get-matches").then((data) => console.log(data));
-      // setUsers(users)
-  
-  }, [users]);
-
   return (
-    <div>
-      <form onSubmit={searchData}>
-        <input type="text" name="inputText" />
-        <button>search</button>
-        <p>{users}</p>
-       
-      </form>
+    <div className={'matching__search'}>
+      <input type="text" name="inputText" onChange={getSearchResults} />
+      <button>search</button>
+      {currentSearch.map((search: any) => {
+        return <h2>country:{search.country}</h2>;
+      })}
     </div>
   );
 };

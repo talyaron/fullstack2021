@@ -26,6 +26,7 @@
         grid-area: b;
         box-shadow: inset -1px 0px 0px 0px rgba(128, 128, 128, 0.38);
         &__searchBar {
+        height: 56px;
             display: flex;
             place-items: center;
             place-content: space-evenly;
@@ -52,6 +53,7 @@
             }
         }
         &__recipientsList {
+            width:100%;
             list-style: none;
             padding: 0;
             margin: 0;
@@ -67,7 +69,7 @@
             display: flex;
             justify-content: space-around;
             height: 7vh;
-            width: 25vh;
+            // width: 25vh;
         }
         // &__Buttons {
         //     display: flex;
@@ -112,16 +114,16 @@
                 color: #707991;
                 font-size: 14px;
                 line-height: 18px;
-                line-height: 2;
+                line-height: 1;
                 border-radius: 50px;
                 border: none;
                 outline: none;
-                padding-inline: 1.5em;
-                padding-block: 0.9em;
+                margin-block: 0.5em;
                 &:-webkit-autofill {
                     box-shadow: 0 0 0 30px white inset;
                 }
                 button {
+                    margin-inline-end: 1.5em;
                     background: none;
                     color: inherit;
                     border: none;
@@ -185,6 +187,8 @@
         height: auto;
         &Tabs {
             width: 100%;
+            height: 100%;
+            overflow-y: scroll;
         }
         &__docsList {
             list-style: none;

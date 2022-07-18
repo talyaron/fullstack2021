@@ -15,15 +15,17 @@ interface CurrentRecipientProps {
 }
 function CurrentRecipient(props: CurrentRecipientProps) {
     const {chatArea, recipient, handleChatSearchBar, searchMessagesToggle, handleTabChange} = props;
-    const fullName: any = recipient.fullName;
-    const initial = fullName.match(/\b(\w)/g).join('');
+    const fullName:any = `${recipient.name.first + ' ' + recipient.name.last}` ;
+    
+    const initial = fullName.match(/\b(\w)/g).join('').toUpperCase();
     const id = useId();
-
+    
     useEffect(() => {
         const pickedTab:any = document.querySelector(`.${chatArea.replace(' ', '_')}`);
         pickedTab.style.backgroundColor = 'transparent';
         pickedTab.setAttribute('picked', true)
         return () => {
+            console.log(fullName);
             pickedTab.style.backgroundColor = 'blue';
             pickedTab.removeAttribute('picked')
         }
@@ -33,7 +35,7 @@ function CurrentRecipient(props: CurrentRecipientProps) {
             <div className='chat__currentRecipient__info'>
                 <Avatar>{initial}</Avatar>
                 <div className={`text` + id}>
-                    <p className='userName'>{recipient.fullName}</p>
+                    <p className='userName'>{recipient.name.first} {recipient.name.last}</p>
 
                     <div
                         onClick={(ev) => {

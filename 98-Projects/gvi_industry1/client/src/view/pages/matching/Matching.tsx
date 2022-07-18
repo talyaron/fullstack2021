@@ -9,32 +9,67 @@ interface MatchingProps {
   mentorsList: any;
   setMentorsList: Function;
   currentUser: any;
+  currentSearch: any;
+  setCurrentSearch: Function;
+  checked: any;
+  setChecked: Function;
 }
 
 const Matching = (props: MatchingProps) => {
-  const { mentorsList, setMentorsList, currentUser } = props;
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.post("/api/users/get-mentors", {currentUser});
+  const {
+    mentorsList,
+    setMentorsList,
+    currentUser,
+    currentSearch,
+    setCurrentSearch,
+    checked,
+    setChecked,
+  } = props;
 
-      const { allMentors } = data;
-      setMentorsList(allMentors);
-      console.log(currentUser);
+  useEffect(() => {
+    console.log('mounted');
+    
+    (async () => {
+      try {
+        console.log(currentUser,"get mentors2");
+        if (Object.keys(currentUser).length === 0)
+          throw new Error("User is not logged in");
+          
+        console.log("get mentors");
+        const { data } = await axios.post("/api/users/get-mentors", {
+          currentUser,
+        });
+
+        const { allMentors } = data;
+        setMentorsList(allMentors);
+        console.log(allMentors);
+      } catch (err) {
+        console.error(err);
+      }
     })();
-  }, []);
-//   const userid:any =  `{currentUser._id} `
-//  let  userId  = useParams();
+    return () => {
+      console.log('unMounted');
+      
+    }
+  }, [currentUser]);
+
+  //   const userid:any =  `{currentUser._id} `
+  //  let  userId  = useParams();
 
   //  function handleSelectedUserId(currentUser:any){
-  //     // console.log(currentUser)
   //  }
 
   return (
     <div className="matching">
       <Link to="/selected-mentors">Selected-mentors</Link>
-      <Search />
+      <Search
+        currentSearch={currentSearch}
+        setCurrentSearch={setCurrentSearch}
+      />
+      <FilterMenu checked={checked} setChecked={setChecked} />
+
       <MatchingCard mentorsList={mentorsList} />
-      <FilterMenu />
+
       <Outlet />
     </div>
   );

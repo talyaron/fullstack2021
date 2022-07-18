@@ -30,7 +30,7 @@ export const InitiativeSchema = new mongoose.Schema({
         default: Sector.EDUCATION,
     },
     description: String,
-    mentors: MentorSchema,
+    mentors: [MentorSchema],
     stage: {
         type: String,
         enum: StageSchema,
@@ -38,7 +38,7 @@ export const InitiativeSchema = new mongoose.Schema({
     },
     webSite: String,
     linkToOnePager: String,
-    presentations: [{ String }]
+    presentations:  String 
 
     /////initiative
 
