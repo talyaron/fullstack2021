@@ -1,5 +1,4 @@
 import React from 'react'
-import '../styles/welcomePage.scss'
 import { Link } from 'react-router-dom'
 import { time } from 'console'
 
