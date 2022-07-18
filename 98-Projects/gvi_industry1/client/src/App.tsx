@@ -29,7 +29,7 @@ function App() {
   const [usersList, setUsersList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [currentSearch, setCurrentSearch] = useState([]);
-  const [checked, setChecked] = useState([0]);
+  const [checked, setChecked] = useState([]);
   const [myProfile, setMyProfile] = useState(false);
   const [loggedInUser, setloggedInUser] = useState({});
   const [currentUserType, setCurrentUserType] = useState(" ");

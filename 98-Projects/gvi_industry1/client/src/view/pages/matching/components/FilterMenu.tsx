@@ -34,8 +34,6 @@ const FilterMenu = (props: any) => {
       const { data } = await axios.get("/api/users/get-filter");
       const { allFiltered } = data;
       setChecked(allFiltered);
-     
-      
     })();
   }, []);
   try {
@@ -43,54 +41,30 @@ const FilterMenu = (props: any) => {
       <div className="matching__filter-menu">
         <div className="_section">
           <div className="_title"></div>
-          {/* <form className="_option"></form> */}
           <div className="_more">
             <Accordion>
-              <AccordionSummary
-                // expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header">
+              <AccordionSummary>
                 <Typography>Sector</Typography>
               </AccordionSummary>
+
               <AccordionDetails>
-                <Typography></Typography>
                 <List
                   sx={{
                     width: "100%",
                     maxWidth: 360,
-                    bgcolor: "background.paper",
                   }}>
-                  {[0, 1, 2].map((value) => {
-                    const labelId = `checkbox-list-label-${value}`;
+                  {checked.map((check: any) => (
+                    <ListItemButton disableGutters>
+                      <Checkbox />
+                      <p>{check.sector}</p>
 
-  return (
-    <div className="matching__filter-menu">
-      <div className="_section">
-        <div className="_title"></div>
-        <div className="_more">
-          <Accordion>
-            <AccordionSummary>
-              <Typography>Sector</Typography>
-            </AccordionSummary>
-
-            <AccordionDetails>
-              <List
-                sx={{
-                  width: "100%",
-                  maxWidth: 360,
-                }}
-              >
-                {checked.map((check: any) => (
-                  <ListItemButton disableGutters>
-                    <Checkbox />
-                    <p>{check.sector}</p>
-
-                    <ListItemText primary={check.sector} />
-                  </ListItemButton>
-                ))}
-              </List>
-            </AccordionDetails>
-          </Accordion>
+                      <ListItemText primary={check.sector} />
+                    </ListItemButton>
+                  ))}
+                </List>
+              </AccordionDetails>
+            </Accordion>
+          </div>
         </div>
       </div>
     );
