@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect, useReducer} from 'react'
 import axios from 'axios'
 import {useNavigate} from "react-router-dom";
 
@@ -24,14 +24,27 @@ const Login = (props:LoginProps) => {
       console.log(email,password)
       const {data} = await axios.post('/api/users/login',{email,password})
       console.log(data);
-
-      if(data.login===true){
-        setTimeout(() => {
-          navigate(`/`);
-        }, 1500);
+      const {user}=data
+      if(user){
+        if(user.type==='admin'){
+          setTimeout(() => {
+            navigate(`navBarAdmin`);
+          }, 5000);
+        }else{ 
+          setTimeout(() => {
+            
+            navigate(`navBar`)
+           
+          }, 5000);
+          
+        }
+        
       }else{
-        console.log(data)
+          window.alert("email or password is incorrect")
       }
+     
+      
+    
 
 
 
@@ -42,7 +55,7 @@ const Login = (props:LoginProps) => {
        <h2 className='login__greeting'>Welcome Back!</h2>
        <div className='login__with'>
         
-        <button><div><img src="/googleLogo.png" alt="google logo" className='login__with--googleLoginButtonImg'/></div><div>Continue with google</div></button>
+        <button><div><img src="./googleLogo.png" alt="google logo" className='login__with--googleLoginButtonImg'/></div><div>Continue with google</div></button>
         
        </div>
        

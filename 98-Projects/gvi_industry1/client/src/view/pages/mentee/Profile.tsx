@@ -52,6 +52,8 @@ export function Profile (props:ProfileProps) {
             setContactInfo(newContactInfo)
         })();
       }, [])
+     const [loggedInUser, setloggedInUser] = useState({});
+     const [currentUserType, setCurrentUserType] = useState("");
 
       async function getInitiative(){
         const {data} = await axios.post('/api/initiatives/get-initiative',{userId})
@@ -89,6 +91,27 @@ export function Profile (props:ProfileProps) {
         setEditCompany(!editCompany)
        
     }
+    useEffect(() => {
+        //get data on the user and show the chosen user by id
+    
+        (async () => {
+          try {
+            const { data } = await axios.post("/api/users/get-LoggedIn-Profile");
+            const { currentUser } = data;
+        
+         
+            setloggedInUser(currentUser);
+              setCurrentUserType(currentUser.type);
+    
+            if (!loggedInUser) {
+              throw new Error("no profile");
+            }
+          } catch (err: any) {
+            console.error(err.message);
+          }
+        })();
+      }, []);
+    
     
   return (
     <div className='profile'>

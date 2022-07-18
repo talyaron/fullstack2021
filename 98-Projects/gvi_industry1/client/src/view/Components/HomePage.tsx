@@ -60,7 +60,7 @@ const HomePage = () => {
     <div className='homeContainer'>
 
       <div className='welcomeText'>
-        <div className='logo'><img src="/gvi-logo.png" alt="logo" /></div>
+        <div className='logo'><img src="./gvi-logo.png" alt="logo" /></div>
         <div className='text-btn-wrapper'>
           <div >
             <h1>Welcome to GVI</h1>
@@ -76,7 +76,7 @@ const HomePage = () => {
       </div>
 
       <div className='videoWindow'>
-        <img src="/video.png" alt="" />
+        <img src="./video.png" alt="" />
       </div>
       <Login loginWindow={loginWindow} setLoginWindow={setLoginWindow} />
       <UserSelection registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} setMenteeWindow={setMenteeWindow} mentorWindow={mentorWindow} setMentorWindow={setMentorWindow} />

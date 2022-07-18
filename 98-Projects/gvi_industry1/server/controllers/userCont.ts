@@ -145,47 +145,6 @@ export async function getSelectedUserdata(req, res) {
     }
 }
 
-// export async function getAllRecipients(req, res) {
-//     try {
-//         console.log('got to get all recipients');
-        
-//         const {userInfo} = req.cookies;
-//         const userDecodedInfo = JWT.decode(userInfo, secret);
-        
-//         const {id} = userDecodedInfo;
-        
-//         const currentUser = await UserModel.findOne({_id: id});
-//         let allRecipients = [];
-//         if (currentUser.type === 'mentee') {
-//             // allUsers = currentUser.initiatives.mentors;
-//         }
-//         if (currentUser.type === 'mentor') {
-//             console.log('im a mentor');
-            
-//             const allRecipientsIds = currentUser.mentees;
-//             let localArr: Array<any> = [];
-//             const getRecipientsList = async () => {
-//                 for (let recipient of allRecipientsIds) {
-//                     let rec = await UserModel.findOne({_id: recipient }, {password: 0});
-//                     localArr.push(rec);
-//                 }
-//                 return localArr;
-//             };
-//             allRecipients = await getRecipientsList();
-            
-//             // console.log(await getRecipientsList(), 'recipientsList');
-//         }
-
-//         if (allRecipients === []) throw new Error('no Users were found');
-//         if (allRecipients !== []) {
-//           res.send({allRecipients, ok: true});
-//         }
-//     } catch (error) {
-//         console.log(error.error);
-//         res.send({error: error.message});
-//     }
-// }
-
 export async function getAllRecipients(req, res) {
     try {
         const {userInfo} = req.cookies;
@@ -308,8 +267,44 @@ export const getUserProfile = async (req, res) => {
     try {
       const {updatedDetails, userId } = req.body;
 
+export async function getLoggedInProfile(req, res) {
+  // get logged in user id from cookie,
+  // insert it inside the find.
+  // check if user type is mentor or mentee
+  try {
+    console.log(`hi im server start`)
+      const {userInfo} = req.cookies;
+      console.log(req.cookies)
+      console.log(userInfo+"cookies check")
+      const userDecodedInfo = JWT.decode(userInfo, secret);
+      console.log(userDecodedInfo)
+      const {id} = userDecodedInfo;
+      const theCurrentUser = await UserModel.findOne({_id: id});
+      console.log(theCurrentUser);
+      
+      if (theCurrentUser === null) throw new Error('no Users were found');
+      res.send({theCurrentUser, ok: true});
+  } catch (error) {
+      console.log(error.error);
+      res.send({error: error.message});
+  }
+}
       const user = await UserModel.findOne({_id:userId})
 
+export const adminGetAllUsers = async (req, res) => {
+    try {      
+      
+      const allUsers = await UserModel.find({});
+      res.send({ allUsers});
+      console.log(allUsers)
+    //   const allMentors = await UserModel.find({type:{theType} });
+    //   res.send({ allMentors});
+    //   console.log(allMentors,"mentors")
+    } catch (error) {
+      console.log(error.error);
+      res.send({ error: error.message });
+    }
+  };
       if(updatedDetails.country ) {user.country = updatedDetails.country}else{user.country = user.country}
       if(updatedDetails.city ) {user.city = updatedDetails.city}else{user.city = user.city}
       if(updatedDetails.address ) {user.address = updatedDetails.address}else{user.address = user.address}

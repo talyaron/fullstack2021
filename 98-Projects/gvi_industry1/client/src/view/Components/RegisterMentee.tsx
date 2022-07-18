@@ -56,19 +56,10 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             const linkToOnePager = ev.target.elements.linkToOnePager.value;
             const description = ev.target.elements.description.value;
             const profilePic = ev.target.elements.profilePic.value;
+            const type = 'mentee';
             const name = { first, last };
 
-            //initaitive not addded yet to mongo
-
-
-            const user = { name, password, profilePic, description, linkdInProfile, email, country, phone, sector, stage }
-
-            // console.log(user);
-
-
-            //initaitive not addded yet to mongo
-
-            // const {data} = await axios.post('/api/users/add-user', {user});
+        const user = { name,password,profilePic, description,linkdInProfile, email, country, phone, sector, stage,type }
 
 
             const userData = await axios.post('/api/users/add-user', { user });

@@ -1,9 +1,13 @@
 import axios from "axios";
 import { useEffect } from "react";
 import mongoose from "mongoose";
+//@ts-ignore
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+//@ts-ignore
 import MailOutlineTwoToneIcon from "@mui/icons-material/MailOutlineTwoTone";
+//@ts-ignore
 import PushPinRoundedIcon from "@mui/icons-material/PushPinRounded";
+//@ts-ignore
 import StarIcon from "@mui/icons-material/Star";
 import { Button } from "@mui/material";
 import "./style/card.scss";
