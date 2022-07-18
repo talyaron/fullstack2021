@@ -26,7 +26,9 @@ const MatchingCard = (props: MatchingCardProps) => {
               <p>{user.name.first} {user.name.last}</p>
               <p>{user.sector}</p>
               <div className='matching__wrapper_card_footer'>
+                <a href={user.linkedInProfile}>
                 <img className='matching__wrapper_card_footer_linkedin' src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png" alt="" />
+                </a>
                 <button className='matching__wrapper_card_footer_request' >Send Request</button>
               </div>
             </div>
