@@ -13,3 +13,5 @@ cloudinary.config({
   api_secret,
   secure: true,
 });
+
+module.exports = cloudinary

@@ -426,3 +426,18 @@ export async function getLoggedInProfile(req, res) {
     res.send({ error: error.message });
   }
 }
+
+export async function changeProfileImage(req, res) {
+
+  
+  try {
+    
+
+    res.send({  ok: true });
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+}
+
+

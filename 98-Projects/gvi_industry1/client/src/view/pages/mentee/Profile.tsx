@@ -8,6 +8,7 @@ import ProffesionalDetails from './profileComp/ProffesionalDetails';
 import FormProffesion from './profileComp/FormProffesion';
 import ContactDetails from './profileComp/ContactDetails';
 import NameAndPro from './profileComp/NameAndPro';
+import ProfileImage from './profileComp/ProfileImage';
 
 
 
@@ -79,25 +80,19 @@ export function Profile (props:ProfileProps) {
           }
       }
 
-    function changeImage(ev:any){
-        console.dir(ev.target.files);
-        console.log(ev.target.files);
-        
-        const [file] = ev.target.files;
-        setProfileImg(URL.createObjectURL(file));
-    }
+    
 
     function editAddressDetails(){
         setEditAddress(!editAddress)
-        
     }
+
     function editCompanyDetails(){
         setEditCompany(!editCompany)
        
     }
+
     useEffect(() => {
         //get data on the user and show the chosen user by id
-    
         (async () => {
           try {
             const { data } = await axios.post("/api/users/get-LoggedIn-Profile");
@@ -119,17 +114,18 @@ export function Profile (props:ProfileProps) {
     
   return (
     <div className='profile'>
-        <div className="profile_profilePic" >
+      <ProfileImage profileImg={profileImg} setProfileImg={setProfileImg}/>
+        {/* <div className="profile_profilePic" >
            <img className="profile_profilePic-img" src={profileImg} alt="" />
         <label htmlFor="changeImage" className='profile_profilePic-changeImg'>
             <input type="file" id='changeImage'  accept="image/*" 
             onChange={changeImage}/>
         </label>
-        </div>
+        </div> */}
         <div className='profile_contactInfo'>
         <div className='profile_contactInfo-edit' onClick={editAddressDetails}>✏️</div>
         <h1 style={{gridColumn:'1/11',gridRow:'2/3',fontSize:'17px',textAlign:'center'}}>Contact Information</h1>
-        {editAddress?<FormAddress userId={userId} setEditAddress={setEditAddress} contactInfo={contactInformation}/>:
+        {editAddress?<FormAddress userId={id} setEditAddress={setEditAddress} contactInfo={contactInformation}/>:
         <ContactDetails contactInfo={contactInformation} />}
         </div>
         <div className='profile_nameProffession'>
@@ -144,7 +140,7 @@ export function Profile (props:ProfileProps) {
                 <div className='profile_companyDetails_header-edit' onClick={editCompanyDetails}>✏️</div>
                 </div>
                 {editCompany?
-                <FormProffesion userId={userId} isMentee={isMentee} companyInfo={companyInfo} mentorDetails={mentorDetails}/>:
+                <FormProffesion userId={id} isMentee={isMentee} companyInfo={companyInfo} mentorDetails={mentorDetails}/>:
                 <ProffesionalDetails companyInfo={companyInfo} mentorDetails={mentorDetails} 
                 isMentee={isMentee} />}
                 
