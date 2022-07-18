@@ -38,8 +38,8 @@ function App() {
     (async () => {
       try {
         const { data } = await axios.post("/api/users/get-LoggedIn-Profile");
-        const { currentUser } = data;
-    
+        const {currentUser} = data;
+        
      
         setloggedInUser(currentUser);
           setCurrentUserType(currentUser.type);
@@ -51,7 +51,7 @@ function App() {
         console.error(err.message);
       }
     })();
-  }, []);
+  }, [currentUserType]);
 
   return (
     <Router>
@@ -74,7 +74,7 @@ function App() {
           <Route path=":id" element={<SelctedMentors />} />
         </Route>
         <Route path="navBarAdmin" element={<AdminLayout  loggedInUser={loggedInUser}/>}>
-          <Route index element={<AdminPage />}/>
+          <Route index element={<AdminPage/>}/>
         </Route>
       </Routes>
     </Router>

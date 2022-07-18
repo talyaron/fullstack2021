@@ -36,7 +36,8 @@ function AdminPage() {
        {users.map((user: any, i:any) =>
                 <div key={i} >
                   {/* <img src={mentor.image}/>  */}
-                  <h1>{user.email}</h1>
+                  <p>{user.name.first} {user.name.last}</p>
+                  <button>See all connections</button>
                     
                     
                 </div>

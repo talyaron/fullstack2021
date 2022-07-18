@@ -184,7 +184,7 @@ export const login = async (req, res) => {
 
 export const addUser = async (req, res) => {
   try {
-    const { user } = req.body;
+    const {user} = req.body;
     console.log(user);
 
     let newUser = new UserModel(user);
@@ -203,9 +203,9 @@ export const addUser = async (req, res) => {
             const result = await newUser.save()
             console.log(newUser)
 
-            const payload = { id: newUser._id }
+            const payload = { email:newUser.email, id: newUser._id, loggedInUser: true, type: newUser.type}
             const token = JWT.encode(payload, secret)
-            res.cookie('newUserInfoId', token, { httpOnly: true })
+            res.cookie('userInfo', token, { httpOnly: true })
 
             res.send({result, ok: true, login: true})
         }

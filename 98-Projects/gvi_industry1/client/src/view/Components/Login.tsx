@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect, useReducer} from 'react'
 import axios from 'axios'
 import {useNavigate} from "react-router-dom";
 
@@ -24,16 +24,24 @@ const Login = (props:LoginProps) => {
       console.log(email,password)
       const {data} = await axios.post('api/users/login',{email,password})
       console.log(data);
-
-      if(data.type==='admin'){
-        setTimeout(() => {
-          navigate(`navBarAdmin`);
-        }, 1500);
+      const {user}=data
+      if(user){
+        if(user.type==='admin'){
+          setTimeout(() => {
+            navigate(`navBarAdmin`);
+          }, 2000);
+        }else if(user.type==="mentor"||user.type==="mentee"){ 
+          setTimeout(() => {
+          
+            navigate(`navBar`)
+          }, 2000);
+        }
       }else{
-        setTimeout(() => {
-          navigate(`navBar`);
-        }, 1500);
+          window.alert("email or password is incorrect")
       }
+     
+      
+    
 
 
 

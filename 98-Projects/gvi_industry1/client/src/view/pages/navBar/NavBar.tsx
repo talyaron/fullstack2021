@@ -16,14 +16,14 @@ function NavBar(props:navBarProps) {
 
   } = props; 
 
-
+console.log(currentUserType)
  
  
 
 
   return(
   
-    currentUserType === "mentee" ? (
+    currentUserType==="mentee" ? (
       <>
         <NavBarMentee
 
