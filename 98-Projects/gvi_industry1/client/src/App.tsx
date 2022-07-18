@@ -32,7 +32,7 @@ function App() {
   const [checked, setChecked] = useState([]);
   const [myProfile, setMyProfile] = useState(false);
   const [loggedInUser, setloggedInUser] = useState({});
-  const [currentUserType, setCurrentUserType] = useState(" ");
+  const [currentUserType, setCurrentUserType] = useState("");
 
   let { userId } = useParams();
   useEffect(() => {

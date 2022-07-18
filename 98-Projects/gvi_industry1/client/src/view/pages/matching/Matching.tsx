@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import MatchingCard from "./components/MatchingCards";
 import FilterMenu from "./components/FilterMenu";
 import Search from "./components/Search";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface MatchingProps {
   usersList: any;
@@ -66,7 +66,7 @@ const Matching = (props: MatchingProps) => {
 
       <MatchingCard usersList={usersList} />
 
-      <Outlet />
+      
     </div>
   );
 };
