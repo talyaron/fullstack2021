@@ -2,14 +2,14 @@ import express from 'express';
 const router = express.Router();
 import {isAdmin} from'../middlewares/loginMiddleware'
 
-import { addUser, login, getMentors, getUser, getAllRecipients,getSearch,getLoggedInProfile,adminGetAllUsers,
+import { addUser, login, getUsers, getUser, getAllRecipients,getSearch,getLoggedInProfile,adminGetAllUsers,
      selectUser,getSelectingUser,getSelectedUser ,getUserProfile,updateUserDetails,addFlags} from '../controllers/userCont'
 
 router
      
     .post('/add-user', addUser)
     .post('/login', login)
-    .post('/get-users',test, getUsers)
+    .post('/get-users', getUsers)
     .get('/get-mentors',getSearch)
     .post('/get-all-recipients', getAllRecipients)
     .get('/get-user', getUser)
@@ -28,7 +28,4 @@ router
 
 export default router;
 
-function test(req, res, next){
-    console.log('test')
-    next()
-}
+

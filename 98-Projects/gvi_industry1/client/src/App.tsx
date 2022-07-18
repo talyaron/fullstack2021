@@ -3,7 +3,7 @@ import Profile from "./view/pages/mentee/Profile";
 // import Card from "./view/pages/mentee/Card"//
 import React from "react";
 import SelectedMentor from "./view/pages/mentee/SelectedMentor";
-import './view/styles/global.scss';
+import "./view/styles/global.scss";
 
 import HomePage from "./view/components/HomePage";
 import Matching from "./view/pages/matching/Matching";
@@ -25,12 +25,10 @@ import NavBar from "./view/pages/navBar/NavBar";
 import NavBarMentee from "./view/pages/navBar/components/NavBarMentee";
 import Layout from "./view/pages/Layout";
 
-
 function App() {
-
   const [usersList, setUsersList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
-  const [currentSearch, setCurrentSearch] =useState([])
+  const [currentSearch, setCurrentSearch] = useState([]);
   const [checked, setChecked] = useState([0]);
   const [myProfile, setMyProfile] = useState(false);
   const [loggedInUser, setloggedInUser] = useState({});
@@ -43,12 +41,10 @@ function App() {
     (async () => {
       try {
         const { data } = await axios.post("/api/users/get-LoggedIn-Profile");
-        const {theCurrentUser} = data;
-       
+        const { theCurrentUser } = data;
 
- 
         setCurrentUserType(theCurrentUser.type);
-     
+
         setloggedInUser(theCurrentUser);
         //why do we have to do refresh each time to get the correct navbar according to its type
 
@@ -63,34 +59,47 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get('/api/users/get-user')
-      const {user} = data
-      setCurrentUser(user)
+      const { data } = await axios.get("/api/users/get-user");
+      const { user } = data;
+      setCurrentUser(user);
     })();
-  }, [])
+  }, []);
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="navBar" element={<Layout  loggedInUser={loggedInUser}  currentUserType={ currentUserType}/>}>
-          <Route index element={<WelcomePage/>} />
+        <Route
+          path="navBar"
+          element={
+            <Layout
+              loggedInUser={loggedInUser}
+              currentUserType={currentUserType}
+            />
+          }>
+          <Route index element={<WelcomePage />} />
           <Route path="profile" element={<Profile id="" />} />
           <Route path="chat" element={<Chat />} />
           <Route
             path="matching"
             element={
               <Matching
-                mentorsList={mentorsList}
-                setMentorsList={setMentorsList}
+                usersList={usersList}
+                setUsersList={setUsersList}
                 currentUser={currentUser}
+                currentSearch={currentSearch}
+                setCurrentSearch={setCurrentSearch}
+                checked={checked}
+                setChecked={setChecked}
               />
             }
           />
           <Route path=":id" element={<SelctedMentors />} />
         </Route>
-        <Route path="navBarAdmin" element={<AdminLayout  loggedInUser={loggedInUser}/>}>
-          <Route index element={<AdminPage/>}/>
+        <Route
+          path="navBarAdmin"
+          element={<AdminLayout loggedInUser={loggedInUser} />}>
+          <Route index element={<AdminPage />} />
         </Route>
       </Routes>
     </Router>
