@@ -61,7 +61,7 @@ function Chat() {
         console.log('on');
 
         socket.on('receive-message', (message: MessageInterface) => {
-            console.log('received');
+            console.log('received', message.sender);
             const id: any = message._id;
             const payload = {
                 text: message.text,
