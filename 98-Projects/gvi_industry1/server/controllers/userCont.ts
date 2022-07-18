@@ -44,16 +44,30 @@ export const getUsers = async (req, res) => {
     res.send({ error: error.message });
   }
 };
+export const getFilter = async (req, res) => {
+  try {
+    const allFiltered = await UserModel.find({}).select('sector').distinct('sector');
+    
+    res.json({ allFiltered, ok: true });
+    console.log("filtered: " + allFiltered);
+
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+};
 
 export const getSearch = async (req, res) => {
   try {
     const { currentSearch } = req.body;
-    console.log(currentSearch);
+    if (!currentSearch) throw new Error('No search term')
+    console.log(currentSearch)
 
-    let searchPattern = new RegExp(`${currentSearch}`, "i");
-    console.log(searchPattern);
+    // let searchPattern = new RegExp(`${currentSearch}`,'i')
+    // console.log(searchPattern);
+    const regex = new RegExp(currentSearch, 'i')
 
-    const allSearches = await UserModel.find({ country: "Monaco" });
+    const allSearches = await UserModel.find({ country: regex });
     res.send({ allSearches, ok: true });
   } catch (error) {
     console.error(error);
