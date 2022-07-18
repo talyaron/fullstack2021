@@ -2,7 +2,8 @@ import express from 'express';
 const router = express.Router();
 import {isAdmin} from'../middlewares/loginMiddleware'
 
-import {adminGetAllUsers,getLoggedInProfile, getSearch,addUser, login, getMentors, getUser, getAllRecipients, selectUser,getSelectingUser,getSelectedUserdata ,getUserProfile,updateUserDetails} from '../controllers/userCont'
+import { addUser, login, getMentors, getUser, getAllRecipients,
+     selectUser,getSelectingUser,getSelectedUser ,getUserProfile,updateUserDetails,addFlags} from '../controllers/userCont'
 
 router
      
@@ -15,11 +16,12 @@ router
     .get('/get-search', getSearch)
     .post('/selected-user', selectUser)
     .get('/get-selecteing-user',getSelectingUser)
-    .post('/get-selected-users',getSelectedUserdata)
     .post('/get-LoggedIn-Profile', getLoggedInProfile)
     .get('/admin-getAllUsers',adminGetAllUsers)
+    .post('/get-selected-users',getSelectedUser)
     .post('/get-userById',getUserProfile)
     .post('/updateUserDetails',updateUserDetails)
+    .post('/flags',addFlags)
     
     
     
