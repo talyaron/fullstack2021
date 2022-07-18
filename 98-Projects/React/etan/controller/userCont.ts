@@ -60,6 +60,8 @@ export const loginUser = async (req, res) => {
       locale: "en_US",
       strength: 2,
     });
+    
+    console.log(emailLookup);
     if (!emailLookup) {
       let loginData = {
         message: `found no user in emailLookup, loginUser -server side (userCont)`,
@@ -70,8 +72,9 @@ export const loginUser = async (req, res) => {
       let email = emailLookup.email;
       const verified = await User.findOne({ email: email, password: password });
       if (!verified) {
+        
         let loginData = {
-          message: `Welcome back ${emailLookup.username}, thats not the password`,
+          message: `Welcome back ${username}, thats not the password`,
         };
         res.send({ loginData });
       }
