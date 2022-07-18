@@ -19,11 +19,14 @@ interface RegisterMenteeProps {
     setMenteeWindow: Function,
     handleCloseRegisterWindow: Function
     firstSection: string,
+    thirdSection: string,
     secondSection: string,
     showProgressBar: string,
     handleToggleShowSections: Function,
     handleBackToggleShowSections: Function,
     handleBackToSelection: Function
+    handleBackToggleShowThirdSection: Function
+    handleToggleShowThirdSection: Function
 
 
 }
@@ -36,7 +39,7 @@ const steps = [
 ];
 
 const RegisterMentee = (props: RegisterMenteeProps) => {
-    const { firstSection, secondSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, menteeWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
+    const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, menteeWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
 
     const [activeStep, setActiveStep] = React.useState(0);
 
@@ -46,7 +49,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         ev.preventDefault();
         console.log('submit')
         try {
-            console.dir(ev.target);
+            // console.dir(ev.target);
 
 
             const first = ev.target.elements.firstName.value;
@@ -54,12 +57,12 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             const password = ev.target.elements.password.value;
             const email = ev.target.elements.email.value;
             const phone = ev.target.elements.phone.value;
-            const linkdinProfile = ev.target.elements.linkdinProfile.value;
+            const linkdInProfile = ev.target.elements.linkdinProfile.value;
             const country = ev.target.elements.country.value;
             const companyName = ev.target.elements.companyName.value;
             const stage = ev.target.elements.startupStage.value;
             const sector = ev.target.elements.sector.value;
-            const website = ev.target.elements.website.value;
+            const webSite = ev.target.elements.website.value;
             const presentations = ev.target.elements.presentations.value;
             const linkToOnePager = ev.target.elements.linkToOnePager.value;
             const description = ev.target.elements.description.value;
@@ -67,32 +70,31 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             const type = 'mentee';
             const name = { first, last };
 
-        const user = { name,password,profilePic, description,linkdinProfile, email, country, phone, sector, stage,type }
-        const initiative = { sector, companyName, description, stage, website, linkToOnePager, presentations }
-        console.log(user);
-        console.log(initiative);
-        
-        //initaitive not addded yet to mongo
+        const user = { name,password,profilePic, description,linkdInProfile, email, country, phone, sector, stage,type }
 
-        const {data} = await axios.post('/api/users/add-user', {user});
-        
 
             const userData = await axios.post('/api/users/add-user', { user });
 
-            console.log(userData)
+            // console.log(userData)
+            const { data } = userData;
+            const { result } = data;
+            const ownerUserId = result._id;
+
             // Already exists CHECK
             if (userData.data === 'Already exists' || userData.data == null) {
                 window.alert('User Already Exists. Please try deferent email:)')
             }
             // Already exists CHECK
+            let ownerName = name;
+            const initiative = { ownerName, sector, companyName, description, stage, webSite, linkToOnePager, presentations, ownerUserId }
 
-            const intiativeData = await axios.post('/api/initiatives/add-initiative', { initiative });
-
+            const initiativeData = await axios.post('/api/initiatives/add-initiative', { initiative });
+            console.log(initiativeData)
         } catch (error) {
             console.error(error);
         }
 
-        window.location.reload();
+        // window.location.reload();
     }
 
     return (
@@ -169,7 +171,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                         <div className="form__text">Startup Stage</div>
                                         <select name="startupStage" >
                                             <option hidden></option>
-                                            <option value="friends-and-family">friends and family</option>
+                                            <option value="fff">friends and family</option>
                                             <option value="pre-seed">pre-seed</option>
                                             <option value="seed">seed</option>
                                             <option value="round-a">round a</option>
@@ -206,12 +208,20 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                 </div>
                                 <div className="btn-back-next">
                                     <div className="back-btn"><button type="button" onClick={() => { handleBackToggleShowSections(); setActiveStep(0) }}><span className="fa fa-angle-left"></span> BACK</button></div>
-                                    <div><input type='submit' value='NEXT' onClick={() => { handleToggleShowSections(); setActiveStep(2) }} /></div>
+                                    <div><input type='submit' value='NEXT' onClick={() => { handleToggleShowThirdSection(); setActiveStep(2) }} /></div>
                                 </div>
                             </div>
                         </div>
                     </form>
-
+                    <div className={thirdSection}>
+                        <h1 className="welcomeNote__title">We're so happy to welcome you!</h1>
+                        <div className="pic"></div>
+                        <p className="welcomeNote__text">Since you are part of the founding generation, we would like to offer you 15 days of free use without any additional commitment on your part</p>
+                        <div className="btn-back-next">
+                                    <div className="back-btn"><button type="button" onClick={() => { handleBackToggleShowThirdSection(); setActiveStep(0) }}><span className="fa fa-angle-left"></span> BACK</button></div>
+                                    <div><input type='submit' value='NEXT' onClick={() => { setActiveStep(3) }} /></div>
+                                </div>
+                    </div>
                 </div>
             </div>
         </div>

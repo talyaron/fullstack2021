@@ -4,7 +4,7 @@ import Profile from "./view/pages/mentee/Profile";
 import React from "react";
 import SelectedMentor from "./view/pages/mentee/SelectedMentor";
 
-import './view/Styles/global.scss';
+import './view/styles/global.scss';
 import HomePage from "./view/components/HomePage";
 import Matching from "./view/pages/matching/Matching";
 import Chat from "./view/pages/Chat/Chat";

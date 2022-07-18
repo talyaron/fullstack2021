@@ -38,7 +38,7 @@ export const InitiativeSchema = new mongoose.Schema({
     },
     webSite: String,
     linkToOnePager: String,
-    presentations: [{ String }]
+    presentations:  String 
 
     /////initiative
 

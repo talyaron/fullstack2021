@@ -5,6 +5,8 @@ import UserModel from "../models/userModel";
 import selectedUsersModel from "../models/selectedUsers";
 import JWT from "jwt-simple";
 
+
+
 export const getMentors = async (req, res) => {
   try {
     const { currentUser } = req.body;
@@ -155,8 +157,8 @@ export const login = async (req, res) => {
         if (typeof email === "string" && typeof password === "string") {
             console.log(email, 'loggedIn 2');
 
-            const user = await UserModel.findOne({ email })
-        // .collation({ locale: "en_US", strength: 1 });
+            const user = await UserModel.findOne({ email }).collation({ locale: "en_US", strength: 1 });
+            //collation strength 1 performs comparisons of the base characters only, ignoring other differences such as diacritics and case.
             console.log(user);
             if (user) {
 
@@ -187,10 +189,10 @@ export const addUser = async (req, res) => {
     const {user} = req.body;
     console.log(user);
 
-    let newUser = new UserModel(user);
-    const result = await newUser.save();
+    const newUser = new UserModel(user);
+    // const result = await newUser.save();
     console.log(newUser);
-    res.send(result);
+    // res.send(result);
         // Already exists CHECK
         const userFound: any = await UserModel.findOne({ email: user.email })
 
@@ -199,15 +201,14 @@ export const addUser = async (req, res) => {
         }
         // Already exists CHECK
         else {
-            let newUser = new UserModel(user)
+            const newUser = new UserModel(user)
             const result = await newUser.save()
             console.log(newUser)
-
-            const payload = { email:newUser.email, id: newUser._id, loggedInUser: true, type: newUser.type}
+            const payload = { loggedInUser: true, type: newUser.type,id: newUser._id }
             const token = JWT.encode(payload, secret)
             res.cookie('userInfo', token, { httpOnly: true })
-
             res.send({result, ok: true, login: true})
+            return
         }
 
     } catch (err) {

@@ -24,10 +24,11 @@ function AdminPage() {
       console.log(users);
     })();
   }, [userType]);
+  
 
   return (
     <div>
-      <h1>hi</h1>
+      <h1>hello admin</h1>
       <div className="usersOverView">
       
 
@@ -36,9 +37,15 @@ function AdminPage() {
        {users.map((user: any, i:any) =>
                 <div key={i} >
                   {/* <img src={mentor.image}/>  */}
+
+                  {/* <div>
+                  {user.name.map((fullname:any,i:any) => {
+                    <p key={i}>{fullname.first} </p>
+                  })} 
+                  </div> */}
                   <p>{user.name.first} {user.name.last}</p>
                   <button>See all connections</button>
-                    
+                  
                     
                 </div>
             )}
