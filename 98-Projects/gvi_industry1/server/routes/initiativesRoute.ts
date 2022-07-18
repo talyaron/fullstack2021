@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 
-import { addInitiative,getInitiative,updateInitiative} from '../controllers/initiativeCont'
+import { addInitiative,getInitiative,updateInitiative,getAllRecipients} from '../controllers/initiativeCont'
 
 router
 .post('/add-initiative',addInitiative)
