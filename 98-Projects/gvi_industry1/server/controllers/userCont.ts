@@ -288,11 +288,7 @@ export const addUser = async (req, res) => {
     const { user } = req.body;
     console.log(user);
 
-    const newUser = new UserModel(user);
-    // const result = await newUser.save();
-    console.log(newUser);
-    // res.send(result);
-    // Already exists CHECK
+   
     const userFound: any = await UserModel.findOne({ email: user.email });
 
     if (userFound) {

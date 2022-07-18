@@ -45,7 +45,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             const password = ev.target.elements.password.value;
             const email = ev.target.elements.email.value;
             const phone = ev.target.elements.phone.value;
-            const linkdInProfile = ev.target.elements.linkdinProfile.value;
+            const linkedInProfile = ev.target.elements.linkedInProfile.value;
             const country = ev.target.elements.country.value;
             const FieldsOfKnowledged = ev.target.elements.FieldsOfKnowledged.value;
             const stage = ev.target.elements.startupStage.value;
@@ -55,7 +55,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             const type = 'mentor';
             const name = { first, last };
 
-            const user = { name, password, profilePic, description, linkdInProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
+            const user = { name, password, profilePic, description, linkedInProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
             console.log(user);
 
             const userData = await axios.post('/api/users/add-user', { user });
@@ -114,7 +114,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                                 </div>
                                 <div className="inputBox">
                                     <div className="form__text">LinkdIN profile</div>
-                                    <input type="text" name="linkdinProfile" />
+                                    <input type="text" name="linkedInProfile" />
                                 </div>
                                 <div className="inputBox">
                                     <div className="form__text">Country</div>
