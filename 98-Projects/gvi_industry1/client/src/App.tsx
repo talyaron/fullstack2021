@@ -78,7 +78,7 @@ function App() {
             />
           }>
           <Route index element={<WelcomePage />} />
-          <Route path="profile" element={<Profile id="" />} />
+          <Route path="profile/:userId" element={<Profile />} />
           <Route path="chat" element={<Chat />} />
           <Route
             path="matching"
