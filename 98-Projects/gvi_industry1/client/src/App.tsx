@@ -3,8 +3,8 @@ import Profile from "./view/pages/mentee/Profile";
 // import Card from "./view/pages/mentee/Card"//
 import React from "react";
 import SelectedMentor from "./view/pages/mentee/SelectedMentor";
-
 import './view/styles/global.scss';
+
 import HomePage from "./view/components/HomePage";
 import Matching from "./view/pages/matching/Matching";
 import Chat from "./view/pages/Chat/Chat";
@@ -31,7 +31,8 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [myProfile, setMyProfile] = useState(false);
   const [loggedInUser, setloggedInUser] = useState({});
-  const [currentUserType, setCurrentUserType] = useState("");
+  const [currentUserType, setCurrentUserType] = useState(" ");
+
   let { userId } = useParams();
   useEffect(() => {
     //get data on the user and show the chosen user by id
@@ -41,6 +42,7 @@ function App() {
         const { data } = await axios.post("/api/users/get-LoggedIn-Profile");
         const {theCurrentUser} = data;
        
+
         setCurrentUserType(theCurrentUser.type);
      
         setloggedInUser(theCurrentUser);
@@ -53,7 +55,7 @@ function App() {
         console.error(err.message);
       }
     })();
-  }, []);
+  }, [currentUserType]);
 
   return (
     <Router>

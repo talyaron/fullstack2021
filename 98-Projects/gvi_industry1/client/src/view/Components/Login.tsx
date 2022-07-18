@@ -29,13 +29,13 @@ const Login = (props:LoginProps) => {
         if(user.type==='admin'){
           setTimeout(() => {
             navigate(`navBarAdmin`);
-          }, 2000);
+          }, 5000);
         }else{ 
           setTimeout(() => {
             
             navigate(`navBar`)
            
-          }, 2000);
+          }, 5000);
           
         }
         
