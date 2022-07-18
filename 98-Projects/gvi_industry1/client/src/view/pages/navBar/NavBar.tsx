@@ -17,8 +17,10 @@ function NavBar(props:navBarProps) {
   } = props; 
 
 console.log(currentUserType)
- 
- 
+//  useEffect(()=>{
+  
+//  },[loggedInUser])
+
 
 
   return(

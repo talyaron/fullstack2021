@@ -39,11 +39,12 @@ function App() {
     (async () => {
       try {
         const { data } = await axios.post("/api/users/get-LoggedIn-Profile");
-        const {currentUser} = data;
-        
+        const {theCurrentUser} = data;
+       
+        setCurrentUserType(theCurrentUser.type);
      
-        setloggedInUser(currentUser);
-          setCurrentUserType(currentUser.type);
+        setloggedInUser(theCurrentUser);
+        //why do we have to do refresh each time to get the correct navbar according to its type
 
         if (!loggedInUser) {
           throw new Error("no profile");
@@ -52,7 +53,7 @@ function App() {
         console.error(err.message);
       }
     })();
-  }, [currentUserType]);
+  }, []);
 
   return (
     <Router>

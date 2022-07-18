@@ -30,12 +30,15 @@ const Login = (props:LoginProps) => {
           setTimeout(() => {
             navigate(`navBarAdmin`);
           }, 2000);
-        }else if(user.type==="mentor"||user.type==="mentee"){ 
+        }else{ 
           setTimeout(() => {
-          
+            
             navigate(`navBar`)
+           
           }, 2000);
+          
         }
+        
       }else{
           window.alert("email or password is incorrect")
       }

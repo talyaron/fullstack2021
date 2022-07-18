@@ -228,11 +228,11 @@ export async function getLoggedInProfile(req, res) {
       const userDecodedInfo = JWT.decode(userInfo, secret);
       console.log(userDecodedInfo)
       const {id} = userDecodedInfo;
-      const currentUser = await UserModel.findOne({_id: id});
-      console.log(currentUser);
+      const theCurrentUser = await UserModel.findOne({_id: id});
+      console.log(theCurrentUser);
       
-      if (currentUser === null) throw new Error('no Users were found');
-      res.send({currentUser, ok: true});
+      if (theCurrentUser === null) throw new Error('no Users were found');
+      res.send({theCurrentUser, ok: true});
   } catch (error) {
       console.log(error.error);
       res.send({error: error.message});
