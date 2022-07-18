@@ -1,6 +1,6 @@
 const express = require('express');
 import mongoose from 'mongoose';
-
+import cloudinaryTest from './controllers/uploads/test'
 const app = express();
 require('dotenv').config();
 const port = process.env.PORT || 4000;
@@ -52,6 +52,7 @@ mongoose
     // .set('debug', { shell: true })
     .connect(url)
     .then(() => {
+        cloudinaryTest()
         console.log('connected to Mongoose');
     })
     .catch((err) => {
@@ -132,7 +133,6 @@ app.use('/api/messages', messageRoute);
 server.listen(port, () => {
     console.log(`listening on *:${port}`);
 });
-
 // app.use(cors());
 
 // app.use(express.static('client/build'))
