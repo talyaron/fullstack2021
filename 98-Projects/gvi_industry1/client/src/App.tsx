@@ -45,13 +45,7 @@ function App() {
         const {theCurrentUser} = data;
        
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get('/api/users/get-user')
-      const {user} = data
-      setCurrentUser(user)
-    })();
-  }, [])
+ 
         setCurrentUserType(theCurrentUser.type);
      
         setloggedInUser(theCurrentUser);
@@ -65,6 +59,14 @@ function App() {
       }
     })();
   }, [currentUserType]);
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('/api/users/get-user')
+      const {user} = data
+      setCurrentUser(user)
+    })();
+  }, [])
 
   return (
     <Router>

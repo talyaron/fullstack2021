@@ -357,18 +357,7 @@ export const updateUserDetails = async (req, res) => {
     }
 
     await UserModel.updateOne({ _id: userId }, user);
-    export async function addFlags(req, res) {
-      try {
-        const { countryName, countryFlag } = req.body
-        const newCountry = new countryFlagModel({ countryName, countryFlag })
-        await newCountry.save();
-        res.send({ ok: true, newCountry })
     
-      } catch (error) {
-        console.log(error.error);
-        res.send({ error: error.message });
-      }
-    }
 
     res.send({ user, ok: true });
   } catch (err) {
@@ -390,6 +379,19 @@ export const adminGetAllUsers = async (req, res) => {
     res.send({ error: error.message });
   }
 };
+
+export async function addFlags(req, res) {
+  try {
+    const { countryName, countryFlag } = req.body
+    const newCountry = new countryFlagModel({ countryName, countryFlag })
+    await newCountry.save();
+    res.send({ ok: true, newCountry })
+
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+}
 
 export async function getLoggedInProfile(req, res) {
   // get logged in user id from cookie,
