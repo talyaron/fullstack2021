@@ -3,6 +3,22 @@ import UserModel from '../models/userModel';
 import selectedUsersModel from '../models/selectedUsers';
 import JWT from 'jwt-simple';
 
+
+export const getUser = async (req: any, res: any) => {
+    try {
+        const {userInfo} = req.cookies;
+        const payload = JWT.decode(userInfo, secret);
+        const {id} = payload;
+        console.log(id);
+
+        const user = await UserModel.findOne({_id: id});
+        res.send({user});
+    } catch (error) {
+        console.log(error.error);
+        res.send({error: error.message});
+    }
+};
+
 export const getUsers = async (req, res) => {
   try {
     const { currentUser } = req.body;
@@ -10,14 +26,12 @@ export const getUsers = async (req, res) => {
     console.log('current',currentUser);
     if (currentUser.type === 'mentee') {
       const users = await UserModel.find({ type: 'mentor' });
-      //not showing the correct results
       const filterUsers = users.filter(
         (mentor) => mentor.sector === currentUser.sector
       );
       res.send({ filterUsers, ok: true });
     } else if (currentUser.type === 'mentor') {
       const users = await UserModel.find({ type: 'mentee' });
-      //not showing the correct results
       const filterUsers = users.filter(
         (mentee) => mentee.sector === currentUser.sector
       );
@@ -47,33 +61,14 @@ export const getSearch = async (req, res) => {
   }
 }
 
-export const getUser = async (req: any, res: any) => {
-    try {
-        const {userInfo} = req.cookies;
-        const payload = JWT.decode(userInfo, secret);
-        const {id} = payload;
-        console.log(id);
-
-        const user = await UserModel.findOne({_id: id});
-        res.send({user});
-    } catch (error) {
-        console.log(error.error);
-        res.send({error: error.message});
-    }
-};
-
 export const selectUser = async (req: any, res: any) => {
     try {
         const {userInfo} = req.cookies;
         const payload = JWT.decode(userInfo, secret);
         const currentUserId = payload.id;
-        console.log('initial id',currentUserId)
-
+        
         const {selectedUserId} = req.body;
-        //add err check
         const selectedUser = await UserModel.findById(selectedUserId);
-
-        //check if it exists
         if (!selectedUser) throw new Error('couldnt find the user in the DB');
 
         const {email, name, image} = selectedUser;
@@ -140,7 +135,7 @@ export async function getSelectedUserdata(req, res) {
         console.log(error.error);
         res.send({error: error.message});
     }
-}
+    }
 
 export async function getAllRecipients(req, res) {
     try {

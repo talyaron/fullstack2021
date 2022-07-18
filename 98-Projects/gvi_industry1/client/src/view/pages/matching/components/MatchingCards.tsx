@@ -21,6 +21,7 @@ const MatchingCard = (props: MatchingCardProps) => {
           <div className='matching__wrapper_card' key={user._id}>
             <StarSvg handleSelectUser={handleSelectUser} userId={user._id} />
             <img className='matching__wrapper_card_pic' src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWVufGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="" />
+            <p className="matching__wrapper_card_seen">Last Seen</p>
             <div className='matching__wrapper_card_description'>
               <p>{user.name.first} {user.name.last}</p>
               <p>{user.sector}</p>
