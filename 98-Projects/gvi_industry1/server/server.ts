@@ -35,8 +35,8 @@ import MessageModel from './models/messageModel';
 app.use(express.json());
 
 app.use(express.static('client/build'));
-app.use('/api/users', CardRoute);
-app.use('/api/companies', CardRoute);
+// app.use('/api/users', CardRoute);
+// app.use('/api/companies', CardRoute);
 console.log(process.env.ENV);
 console.log(process.env.JWT_SECRET);
 const cookieParser = require('cookie-parser');

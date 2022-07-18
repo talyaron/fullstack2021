@@ -21,17 +21,30 @@ export const getMentors = async (req, res) => {
     res.send({ error: error.message });
   }
 };
+export const getFilter = async (req, res) => {
+  try {
+    const allFiltered = await UserModel.find({}).select('sector').distinct('sector');
+    
+    res.json({ allFiltered, ok: true });
+    console.log("filtered: " + allFiltered);
+
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+};
 
 export const getSearch = async (req, res) => {
   try {
     const { currentSearch } = req.body;
+    if (!currentSearch) throw new Error('No search term')
     console.log(currentSearch)
-  
-    let searchPattern = new RegExp(`${currentSearch}`,'i')
-    console.log(searchPattern);
 
-    
-    const allSearches = await UserModel.find({country:'Monaco'});
+    // let searchPattern = new RegExp(`${currentSearch}`,'i')
+    // console.log(searchPattern);
+    const regex = new RegExp(currentSearch, 'i')
+
+    const allSearches = await UserModel.find({ country: regex });
     res.send({ allSearches, ok: true });
 
   } catch (error) {

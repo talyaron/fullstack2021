@@ -1,13 +1,16 @@
 .matching {
-    padding: 20px;
+    margin-top: 50px;
+     padding: 20px;
     display: grid;
     // height: 450px;
-    grid-template-columns: repeat(3, minmax(auto-fit,80fr));
+    grid-template-columns: repeat(3, minmax(auto-fit, 80fr));
     grid-template-rows: repeat(3, 1fr);
-    border: 1px solid black;
-height:50%;
+    //     border: 1px solid black;
+    height: 5px;
+
     // grid-template-rows: 1fr 1fr 1fr;
     &__wrapper {
+        margin-top: 50px;
         // background-color: rgb(173, 173, 173);
         //   grid-column: 1/2;
         //   grid-row-start:1/1;
@@ -19,6 +22,7 @@ height:50%;
         justify-items: center;
         grid-auto-flow: row;
         flex-wrap: wrap;
+
         &_card {
             width: 348px;
             height: 393px;
@@ -84,12 +88,13 @@ height:50%;
 
     &__filter-menu {
         // border: 1px solid black;
-
+        margin-top: 150px;
+        margin-right: 50px;
         height: 50px;
         height: 100px;
         position: sticky;
         grid-column: 1/2;
-        grid-row: 1/2;
+        grid-row: 2/2;
 
         &_section {
             &_title {}

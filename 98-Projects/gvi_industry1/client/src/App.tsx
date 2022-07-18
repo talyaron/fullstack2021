@@ -19,7 +19,7 @@ function App() {
   const [mentorsList, setMentorsList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [currentSearch, setCurrentSearch] =useState([])
-  const [checked, setChecked] = useState([0]);
+  const [checked, setChecked] = useState([]);
 
   let { userId } = useParams();
 
