@@ -151,7 +151,8 @@ export async function getSelectedUser(req, res) {
     const { _id, type } = req.body;
 
     const selected = await selectedUsersModel.find({});
-    const selectedUsers = selected.filter( (user) => user.selectingUserId === _id && user.selected === true);
+    const selectedUsers = selected.filter(
+       (user) => user.selectingUserId === _id && user.selected === true);
     const selectedUesrModel = await UserModel.find({});
     const selectedUserInitiatives = await initiativeModel.find({});
     const flags = await countryFlagModel.find({});
