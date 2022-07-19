@@ -100,6 +100,8 @@ function App() {
           path="navBarAdmin"
           element={<AdminLayout loggedInUser={loggedInUser} />}>
           <Route index element={<AdminPage />} />
+          <Route path="chat" element={<Chat />} />
+          <Route path="profile" element={<Profile id="" />} />
         </Route>
       </Routes>
     </Router>
