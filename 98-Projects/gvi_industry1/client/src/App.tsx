@@ -94,7 +94,7 @@ function App() {
               />
             }
           />
-          <Route path=":id" element={<SelctedMentors />} />
+          <Route path="SelectedMentors" element={<SelctedMentors />} />
         </Route>
         <Route
           path="navBarAdmin"
