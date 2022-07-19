@@ -4,3 +4,11 @@
     width:50vw;
     height:500px;
 }
+.allConect{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.btnUnder{
+    border-bottom:solid 5px rgb(172, 166, 160);
+}

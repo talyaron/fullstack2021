@@ -32,10 +32,10 @@ function AdminPage() {
       <div className="usersOverView">
       
 
-        <div> <button onClick={()=>{setUserType("mentee")}}>Entreprenuers</button> <button onClick={()=>{setUserType("mentor")}}>Mentors</button> </div>
+        <div> <button className="btnUnder" onClick={()=>{setUserType("mentee")}}>Entreprenuers</button> <button className="btnUnder" onClick={()=>{setUserType("mentor")}}>Mentors</button> </div>
        <div>
        {users.map((user: any, i:any) =>
-                <div key={i} >
+                <div className="allConect" key={i} >
                   {/* <img src={mentor.image}/>  */}
 
             
