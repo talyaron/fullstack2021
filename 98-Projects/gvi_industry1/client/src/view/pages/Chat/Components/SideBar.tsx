@@ -29,7 +29,6 @@ function SideBar(props: SideBarProps) {
     const id = useId();
 
 
-
     const addToRefs = (el: any) => {
 
         if (el && !SelectedRefs.current.includes(el)) {
@@ -67,7 +66,10 @@ function SideBar(props: SideBarProps) {
                 </div>
             </div>
             <ul className='chat__sideBar__recipientsList'>
-                {userList ? (
+                <>
+                {console.log(userList)}
+                </>
+                {userList ? ( 
                     userList.map((user: any, i: any) => {
                         return (
                             <li
@@ -76,10 +78,8 @@ function SideBar(props: SideBarProps) {
                                 id={user._id}
                                 className='recipient'
                                 onClick={() => {
-
                                     setSelectedRec(user)
                                     setRecipient(user);
-                                    // setSelected()
                                 }}
                             >
                                 <p >{user.name.first} {user.name.last}</p>

@@ -1,6 +1,6 @@
 const express = require('express');
 import mongoose from 'mongoose';
-
+import cloudinaryTest from './controllers/uploads/test'
 const app = express();
 require('dotenv').config();
 const port = process.env.PORT || 4000;
@@ -52,6 +52,7 @@ mongoose
     // .set('debug', { shell: true })
     .connect(url)
     .then(() => {
+        cloudinaryTest()
         console.log('connected to Mongoose');
     })
     .catch((err) => {
@@ -62,32 +63,47 @@ mongoose
 io.on('connection', (socket: any) => {
     console.log('user connected', socket.id);
     socket.on('join-room', (data) => {
-        let recipients = (data) => {
-            let array = [];
-            for (let i = 0; i < data.recipients.length; i++) {
-                array.push(data.recipients[i].userId);
+        const {sender} = data;
+        const {userList} = data;
+        // console.log(senderId, 'senderId');
+        
+        let recipients = (userList) => {
+
+            let array = [sender.userId];
+            for (let i = 0; i < userList.length; i++) {
+                if(userList[i]._id){
+                    array.push(userList[i]._id);
+                }
+                if(userList[i].userId){
+                    array.push(userList[i].userId);
+                }
             }
+            
             return array;
         };
-        socket.join(data);
+
+        socket.leaveAll();
+        socket.join(recipients(userList));
         console.log(`User with ID: ${socket.id} joined room: ${data}`);
+        console.log(io.sockets.adapter.rooms);
+        
     });
 
     socket.on('send-message', (data) => {
-        console.log(data, 'data, send-message -server.ts');
-        const message = new MessageModel({text: data.text, file: data.file, sender: data.sender, recipients: data.recipients, time: data.time});
+        const message = new MessageModel({text: data.text, file: data.file, sender: data.sender, recipient: data.recipient, time: data.time});
         message.save();
-
-        let recipients = (data) => {
-            let array = [];
-            for (let i = 0; i < data.recipients.length; i++) {
-                array.push(data.recipients[i].userId);
-            }
-            return array;
-        };
-        console.log(recipients(data));
-
-        socket.to(recipients(data)).emit('receive-message', message);
+        
+        // let recipients = (data) => {
+        //     let array = [];
+        //     for (let i = 0; i < data.recipients.length; i++) {
+        //         array.push(data.recipients[i].userId);
+        //     }
+        //     return array;
+        // };
+        // console.log(recipients(data));
+        console.log(data.recipient._id,' send message server ts -103');
+        
+        socket.to(data.recipient.userId).emit('receive-message', message);
     });
 });
 
@@ -117,7 +133,6 @@ app.use('/api/messages', messageRoute);
 server.listen(port, () => {
     console.log(`listening on *:${port}`);
 });
-
 // app.use(cors());
 
 // app.use(express.static('client/build'))

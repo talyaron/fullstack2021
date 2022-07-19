@@ -9,7 +9,7 @@ const UserMessageSchema = new mongoose.Schema({
 const MessageSchema = new mongoose.Schema({
     room: String,
     sender: UserMessageSchema,
-    recipients: [UserMessageSchema],
+    recipient: UserMessageSchema,
     text: String,
     file: String,
     // time: String,

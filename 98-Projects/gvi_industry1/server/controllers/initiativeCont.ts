@@ -20,8 +20,8 @@ export const addInitiative = async (req, res) => {
 
 export const getAllRecipients = async (req, res) => {
     try {
-        const id = req.body.menteeId;
-        const currentUsersInitiative = await InitiativeModel.findOne({ownerUserId: id});
+        const {id} = req.body.user;
+        const currentUsersInitiative = await InitiativeModel.findOne({ownerUserId:id});
         const recipients = currentUsersInitiative.mentors;
         res.send(recipients);
     } catch (error) {
