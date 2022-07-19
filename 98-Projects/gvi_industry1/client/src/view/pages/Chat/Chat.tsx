@@ -1,8 +1,8 @@
 import {useState, useEffect, useId} from 'react';
 import axios from 'axios';
-import ChatWindow from './Components/ChatWindow';
-import CurrentRecipient from './Components/CurrentRecipient';
-import SideBar from './Components/SideBar';
+import ChatWindow from './components/ChatWindow';
+import CurrentRecipient from './components/CurrentRecipient';
+import SideBar from './components/SideBar';
 import {socket} from '../../../index';
 import {ObjectId} from 'mongoose';
 import {text} from 'node:stream/consumers';
@@ -53,7 +53,7 @@ function Chat() {
     }
     function handleJoinRoom() {
         if (userList.length > 0) {
-            socket.emit('join-room',{ userList, sender});
+            socket.emit('join-room', {userList, sender});
         }
     }
 
@@ -88,7 +88,9 @@ function Chat() {
             getRecipientsList();
         };
     }, []);
-    useEffect(() => {handleJoinRoom()},[userList])
+    useEffect(() => {
+        handleJoinRoom();
+    }, [userList]);
     useEffect(() => {
         getMessageList(recipient);
     }, [recipient]);
@@ -99,14 +101,14 @@ function Chat() {
         try {
             let id: any = recipient?._id;
             const name: nameInterface = recipient?.name;
-            if(!id) {
-                id = recipient.userId
+            if (!id) {
+                id = recipient.userId;
             }
             // console.log(id, name, recipient,'id and name 103 -chattsx');
-            
+
             if (sentMessage === '') throw new Error('Type something!');
-            console.log({sentMessage:sentMessage}, {sender:sender}, {recipient: recipient}, 'sentMessage sender recipient');
-            
+            console.log({sentMessage: sentMessage}, {sender: sender}, {recipient: recipient}, 'sentMessage sender recipient');
+
             const payload = {
                 text: sentMessage,
                 sender: sender,
@@ -127,7 +129,7 @@ function Chat() {
                 // {recipientId: recipient._id}
             );
             setMessageList(data.allMessages);
-            if(sender.userId){
+            if (sender.userId) {
                 let myMessageList = data.allMessages.filter((message: any) => {
                     return message.sender.userId === sender.userId;
                 });
@@ -135,27 +137,23 @@ function Chat() {
                     console.log(message.sender.userId, 'myMessageList');
                 });
                 // console.log(myMessageList, 'myMessageList');
-                
             }
             // if(!recipient.userId)
-            if(recipient){
-                
+            if (recipient) {
                 let recipientsMessages = data.allMessages.filter((message: any) => {
                     console.log(sender, 'sender');
-                    if(message.recipient.userId){
-                        return message.recipient.userId === recipient._id; ;
+                    if (message.recipient.userId) {
+                        return message.recipient.userId === recipient._id;
                     }
-                    if(message.recipient._id){
-                        return message.recipient._id === recipient._id; ;
+                    if (message.recipient._id) {
+                        return message.recipient._id === recipient._id;
                     }
                 });
                 recipientsMessages.forEach((message: any) => {
-                    console.log(message.recipient.userId,message.recipient._id, 'recipientsMessages');
+                    console.log(message.recipient.userId, message.recipient._id, 'recipientsMessages');
                 });
                 // console.log(recipientsMessages, 'recipientsMessages');
-                
             }
-
 
             // console.log(recipientsMessages, 'recipientsMessages');
         } catch (error) {
@@ -170,7 +168,7 @@ function Chat() {
             setSender({userId: user.id, name: {first: user.name.first, last: user.name.last}});
             if (recipients.length > 0) {
                 console.log('im a mentor');
-                
+
                 setUserList(recipients);
                 setRecipient(recipients[0]);
             }
@@ -178,7 +176,7 @@ function Chat() {
                 console.log('im a mentee');
                 const {data} = await axios.post('/api/initiatives/get-all-recipients', {user});
                 const recipients = data;
-                
+
                 setUserList(recipients);
                 setRecipient(recipients[0]);
             }
