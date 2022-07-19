@@ -8,7 +8,7 @@ const MatchingCard = (props: MatchingCardProps) => {
   const { usersList } = props
 
   async function handleSelectUser(selectedUserId: any) {
-    console.log(selectedUserId)
+
     const { data } = await axios.post("/api/users/selected-user" , {selectedUserId})
     console.log(data)
     

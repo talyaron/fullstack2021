@@ -21,7 +21,7 @@ function AdminPage() {
       setUsersList(typeMentor)
       
       
-      console.log(users);
+
     })();
   }, [userType]);
   

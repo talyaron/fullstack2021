@@ -1,74 +1,61 @@
-import axios from "axios";
-import { useEffect } from "react";
-import MatchingCard from "./components/MatchingCards";
-import FilterMenu from "./components/FilterMenu";
-import Search from "./components/Search";
-import { Link, Outlet } from "react-router-dom";
+import axios from 'axios';
+import {useEffect} from 'react';
+import MatchingCard from './components/MatchingCards';
+import FilterMenu from './components/FilterMenu';
+import Search from './components/Search';
+import {Link, Outlet} from 'react-router-dom';
 
 interface MatchingProps {
-  usersList: any;
-  setUsersList: Function;
-  currentUser: any;
-  currentSearch: any;
-  setCurrentSearch: Function;
-  checked: any;
-  setChecked: Function;
+    usersList: any;
+    setUsersList: Function;
+    currentUser: any;
+    currentSearch: any;
+    setCurrentSearch: Function;
+    checked: any;
+    setChecked: Function;
 }
 
 const Matching = (props: MatchingProps) => {
-  const {
-    usersList,
-    setUsersList,
-    currentUser,
-    currentSearch,
-    setCurrentSearch,
-    checked,
-    setChecked,
-  } = props;
+    const {usersList, setUsersList, currentUser, currentSearch, setCurrentSearch, checked, setChecked} = props;
 
-  useEffect(() => {    
-    (async () => {
-      try {
-        console.log(currentUser,"get mentors2");
-        if (Object.keys(currentUser).length === 0)
-          throw new Error("User is not logged in");
-          
-        console.log("get mentors");
-        const { data } = await axios.post("/api/users/get-users", {
-          currentUser,
-        });
+    useEffect(() => {
+        (async () => {
+            try {
 
-        const { filterUsers } = data;
-        setUsersList(filterUsers);
-        console.log(filterUsers);
-      } catch (err) {
-        console.error(err);
-      }
-    })();
+                if (Object.keys(currentUser).length === 0) throw new Error('User is not logged in');
 
-  }, [currentUser]);
 
-  //   const userid:any =  `{currentUser._id} `
-  //  let  userId  = useParams();
+                const {data} = await axios.post('/api/users/get-users', {
+                    currentUser,
+                });
 
-  //  function handleSelectedUserId(currentUser:any){
-  //  }
+                const {filterUsers} = data;
+                setUsersList(filterUsers);
 
-  return (
-    //<div className={matching?"matching showMatching":"dontShowMatching"}>
-    <div className="matching ">
-      <Link to="/selected-mentors">Selected-mentors</Link>
-      <Search
-        currentSearch={currentSearch}
-        setCurrentSearch={setCurrentSearch}
-      />
-      <FilterMenu checked={checked} setChecked={setChecked} />
+            } catch (err) {
+                console.error(err);
+            }
+        })();
+    }, [currentUser]);
 
-      <MatchingCard usersList={usersList} />
+    //   const userid:any =  `{currentUser._id} `
+    //  let  userId  = useParams();
 
-      <Outlet />
-    </div>
-  );
+    //  function handleSelectedUserId(currentUser:any){
+    //  }
+
+    return (
+        //<div className={matching?"matching showMatching":"dontShowMatching"}>
+        <div className='matching '>
+            <Link to='/selected-mentors'>Selected-mentors</Link>
+            <Search currentSearch={currentSearch} setCurrentSearch={setCurrentSearch} />
+            <FilterMenu checked={checked} setChecked={setChecked} />
+
+            <MatchingCard usersList={usersList} />
+
+            <Outlet />
+        </div>
+    );
 };
 
 export default Matching;

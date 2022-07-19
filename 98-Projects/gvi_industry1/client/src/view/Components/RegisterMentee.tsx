@@ -37,7 +37,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
     async function handleMenteeForm(ev: any) {
         ev.preventDefault();
-        console.log('submit');
+
         try {
             // console.dir(ev.target);
 
@@ -78,7 +78,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             const initiative = { ownerName, sector, companyName, description, stage, webSite, linkToOnePager, presentations, ownerUserId }
 
             const initiativeData = await axios.post('/api/initiatives/add-initiative', { initiative });
-            console.log(initiativeData)
+
         } catch (error) {
             console.error(error);
         }

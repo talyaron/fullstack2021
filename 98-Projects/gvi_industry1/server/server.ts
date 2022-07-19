@@ -98,7 +98,7 @@ io.on('connection', (socket: any) => {
         //     return array;
         // };
         // console.log(recipients(data));
-        console.log(data.recipient._id,' send message server ts -103');
+        console.log(data.recipient.userId,' send message server ts -103');
         
         socket.to(data.recipient.userId).emit('receive-message', message);
     });

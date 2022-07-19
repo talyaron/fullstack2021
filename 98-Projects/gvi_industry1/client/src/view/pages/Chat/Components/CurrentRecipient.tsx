@@ -25,7 +25,7 @@ function CurrentRecipient(props: CurrentRecipientProps) {
         pickedTab.style.backgroundColor = 'transparent';
         pickedTab.setAttribute('picked', true)
         return () => {
-            console.log(fullName);
+            // console.log(fullName);
             pickedTab.style.backgroundColor = 'blue';
             pickedTab.removeAttribute('picked')
         }

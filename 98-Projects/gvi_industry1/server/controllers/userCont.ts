@@ -224,16 +224,24 @@ export async function getAllRecipients(req, res) {
             { _id: recipient },
             { password: 0 }
           );
-          localArr.push(rec);
+          console.log(rec, 'rec');
+          let readyRec = {userId: rec._id, name: rec.name}
+          localArr.push(readyRec);
+          console.log(readyRec, 'readyRec');
         }
 
+        console.log(localArr, 'localArr readyRec');
         return localArr;
+        
       };
       allRecipients = await getRecipientsList();
+      console.log(allRecipients, 'all recipients');
     }
 
     if (allRecipients === []) throw new Error("no Users were found");
     if (allRecipients !== []) {
+
+      
       res.send({ allRecipients, user: userDecodedInfo });
     }
   } catch (error) {
@@ -254,7 +262,7 @@ export const login = async (req, res) => {
         strength: 1,
       });
       //collation strength 1 performs comparisons of the base characters only, ignoring other differences such as diacritics and case.
-      console.log(user);
+      // console.log(user);
       if (user) {
         //checking if password is right for the email that was put
         if (user.password === password) {
@@ -286,11 +294,11 @@ export const login = async (req, res) => {
 export const addUser = async (req, res) => {
   try {
     const { user } = req.body;
-    console.log(user);
+    // console.log(user);
 
     const newUser = new UserModel(user);
     // const result = await newUser.save();
-    console.log(newUser);
+    // console.log(newUser);
     // res.send(result);
     // Already exists CHECK
     const userFound: any = await UserModel.findOne({ email: user.email });

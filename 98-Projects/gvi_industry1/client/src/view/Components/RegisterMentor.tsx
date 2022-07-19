@@ -56,10 +56,10 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             const name = { first, last };
 
             const user = { name, password, profilePic, description, linkdInProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
-            console.log(user);
+
 
             const userData = await axios.post('/api/users/add-user', { user });
-            console.log(userData)
+
             // Already exists CHECK
             if (userData.data === 'Already exists') {
                 window.alert('Already Exists')

@@ -27,12 +27,12 @@ function ChatWindow(props: ChatWindowProps) {
         }
     }, [messageList]);
 
-    useEffect(() => {
-        const messages = getMessageList();
-        return () => {
-            console.log(messages, 'messages ChatWindow');
-        };
-    }, []);
+    // useEffect(() => {
+    //     const messages = getMessageList();
+    //     return () => {
+    //         console.log(messages, 'messages ChatWindow');
+    //     };
+    // }, []);
 
     return (
         <div className='chat__chatWindow'>

@@ -53,7 +53,7 @@ function Chat() {
     }
     function handleJoinRoom() {
         if (userList.length > 0) {
-            socket.emit('join-room',{ userList, sender});
+            socket.emit('join-room', {userList, sender});
         }
     }
 
@@ -88,7 +88,9 @@ function Chat() {
             getRecipientsList();
         };
     }, []);
-    useEffect(() => {handleJoinRoom()},[userList])
+    useEffect(() => {
+        handleJoinRoom();
+    }, [userList]);
     useEffect(() => {
         getMessageList(recipient);
     }, [recipient]);
@@ -99,14 +101,14 @@ function Chat() {
         try {
             let id: any = recipient?._id;
             const name: nameInterface = recipient?.name;
-            if(!id) {
-                id = recipient.userId
+            if (!id) {
+                id = recipient.userId;
             }
             // console.log(id, name, recipient,'id and name 103 -chattsx');
-            
+
             if (sentMessage === '') throw new Error('Type something!');
-            console.log({sentMessage:sentMessage}, {sender:sender}, {recipient: recipient}, 'sentMessage sender recipient');
-            
+            console.log({sentMessage: sentMessage}, {sender: sender}, {recipient: recipient}, 'sentMessage sender recipient');
+
             const payload = {
                 text: sentMessage,
                 sender: sender,
@@ -127,35 +129,30 @@ function Chat() {
                 // {recipientId: recipient._id}
             );
             setMessageList(data.allMessages);
-            if(sender.userId){
+            if (sender.userId) {
                 let myMessageList = data.allMessages.filter((message: any) => {
                     return message.sender.userId === sender.userId;
                 });
-                myMessageList.forEach((message: any) => {
-                    console.log(message.sender.userId, 'myMessageList');
-                });
+                // myMessageList.forEach((message: any) => {
+                //     console.log(message.sender.userId, 'myMessageList');
+                // });
                 // console.log(myMessageList, 'myMessageList');
-                
             }
             // if(!recipient.userId)
-            if(recipient){
-                
+            if (recipient) {
                 let recipientsMessages = data.allMessages.filter((message: any) => {
-                    console.log(sender, 'sender');
-                    if(message.recipient.userId){
-                        return message.recipient.userId === recipient._id; ;
+                    if (message.recipient.userId) {
+                        return message.recipient.userId === recipient._id;
                     }
-                    if(message.recipient._id){
-                        return message.recipient._id === recipient._id; ;
+                    if (message.recipient._id) {
+                        return message.recipient._id === recipient._id;
                     }
                 });
-                recipientsMessages.forEach((message: any) => {
-                    console.log(message.recipient.userId,message.recipient._id, 'recipientsMessages');
-                });
+                // recipientsMessages.forEach((message: any) => {
+                //     console.log(message.recipient.userId, message.recipient._id, 'recipientsMessages');
+                // });
                 // console.log(recipientsMessages, 'recipientsMessages');
-                
             }
-
 
             // console.log(recipientsMessages, 'recipientsMessages');
         } catch (error) {
@@ -168,17 +165,19 @@ function Chat() {
             const recipients = data.allRecipients;
             const {user} = data;
             setSender({userId: user.id, name: {first: user.name.first, last: user.name.last}});
+            console.log(recipients, 'chat recipients');
+            
             if (recipients.length > 0) {
-                console.log('im a mentor');
-                
+
+
                 setUserList(recipients);
                 setRecipient(recipients[0]);
             }
-            if (recipients.length === 0) {
-                console.log('im a mentee');
+            if (recipients === 0) {
+
                 const {data} = await axios.post('/api/initiatives/get-all-recipients', {user});
                 const recipients = data;
-                
+
                 setUserList(recipients);
                 setRecipient(recipients[0]);
             }
