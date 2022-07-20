@@ -7,11 +7,9 @@ function AdminPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [changeColorMentor, setChangeColorMentee] = useState(true);
   const [changeColorMentee, setChangeColorMentor] = useState(false);
- 
+
   useEffect(() => {
     (async () => {
-     
-
       const { data } = await axios.get("/api/users/admin-getAllUsers");
       const { allUsers } = data;
 
@@ -24,7 +22,7 @@ function AdminPage() {
       console.log(userType);
       console.log(users);
     })();
-  }, [userType,searchTerm]);
+  }, [userType, searchTerm]);
 
   function handleMantee() {
     setUserType("mentee");
@@ -38,7 +36,6 @@ function AdminPage() {
   }
 
 
- 
   return (
     <div>
       <h1>hello admin</h1>
@@ -63,36 +60,48 @@ function AdminPage() {
             name="search"
             id="search"
             placeholder="Type Full Name..."
-            onChange={(ev) =>{ setSearchTerm(ev.target.value)}} 
+            onChange={(ev) => {
+              setSearchTerm(ev.target.value);
+            }}
           />
         </div>
         <div>
-        
-          {users&& users.filter((user:any)=>{
-            if (searchTerm === '') {
-              console.log('im in the if')
-              return users
-          } else if (user.email.toLowerCase().includes(searchTerm.toLowerCase())) {
-            console.log('im in else if')
-              return user
-              
-          }else{
-            return null
-          }
-          }).map((user: any, i: any) => (
-            <div className="allConect" key={i}>
-              {/* <img src={mentor.image}/>  */}
+          {users &&
+            users
+              .filter((user: any) => {
+                if (searchTerm === "") {
+                 
+                  return users;
+                } else if (searchTerm.length > 0) {
+                  for (let i in user.name) {
+                    if (
+                      user.name[i]
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
+                    ) {
+                      return user;
+                    }
+                  }
 
-              <p>
-                {user.name ? user.name.first : null}{" "}
-                {user.name ? user.name.last : null}
-                {user.email}
-              </p>
-              <Link className="link" to="chat">
-                See all connections
-              </Link>
-            </div>
-          ))}
+                 
+                } else {
+                  return null;
+                }
+              })
+              .map((user: any, i: any) => (
+                <div className="allConect" key={i}>
+                  {/* <img src={mentor.image}/>  */}
+
+                  <p>
+                    {user.name ? user.name.first : null}{" "}
+                    {user.name ? user.name.last : null}
+                    {/* {user.email} */}
+                  </p>
+                  <Link className="link" to="chat">
+                    See all connections
+                  </Link>
+                </div>
+              ))}
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@ function NavBar(props:navBarProps) {
 
   } = props; 
 
-console.log(currentUserType)
+// console.log(currentUserType)
 //  useEffect(()=>{
   
 //  },[loggedInUser])

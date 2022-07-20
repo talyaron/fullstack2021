@@ -35,27 +35,7 @@ function App() {
   const [currentUserType, setCurrentUserType] = useState("");
 
   let { userId } = useParams();
-  useEffect(() => {
-    //get data on the user and show the chosen user by id
 
-    (async () => {
-      try {
-        const { data } = await axios.post("/api/users/get-LoggedIn-Profile");
-        const { theCurrentUser } = data;
-
-        setCurrentUserType(theCurrentUser.type);
-
-        setloggedInUser(theCurrentUser);
-        //why do we have to do refresh each time to get the correct navbar according to its type
-
-        if (!loggedInUser) {
-          throw new Error("no profile");
-        }
-      } catch (err: any) {
-        console.error(err.message);
-      }
-    })();
-  }, [currentUserType]);
 
   useEffect(() => {
     (async () => {
@@ -65,18 +45,22 @@ function App() {
     })();
   }, []);
 
+ 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage setCurrentUserType={setCurrentUserType}
+        setloggedInUser={setloggedInUser}
+        />} />
         <Route
-          path="navBar"
+          path="mainPage"
           element={
             <Layout
               loggedInUser={loggedInUser}
               currentUserType={currentUserType}
             />
-          }>
+          }
+        >
           <Route index element={<WelcomePage />} />
           <Route path="profile" element={<Profile id="" />} />
           <Route path="chat" element={<Chat />} />
@@ -97,8 +81,9 @@ function App() {
           <Route path=":id" element={<SelctedMentors />} />
         </Route>
         <Route
-          path="navBarAdmin"
-          element={<AdminLayout loggedInUser={loggedInUser} />}>
+          path="mainPageAdmin"
+          element={<AdminLayout loggedInUser={loggedInUser} />}
+        >
           <Route index element={<AdminPage />} />
           <Route path="chat" element={<Chat />} />
           <Route path="profile" element={<Profile id="" />} />
