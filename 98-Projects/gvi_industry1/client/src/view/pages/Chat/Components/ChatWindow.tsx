@@ -22,12 +22,6 @@ interface ChatWindowProps {
 function ChatWindow(props: ChatWindowProps) {
     const { recipient, sender ,dateFromObjectId, getMessageList, chatArea, messageList, setMessageList, setSentMessage, handleSendMessage, scroll} = props;
 
-    useEffect(() => {
-        let messageList = document.querySelector('.chat__chatWindow__messagesList');
-        if (messageList) {
-            messageList.scrollTop = messageList.scrollHeight;
-        }
-    }, [messageList]);
 
     // useEffect(() => {
     //     const messages = getMessageList();
@@ -38,7 +32,7 @@ function ChatWindow(props: ChatWindowProps) {
 
     return (
         <div className='chat__chatWindow'>
-            {chatArea === "Conversation" ?<ConversationsTab recipient={recipient} sender={sender} messageList={messageList} dateFromObjectId={dateFromObjectId} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} />
+            {chatArea === "Conversation" ?<ConversationsTab  recipient={recipient} sender={sender} messageList={messageList} dateFromObjectId={dateFromObjectId} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} />
             : <DocsTab/> }
         </div>
     );

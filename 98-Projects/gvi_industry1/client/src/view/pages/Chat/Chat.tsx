@@ -1,4 +1,4 @@
-import {useState, useEffect, useId} from 'react';
+import {useState, useEffect, useId, useRef} from 'react';
 import axios from 'axios';
 import ChatWindow from './components/ChatWindow';
 import CurrentRecipient from './components/CurrentRecipient';
@@ -182,6 +182,7 @@ function Chat() {
                 console.log(recipients,'recipient list from mentees, we`re mentors');
 
             }
+            
             console.log(recipients,'recipient list from mentees -184');
             if (recipients === undefined || !recipients) {
                 console.log(recipients,'recipient list from mentees -186');
@@ -208,7 +209,7 @@ function Chat() {
         <div className='chat'>
             <SideBar setRecipient={setRecipient} userList={userList} />
             {recipient ? <CurrentRecipient chatArea={chatArea} handleTabChange={handleTabChange} recipient={recipient} handleChatSearchBar={handleChatSearchBar} searchMessagesToggle={searchMessagesToggle} /> : null}
-            <ChatWindow recipient={recipient} sender={sender} chatArea={chatArea} dateFromObjectId={dateFromObjectId} scroll={scroll} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} getMessageList={getMessageList} messageList={messageList} setMessageList={setMessageList} />
+            <ChatWindow  recipient={recipient} sender={sender} chatArea={chatArea} dateFromObjectId={dateFromObjectId} scroll={scroll} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} getMessageList={getMessageList} messageList={messageList} setMessageList={setMessageList} />
         </div>
     );
 }
