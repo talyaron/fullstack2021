@@ -107,7 +107,7 @@ function Chat() {
             // console.log(id, name, recipient,'id and name 103 -chattsx');
 
             if (sentMessage === '') throw new Error('Type something!');
-            console.log({sentMessage: sentMessage}, {sender: sender}, {recipient: recipient}, 'sentMessage sender recipient');
+            // console.log({sentMessage: sentMessage}, {sender: sender}, {recipient: recipient}, 'sentMessage sender recipient');
 
             const payload = {
                 text: sentMessage,
@@ -133,12 +133,12 @@ function Chat() {
                 let myMessageList = data.allMessages.filter((message: any) => {
                     return message.sender.userId === sender.userId;
                 });
-                // myMessageList.forEach((message: any) => {
-                //     console.log(message.sender.userId, 'myMessageList');
-                // });
+                myMessageList.forEach((message: any) => {
+                    console.log(message.text, 'myMessageList');
+                });
                 // console.log(myMessageList, 'myMessageList');
             }
-            // if(!recipient.userId)
+            if(!recipient.userId) throw new Error('no recipient Id -141 getMessageList Chat.tsx')
             if (recipient) {
                 let recipientsMessages = data.allMessages.filter((message: any) => {
                     if (message.recipient.userId) {
@@ -165,7 +165,7 @@ function Chat() {
             const recipients = data.allRecipients;
             const {user} = data;
             setSender({userId: user.id, name: {first: user.name.first, last: user.name.last}});
-            console.log(recipients, 'chat recipients');
+            // console.log(recipients, 'chat recipients');
             
             if (recipients.length > 0) {
 
@@ -189,7 +189,7 @@ function Chat() {
         <div className='chat'>
             <SideBar setRecipient={setRecipient} userList={userList} />
             {recipient ? <CurrentRecipient chatArea={chatArea} handleTabChange={handleTabChange} recipient={recipient} handleChatSearchBar={handleChatSearchBar} searchMessagesToggle={searchMessagesToggle} /> : null}
-            <ChatWindow chatArea={chatArea} dateFromObjectId={dateFromObjectId} scroll={scroll} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} getMessageList={getMessageList} messageList={messageList} setMessageList={setMessageList} />
+            <ChatWindow sender={sender} chatArea={chatArea} dateFromObjectId={dateFromObjectId} scroll={scroll} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} getMessageList={getMessageList} messageList={messageList} setMessageList={setMessageList} />
         </div>
     );
 }

@@ -224,18 +224,18 @@ export async function getAllRecipients(req, res) {
             { _id: recipient },
             { password: 0 }
           );
-          console.log(rec, 'rec');
+
           let readyRec = {userId: rec._id, name: rec.name}
           localArr.push(readyRec);
-          console.log(readyRec, 'readyRec');
+          // console.log(readyRec, 'readyRec');
         }
 
-        console.log(localArr, 'localArr readyRec');
+        // console.log(localArr, 'localArr readyRec');
         return localArr;
         
       };
       allRecipients = await getRecipientsList();
-      console.log(allRecipients, 'all recipients');
+      // console.log(allRecipients, 'all recipients');
     }
 
     if (allRecipients === []) throw new Error("no Users were found");

@@ -1,16 +1,17 @@
 import React from 'react';
 import { InputBase } from '@mui/material'
-import { MessageInterface } from '../Chat';
+import { MessageInterface, MessageUserInterface } from '../Chat';
 import PaperPlaneIcon from '../Icons/PaperPlaneRight';
 
 interface conversationsTabProps {
+    sender: MessageUserInterface;
     messageList?: Array<MessageInterface>;
     dateFromObjectId: Function;
     setSentMessage: Function;
     handleSendMessage: Function;
 }
 function ConversationsTab(props: conversationsTabProps) {
-    const { messageList, dateFromObjectId, setSentMessage, handleSendMessage } = props;
+    const {sender, messageList, dateFromObjectId, setSentMessage, handleSendMessage } = props;
 
     return (
         <div className="chat__chatWindowTabs">
@@ -18,17 +19,16 @@ function ConversationsTab(props: conversationsTabProps) {
                 {messageList
                     ? messageList.map((message, i) => {
                         return (
-                                <li key={i} className='messageCard'>
+                                <li key={i} className={`${message.sender.userId === sender.userId ? `my` : `` }MessageCard`}>
 
                                     <div className='content'>
                                     {message.text}
                                     </div>
 
                                     <div className='time'>
-                                    {/* {dateFromObjectId(message._id).slice(15, 21)} */}
+                                    {dateFromObjectId(message._id).slice(15, 21)}
                                     </div>
-
-                                    <div className="left-point"></div>
+                                    <div className={`${message.sender.userId === sender.userId ? `right` : `left` }-point`}></div>
                                 </li>
                         );
                     })

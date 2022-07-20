@@ -81,8 +81,8 @@ io.on('connection', (socket: any) => {
 
         socket.leaveAll();
         socket.join(recipients(userList));
-        console.log(`User with ID: ${socket.id} joined room: ${data}`);
-        console.log(io.sockets.adapter.rooms);
+        // console.log(`User with ID: ${socket.id} joined room: ${data}`);
+        // console.log(io.sockets.adapter.rooms);
         
     });
 
@@ -98,7 +98,7 @@ io.on('connection', (socket: any) => {
         //     return array;
         // };
         // console.log(recipients(data));
-        console.log(data.recipient.userId,' send message server ts -103');
+        // console.log(data.recipient.userId,' send message server ts -103');
         
         socket.to(data.recipient.userId).emit('receive-message', message);
     });

@@ -7,6 +7,7 @@ import ConversationsTab from './ConversationsTab';
 import DocsTab from './DocsTab';
 
 interface ChatWindowProps {
+    sender: MessageUserInterface;
     scroll: String;
     chatArea: String;
     messageList?: Array<MessageInterface>;
@@ -18,7 +19,7 @@ interface ChatWindowProps {
 }
 
 function ChatWindow(props: ChatWindowProps) {
-    const {dateFromObjectId, getMessageList, chatArea, messageList, setMessageList, setSentMessage, handleSendMessage, scroll} = props;
+    const { sender ,dateFromObjectId, getMessageList, chatArea, messageList, setMessageList, setSentMessage, handleSendMessage, scroll} = props;
 
     useEffect(() => {
         let messageList = document.querySelector('.chat__chatWindow__messagesList');
@@ -36,7 +37,7 @@ function ChatWindow(props: ChatWindowProps) {
 
     return (
         <div className='chat__chatWindow'>
-            {chatArea === "Conversation" ?<ConversationsTab messageList={messageList} dateFromObjectId={dateFromObjectId} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} />
+            {chatArea === "Conversation" ?<ConversationsTab sender={sender} messageList={messageList} dateFromObjectId={dateFromObjectId} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} />
             : <DocsTab/> }
         </div>
     );

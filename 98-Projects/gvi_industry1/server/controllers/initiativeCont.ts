@@ -19,8 +19,6 @@ export const getAllRecipients = async (req, res) => {
         const {id} = req.body.user;
         const currentUsersInitiative = await InitiativeModel.findOne({ownerUserId: id});
         let recipients:any = currentUsersInitiative.mentors;
-        console.log(currentUsersInitiative, 'currentUsersInitiative');
-        console.log(recipients, 'recipients1');
         let localArr: Array<any> = [];
         const getRecipientsList = async () => {
             for (let recipient of recipients) {
