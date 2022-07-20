@@ -46,10 +46,21 @@ export const getUsers = async (req, res) => {
 };
 export const getFilter = async (req, res) => {
   try {
-    const allFiltered = await UserModel.find({}).select('sector').distinct('sector');
-    
-    res.json({ allFiltered, ok: true });
-    console.log("filtered: " + allFiltered);
+    const allFiltered = await UserModel.find({}).select('sector')
+    const filterArray = new Set()
+    const result = allFiltered.filter(item => {
+      const isDuplicate = filterArray.has(item.sector);
+      filterArray.add(item.sector)
+      if (!isDuplicate) {
+        return true
+      }
+      return false
+    })
+    // console.log("server:" + result)
+
+    res.json({ result});
+    // console.log("filtered: " + result);
+
 
   } catch (error) {
     console.log(error.error);
@@ -288,7 +299,7 @@ export const addUser = async (req, res) => {
     const { user } = req.body;
     console.log(user);
 
-   
+
     const userFound: any = await UserModel.findOne({ email: user.email });
 
     if (userFound) {

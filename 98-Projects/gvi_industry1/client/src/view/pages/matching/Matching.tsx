@@ -11,6 +11,8 @@ interface MatchingProps {
   currentUser: any;
   currentSearch: any;
   setCurrentSearch: Function;
+  filterOptions: any;
+  setFilterOptions: Function;
   checked: any;
   setChecked: Function;
 }
@@ -22,8 +24,10 @@ const Matching = (props: MatchingProps) => {
     currentUser,
     currentSearch,
     setCurrentSearch,
+    filterOptions,
+    setFilterOptions,
     checked,
-    setChecked,
+    setChecked
   } = props;
 
   useEffect(() => {    
@@ -62,7 +66,7 @@ const Matching = (props: MatchingProps) => {
         currentSearch={currentSearch}
         setCurrentSearch={setCurrentSearch}
       />
-      <FilterMenu checked={checked} setChecked={setChecked} />
+      <FilterMenu filterOptions={filterOptions} setFilterOptions={setFilterOptions} />
 
       <MatchingCard usersList={usersList} />
 

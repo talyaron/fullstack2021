@@ -29,7 +29,8 @@ function App() {
   const [usersList, setUsersList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [currentSearch, setCurrentSearch] = useState([]);
-  const [checked, setChecked] = useState([]);
+  const [filterOptions,setFilterOptions] = useState([]);
+  const [checked,setChecked] = useState(false);
   const [myProfile, setMyProfile] = useState(false);
   const [loggedInUser, setloggedInUser] = useState({});
   const [currentUserType, setCurrentUserType] = useState("");
@@ -89,6 +90,8 @@ function App() {
                 currentUser={currentUser}
                 currentSearch={currentSearch}
                 setCurrentSearch={setCurrentSearch}
+                filterOptions={filterOptions}
+                setFilterOptions={setFilterOptions}
                 checked={checked}
                 setChecked={setChecked}
               />
