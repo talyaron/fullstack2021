@@ -4,6 +4,7 @@ import { MessageInterface, MessageUserInterface } from '../Chat';
 import PaperPlaneIcon from '../Icons/PaperPlaneRight';
 
 interface conversationsTabProps {
+    recipient: MessageUserInterface;
     sender: MessageUserInterface;
     messageList?: Array<MessageInterface>;
     dateFromObjectId: Function;
@@ -11,28 +12,30 @@ interface conversationsTabProps {
     handleSendMessage: Function;
 }
 function ConversationsTab(props: conversationsTabProps) {
-    const {sender, messageList, dateFromObjectId, setSentMessage, handleSendMessage } = props;
+    const {recipient,sender, messageList, dateFromObjectId, setSentMessage, handleSendMessage } = props;
 
     return (
         <div className="chat__chatWindowTabs">
             <ul className='chat__chatWindow__messagesList'>
                 {messageList
                     ? messageList.map((message, i) => {
-                        return (
-                                <li key={i} className={`${message.sender.userId === sender.userId ? `my` : `` }MessageCard`}>
-
-                                    <div className='content'>
-                                    {message.text}
-                                    </div>
-
-                                    <div className='time'>
-                                    {dateFromObjectId(message._id).slice(15, 21)}
-                                    </div>
-                                    <div className={`${message.sender.userId === sender.userId ? `right` : `left` }-point`}></div>
-                                </li>
-                        );
-                    })
-                    : null}
+                        if(recipient.userId === message.recipient.userId ) {
+                            return (
+                                    <li key={i} className={`${message.sender.userId === sender.userId ? `my` : `` }MessageCard`}>
+    
+                                        <div className='content'>
+                                        {message.text}
+                                        </div>
+    
+                                        <div className='time'>
+                                        {/* {dateFromObjectId(message._id).slice(15, 21)} */}
+                                        </div>
+                                        <div className={`${message.sender.userId === sender.userId ? `right` : `left` }-point`}></div>
+                                    </li> 
+    
+                            );
+                        }
+                    }):null}
             </ul>
             <div className='chat__chatWindow__messageBar'>
                 <InputBase

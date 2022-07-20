@@ -119,7 +119,7 @@ function Chat() {
                 file: '',
             };
             socket.emit('send-message', payload);
-            setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
+            // setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
         } catch (error) {
             console.log(error);
         }
@@ -208,7 +208,7 @@ function Chat() {
         <div className='chat'>
             <SideBar setRecipient={setRecipient} userList={userList} />
             {recipient ? <CurrentRecipient chatArea={chatArea} handleTabChange={handleTabChange} recipient={recipient} handleChatSearchBar={handleChatSearchBar} searchMessagesToggle={searchMessagesToggle} /> : null}
-            <ChatWindow sender={sender} chatArea={chatArea} dateFromObjectId={dateFromObjectId} scroll={scroll} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} getMessageList={getMessageList} messageList={messageList} setMessageList={setMessageList} />
+            <ChatWindow recipient={recipient} sender={sender} chatArea={chatArea} dateFromObjectId={dateFromObjectId} scroll={scroll} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} getMessageList={getMessageList} messageList={messageList} setMessageList={setMessageList} />
         </div>
     );
 }
