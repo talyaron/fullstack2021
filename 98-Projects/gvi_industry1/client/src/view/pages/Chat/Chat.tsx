@@ -83,9 +83,12 @@ function Chat() {
     }, [socket]);
 
     useEffect(() => {
+        // how to clean requests so it doesn't happen again on unmount?
         return () => {
-            // how to clean requests so it doesn't happen again on unmount?
             getRecipientsList();
+            (async () => {
+                // console.log(await getRecipientsList(), 'getRecipientList onload -89 chat.tsx');
+            })();
         };
     }, []);
     useEffect(() => {
@@ -129,60 +132,76 @@ function Chat() {
                 // {recipientId: recipient._id}
             );
             setMessageList(data.allMessages);
-            if (sender.userId) {
-                let myMessageList = data.allMessages.filter((message: any) => {
-                    return message.sender.userId === sender.userId;
-                });
-                myMessageList.forEach((message: any) => {
-                    console.log(message.text, 'myMessageList');
-                });
-                // console.log(myMessageList, 'myMessageList');
-            }
-            if(!recipient.userId) throw new Error('no recipient Id -141 getMessageList Chat.tsx')
-            if (recipient) {
-                let recipientsMessages = data.allMessages.filter((message: any) => {
-                    if (message.recipient.userId) {
-                        return message.recipient.userId === recipient._id;
-                    }
-                    if (message.recipient._id) {
-                        return message.recipient._id === recipient._id;
-                    }
-                });
-                // recipientsMessages.forEach((message: any) => {
-                //     console.log(message.recipient.userId, message.recipient._id, 'recipientsMessages');
-                // });
-                // console.log(recipientsMessages, 'recipientsMessages');
-            }
+            //was meant to filter between recipient and sender message,
+            //cant think of anything else you would want to differentiate them by,
+            //maybe useful later
+            // if (sender.userId) {
+            //     let myMessageList = data.allMessages.filter((message: any) => {
+            //         return message.sender.userId === sender.userId;
+            //     });
+            //     myMessageList.forEach((message: any) => {
+            //         console.log(message.text, 'myMessageList');
+            //     });
+            //     // console.log(myMessageList, 'myMessageList');
+            // }
+            // if(!recipient.userId) throw new Error('no recipient Id -141 getMessageList Chat.tsx')
+            // if (recipient) {
+            //     let recipientsMessages = data.allMessages.filter((message: any) => {
+            //         if (message.recipient.userId) {
+            //             return message.recipient.userId === recipient._id;
+            //         }
+            //         if (message.recipient._id) {
+            //             return message.recipient._id === recipient._id;
+            //         }
+            //     });
+            //     // recipientsMessages.forEach((message: any) => {
+            //     //     console.log(message.recipient.userId, message.recipient._id, 'recipientsMessages');
+            //     // });
+            //     // console.log(recipientsMessages, 'recipientsMessages');
+            // }
 
-            // console.log(recipientsMessages, 'recipientsMessages');
+            // // console.log(recipientsMessages, 'recipientsMessages');
         } catch (error) {
             console.log(error);
         }
     }
     async function getRecipientsList() {
         try {
+            //go check if the user is a mentor, if so, return an array of mentees which already have name and userId set.
             const {data} = await axios.post('/api/users/get-all-recipients', {ok: true});
             const recipients = data.allRecipients;
             const {user} = data;
-            setSender({userId: user.id, name: {first: user.name.first, last: user.name.last}});
-            // console.log(recipients, 'chat recipients');
+
+            console.log(recipients,'recipient list from mentees -175');
             
-            if (recipients.length > 0) {
-
-
+            setSender({userId: user.id, name: {first: user.name.first, last: user.name.last}});
+            console.log(recipients,'recipient list from mentees -178');
+            if (recipients?.length > 0) {
                 setUserList(recipients);
                 setRecipient(recipients[0]);
+                console.log(recipients,'recipient list from mentees, we`re mentors');
+
             }
-            if (recipients === 0) {
-
+            console.log(recipients,'recipient list from mentees -184');
+            if (recipients === undefined || !recipients) {
+                console.log(recipients,'recipient list from mentees -186');
                 const {data} = await axios.post('/api/initiatives/get-all-recipients', {user});
-                const recipients = data;
+                console.log(data);
+                
+                let localRecipients = data;
+                console.log(localRecipients,'recipient list from initiative, we`re mentees');
 
-                setUserList(recipients);
-                setRecipient(recipients[0]);
+                setUserList(localRecipients);
+                setRecipient(localRecipients[0]);
+                if (!localRecipients[0].name.first) throw new Error('no localRecipients');
+                if (localRecipients[0].name.first) {
+                    console.log(localRecipients[0].name.last, 'localRecipients[0].name.last');
+                }
+                console.log(localRecipients, 'localRecipients 189 chat.tsx');
+                
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     }
     return (

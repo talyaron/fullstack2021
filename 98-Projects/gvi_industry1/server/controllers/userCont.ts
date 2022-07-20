@@ -209,12 +209,12 @@ export async function getAllRecipients(req, res) {
     const { id } = userDecodedInfo;
     const currentUser = await UserModel.findOne({ _id: id });
     let allRecipients = [];
-    // if (currentUser.type === 'mentee') {
-    //     console.log('im a mentee');
+    if (currentUser.type === 'mentee') {
+        console.log('im a mentee');
 
-    //     res.send({user:userDecodedInfo});
-    //     return;
-    // }
+        res.send({user:userDecodedInfo});
+        return;
+    }
     if (currentUser.type === "mentor") {
       const allRecipientsIds = currentUser.mentees;
       let localArr: Array<any> = [];
@@ -239,9 +239,8 @@ export async function getAllRecipients(req, res) {
     }
 
     if (allRecipients === []) throw new Error("no Users were found");
-    if (allRecipients !== []) {
-
-      
+    if (allRecipients.length>0) {
+      console.log(allRecipients, 'is not empty!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
       res.send({ allRecipients, user: userDecodedInfo });
     }
   } catch (error) {
