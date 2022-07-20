@@ -1,17 +1,23 @@
-import { v2 as cloudinary } from "cloudinary";
+const cloudinary = require('./uploads/cloudinary')
 import UserModel from "../models/userModel";
+import JWT from "jwt-simple";
 
-const cloud_name = process.env.CLOUD_NAME;
-const api_key = process.env.API_KEY;
-const api_secret = process.env.API_SECRET;
 
-if(!cloud_name || !api_key || !api_secret) console.error('no keys for cloudinary in profileCont')
+export async function changePofilePic(req, res) {
 
-cloudinary.config({
-  cloud_name,
-  api_key,
-  api_secret,
-  secure: true,
-});
-
-module.exports = cloudinary
+    try {
+      
+      const {userId , profileImg} = req.body
+  
+      const result = await cloudinary.uploader.upload(profileImg,{
+        folder:"imgs",  
+      })
+  
+    //   const user = UserModel.findById(userId)
+       
+      res.send({  ok: true ,result});
+    } catch (error) {
+      console.log(error.error);
+      res.send({ error: error.message });
+    }
+  }
