@@ -23,12 +23,14 @@ const Card = (props: CardProps) => {
 
           <div className="card__center">
             <p>{selectedUser['name']['first']} {selectedUser['name']['last']}</p>
+            
             <div className="card__flex">
               <img src={`${selectedUser.country}`} />
               <a href={selectedUser.linkedInProfile ? `${selectedUser.linkedInProfile}` : 'https://www.linkedin.com/'}>
                 <LinkedInIcon className="card__flex__linkdIn" style={{ fontSize: "30px" }} ></LinkedInIcon>
               </a>
             </div>
+
             <p className="card__center__company">{selectedUser.fieldsOfKnowledge}</p>
             <p className="card__center__profession">{selectedUser.sector}</p>
           </div>
