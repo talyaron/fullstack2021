@@ -47,16 +47,47 @@ export const getUsers = async (req, res) => {
 };
 export const getFilter = async (req, res) => {
   try {
-    const allFiltered = await UserModel.find({}).select('sector').distinct('sector');
+    const allFiltered = await UserModel.find({}).select('sector')
+    const filterArray = new Set()
+    const result = allFiltered.filter(item => {
+      const isDuplicate = filterArray.has(item.sector);
+      filterArray.add(item.sector)
+      if (!isDuplicate) {
+        return true
+      }
+      return false
+    })
+    // console.log("server:" + result)
 
-    res.json({ allFiltered, ok: true });
-    console.log("filtered: " + allFiltered);
+    res.json({ result });
+    // console.log("filtered: " + result);
+
 
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
   }
 };
+
+// export const getChecked = async (req, res) => {
+//   try {
+//     const allChecked = await UserModel.find({})
+//     const checkedArray = new Set()
+//     const result = allChecked.filter(item => {
+//       const isChecked = checkedArray.has(item.sector);
+//       checkedArray.add(item.sector)
+//       if (!isChecked) {
+//         return true
+//       }
+//       return false
+//     })
+//     res.json({ result });
+
+//   } catch (err) {
+//     console.error(err)
+
+//   }
+// }
 
 export const getSearch = async (req, res) => {
   try {
@@ -299,11 +330,7 @@ export const addUser = async (req, res) => {
     const { user } = req.body;
     // console.log(user);
 
-    const newUser = new UserModel(user);
-    // const result = await newUser.save();
-    // console.log(newUser);
-    // res.send(result);
-    // Already exists CHECK
+
     const userFound: any = await UserModel.findOne({ email: user.email });
 
     if (userFound) {

@@ -6,17 +6,29 @@ import Search from './components/Search';
 import {Link, Outlet} from 'react-router-dom';
 
 interface MatchingProps {
-    usersList: any;
-    setUsersList: Function;
-    currentUser: any;
-    currentSearch: any;
-    setCurrentSearch: Function;
-    checked: any;
-    setChecked: Function;
+  usersList: any;
+  setUsersList: Function;
+  currentUser: any;
+  currentSearch: any;
+  setCurrentSearch: Function;
+  filterOptions: any;
+  setFilterOptions: Function;
+  checked: any;
+  setChecked: Function;
 }
 
 const Matching = (props: MatchingProps) => {
-    const {usersList, setUsersList, currentUser, currentSearch, setCurrentSearch, checked, setChecked} = props;
+  const {
+    usersList,
+    setUsersList,
+    currentUser,
+    currentSearch,
+    setCurrentSearch,
+    filterOptions,
+    setFilterOptions,
+    checked,
+    setChecked
+  } = props;
 
     useEffect(() => {
         (async () => {
@@ -32,11 +44,15 @@ const Matching = (props: MatchingProps) => {
                 const {filterUsers} = data;
                 setUsersList(filterUsers);
 
-            } catch (err) {
-                console.error(err);
-            }
-        })();
-    }, [currentUser]);
+  return (
+    //<div className={matching?"matching showMatching":"dontShowMatching"}>
+    <div className="matching ">
+      <Link to="/selected-mentors">Selected-mentors</Link>
+      <Search
+        currentSearch={currentSearch}
+        setCurrentSearch={setCurrentSearch}
+      />
+      <FilterMenu filterOptions={filterOptions} setFilterOptions={setFilterOptions} />
 
     //   const userid:any =  `{currentUser._id} `
     //  let  userId  = useParams();

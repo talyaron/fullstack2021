@@ -21,13 +21,14 @@ import NavBarMentee from './view/pages/navBar/components/NavBarMentee';
 import Layout from './view/pages/Layout';
 
 function App() {
-    const [usersList, setUsersList] = useState([]);
-    const [currentUser, setCurrentUser] = useState({});
-    const [currentSearch, setCurrentSearch] = useState([]);
-    const [checked, setChecked] = useState([]);
-    const [myProfile, setMyProfile] = useState(false);
-    const [loggedInUser, setloggedInUser] = useState({});
-    const [currentUserType, setCurrentUserType] = useState(' ');
+  const [usersList, setUsersList] = useState([]);
+  const [currentUser, setCurrentUser] = useState({});
+  const [currentSearch, setCurrentSearch] = useState([]);
+  const [filterOptions,setFilterOptions] = useState([]);
+  const [checked,setChecked] = useState(false);
+  const [myProfile, setMyProfile] = useState(false);
+  const [loggedInUser, setloggedInUser] = useState({});
+  const [currentUserType, setCurrentUserType] = useState("");
 
   let { userId } = useParams();
 
@@ -68,6 +69,8 @@ function App() {
                 currentUser={currentUser}
                 currentSearch={currentSearch}
                 setCurrentSearch={setCurrentSearch}
+                filterOptions={filterOptions}
+                setFilterOptions={setFilterOptions}
                 checked={checked}
                 setChecked={setChecked}
               />
