@@ -69,6 +69,7 @@ function Chat() {
                 recipient: message.recipient,
                 file: '',
                 time: dateFromObjectId(id),
+                _id: message._id
             };
 
             setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);

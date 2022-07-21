@@ -39,16 +39,17 @@ function NavBarMentor(props: navBarMentorProps) {
         </div>
         <div className="profileIMG"> 
 
-          <Link to="profile">
+            <p>{loggedInUser.name.first}</p>
+          {/* <Link to="profile">
           <img
             src={
               loggedInUser && loggedInUser.image
                 ? loggedInUser.image
                 : null
             }
-            alt="profile logo"
+            alt='{loggedInUser.name.first}'
          
-          /></Link>
+          /></Link> */}
         </div>
       </div>
     

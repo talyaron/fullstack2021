@@ -32,7 +32,7 @@ function ConversationsTab(props: conversationsTabProps) {
                                   <li key={i} className={`${message.sender.userId === sender.userId ? `my` : ``}MessageCard`}>
                                       <div className='content'>{message.text}</div>
 
-                                      <div className='time'>{/* {dateFromObjectId(message._id).slice(15, 21)} */}</div>
+                                      <div className='time'>{dateFromObjectId(message._id).slice(15, 21)}</div>
                                       <div className={`${message.sender.userId === sender.userId ? `right` : `left`}-point`}></div>
                                   </li>
                               );

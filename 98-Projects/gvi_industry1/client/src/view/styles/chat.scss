@@ -66,8 +66,20 @@
         .recipient {
             display: flex;
             justify-content: space-around;
+            align-items: center;
             height: 7vh;
             // width: 25vh;
+            .text{
+                text-align: start;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                *{
+                    margin: 0;
+                    padding: 0;
+                }
+
+            }
         }
         // &__Buttons {
         //     display: flex;
@@ -185,8 +197,9 @@
         height: auto;
         &Tabs {
             width: 100%;
-            height: 100%;
-            overflow-y: scroll;
+            max-height: 100%;
+            isolation: isolate;
+
         }
         &__docsList {
             list-style: none;
@@ -207,16 +220,17 @@
             }
         }
         &__messagesList {
+            height: 87%;
             display: flex;
             flex-direction: column;
             list-style: none;
-            padding: 0;
+            padding: 0 25px 0 25px;
             margin: 0;
-            overflow-y: visible;
-            overflow-x: visible;
+            overflow-y: scroll;
+            overflow-x: scroll;
             position: relative;
             top: 0;
-            margin: 0 50px 100px 50px;
+            margin: 0 25px 0 25px;
             place-self: flex-start;
             .MessageCard {
                     position: relative;
@@ -239,7 +253,7 @@
                     }
 
                     .time {
-                        width: 90px;
+                        width: 100%;
                         display: flex;
                         justify-content: right;
                         font-size: 12px;
@@ -268,7 +282,7 @@
                     }
 
                     .time {
-                        width: 90px;
+                        width: 100%;
                         display: flex;
                         justify-content: right;
                         font-size: 12px;

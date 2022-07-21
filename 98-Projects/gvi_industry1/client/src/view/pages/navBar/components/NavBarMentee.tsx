@@ -44,7 +44,8 @@ function NavBarMentee(props: navBarMenteeProps) {
                 </Link>
               </div>
               <div className="profileIMG" >  
-                    <Link to="profile">
+              <p>{loggedInUser.name.first}</p>
+                    {/* <Link to="profile">
                 <img
                   src={
                     loggedInUser && loggedInUser.image
@@ -53,7 +54,7 @@ function NavBarMentee(props: navBarMenteeProps) {
                   }
                   alt="profile logo"
                
-                /></Link>
+                /></Link> */}
               </div>
             </div>
 
