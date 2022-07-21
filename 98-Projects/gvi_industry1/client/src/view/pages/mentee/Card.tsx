@@ -38,6 +38,7 @@ const Card = (props: CardProps) => {
           <div className="card__star">
             <StarIcon></StarIcon>
           </div>
+          <button className="card__button"> Send-Requst</button>
 
         </div>
       )
