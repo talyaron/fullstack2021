@@ -11,8 +11,6 @@ export const getUser = async (req: any, res: any) => {
     const { userInfo } = req.cookies;
     const payload = JWT.decode(userInfo, secret);
     const { id } = payload;
-    console.log(id);
-
     const user = await UserModel.findOne({ _id: id });
     res.send({ user });
   } catch (error) {
@@ -26,7 +24,6 @@ export const getUsers = async (req, res) => {
     const { currentUser } = req.body;
     if (Object.keys(currentUser).length === 0)
       throw new Error("no user connected");
-    console.log("current", currentUser);
     if (currentUser.type === "mentee") {
       const users = await UserModel.find({ type: "mentor" });
       const filterUsers = users.filter(
@@ -118,7 +115,6 @@ export const selectUser = async (req: any, res: any) => {
     if (!selectedUser) throw new Error("couldnt find the user in the DB");
 
     const { email, name, image } = selectedUser;
-    console.log("selectedUser", selectedUser);
 
     const searchSelecting = {
       "selectedUser.email": selectedUser.email,
@@ -128,13 +124,10 @@ export const selectUser = async (req: any, res: any) => {
     const selectingUser: any = await selectedUsersModel.findOne(
       searchSelecting
     );
-    console.log("selectingUser", selectingUser);
-
     let newSelection: any;
     if (!selectingUser) {
       console.log("no record in DB - saving");
       const newSelectionDB = new selectedUsersModel({
-        // bothId: `${id}-${selectedUser._id}`,
         selectingUserId: currentUserId,
         selectedUser: { email, name, image },
         selected: true,

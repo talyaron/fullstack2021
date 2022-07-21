@@ -9,6 +9,7 @@ interface MatchingProps {
   usersList: any;
   setUsersList: Function;
   currentUser: any;
+  setCurrentUser:Function;
   currentSearch: any;
   setCurrentSearch: Function;
   filterOptions: any;
@@ -21,27 +22,36 @@ const Matching = (props: MatchingProps) => {
   const {
     usersList,
     setUsersList,
-    currentUser,
     currentSearch,
     setCurrentSearch,
     filterOptions,
     setFilterOptions,
+    currentUser,
+    setCurrentUser,
     checked,
     setChecked,
   } = props;
 
   useEffect(() => {
     (async () => {
+      const { data } = await axios.get("/api/users/get-user");
+      const { user } = data;
+      setCurrentUser(user);
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
       try {
         if (Object.keys(currentUser).length === 0)
           throw new Error("User is not logged in");
-
         const { data } = await axios.post("/api/users/get-users", {
           currentUser,
         });
 
         const { filterUsers } = data;
         setUsersList(filterUsers);
+      
 
       } catch (error) {
         console.error(error);
@@ -49,9 +59,8 @@ const Matching = (props: MatchingProps) => {
     })();
   }, [currentUser]);
   return (
-    //<div className={matching?"matching showMatching":"dontShowMatching"}>
     <div className="matching ">
-      <Link to="/selected-mentors">Selected-mentors</Link>
+      <Link to="selected-mentors">Selected-mentors</Link>
       <Search
         currentSearch={currentSearch}
         setCurrentSearch={setCurrentSearch}
