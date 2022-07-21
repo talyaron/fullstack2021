@@ -42,15 +42,12 @@ const Matching = (props: MatchingProps) => {
 
         const { filterUsers } = data;
         setUsersList(filterUsers);
-        // const userid: any = `{currentUser._id} `;
-        //  let  userId  = useParams();
 
-        //  function handleSelectedUserId(currentUser:any){
       } catch (error) {
         console.error(error);
       }
     })();
-  }, []);
+  }, [currentUser]);
   return (
     //<div className={matching?"matching showMatching":"dontShowMatching"}>
     <div className="matching ">
@@ -63,6 +60,7 @@ const Matching = (props: MatchingProps) => {
         filterOptions={filterOptions}
         setFilterOptions={setFilterOptions}
       />
+      <MatchingCard usersList={usersList}/>
     </div>
   );
 };
