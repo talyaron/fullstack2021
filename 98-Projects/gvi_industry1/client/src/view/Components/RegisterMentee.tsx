@@ -41,12 +41,12 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         try {
             // console.dir(ev.target);
 
-            const first = ev.target.elements.firstName.value;
-            const last = ev.target.elements.lastName.value;
+            const first = ev.target.elements.first.value;
+            const last = ev.target.elements.last.value;
             const password = ev.target.elements.password.value;
             const email = ev.target.elements.email.value;
             const phone = ev.target.elements.phone.value;
-            const linkdInProfile = ev.target.elements.linkdinProfile.value;
+            const linkedInProfile = ev.target.elements.linkedInProfile.value;
             const country = ev.target.elements.country.value;
             const companyName = ev.target.elements.companyName.value;
             const stage = ev.target.elements.startupStage.value;
@@ -59,7 +59,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             const type = 'mentee';
             const name = { first, last };
 
-        const user = { name,password,profilePic, description,linkdInProfile, email, country, phone, sector, stage,type }
+        const user = { name,password,profilePic, description,linkedInProfile, email, country, phone, sector, stage,type }
 
 
             const userData = await axios.post('/api/users/add-user', { user });
@@ -114,11 +114,11 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                 <div className='firstSection'>
                                     <div className='inputBox'>
                                         <div className='form__text'>First Name</div>
-                                        <input type='text' name='firstName' />
+                                        <input type='text' name='first' />
                                     </div>
                                     <div className='inputBox'>
                                         <div className='form__text'>Last Name</div>
-                                        <input type='text' name='lastName' />
+                                        <input type='text' name='last' />
                                     </div>
                                     <div className='inputBox'>
                                         <div className='form__text'>Password</div>
@@ -134,7 +134,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                     </div>
                                     <div className='inputBox'>
                                         <div className='form__text'>LinkdIN profile</div>
-                                        <input type='text' name='linkdinProfile' />
+                                        <input type='text' name='linkedInProfile' />
                                     </div>
                                     <div className='inputBox'>
                                         <div className='form__text'>Country</div>

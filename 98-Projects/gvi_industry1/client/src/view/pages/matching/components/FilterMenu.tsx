@@ -34,6 +34,7 @@ const FilterMenu = (props: any) => {
       const { data } = await axios.get("/api/users/get-filter");
       const { allFiltered } = data;
       setChecked(allFiltered);
+      
     })();
   }, []);
   try {
@@ -53,10 +54,10 @@ const FilterMenu = (props: any) => {
                     width: "100%",
                     maxWidth: 360,
                   }}>
-                  {checked.map((check: any) => (
+                  {checked.map((check: any,i:any) => (
                     <ListItemButton disableGutters>
                       <Checkbox />
-                      <p>{check.sector}</p>
+                      <p key={i}>{check.sector}</p>
 
                       <ListItemText primary={check.sector} />
                     </ListItemButton>

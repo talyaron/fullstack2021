@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import "../mentee/style/selectedPage.scss";
+import StarIcon from "@mui/icons-material/Star";
 import axios from "axios"
 import Card from "./Card";
 const SelctedMentors = () => {
 
   const [selectedUsers, setSelectedUsers] = useState([]);
+  const [type, setType] = useState('');
 
   useEffect(() => {
     (async () => {
@@ -14,6 +16,12 @@ const SelctedMentors = () => {
       const users = await axios.post('/api/users/get-selected-users', { _id, type });
       const { selected } = users.data;
       setSelectedUsers(selected);
+      if(type === 'mentee'){
+        setType('Mentors')
+      }
+      else{
+        setType('Entrepreneurs')
+      }
     })();
   }, []);
 
@@ -34,14 +42,9 @@ const SelctedMentors = () => {
         <input type='text' name="countryFlag" placeholder='flag'></input>
         <input type="submit" value="submit"/>
       </form> */}
-      <h5 className="selectedPage__title">Selcted-Mentors</h5>
+      <h5 className="selectedPage__title">Selcted-{type} <StarIcon id='star'></StarIcon> </h5>
       <div className="selectedPage__wrapper">
         <Card selectedUsers={selectedUsers} />
-        {/* <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card /> */}
       </div>
     </div>
   );

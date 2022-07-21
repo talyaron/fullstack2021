@@ -1,58 +1,68 @@
 .card {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1.5fr 1fr;
     // grid-template-rows: repeat(4, 1fr);
-    height: 201px;
+    height: 190px;
     width: 301px;
     border: solid black;
     border: 1px solid rgba(0, 0, 0, 0.5);
-border-radius: 5px;
-background-color:  #F0F0F0;
+    border-radius: 5px;
+    background-color: #F0F0F0;
+    padding: 5%;
+    font-family: 'Inter';
+    font-weight: 520;
+    font-style: normal;
 
     &__photo {
-        img{
-            border-radius: 50% ;
-                 height: 76px;
+        img {
+            border-radius: 50%;
+            height: 76px;
             width: 76px;
             padding-left: 5px;
             padding-top: 5px;
-        
-
         }
-       
-
-
 
     }
-    &__center{
+
+    &__center {
         display: grid;
-            grid-template-rows: repeat(4, 0.5fr);
-            height: 100%;
+        grid-template-rows: repeat(4, 0.5fr);
+        height: 100%;
+        margin-left: 5%;
 
-
-
-        img{
+        img {
             height: 30px;
             width: 30px;
         }
-       
-            
-        }
-        &__flex{
-            display: flex;
-            justify-content: space-around;
-           
-            
-        }
-        &__star{
-            grid-column-start: 4;
-            grid-column-end: 4;
 
-        }
+       &__company{
+        margin-top: -5%;
+       }
 
-       
+       &__profession{
+        margin-top: -15%;
+       }
+
     }
 
+    &__flex {
+        display: flex;
+        
+        a {
+            text-decoration: none;
+            color: black;
+            padding-left: 5%;
+            height: 31px;
+        }
 
+        img{
+            width: 40px;
+        }
+    }
 
+    &__star {
+        grid-column-start: 4;
+        grid-column-end: 4;
+    }
 
+}

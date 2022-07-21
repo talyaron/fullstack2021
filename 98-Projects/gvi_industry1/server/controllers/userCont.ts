@@ -47,7 +47,7 @@ export const getUsers = async (req, res) => {
 export const getFilter = async (req, res) => {
   try {
     const allFiltered = await UserModel.find({}).select('sector').distinct('sector');
-    
+
     res.json({ allFiltered, ok: true });
     console.log("filtered: " + allFiltered);
 
@@ -136,10 +136,13 @@ export async function getSelectingUser(req, res) {
     const { userInfo } = req.cookies;
     const payload = JWT.decode(userInfo, secret);
     const { id } = payload;
+
     if (!id) throw new Error("id not found");
     const selectingUser = await UserModel.findById(id);
+
     if (!selectUser) throw new Error("User not found");
     res.send(selectingUser);
+
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
@@ -152,8 +155,7 @@ export async function getSelectedUser(req, res) {
 
     const selected = await selectedUsersModel.find({});
     const selectedUsers = selected.filter(
-      (user) => user.selectingUserId === _id && user.selected === true
-    );
+      (user) => user.selectingUserId === _id && user.selected === true);
     const selectedUesrModel = await UserModel.find({});
     const selectedUserInitiatives = await initiativeModel.find({});
     const flags = await countryFlagModel.find({});
@@ -165,13 +167,17 @@ export async function getSelectedUser(req, res) {
           (selectedMentor) =>
             selectedMentor.email === selectedUser.selectedUser["email"]
         );
-        const user = mentor[0];
-        // const country = flags.filter((country) => country.countryName === user.country);
-        console.log(flags);
+        let user = mentor[0];
+        const country = flags.filter(
+          (country) => country.countryName === user.country
+        );
+        user['country'] = `${country[0].countryFlag}`;
         selected.push(user);
       });
       res.send({ ok: true, selected });
-    } else if (type === "mentor") {
+    }
+
+    else if (type === "mentor") {
       let selected = [];
       selectedUsers.forEach((selectedUser) => {
         const mentee = selectedUesrModel.filter(
@@ -182,20 +188,17 @@ export async function getSelectedUser(req, res) {
         const country = flags.filter(
           (country) => country.countryName === user.country
         );
-        const flag = { countryFlag: `${country[0].countryFlag}` };
-        Object.assign(user, flag);
-        console.log(user);
         const menteeIntiative = selectedUserInitiatives.filter(
           (selectedMentee) => selectedMentee.ownerUserId === user.id
         );
-        // const companyName = menteeIntiative[0].companyName;
-        // const stage = menteeIntiative[0].stage;
-        // console.log(companyName,stage);
-        // console.log(companyName);
+        user['country'] = `${country[0].countryFlag}`;
+        user['fieldsOfKnowledge'] = `${menteeIntiative[0].companyName}`;
+        user['sector'] = `${menteeIntiative[0].stage}`
         selected.push(user);
       });
       res.send({ ok: true, selected });
     }
+
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });

@@ -1,23 +1,20 @@
-import React from 'react'
-import NavBar from './navBar/NavBar'
-import { Outlet } from 'react-router-dom'
+import React from "react";
+import NavBar from "./navBar/NavBar";
+import { Outlet } from "react-router-dom";
+
 interface navBarLayoutProps {
-  currentUserType:String,
+  currentUserType: String;
   loggedInUser: any;
-
 }
-const Layout = (props:navBarLayoutProps) => {
-  const {
-    currentUserType,
-    loggedInUser,
-
-  } = props; 
+const Layout = (props: navBarLayoutProps) => {
+  const { currentUserType, loggedInUser } = props;
   return (
     <>
-        <NavBar loggedInUser={loggedInUser} currentUserType={ currentUserType}/>
-        <Outlet/>
-    </>
-  )
-}
+      <NavBar loggedInUser={loggedInUser} currentUserType={currentUserType} />
 
-export default Layout
+      <Outlet />
+    </>
+  );
+};
+
+export default Layout;

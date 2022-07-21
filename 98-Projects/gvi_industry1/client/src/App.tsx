@@ -60,23 +60,45 @@ function App() {
         })();
     }, []);
 
-    return (
-        <Router>
-            <Routes>
-                <Route path='/' element={<HomePage />} />
-                <Route path='navBar' element={<Layout loggedInUser={loggedInUser} currentUserType={currentUserType} />}>
-                    <Route index element={<WelcomePage />} />
-                    <Route path='profile' element={<Profile id='' />} />
-                    <Route path='chat' element={<Chat />} />
-                    <Route path='matching' element={<Matching usersList={usersList} setUsersList={setUsersList} currentUser={currentUser} currentSearch={currentSearch} setCurrentSearch={setCurrentSearch} checked={checked} setChecked={setChecked} />} />
-                    <Route path=':id' element={<SelctedMentors />} />
-                </Route>
-                <Route path='navBarAdmin' element={<AdminLayout loggedInUser={loggedInUser} />}>
-                    <Route index element={<AdminPage />} />
-                </Route>
-            </Routes>
-        </Router>
-    );
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="navBar"
+          element={
+            <Layout
+              loggedInUser={loggedInUser}
+              currentUserType={currentUserType}
+            />
+          }>
+          <Route index element={<WelcomePage />} />
+          <Route path="profile" element={<Profile id="" />} />
+          <Route path="chat" element={<Chat />} />
+          <Route
+            path="matching"
+            element={
+              <Matching
+                usersList={usersList}
+                setUsersList={setUsersList}
+                currentUser={currentUser}
+                currentSearch={currentSearch}
+                setCurrentSearch={setCurrentSearch}
+                checked={checked}
+                setChecked={setChecked}
+              />
+            }
+          />
+          <Route path="matching/selected-mentors" element={<SelectedMentors />} />
+        </Route>
+        <Route
+          path="navBarAdmin"
+          element={<AdminLayout loggedInUser={loggedInUser} />}>
+          <Route index element={<AdminPage />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
