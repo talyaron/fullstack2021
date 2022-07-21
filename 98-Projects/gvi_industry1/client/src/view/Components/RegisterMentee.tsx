@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-import {color} from '@mui/system';
+
 
 interface RegisterMenteeProps {
     countryArray: Array<object>,
@@ -33,13 +33,12 @@ const steps = ['personal details', 'Your company', 'payment details'];
 const RegisterMentee = (props: RegisterMenteeProps) => {
     const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, menteeWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
 
-    const [activeStep, setActiveStep] = React.useState(0);
+    const [activeStep, setActiveStep] = useState(0);
 
     async function handleMenteeForm(ev: any) {
         ev.preventDefault();
 
         try {
-            // console.dir(ev.target);
 
             const first = ev.target.elements.first.value;
             const last = ev.target.elements.last.value;
@@ -64,7 +63,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
             const userData = await axios.post('/api/users/add-user', { user });
 
-            // console.log(userData)
+           
             const { data } = userData;
             const { result } = data;
             const ownerUserId = result._id;
@@ -83,7 +82,6 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             console.error(error);
         }
 
-        // window.location.reload();
     }
 
     return (

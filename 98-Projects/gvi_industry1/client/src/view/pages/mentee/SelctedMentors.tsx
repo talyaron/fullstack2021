@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../mentee/style/selectedPage.scss";
+//@ts-ignore
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios"
 import Card from "./Card";

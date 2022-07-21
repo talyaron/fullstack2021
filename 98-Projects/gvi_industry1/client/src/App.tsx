@@ -16,8 +16,6 @@ import axios from 'axios';
 import {BrowserRouter as Router, Routes, Route, useParams} from 'react-router-dom';
 
 import SelectedMentors from './view/pages/mentee/SelctedMentors';
-import NavBar from './view/pages/navBar/NavBar';
-import NavBarMentee from './view/pages/navBar/components/NavBarMentee';
 import Layout from './view/pages/Layout';
 
 function App() {
@@ -80,8 +78,8 @@ function App() {
           element={<AdminLayout loggedInUser={loggedInUser} />}
         >
           <Route index element={<AdminPage />} />
-          <Route path="chat" element={<Chat />} />
-          <Route path="profile" element={<Profile id="" />} />
+          <Route path="chat/:userId" element={<Chat />} />
+          <Route path="profile/:userId" element={<Profile />} />
         </Route>
       </Routes>
     </Router>

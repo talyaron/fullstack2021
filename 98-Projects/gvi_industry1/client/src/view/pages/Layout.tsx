@@ -8,7 +8,6 @@ interface navBarLayoutProps {
 }
 const Layout = (props: navBarLayoutProps) => {
   const { currentUserType, loggedInUser } = props;
-  //console.log(currentUserType, loggedInUser+` layout`);
   
   return (
     <>
