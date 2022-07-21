@@ -16,24 +16,28 @@ import axios from "axios";
 import Mentor from "../../mentor/Mentor";
 
 const FilterMenu = (props: any) => {
-  const { filterOptions, setFilterOptions } = props;
+  const { checked, setChecked, filterOptions, setFilterOptions } = props;
 
   useEffect(() => {
     (async () => {
       const { data } = await axios.get("/api/users/get-filter");
       const { result } = data;
       setFilterOptions(result);
-     console.log("receive:" + result)
-      
+      console.log("receive:" + result);
     })();
   }, []);
+
+  const handleOnChange = () => {
+    setChecked(!checked);
+    console.log("checked");
+    
+  };
 
   return (
     <div className="matching__filter-menu">
       <div className="_section">
         <div className="_title"></div>
         <div className="_more">
-         
           <Accordion>
             <AccordionSummary>
               <Typography>Sector</Typography>
@@ -46,10 +50,10 @@ const FilterMenu = (props: any) => {
                   maxWidth: 360,
                 }}
               >
-                {filterOptions.map((option: any,i: any) => (
+                {filterOptions.map((option: any, i: any) => (
                   <ListItemButton disableGutters>
-                    <Checkbox />
-                    
+                    <Checkbox onChange={handleOnChange} checked={checked} />
+
                     <ListItemText key={i} primary={option.sector} />
                   </ListItemButton>
                 ))}

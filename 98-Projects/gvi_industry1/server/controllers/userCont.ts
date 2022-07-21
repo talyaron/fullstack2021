@@ -58,7 +58,7 @@ export const getFilter = async (req, res) => {
     })
     // console.log("server:" + result)
 
-    res.json({ result});
+    res.json({ result });
     // console.log("filtered: " + result);
 
 
@@ -67,6 +67,26 @@ export const getFilter = async (req, res) => {
     res.send({ error: error.message });
   }
 };
+
+// export const getChecked = async (req, res) => {
+//   try {
+//     const allChecked = await UserModel.find({})
+//     const checkedArray = new Set()
+//     const result = allChecked.filter(item => {
+//       const isChecked = checkedArray.has(item.sector);
+//       checkedArray.add(item.sector)
+//       if (!isChecked) {
+//         return true
+//       }
+//       return false
+//     })
+//     res.json({ result });
+
+//   } catch (err) {
+//     console.error(err)
+
+//   }
+// }
 
 export const getSearch = async (req, res) => {
   try {
