@@ -47,7 +47,7 @@ export const getUsers = async (req, res) => {
 export const getFilter = async (req, res) => {
   try {
     const allFiltered = await UserModel.find({}).select('sector').distinct('sector');
-    
+
     res.json({ allFiltered, ok: true });
     console.log("filtered: " + allFiltered);
 
@@ -136,10 +136,13 @@ export async function getSelectingUser(req, res) {
     const { userInfo } = req.cookies;
     const payload = JWT.decode(userInfo, secret);
     const { id } = payload;
+
     if (!id) throw new Error("id not found");
     const selectingUser = await UserModel.findById(id);
+
     if (!selectUser) throw new Error("User not found");
     res.send(selectingUser);
+
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
@@ -169,8 +172,6 @@ export async function getSelectedUser(req, res) {
           (country) => country.countryName === user.country
         );
         user['country'] = `${country[0].countryFlag}`;
-
-        console.log(user);
         selected.push(user);
       });
       res.send({ ok: true, selected });
@@ -197,7 +198,7 @@ export async function getSelectedUser(req, res) {
       });
       res.send({ ok: true, selected });
     }
-  
+
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
@@ -290,7 +291,7 @@ export const addUser = async (req, res) => {
     const { user } = req.body;
     console.log(user);
 
-   
+
     const userFound: any = await UserModel.findOne({ email: user.email });
 
     if (userFound) {

@@ -45,11 +45,6 @@ const SelctedMentors = () => {
       <h5 className="selectedPage__title">Selcted-{type} <StarIcon id='star'></StarIcon> </h5>
       <div className="selectedPage__wrapper">
         <Card selectedUsers={selectedUsers} />
-        {/* <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card /> */}
       </div>
     </div>
   );
