@@ -14,8 +14,8 @@ const SelctedMentors = () => {
       const { data } = await axios.get("/api/users/get-selecteing-user");
       const { _id, type } = data;
       const users = await axios.post('/api/users/get-selected-users', { _id, type });
-      const { selected } = users.data;
-      setSelectedUsers(selected);
+      const { chosen } = users.data;
+      setSelectedUsers(chosen);
       if(type === 'mentee'){
         setType('Mentors')
       }
