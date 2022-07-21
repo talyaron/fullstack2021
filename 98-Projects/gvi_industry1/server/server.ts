@@ -104,6 +104,11 @@ io.on('connection', (socket: any) => {
     });
 });
 
+
+
+import profileRouter from './routes/profileRoute';
+app.use('/api/profile', profileRouter);
+
 import initiativesRouter from './routes/initiativesRoute';
 app.use('/api/initiatives', initiativesRouter);
 

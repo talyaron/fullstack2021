@@ -4,6 +4,7 @@ import selectedUsersModel from "../models/selectedUsers";
 import initiativeModel from "../models/initiativeModel";
 import countryFlagModel from "../models/countryFlagModel";
 import JWT from "jwt-simple";
+const cloudinary = require('./uploads/cloudinary')
 
 export const getUser = async (req: any, res: any) => {
   try {
@@ -436,3 +437,7 @@ export async function getLoggedInProfile(req, res) {
     res.send({ error: error.message });
   }
 }
+
+
+
+

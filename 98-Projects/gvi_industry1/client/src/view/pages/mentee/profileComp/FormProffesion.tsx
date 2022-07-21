@@ -5,7 +5,7 @@ interface FormProffesionProps{
     isMentee:boolean
     companyInfo:Array<any>
     mentorDetails:Array<any>;
-    userId:String;
+    userId?:String;
 }
 
 

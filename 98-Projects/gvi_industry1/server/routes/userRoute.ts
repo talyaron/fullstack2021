@@ -22,7 +22,7 @@ router
     .post('/get-userById',getUserProfile)
     .post('/updateUserDetails',updateUserDetails)
     .post('/flags',addFlags)
-    
+    // .post('/changeProfileImage',changeProfileImage)
     
     
 

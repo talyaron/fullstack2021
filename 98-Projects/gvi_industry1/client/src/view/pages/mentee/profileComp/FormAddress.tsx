@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 interface FormAddressProps{
   contactInfo:any;
-  userId:String;
+  userId?:String;
   setEditAddress:Function;
 }
 
