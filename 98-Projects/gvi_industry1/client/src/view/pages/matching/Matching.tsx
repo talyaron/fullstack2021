@@ -57,7 +57,7 @@ const Matching = (props: MatchingProps) => {
   return (
     //<div className={matching?"matching showMatching":"dontShowMatching"}>
     <div className="matching ">
-      <Link to="/selectedMentors">Selected-mentors</Link>
+      <Link to="selected-mentors">Selected-mentors</Link>
       <Search
         currentSearch={currentSearch}
         setCurrentSearch={setCurrentSearch}
@@ -65,7 +65,7 @@ const Matching = (props: MatchingProps) => {
       <FilterMenu checked={checked} setChecked={setChecked} />
 
       <MatchingCard usersList={usersList} />
-      <Outlet />
+      
       
     </div>
   );

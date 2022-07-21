@@ -2,7 +2,6 @@ import { socket } from "./index";
 import Profile from "./view/pages/mentee/Profile";
 // import Card from "./view/pages/mentee/Card"//
 import React from "react";
-import SelectedMentor from "./view/pages/mentee/SelectedMentor";
 import "./view/styles/global.scss";
 
 import HomePage from "./view/components/HomePage";
@@ -12,6 +11,7 @@ import WelcomePage from "./view/components/WelcomePage";
 import { useState, useEffect } from "react";
 import AdminPage from "./view/components/AdminPage";
 import AdminLayout from "./view/pages/AdminLayout";
+import SelectedMentors from "./view/pages/mentee/SelctedMentors"
 import axios from "axios";
 import {
   BrowserRouter as Router,
@@ -94,7 +94,7 @@ function App() {
               />
             }
           />
-          <Route path="SelectedMentors" element={<SelctedMentors />} />
+          <Route path="matching/selected-mentors" element={<SelectedMentors />} />
         </Route>
         <Route
           path="navBarAdmin"
