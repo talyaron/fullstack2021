@@ -2,7 +2,7 @@ import {socket} from './index';
 import Profile from './view/pages/mentee/Profile';
 // import Card from "./view/pages/mentee/Card"//
 import React from 'react';
-import SelectedMentor from './view/pages/mentee/SelectedMentor';
+
 import './view/styles/global.scss';
 
 import HomePage from './view/components/HomePage';
@@ -15,7 +15,7 @@ import AdminLayout from './view/pages/AdminLayout';
 import axios from 'axios';
 import {BrowserRouter as Router, Routes, Route, useParams} from 'react-router-dom';
 
-import SelctedMentors from './view/pages/mentee/SelctedMentors';
+import SelectedMentors from './view/pages/mentee/SelctedMentors';
 import NavBar from './view/pages/navBar/NavBar';
 import NavBarMentee from './view/pages/navBar/components/NavBarMentee';
 import Layout from './view/pages/Layout';

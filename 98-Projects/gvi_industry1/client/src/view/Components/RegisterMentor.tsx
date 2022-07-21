@@ -55,7 +55,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             const type = 'mentor';
             const name = { first, last };
 
-            const user = { name, password, profilePic, description, linkdInProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
+            const user = { name, password, profilePic, description, linkedInProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
 
 
             const userData = await axios.post('/api/users/add-user', { user });
