@@ -84,7 +84,7 @@ function App() {
         >
           <Route index element={<AdminPage />} />
           <Route path="chat" element={<Chat />} />
-          <Route path="profile" element={<Profile id="" />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>
     </Router>
