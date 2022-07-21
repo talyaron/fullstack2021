@@ -2,12 +2,13 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     // grid-template-rows: repeat(4, 1fr);
-    height: 201px;
+    height: 190px;
     width: 301px;
     border: solid black;
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     background-color: #F0F0F0;
+    padding: 5%;
 
     &__photo {
         img {
@@ -24,12 +25,19 @@
         display: grid;
         grid-template-rows: repeat(4, 0.5fr);
         height: 100%;
-        
 
         img {
             height: 30px;
             width: 30px;
         }
+
+       &__company{
+        margin-top: -5%;
+       }
+
+       &__profession{
+        margin-top: -15%;
+       }
 
     }
 

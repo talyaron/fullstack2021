@@ -37,8 +37,8 @@ const Card = (props: CardProps) => {
                 <LinkedInIcon className="card__flex__linkdIn" style={{ fontSize: "30px" }} ></LinkedInIcon>
               </a>
             </div>
-            <p className="card__company">{selectedUser.fieldsOfKnowledge}</p>
-            <p className="card__profession">{selectedUser.sector}</p>
+            <p className="card__center__company">{selectedUser.fieldsOfKnowledge}</p>
+            <p className="card__center__profession">{selectedUser.sector}</p>
           </div>
 
           <div className="card__star">
