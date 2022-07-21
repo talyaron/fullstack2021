@@ -203,7 +203,9 @@ export async function getSelectedUser(req, res) {
         const country = flags.filter(
           (country) => country.countryName === user.country
         );
-        user['country'] = `${country[0].countryFlag}`;
+        if(country.length > 0){
+          user['country'] = `${country[0].countryFlag}`;
+          };
         chosen.push(user);
       });
       res.send({ ok: true, chosen });
