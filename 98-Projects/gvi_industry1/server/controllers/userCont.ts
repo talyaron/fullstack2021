@@ -225,7 +225,7 @@ export async function getSelectedUser(req, res) {
         );
         user['country'] = `${country[0].countryFlag}`;
         user['fieldsOfKnowledge'] = `${menteeIntiative[0].companyName}`;
-        user['sector'] = `${menteeIntiative[0].stage}`
+        user['sector'] = `${menteeIntiative[0].stage}`;
         selected.push(user);
       });
       res.send({ ok: true, selected });

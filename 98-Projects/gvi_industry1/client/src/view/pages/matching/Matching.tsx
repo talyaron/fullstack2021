@@ -63,6 +63,7 @@ const Matching = (props: MatchingProps) => {
         filterOptions={filterOptions}
         setFilterOptions={setFilterOptions}
       />
+      <MatchingCard usersList={usersList}/>
     </div>
   );
 };
