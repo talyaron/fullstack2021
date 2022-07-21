@@ -207,7 +207,7 @@ function Chat() {
     }
     return (
         <div className='chat'>
-            <SideBar setRecipient={setRecipient} userList={userList} />
+            <SideBar messageList={messageList} setRecipient={setRecipient} userList={userList} />
             {recipient ? <CurrentRecipient chatArea={chatArea} handleTabChange={handleTabChange} recipient={recipient} handleChatSearchBar={handleChatSearchBar} searchMessagesToggle={searchMessagesToggle} /> : null}
             <ChatWindow  recipient={recipient} sender={sender} chatArea={chatArea} dateFromObjectId={dateFromObjectId} scroll={scroll} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} getMessageList={getMessageList} messageList={messageList} setMessageList={setMessageList} />
         </div>

@@ -1,14 +1,14 @@
 import { useId, useEffect, useState, useRef } from 'react';
 import { InputBase } from '@mui/material';
-import { UserInterface } from '../Chat';
+import { MessageInterface, MessageUserInterface, UserInterface } from '../Chat';
 import SearchUsersIcon from '../Icons/SearchUsers';
 import SideBarDivider from '../Icons/SideBarDivider';
 import { socket } from '../../../../index';
 
 
 interface SideBarProps {
-
-    userList: Array<any>;
+    messageList: Array<MessageInterface>
+    userList: Array<MessageUserInterface>;
 
     setRecipient: Function;
 
@@ -16,7 +16,7 @@ interface SideBarProps {
 
 function SideBar(props: SideBarProps) {
 
-    const { userList, setRecipient } = props;
+    const { messageList ,userList, setRecipient } = props;
 
     const [userListMap, setUserListMap] = useState(userList[0])
 
@@ -79,7 +79,8 @@ function SideBar(props: SideBarProps) {
                                     setRecipient(user);
                                 }}
                             >
-                                <p >{user.name.first} {user.name.last}</p>
+                                <h1 >{user.name.first} {user.name.last}</h1>
+
                             </li>
                         );
                     })
