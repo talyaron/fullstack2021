@@ -44,18 +44,21 @@
     &__flex {
         display: flex;
         
-
         a {
             text-decoration: none;
             color: black;
             padding-left: 5%;
+            height: 31px;
+        }
+
+        img{
+            width: 40px;
         }
     }
 
     &__star {
         grid-column-start: 4;
         grid-column-end: 4;
-
     }
 
 }
