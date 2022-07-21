@@ -4,7 +4,17 @@ import Login from './Login'
 import RegisterMentee from './RegisterMentee'
 import RegisterMentor from './RegisterMentor'
 import UserSelection from './UserSelection'
-const HomePage = () => {
+
+interface HomePageProps{
+  setloggedInUser:Function;
+  setCurrentUserType:Function;
+}
+
+const HomePage = (props:HomePageProps) => {
+  const {
+    setloggedInUser,
+    setCurrentUserType
+  }=props;
   const [loginWindow, setLoginWindow] = useState(false)
   const [registerWindow, setRegisterWindow] = useState(false)
   const [countryArray, setCountryArray] = useState([]);
@@ -78,7 +88,7 @@ const HomePage = () => {
       <div className='videoWindow'>
         <img src="./video.png" alt="" />
       </div>
-      <Login loginWindow={loginWindow} setLoginWindow={setLoginWindow} />
+      <Login loginWindow={loginWindow} setLoginWindow={setLoginWindow}  setCurrentUserType={ setCurrentUserType} setloggedInUser={setloggedInUser} />
       <UserSelection registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} setMenteeWindow={setMenteeWindow} mentorWindow={mentorWindow} setMentorWindow={setMentorWindow} />
       <RegisterMentee registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} setMenteeWindow={setMenteeWindow} countryArray={countryArray} handleCloseRegisterWindow={handleCloseRegisterWindow} secondSection={secondSection} firstSection={firstSection} thirdSection={thirdSection} showProgressBar={showProgressBar} handleToggleShowSections={handleToggleShowSections} handleBackToggleShowSections={handleBackToggleShowSections} handleBackToSelection={handleBackToSelection} handleToggleShowThirdSection={handleToggleShowThirdSection} handleBackToggleShowThirdSection={handleBackToggleShowThirdSection}/>
       <RegisterMentor countryArray={countryArray} registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} mentorWindow={mentorWindow} setMenteeWindow={setMenteeWindow} handleCloseRegisterWindow={handleCloseRegisterWindow} secondSection={secondSection} firstSection={firstSection}  thirdSection={thirdSection} showProgressBar={showProgressBar} handleToggleShowSections={handleToggleShowSections} handleBackToggleShowSections={handleBackToggleShowSections} handleBackToSelection={handleBackToSelection} handleToggleShowThirdSection={handleToggleShowThirdSection} handleBackToggleShowThirdSection={handleBackToggleShowThirdSection}/>
