@@ -40,9 +40,7 @@ function CurrentRecipient(props: CurrentRecipientProps) {
                         }}
                         className='activity'>
                         <button className='Conversation'>Conversation</button>
-                        <div className="line"></div>
                         <button className='Shared_Docs'>Shared Docs</button>
-                        <div className="line"></div>
                     </div>
                 </div>
             </div>
