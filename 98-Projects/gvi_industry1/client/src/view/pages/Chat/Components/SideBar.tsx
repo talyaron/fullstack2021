@@ -4,6 +4,7 @@ import {MessageInterface, MessageUserInterface, UserInterface} from '../Chat';
 import SearchUsersIcon from '../Icons/SearchUsers';
 import SideBarDivider from '../Icons/SideBarDivider';
 import {socket} from '../../../../index';
+import RecipientCard from './RecipientCard';
 
 interface SideBarProps {
     messageList: Array<MessageInterface>;
@@ -14,37 +15,15 @@ interface SideBarProps {
 
 function SideBar(props: SideBarProps) {
     const {messageList, userList, setRecipient} = props;
-
-    const [userListMap, setUserListMap] = useState(userList[0]);
-
     const [selectedRec, setSelectedRec] = useState<any>('');
-const [lastMessages, setLastMessages] = useState<Array<MessageUserInterface>>()
-    // const SelectedRefs = useRef<HTMLLIElement>(null!);
     const SelectedRefs: any = useRef([]);
     SelectedRefs.current = [];
-
-    const id = useId();
-
+    const id = useId(); 
     const addToRefs = (el: any) => {
         if (el && !SelectedRefs.current.includes(el)) {
             SelectedRefs.current.push(el);
         }
     };
-
-    useEffect(() => {
-        const x = messageList.filter(message =>{
-        userList.forEach((user)=> {
-            if(user.userId === message.sender.userId || user.userId === message.recipient.userId){
-                console.log(message, 'message -38 sidebar');
-                return message
-            //  setLastMessages(message.text)
-            }
-        })
-        
-    })
-    console.log(lastMessages);
-    console.log(x);
-}, [])
 
     useEffect(() => {
         SelectedRefs.current.forEach((recipient: any) => {
@@ -59,7 +38,6 @@ const [lastMessages, setLastMessages] = useState<Array<MessageUserInterface>>()
             }
         });
     }, [selectedRec]);
-
     return (
         <div className='chat__sideBar'>
             <div className='chat__sideBar__searchBar'>
@@ -71,42 +49,12 @@ const [lastMessages, setLastMessages] = useState<Array<MessageUserInterface>>()
             <ul className='chat__sideBar__recipientsList'>
                 {userList ? (
                     userList.map((user: any, i: any) => {
-                        const fullName = `${user.name.first} ${user.name.last}`;
-                        const initial = fullName
-                            ?.match(/\b(\w)/g)
-                            ?.join('')
-                            .toUpperCase();
-                        
-
-                        return (
-                            <li
-                                ref={addToRefs}
-                                key={i}
-                                id={user._id}
-                                className='recipient'
-                                onClick={() => {
-                                    setSelectedRec(user);
-                                    setRecipient(user);
-                                }}>
-                                <Avatar>{initial}</Avatar>
-                                <div className='text'>
-                                    <h2>
-                                        {user.name.first} {user.name.last}
-                                    </h2>
-                                        <>
-                                    <p>
-                                        {/* {lastMessage[lastMessage.length - 1].text} */}
-                                    </p>
-                                        </>
-                                </div>
-                            </li>
-                        );
+                        return <RecipientCard messageList={messageList} addToRefs={addToRefs} setSelectedRec={setSelectedRec} setRecipient={setRecipient} user={user} key={i} />;
                     })
                 ) : (
                     <h1>userList</h1>
                 )}
             </ul>
-            {/* <SideBarDivider/> */}
         </div>
     );
 }

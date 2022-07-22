@@ -8,21 +8,6 @@ const port = process.env.PORT || 4000;
 import http from 'http';
 const server = http.createServer(app);
 import {Server} from 'socket.io';
-import cors from 'cors';
-// pictures storage:
-import multer from 'multer';
-import path from 'path';
-
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'images');
-    },
-    filename: (req, file, cb) => {
-        // console.log(file);
-        cb(null, Date.now() + path.extname(file.originalname));
-    },
-});
-const upload = multer({storage: storage});
 const io = new Server(server, {
     cors: {
         origin: 'https://localhost:3000',
@@ -35,18 +20,15 @@ import MessageModel from './models/messageModel';
 app.use(express.json());
 
 app.use(express.static('client/build'));
-// app.use('/api/users', CardRoute);
-// app.use('/api/companies', CardRoute);
 console.log(process.env.ENV);
 console.log(process.env.JWT_SECRET);
-const cookieParser = require('cookie-parser');
+
 app.use(express.json());
 app.use(cookieParser());
 
 const url = process.env.MONGODB_URI;
 
 mongoose
-    // .set('debug', { shell: true })
     .connect(url)
     .then(() => {
         cloudinaryTest()
@@ -62,7 +44,6 @@ io.on('connection', (socket: any) => {
     socket.on('join-room', (data) => {
         const {sender} = data;
         const {userList} = data;
-        // console.log(senderId, 'senderId');
         
         let recipients = (userList) => {
 
@@ -81,8 +62,6 @@ io.on('connection', (socket: any) => {
 
         socket.leaveAll();
         socket.join(recipients(userList));
-        // console.log(`User with ID: ${socket.id} joined room: ${data}`);
-        // console.log(io.sockets.adapter.rooms);
         
     });
 
@@ -90,15 +69,7 @@ io.on('connection', (socket: any) => {
         const message = new MessageModel({text: data.text, file: data.file, sender: data.sender, recipient: data.recipient, time: data.time});
         message.save();
         
-        // let recipients = (data) => {
-        //     let array = [];
-        //     for (let i = 0; i < data.recipients.length; i++) {
-        //         array.push(data.recipients[i].userId);
-        //     }
-        //     return array;
-        // };
-        // console.log(recipients(data));
-        // console.log(data.recipient.userId,' send message server ts -103');
+       
         
         socket.to(data.recipient.userId).emit('receive-message', message);
     });
@@ -123,26 +94,8 @@ function testServer(req, res, next){
 import messageRoute from './routes/messageRoute';
 app.use('/api/messages', messageRoute);
 
-// app.post('/images', upload.single('image'), (req, res) => {
-//     try {
-//         res.send('g');
-//     } catch (error) {
-//         console.log(error);
-//         res.send({error: error.message});
-//     }
-// });
+
 
 server.listen(port, () => {
     console.log(`listening on *:${port}`);
 });
-// app.use(cors());
-
-// app.use(express.static('client/build'))
-
-// io.on("connection", (socket: any) => {
-//   console.log('user connected', socket.id)
-// });
-
-// server.listen(port, () => {
-//   console.log(`listening on *:${port}`);
-// });

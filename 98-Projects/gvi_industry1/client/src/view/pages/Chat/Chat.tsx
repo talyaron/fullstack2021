@@ -1,12 +1,9 @@
-import {useState, useEffect, useId, useRef} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import ChatWindow from './components/ChatWindow';
 import CurrentRecipient from './components/CurrentRecipient';
 import SideBar from './components/SideBar';
 import {socket} from '../../../index';
-import {ObjectId} from 'mongoose';
-import {text} from 'node:stream/consumers';
-import UserList from './Untitled.json';
 export interface nameInterface {
     first: string;
     last: string;
@@ -30,11 +27,12 @@ export interface MessageInterface {
 
 function Chat() {
     const [chatArea, setChatArea] = useState('Conversation');
-    // const recipientList:any = getRecipientsList()
+    const [searchTerm, setSearchTerm] = useState('');
     const [scroll, setScroll] = useState('');
     const [sentMessage, setSentMessage] = useState('');
     const [messageList, setMessageList] = useState<Array<MessageInterface>>([]);
     //set to empty so we don't get errors about undefined userInterface:
+    //FIXME: this
     const [recipient, setRecipient] = useState<any>({_id: '1', name: {first: 'a', last: 'a'}});
     const [sender, setSender] = useState<MessageUserInterface>({userId: '', name: {first: '', last: ''}});
     const [userList, setUserList] = useState<Array<any>>([]);
@@ -43,7 +41,6 @@ function Chat() {
     function handleTabChange(ev: any) {
         ev.preventDefault();
         const pickedTab = ev.target.textContent;
-
         setChatArea(`${pickedTab}`);
     }
     function dateFromObjectId(messageId: string) {
@@ -61,7 +58,6 @@ function Chat() {
         console.log('on');
 
         socket.on('receive-message', (message: MessageInterface) => {
-            console.log('received');
             const id: any = message._id;
             const payload = {
                 text: message.text,
@@ -69,11 +65,9 @@ function Chat() {
                 recipient: message.recipient,
                 file: '',
                 time: dateFromObjectId(id),
-                _id: message._id
+                _id: message._id,
             };
-
             setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
-
             setScroll('0');
         });
 
@@ -84,34 +78,30 @@ function Chat() {
     }, [socket]);
 
     useEffect(() => {
-        // how to clean requests so it doesn't happen again on unmount?
-        return () => {
-            getRecipientsList();
-            (async () => {
-                // console.log(await getRecipientsList(), 'getRecipientList onload -89 chat.tsx');
-            })();
-        };
+        getRecipientsList();
+        return () => {};
     }, []);
+
     useEffect(() => {
         handleJoinRoom();
     }, [userList]);
+
     useEffect(() => {
-        getMessageList(recipient);
+        getMessageList();
     }, [recipient]);
+
     function handleChatSearchBar() {
         setSearchMessagesToggle((p: boolean) => !p);
     }
     function handleSendMessage() {
         try {
             let id: any = recipient?._id;
-            const name: nameInterface = recipient?.name;
+
             if (!id) {
                 id = recipient.userId;
             }
-            // console.log(id, name, recipient,'id and name 103 -chattsx');
 
             if (sentMessage === '') throw new Error('Type something!');
-            // console.log({sentMessage: sentMessage}, {sender: sender}, {recipient: recipient}, 'sentMessage sender recipient');
 
             const payload = {
                 text: sentMessage,
@@ -120,48 +110,15 @@ function Chat() {
                 file: '',
             };
             socket.emit('send-message', payload);
-            // setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
         } catch (error) {
             console.log(error);
         }
     }
 
-    async function getMessageList(recipient: any) {
+    async function getMessageList() {
         try {
-            const {data} = await axios.post(
-                '/api/messages/get-messages'
-                // {recipientId: recipient._id}
-            );
+            const {data} = await axios.post('/api/messages/get-messages');
             setMessageList(data.allMessages);
-            //was meant to filter between recipient and sender message,
-            //cant think of anything else you would want to differentiate them by,
-            //maybe useful later
-            // if (sender.userId) {
-            //     let myMessageList = data.allMessages.filter((message: any) => {
-            //         return message.sender.userId === sender.userId;
-            //     });
-            //     myMessageList.forEach((message: any) => {
-            //         console.log(message.text, 'myMessageList');
-            //     });
-            //     // console.log(myMessageList, 'myMessageList');
-            // }
-            // if(!recipient.userId) throw new Error('no recipient Id -141 getMessageList Chat.tsx')
-            // if (recipient) {
-            //     let recipientsMessages = data.allMessages.filter((message: any) => {
-            //         if (message.recipient.userId) {
-            //             return message.recipient.userId === recipient._id;
-            //         }
-            //         if (message.recipient._id) {
-            //             return message.recipient._id === recipient._id;
-            //         }
-            //     });
-            //     // recipientsMessages.forEach((message: any) => {
-            //     //     console.log(message.recipient.userId, message.recipient._id, 'recipientsMessages');
-            //     // });
-            //     // console.log(recipientsMessages, 'recipientsMessages');
-            // }
-
-            // // console.log(recipientsMessages, 'recipientsMessages');
         } catch (error) {
             console.log(error);
         }
@@ -170,37 +127,26 @@ function Chat() {
         try {
             //go check if the user is a mentor, if so, return an array of mentees which already have name and userId set.
             const {data} = await axios.post('/api/users/get-all-recipients', {ok: true});
+            //if not, it'll return an empty array or undefined
             const recipients = data.allRecipients;
             const {user} = data;
 
-            console.log(recipients,'recipient list from mentees -175');
-            
             setSender({userId: user.id, name: {first: user.name.first, last: user.name.last}});
-            console.log(recipients,'recipient list from mentees -178');
+
             if (recipients?.length > 0) {
                 setUserList(recipients);
                 setRecipient(recipients[0]);
-                console.log(recipients,'recipient list from mentees, we`re mentors');
-
             }
-            
-            console.log(recipients,'recipient list from mentees -184');
-            if (recipients === undefined || !recipients) {
-                console.log(recipients,'recipient list from mentees -186');
-                const {data} = await axios.post('/api/initiatives/get-all-recipients', {user});
-                console.log(data);
-                
-                let localRecipients = data;
-                console.log(localRecipients,'recipient list from initiative, we`re mentees');
 
+            if (recipients === undefined || !recipients) {
+                
+                const {data} = await axios.post('/api/initiatives/get-all-recipients', {user});
+                let localRecipients = data;
                 setUserList(localRecipients);
                 setRecipient(localRecipients[0]);
                 if (!localRecipients[0].name.first) throw new Error('no localRecipients');
                 if (localRecipients[0].name.first) {
-                    console.log(localRecipients[0].name.last, 'localRecipients[0].name.last');
                 }
-                console.log(localRecipients, 'localRecipients 189 chat.tsx');
-                
             }
         } catch (error) {
             console.error(error);
@@ -209,8 +155,8 @@ function Chat() {
     return (
         <div className='chat'>
             <SideBar messageList={messageList} setRecipient={setRecipient} userList={userList} />
-            {recipient ? <CurrentRecipient chatArea={chatArea} handleTabChange={handleTabChange} recipient={recipient} handleChatSearchBar={handleChatSearchBar} searchMessagesToggle={searchMessagesToggle} /> : null}
-            <ChatWindow  recipient={recipient} sender={sender} chatArea={chatArea} dateFromObjectId={dateFromObjectId} scroll={scroll} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} getMessageList={getMessageList} messageList={messageList} setMessageList={setMessageList} />
+            {recipient ? <CurrentRecipient setSearchTerm={setSearchTerm} chatArea={chatArea} handleTabChange={handleTabChange} recipient={recipient} handleChatSearchBar={handleChatSearchBar} searchMessagesToggle={searchMessagesToggle} /> : null}
+            <ChatWindow recipient={recipient} sender={sender} chatArea={chatArea} dateFromObjectId={dateFromObjectId}  setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} messageList={messageList}  />
         </div>
     );
 }

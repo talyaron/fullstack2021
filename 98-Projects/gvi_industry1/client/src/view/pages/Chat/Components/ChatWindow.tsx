@@ -1,40 +1,31 @@
-import {useEffect, useState} from 'react';
-import PaperPlaneIcon from '../Icons/PaperPlaneRight';
-import {InputBase} from '@mui/material';
+import {useEffect, useRef} from 'react';
 import {MessageInterface, MessageUserInterface} from '../Chat';
-import {socket} from '../../../../index';
 import ConversationsTab from './ConversationsTab';
 import DocsTab from './DocsTab';
 
 interface ChatWindowProps {
-    recipient:MessageUserInterface;
+    recipient: MessageUserInterface;
     sender: MessageUserInterface;
-    scroll: String;
     chatArea: String;
-    messageList?: Array<MessageInterface>;
-    getMessageList: Function;
-    setMessageList: Function;
+    messageList: Array<MessageInterface>;
     handleSendMessage: Function;
     setSentMessage: Function;
     dateFromObjectId: Function;
 }
 
 function ChatWindow(props: ChatWindowProps) {
-    const { recipient, sender ,dateFromObjectId, getMessageList, chatArea, messageList, setMessageList, setSentMessage, handleSendMessage, scroll} = props;
+    const {recipient, sender, dateFromObjectId, chatArea, messageList, setSentMessage, handleSendMessage} = props;
+    const messageListRef = useRef<HTMLUListElement>(null);
 
+    useEffect(() => {
+            if (messageListRef.current) {
+                messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
+            }
 
-    // useEffect(() => {
-    //     const messages = getMessageList();
-    //     return () => {
-    //         console.log(messages, 'messages ChatWindow');
-    //     };
-    // }, []);
+    }, [messageList]);
 
-    return (
-        <div className='chat__chatWindow'>
-            {chatArea === "Conversation" ?<ConversationsTab  recipient={recipient} sender={sender} messageList={messageList} dateFromObjectId={dateFromObjectId} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} />
-            : <DocsTab/> }
-        </div>
-    );
+    
+
+    return <div className='chat__chatWindow'>{chatArea === 'Conversation' ? <ConversationsTab messageListRef={messageListRef} recipient={recipient} sender={sender} messageList={messageList} dateFromObjectId={dateFromObjectId} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} /> : <DocsTab />}</div>;
 }
 export default ChatWindow;

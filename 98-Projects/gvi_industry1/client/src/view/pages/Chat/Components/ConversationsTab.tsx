@@ -1,9 +1,10 @@
-import {useEffect, useRef} from 'react';
+import {LegacyRef} from 'react';
 import {InputBase} from '@mui/material';
 import {MessageInterface, MessageUserInterface} from '../Chat';
 import PaperPlaneIcon from '../Icons/PaperPlaneRight';
 
 interface conversationsTabProps {
+    messageListRef: LegacyRef<HTMLUListElement>;
     recipient: MessageUserInterface;
     sender: MessageUserInterface;
     messageList?: Array<MessageInterface>;
@@ -12,16 +13,10 @@ interface conversationsTabProps {
     handleSendMessage: Function;
 }
 function ConversationsTab(props: conversationsTabProps) {
-    const {recipient, sender, messageList, dateFromObjectId, setSentMessage, handleSendMessage} = props;
+    const {messageListRef,recipient, sender, messageList, dateFromObjectId, setSentMessage, handleSendMessage} = props;
 
-    const messageListRef = useRef<HTMLUListElement>(null);
 
-    useEffect(() => {
-        // supposed to scroll down onLoad and on message receiving
-        if (messageListRef.current) {
-            messageListRef.current.scrollTop = messageListRef?.current?.scrollHeight;
-        }
-    }, [messageList]);
+   
     return (
         <div className='chat__chatWindowTabs'>
             <ul ref={messageListRef} className='chat__chatWindow__messagesList'>

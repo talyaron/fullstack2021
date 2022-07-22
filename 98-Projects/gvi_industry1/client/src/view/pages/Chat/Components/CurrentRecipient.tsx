@@ -1,12 +1,10 @@
 import {useId, useEffect} from 'react';
 import {Avatar, InputBase} from '@mui/material';
-import {motion} from 'framer-motion';
-import CallIcon from '../Icons/CallIcon';
 import SearchMessages from '../Icons/SearchMessages';
-import VideoIcon from '../Icons/VideoIcon';
 import {UserInterface} from '../Chat';
 
 interface CurrentRecipientProps {
+    setSearchTerm: Function;
     recipient: UserInterface;
     handleChatSearchBar: Function;
     handleTabChange: Function;
@@ -14,7 +12,7 @@ interface CurrentRecipientProps {
     searchMessagesToggle: boolean;
 }
 function CurrentRecipient(props: CurrentRecipientProps) {
-    const {chatArea, recipient, handleChatSearchBar, searchMessagesToggle, handleTabChange} = props;
+    const {setSearchTerm,chatArea, recipient, handleChatSearchBar, searchMessagesToggle, handleTabChange} = props;
     const fullName:any = `${recipient.name.first + ' ' + recipient.name.last}` ;
     
     const initial = fullName.match(/\b(\w)/g).join('').toUpperCase();
@@ -25,7 +23,6 @@ function CurrentRecipient(props: CurrentRecipientProps) {
         pickedTab.style.backgroundColor = 'transparent';
         pickedTab.setAttribute('picked', true)
         return () => {
-            // console.log(fullName);
             pickedTab.style.backgroundColor = 'blue';
             pickedTab.removeAttribute('picked')
         }
@@ -50,7 +47,7 @@ function CurrentRecipient(props: CurrentRecipientProps) {
                 </div>
             </div>
             <ul className='chat__currentRecipient__Buttons'>
-                {searchMessagesToggle && <InputBase style={{backgroundColor: 'red'}} onChange={() => {}} />}
+                {searchMessagesToggle && <InputBase style={{backgroundColor: 'red'}} onChange={(ev) => {setSearchTerm(ev.target.value)}} />}
                 <SearchMessages handleChatSearchBar={handleChatSearchBar} />
             </ul>
         </div>
