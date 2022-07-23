@@ -1,7 +1,7 @@
-import {useId, useEffect} from 'react';
-import {Avatar, InputBase} from '@mui/material';
+import { useId, useEffect } from 'react';
+import { Avatar, InputBase } from '@mui/material';
 import SearchMessages from '../Icons/SearchMessages';
-import {UserInterface} from '../Chat';
+import { UserInterface } from '../Chat';
 
 interface CurrentRecipientProps {
     recipient: UserInterface;
@@ -11,18 +11,18 @@ interface CurrentRecipientProps {
     searchMessagesToggle: boolean;
 }
 function CurrentRecipient(props: CurrentRecipientProps) {
-    const {chatArea, recipient, handleChatSearchBar, searchMessagesToggle, handleTabChange} = props;
-    const fullName:any = `${recipient.name.first + ' ' + recipient.name.last}` ;
-    
+    const { chatArea, recipient, handleChatSearchBar, searchMessagesToggle, handleTabChange } = props;
+    const fullName: any = `${recipient.name.first + ' ' + recipient.name.last}`;
+
     const initial = fullName.match(/\b(\w)/g).join('').toUpperCase();
     const id = useId();
-    
+
     useEffect(() => {
-        const pickedTab:any = document.querySelector(`.${chatArea.replace(' ', '_')}`);
-        pickedTab.style.backgroundColor = 'transparent';
+        const pickedTab: any = document.querySelector(`.${chatArea.replace(' ', '_')}`);
+        pickedTab.style.backgroundColor = '#cdcdcd';
         pickedTab.setAttribute('picked', true)
         return () => {
-            pickedTab.style.backgroundColor = 'blue';
+            pickedTab.style.backgroundColor = 'transparent';
             pickedTab.removeAttribute('picked')
         }
     }, [chatArea]);
@@ -34,17 +34,19 @@ function CurrentRecipient(props: CurrentRecipientProps) {
                     <p className='userName'>{recipient.name.first} {recipient.name.last}</p>
 
                     <div
-                        onClick={(ev) => {
-                            handleTabChange(ev);
-                        }}
+
                         className='activity'>
-                        <button className='Conversation'>Conversation</button>
-                        <button className='Shared_Docs'>Shared Docs</button>
+                        <button className='Conversation' onClick={(ev) => {
+                            handleTabChange(ev);
+                        }}>Conversation</button>
+                        <button className='Shared_Docs' onClick={(ev) => {
+                            handleTabChange(ev);
+                        }}>Shared Docs</button>
                     </div>
                 </div>
             </div>
             <ul className='chat__currentRecipient__Buttons'>
-                {searchMessagesToggle && <InputBase style={{backgroundColor: 'red'}}  />}
+                {searchMessagesToggle && <InputBase style={{ backgroundColor: 'red' }} />}
                 <SearchMessages handleChatSearchBar={handleChatSearchBar} />
             </ul>
         </div>

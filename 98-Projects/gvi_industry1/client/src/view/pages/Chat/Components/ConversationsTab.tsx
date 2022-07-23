@@ -42,9 +42,7 @@ function ConversationsTab(props: conversationsTabProps) {
                     }}
                     placeholder='Message'
                 />
-                <span>
-                    <button>Upload</button>
-                </span>
+
                 <label>
                     <button
                         style={{display: 'none'}}

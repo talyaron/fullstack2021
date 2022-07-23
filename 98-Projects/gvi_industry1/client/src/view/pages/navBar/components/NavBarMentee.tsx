@@ -44,7 +44,7 @@ function NavBarMentee(props: navBarMenteeProps) {
                 </Link>
               </div>
               <div className="profileIMG" >  
-              <p>{loggedInUser.name.first}</p>
+              {loggedInUser ? <p>{loggedInUser?.name?.first}</p> : null}
                     {/* <Link to="profile">
                 <img
                   src={
