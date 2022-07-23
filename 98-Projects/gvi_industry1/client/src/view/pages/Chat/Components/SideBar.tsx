@@ -1,4 +1,4 @@
-import {useId, useEffect, useState, useRef} from 'react';
+import {useId, useEffect, useState, useRef, LegacyRef} from 'react';
 import {Avatar, InputBase} from '@mui/material';
 import {MessageInterface, MessageUserInterface, UserInterface} from '../Chat';
 import SearchUsersIcon from '../Icons/SearchUsers';
@@ -7,37 +7,18 @@ import {socket} from '../../../../index';
 import RecipientCard from './RecipientCard';
 
 interface SideBarProps {
+    addToRefs:LegacyRef<HTMLLIElement>;
     messageList: Array<MessageInterface>;
     userList: Array<MessageUserInterface>;
-
+    dateFromObjectId: Function;
     setRecipient: Function;
+    setSelectedRec: Function;
 }
 
 function SideBar(props: SideBarProps) {
-    const {messageList, userList, setRecipient} = props;
-    const [selectedRec, setSelectedRec] = useState<any>('');
-    const SelectedRefs: any = useRef([]);
-    SelectedRefs.current = [];
+    const { setSelectedRec ,addToRefs,dateFromObjectId, messageList, userList, setRecipient} = props;
     const id = useId(); 
-    const addToRefs = (el: any) => {
-        if (el && !SelectedRefs.current.includes(el)) {
-            SelectedRefs.current.push(el);
-        }
-    };
-
-    useEffect(() => {
-        SelectedRefs.current.forEach((recipient: any) => {
-            if (recipient.classList.contains('selected')) {
-                recipient.classList.remove('selected');
-            }
-
-            if (selectedRec) {
-                if (selectedRec._id === recipient.id) {
-                    recipient.classList.add('selected');
-                }
-            }
-        });
-    }, [selectedRec]);
+    
     return (
         <div className='chat__sideBar'>
             <div className='chat__sideBar__searchBar'>
@@ -49,7 +30,7 @@ function SideBar(props: SideBarProps) {
             <ul className='chat__sideBar__recipientsList'>
                 {userList ? (
                     userList.map((user: any, i: any) => {
-                        return <RecipientCard messageList={messageList} addToRefs={addToRefs} setSelectedRec={setSelectedRec} setRecipient={setRecipient} user={user} key={i} />;
+                        return <RecipientCard dateFromObjectId={dateFromObjectId} messageList={messageList} addToRefs={addToRefs} setSelectedRec={setSelectedRec} setRecipient={setRecipient} user={user} key={i} />;
                     })
                 ) : (
                     <h1>userList</h1>

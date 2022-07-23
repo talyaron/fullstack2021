@@ -1,4 +1,5 @@
 .chat {
+    font-family: Inter;
     position: absolute;
     width: 1222px;
     height: 715px;
@@ -68,15 +69,32 @@
             justify-content: space-around;
             align-items: center;
             height: 7vh;
+            padding: .3em 1em;
             // width: 25vh;
-            .text{
+            &_text{
+                font-size: clamp(.8rem, .9vw, 1rem); 
+                padding-inline: 1em;
                 text-align: start;
                 display: flex;
                 flex-direction: column;
                 align-items: start;
+                width: 100%;
                 *{
                     margin: 0;
                     padding: 0;
+                }
+                &_name{
+                    
+                }
+                &_lastMessage{
+                    display: flex;
+                    width: 100%;
+                    flex-direction: row;
+justify-content: space-between;
+align-items: center;
+                    &-time{
+
+                    }
                 }
 
             }

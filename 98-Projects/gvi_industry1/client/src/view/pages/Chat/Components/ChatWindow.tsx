@@ -21,7 +21,7 @@ function ChatWindow(props: ChatWindowProps) {
             if (messageListRef.current) {
                 messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
             }
-console.log(chatArea);
+console.log(chatArea, 'chatArea');
 
     }, [messageList, chatArea]);
 

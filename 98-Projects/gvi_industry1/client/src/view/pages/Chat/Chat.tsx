@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import axios from 'axios';
 import ChatWindow from './components/ChatWindow';
 import CurrentRecipient from './components/CurrentRecipient';
@@ -37,6 +37,29 @@ function Chat() {
     const [sender, setSender] = useState<MessageUserInterface>({userId: '', name: {first: '', last: ''}});
     const [userList, setUserList] = useState<Array<any>>([]);
     const [searchMessagesToggle, setSearchMessagesToggle] = useState<boolean>(false);
+
+    const [selectedRec, setSelectedRec] = useState<any>('');
+    const SelectedRefs: any = useRef([]);
+    SelectedRefs.current = [];
+    const addToRefs = (el: any) => {
+        if (el && !SelectedRefs.current.includes(el)) {
+            SelectedRefs.current.push(el);
+        }
+    };
+
+    useEffect(() => {
+        SelectedRefs.current.forEach((recipient: any) => {
+            if (recipient.classList.contains('selected')) {
+                recipient.classList.remove('selected');
+            }
+
+            if (selectedRec) {
+                if (selectedRec.userId === recipient.id) {
+                    recipient.classList.add('selected');
+                }
+            }
+        });
+    }, [selectedRec]);
 
     function handleTabChange(ev: any) {
         ev.preventDefault();
@@ -117,7 +140,7 @@ function Chat() {
 
     async function getMessageList() {
         try {
-            const {data} = await axios.post('/api/messages/get-messages');
+            const {data} = await axios.post('/api/messages/get-messages', {sender});
             setMessageList(data.allMessages);
         } catch (error) {
             console.log(error);
@@ -136,14 +159,15 @@ function Chat() {
             if (recipients?.length > 0) {
                 setUserList(recipients);
                 setRecipient(recipients[0]);
+                setSelectedRec(recipients[0]);
             }
 
             if (recipients === undefined || !recipients) {
-                
                 const {data} = await axios.post('/api/initiatives/get-all-recipients', {user});
                 let localRecipients = data;
                 setUserList(localRecipients);
                 setRecipient(localRecipients[0]);
+                setSelectedRec(localRecipients[0]);
                 if (!localRecipients[0].name.first) throw new Error('no localRecipients');
                 if (localRecipients[0].name.first) {
                 }
@@ -154,9 +178,9 @@ function Chat() {
     }
     return (
         <div className='chat'>
-            <SideBar messageList={messageList} setRecipient={setRecipient} userList={userList} />
+            <SideBar setSelectedRec={setSelectedRec} addToRefs={addToRefs} dateFromObjectId={dateFromObjectId} messageList={messageList} setRecipient={setRecipient} userList={userList} />
             {recipient ? <CurrentRecipient setSearchTerm={setSearchTerm} chatArea={chatArea} handleTabChange={handleTabChange} recipient={recipient} handleChatSearchBar={handleChatSearchBar} searchMessagesToggle={searchMessagesToggle} /> : null}
-            <ChatWindow recipient={recipient} sender={sender} chatArea={chatArea} dateFromObjectId={dateFromObjectId}  setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} messageList={messageList}  />
+            <ChatWindow recipient={recipient} sender={sender} chatArea={chatArea} dateFromObjectId={dateFromObjectId} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} messageList={messageList} />
         </div>
     );
 }
