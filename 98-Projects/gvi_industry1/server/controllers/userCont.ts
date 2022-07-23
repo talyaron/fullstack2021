@@ -15,6 +15,7 @@ export const getUser = async (req: any, res: any) => {
 
     const user = await UserModel.findOne({ _id: id });
     res.send({ user });
+
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
@@ -360,9 +361,10 @@ export const addUser = async (req, res) => {
 
 export const getUserProfile = async (req, res) => {
   try {
-    const { id } = req.body;
 
-    const user = await UserModel.findOne({ _id: id });
+    const { userId } = req.body;
+    
+    const user = await UserModel.findOne({_id:userId});    
 
     res.send({ user, ok: true });
   } catch (err) {

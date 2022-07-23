@@ -20,7 +20,6 @@ function ProfileImage(props:ProfileImageProps){
         reader.readAsDataURL(file)
         reader.onloadend = async () => {
         await setProfileImg(`${reader.result}`);
-        console.log(file);
         setImageChanged(true) 
     }
 }
@@ -29,12 +28,14 @@ if(imgChanged){
     saveimage()
     setImageChanged(false)
    }
+
    async function saveimage(){
+
     const {data} = await axios.post('/api/profile/changeProfileImage',{profileImg,userId})
-    console.log('lala');
+    const user = data;
+    console.log(user);
     
-    console.log(data); 
-   }
+       }
 
    
     
