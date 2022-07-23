@@ -4,7 +4,6 @@ import SearchMessages from '../Icons/SearchMessages';
 import {UserInterface} from '../Chat';
 
 interface CurrentRecipientProps {
-    setSearchTerm: Function;
     recipient: UserInterface;
     handleChatSearchBar: Function;
     handleTabChange: Function;
@@ -12,7 +11,7 @@ interface CurrentRecipientProps {
     searchMessagesToggle: boolean;
 }
 function CurrentRecipient(props: CurrentRecipientProps) {
-    const {setSearchTerm,chatArea, recipient, handleChatSearchBar, searchMessagesToggle, handleTabChange} = props;
+    const {chatArea, recipient, handleChatSearchBar, searchMessagesToggle, handleTabChange} = props;
     const fullName:any = `${recipient.name.first + ' ' + recipient.name.last}` ;
     
     const initial = fullName.match(/\b(\w)/g).join('').toUpperCase();
@@ -45,7 +44,7 @@ function CurrentRecipient(props: CurrentRecipientProps) {
                 </div>
             </div>
             <ul className='chat__currentRecipient__Buttons'>
-                {searchMessagesToggle && <InputBase style={{backgroundColor: 'red'}} onChange={(ev) => {setSearchTerm(ev.target.value)}} />}
+                {searchMessagesToggle && <InputBase style={{backgroundColor: 'red'}}  />}
                 <SearchMessages handleChatSearchBar={handleChatSearchBar} />
             </ul>
         </div>

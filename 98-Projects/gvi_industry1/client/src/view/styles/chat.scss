@@ -62,15 +62,22 @@
 
         .selected {
             background: #cdcdcd;
+            &.recipient:hover {
+                background: #c1c1c1
+            }
         }
-
+        
         .recipient {
+            cursor: pointer;
             display: flex;
             justify-content: space-around;
             align-items: center;
             height: 7vh;
             padding: .3em 1em;
             // width: 25vh;
+            &:hover {
+                background: #e2e2e2;
+            }
             &_text{
                 font-size: clamp(.8rem, .9vw, 1rem); 
                 padding-inline: 1em;

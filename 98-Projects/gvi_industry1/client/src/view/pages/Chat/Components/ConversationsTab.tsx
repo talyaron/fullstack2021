@@ -22,13 +22,13 @@ function ConversationsTab(props: conversationsTabProps) {
             <ul ref={messageListRef} className='chat__chatWindow__messagesList'>
                 {messageList
                     ? messageList.map((message, i) => {
-                          if (recipient.userId === message.recipient.userId || recipient.userId === message.sender.userId) {
+                          if (recipient.userId === message?.recipient?.userId || recipient.userId === message?.sender?.userId) {
                               return (
-                                  <li key={i} className={`${message.sender.userId === sender.userId ? `my` : ``}MessageCard`}>
+                                  <li key={i} className={`${message?.sender?.userId === sender.userId ? `my` : ``}MessageCard`}>
                                       <div className='content'>{message.text}</div>
 
                                       <div className='time'>{dateFromObjectId(message._id).slice(15, 21)}</div>
-                                      <div className={`${message.sender.userId === sender.userId ? `right` : `left`}-point`}></div>
+                                      <div className={`${message?.sender?.userId === sender.userId ? `right` : `left`}-point`}></div>
                                   </li>
                               );
                           }

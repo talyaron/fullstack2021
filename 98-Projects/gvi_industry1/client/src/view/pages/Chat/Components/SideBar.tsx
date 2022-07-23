@@ -12,11 +12,11 @@ interface SideBarProps {
     userList: Array<MessageUserInterface>;
     dateFromObjectId: Function;
     setRecipient: Function;
-    setSelectedRec: Function;
+
 }
 
 function SideBar(props: SideBarProps) {
-    const { setSelectedRec ,addToRefs,dateFromObjectId, messageList, userList, setRecipient} = props;
+    const { addToRefs,dateFromObjectId, messageList, userList, setRecipient} = props;
     const id = useId(); 
     
     return (
@@ -30,7 +30,7 @@ function SideBar(props: SideBarProps) {
             <ul className='chat__sideBar__recipientsList'>
                 {userList ? (
                     userList.map((user: any, i: any) => {
-                        return <RecipientCard dateFromObjectId={dateFromObjectId} messageList={messageList} addToRefs={addToRefs} setSelectedRec={setSelectedRec} setRecipient={setRecipient} user={user} key={i} />;
+                        return <RecipientCard dateFromObjectId={dateFromObjectId} messageList={messageList} addToRefs={addToRefs}  setRecipient={setRecipient} user={user} key={i} />;
                     })
                 ) : (
                     <h1>userList</h1>

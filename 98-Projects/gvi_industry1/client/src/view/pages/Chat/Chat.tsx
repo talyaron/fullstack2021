@@ -18,8 +18,8 @@ export interface UserInterface {
 }
 export interface MessageInterface {
     _id?: String;
-    sender: MessageUserInterface;
-    recipient: MessageUserInterface;
+    sender?: MessageUserInterface;
+    recipient?: MessageUserInterface;
     text?: String;
     file?: String;
     time?: String;
@@ -27,8 +27,7 @@ export interface MessageInterface {
 
 function Chat() {
     const [chatArea, setChatArea] = useState('Conversation');
-    const [searchTerm, setSearchTerm] = useState('');
-    const [scroll, setScroll] = useState('');
+
     const [sentMessage, setSentMessage] = useState('');
     const [messageList, setMessageList] = useState<Array<MessageInterface>>([]);
     //set to empty so we don't get errors about undefined userInterface:
@@ -37,8 +36,7 @@ function Chat() {
     const [sender, setSender] = useState<MessageUserInterface>({userId: '', name: {first: '', last: ''}});
     const [userList, setUserList] = useState<Array<any>>([]);
     const [searchMessagesToggle, setSearchMessagesToggle] = useState<boolean>(false);
-
-    const [selectedRec, setSelectedRec] = useState<any>('');
+    const [lastMessage, setLastMessage] = useState<MessageInterface>();
     const SelectedRefs: any = useRef([]);
     SelectedRefs.current = [];
     const addToRefs = (el: any) => {
@@ -48,18 +46,18 @@ function Chat() {
     };
 
     useEffect(() => {
-        SelectedRefs.current.forEach((recipient: any) => {
-            if (recipient.classList.contains('selected')) {
-                recipient.classList.remove('selected');
+        SelectedRefs.current.forEach((ref: any) => {
+            if (ref.classList.contains('selected')) {
+                ref.classList.remove('selected');
             }
 
-            if (selectedRec) {
-                if (selectedRec.userId === recipient.id) {
-                    recipient.classList.add('selected');
+            if (recipient) {
+                if (recipient.userId === ref.id) {
+                    ref.classList.add('selected');
                 }
             }
         });
-    }, [selectedRec]);
+    }, [recipient]);
 
     function handleTabChange(ev: any) {
         ev.preventDefault();
@@ -91,7 +89,7 @@ function Chat() {
                 _id: message._id,
             };
             setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
-            setScroll('0');
+
         });
 
         return () => {
@@ -158,8 +156,7 @@ function Chat() {
 
             if (recipients?.length > 0) {
                 setUserList(recipients);
-                setRecipient(recipients[0]);
-                setSelectedRec(recipients[0]);
+            setRecipient(recipients[0]);
             }
 
             if (recipients === undefined || !recipients) {
@@ -167,7 +164,6 @@ function Chat() {
                 let localRecipients = data;
                 setUserList(localRecipients);
                 setRecipient(localRecipients[0]);
-                setSelectedRec(localRecipients[0]);
                 if (!localRecipients[0].name.first) throw new Error('no localRecipients');
                 if (localRecipients[0].name.first) {
                 }
@@ -178,8 +174,8 @@ function Chat() {
     }
     return (
         <div className='chat'>
-            <SideBar setSelectedRec={setSelectedRec} addToRefs={addToRefs} dateFromObjectId={dateFromObjectId} messageList={messageList} setRecipient={setRecipient} userList={userList} />
-            {recipient ? <CurrentRecipient setSearchTerm={setSearchTerm} chatArea={chatArea} handleTabChange={handleTabChange} recipient={recipient} handleChatSearchBar={handleChatSearchBar} searchMessagesToggle={searchMessagesToggle} /> : null}
+            <SideBar  addToRefs={addToRefs} dateFromObjectId={dateFromObjectId} messageList={messageList} setRecipient={setRecipient} userList={userList} />
+            {recipient ? <CurrentRecipient  chatArea={chatArea} handleTabChange={handleTabChange} recipient={recipient} handleChatSearchBar={handleChatSearchBar} searchMessagesToggle={searchMessagesToggle} /> : null}
             <ChatWindow recipient={recipient} sender={sender} chatArea={chatArea} dateFromObjectId={dateFromObjectId} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} messageList={messageList} />
         </div>
     );
