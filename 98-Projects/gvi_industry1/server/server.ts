@@ -68,9 +68,6 @@ io.on('connection', (socket: any) => {
     socket.on('send-message', (data) => {
         const message = new MessageModel({text: data.text, file: data.file, sender: data.sender, recipient: data.recipient, time: data.time});
         message.save();
-        
-       
-        
         socket.to(data.recipient.userId).emit('receive-message', message);
     });
 });
@@ -86,13 +83,15 @@ app.use('/api/initiatives', initiativesRouter);
 import userRoute from './routes/userRoute';
 app.use('/api/users',testServer, userRoute);
 
+import messageRoute from './routes/messageRoute';
+app.use('/api/messages', messageRoute);
+
+
 function testServer(req, res, next){
     console.log('test server')
     next()
 }
 
-import messageRoute from './routes/messageRoute';
-app.use('/api/messages', messageRoute);
 
 
 

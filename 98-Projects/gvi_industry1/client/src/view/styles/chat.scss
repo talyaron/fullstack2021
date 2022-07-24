@@ -63,47 +63,46 @@
         .selected {
             background: #cdcdcd;
             &.recipient:hover {
-                background: #c1c1c1
+                background: #c1c1c1;
             }
         }
-        
+
         .recipient {
             cursor: pointer;
             display: flex;
             justify-content: space-around;
             align-items: center;
             height: 7vh;
-            padding: .3em 1em;
+            padding: 0.3em 1em;
             // width: 25vh;
             &:hover {
                 background: #e2e2e2;
             }
-            &_text{
-                font-size: clamp(.8rem, .9vw, 1rem); 
+            &_text {
+                font-size: clamp(0.8rem, 0.9vw, 1rem);
                 padding-inline: 1em;
                 text-align: start;
                 display: flex;
                 flex-direction: column;
                 align-items: start;
                 width: 100%;
-                *{
+                * {
                     margin: 0;
                     padding: 0;
                 }
                 // &_name{
-                    
+
                 // }
-                &_lastMessage{
+                &_lastMessage {
                     display: flex;
                     width: 100%;
                     flex-direction: row;
-justify-content: space-between;
-align-items: center;
+                    justify-content: space-between;
+                    align-items: center;
                     // &-time{
 
                     // }
                 }
-
             }
         }
         // &__Buttons {
@@ -203,7 +202,6 @@ align-items: center;
             width: 100%;
             max-height: 100%;
             isolation: isolate;
-
         }
         &__docsList {
             list-style: none;
@@ -237,68 +235,93 @@ align-items: center;
             margin: 0 25px 0 25px;
             place-self: flex-start;
             .MessageCard {
-                    position: relative;
-                    width: fit-content;
-                    padding: 5px 5px 5px 10px;
-                    border-radius: 5px;
-                    background: white;
-                    margin: 10px 0;
+                position: relative;
+                width: fit-content;
+                padding: 5px 5px 5px 10px;
+                border-radius: 5px;
+                background: white;
+                margin: 10px 0;
 
-                    .left-point {
-                        width: 0;
-                        height: 0;
-                        border-left: 0.5vh solid transparent;
-                        border-right: 1vh solid transparent;
-                        border-top: 2vh solid white;
-                        position: absolute;
-                        top: 50%;
-                        right: 99.5%;
-                        transform: rotate(70deg);
-                    }
-
-                    .time {
-                        width: 100%;
-                        display: flex;
-                        justify-content: right;
-                        font-size: 12px;
+                .left-point {
+                    width: 0;
+                    height: 0;
+                    border-left: 0.5vh solid transparent;
+                    border-right: 1vh solid transparent;
+                    border-top: 2vh solid white;
+                    position: absolute;
+                    top: 50%;
+                    right: 99.5%;
+                    transform: rotate(70deg);
+                }
+                .content {
+                    display: flex;
+                    align-items: center;
+                    .Img {
+                        max-width: 100px;
+                        max-height: 100px;
                     }
                 }
+                .fileUrl{
+                    max-width: 400px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+
+                }
+                .time {
+                    width: 100%;
+                    display: flex;
+                    justify-content: right;
+                    font-size: 12px;
+                }
+            }
             .myMessageCard {
-                    position: relative;
-                    width: fit-content;
-                    padding: 5px 5px 5px 10px;
-                    border-radius: 5px;
-                    background: white;
-                    margin: 10px 0;
-                    align-self: end;
-                    
+                position: relative;
+                width: fit-content;
+                padding: 5px 5px 5px 10px;
+                border-radius: 5px;
+                background: white;
+                margin: 10px 0;
+                align-self: end;
 
-                    .right-point {
-                        width: 0;
-                        height: 0;
-                        border-left: 0.5vh solid transparent;
-                        border-right: 1vh solid transparent;
-                        border-top: 2vh solid white;
-                        position: absolute;
-                        top: 50%;
-                        left: 99.5%;
-                        transform: rotate(290deg);
-                    }
-
-                    .time {
-                        width: 100%;
-                        display: flex;
-                        justify-content: right;
-                        font-size: 12px;
+                .right-point {
+                    width: 0;
+                    height: 0;
+                    border-left: 0.5vh solid transparent;
+                    border-right: 1vh solid transparent;
+                    border-top: 2vh solid white;
+                    position: absolute;
+                    top: 50%;
+                    left: 99.5%;
+                    transform: rotate(290deg);
+                }
+                .content {
+                    display: flex;
+                    justify-content: center;
+                    .Img {
+                        overflow: hidden;
+                        max-width: 100px;
+                        max-height: 100px;
                     }
                 }
-            
+                .fileUrl{
+                    max-width: 400px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+
+                }
+                .time {
+                    width: 100%;
+                    display: flex;
+                    justify-content: right;
+                    font-size: 12px;
+                }
+            }
         }
         &__messageBar {
             position: absolute;
             display: flex;
             justify-content: space-between;
-            align-items:center;
+            align-items: center;
             // place-items: center;
             bottom: 35px;
             right: 100px;
@@ -309,9 +332,9 @@ align-items: center;
             border-radius: 12px;
             flex: 1;
 
-            .fileUpload{
+            .fileUpload {
                 width: 70%;
-                height:100%;
+                height: 100%;
             }
             div {
                 line-height: 1;

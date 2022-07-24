@@ -11,12 +11,11 @@ interface conversationsTabProps {
     dateFromObjectId: Function;
     setSentMessage: Function;
     handleSendMessage: Function;
+    sentMessage:any;
 }
 function ConversationsTab(props: conversationsTabProps) {
-    const {messageListRef,recipient, sender, messageList, dateFromObjectId, setSentMessage, handleSendMessage} = props;
+    const {sentMessage,messageListRef, recipient, sender, messageList, dateFromObjectId, setSentMessage, handleSendMessage} = props;
 
-
-   
     return (
         <div className='chat__chatWindowTabs'>
             <ul ref={messageListRef} className='chat__chatWindow__messagesList'>
@@ -25,8 +24,16 @@ function ConversationsTab(props: conversationsTabProps) {
                           if (recipient.userId === message?.recipient?.userId || recipient.userId === message?.sender?.userId) {
                               return (
                                   <li key={i} className={`${message?.sender?.userId === sender.userId ? `my` : ``}MessageCard`}>
-                                      <div className='content'>{message.text}</div>
-
+                                      <div className='content'>
+                                          {message.text} {message.file && <img className='Img' src={`${message.file}`} alt={`${message.file}`} />}
+                                      </div>
+                                      {message.file && (
+                                          <div className='fileUrl'>
+                                              <a target="_blank" href={`${message.file}`}>
+                                                  {message.file}
+                                              </a>
+                                          </div>
+                                      )}
                                       <div className='time'>{dateFromObjectId(message._id).slice(15, 21)}</div>
                                       <div className={`${message?.sender?.userId === sender.userId ? `right` : `left`}-point`}></div>
                                   </li>
@@ -40,6 +47,7 @@ function ConversationsTab(props: conversationsTabProps) {
                     onChange={(ev) => {
                         setSentMessage(ev.target.value);
                     }}
+                    defaultValue={sentMessage}
                     placeholder='Message'
                 />
 

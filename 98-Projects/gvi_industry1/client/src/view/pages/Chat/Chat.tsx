@@ -28,15 +28,15 @@ export interface MessageInterface {
 function Chat() {
     const [chatArea, setChatArea] = useState('Conversation');
 
-    const [sentMessage, setSentMessage] = useState('');
     const [messageList, setMessageList] = useState<Array<MessageInterface>>([]);
     //set to empty so we don't get errors about undefined userInterface:
     //FIXME: this
+    const [sentMessage, setSentMessage] = useState('');
+    const [sentFile, setSentFile] = useState<any>('');
     const [recipient, setRecipient] = useState<any>({_id: '1', name: {first: 'a', last: 'a'}});
     const [sender, setSender] = useState<MessageUserInterface>({userId: '', name: {first: '', last: ''}});
     const [userList, setUserList] = useState<Array<any>>([]);
     const [searchMessagesToggle, setSearchMessagesToggle] = useState<boolean>(false);
-    const [lastMessage, setLastMessage] = useState<MessageInterface>();
     const SelectedRefs: any = useRef([]);
     SelectedRefs.current = [];
     const addToRefs = (el: any) => {
@@ -89,7 +89,6 @@ function Chat() {
                 _id: message._id,
             };
             setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
-
         });
 
         return () => {
@@ -110,20 +109,38 @@ function Chat() {
     useEffect(() => {
         return () => {
             getMessageList();
-        }
+        };
     }, [recipient]);
 
     function handleChatSearchBar() {
         setSearchMessagesToggle((p: boolean) => !p);
     }
-    function handleSendMessage() {
+    async function handleSendMessage() {
         try {
             let id: any = recipient?._id;
 
             if (!id) {
                 id = recipient.userId;
             }
+            // console.log(sentFile.url, 'sentFile');
 
+            // const fileLink = sentFile.url;
+            let fileLink = await sentFile;
+            if (fileLink !== '' || fileLink !== undefined) {
+                // goes inside even though it is false
+                console.log(sentFile === '');
+                console.log(fileLink === '');
+
+                console.log(sentFile);
+                const payload = {
+                    text: '',
+                    sender: sender,
+                    recipient: recipient,
+                    file: fileLink,
+                };
+                socket.emit('send-message', payload);
+                return;
+            }
             if (sentMessage === '') throw new Error('Type something!');
 
             const payload = {
@@ -132,6 +149,7 @@ function Chat() {
                 recipient: recipient,
                 file: '',
             };
+            // setSentMessage('')
             socket.emit('send-message', payload);
         } catch (error) {
             console.log(error);
@@ -158,7 +176,7 @@ function Chat() {
 
             if (recipients?.length > 0) {
                 setUserList(recipients);
-            setRecipient(recipients[0]);
+                setRecipient(recipients[0]);
             }
 
             if (recipients === undefined || !recipients) {
@@ -176,9 +194,9 @@ function Chat() {
     }
     return (
         <div className='chat'>
-            <SideBar  addToRefs={addToRefs} dateFromObjectId={dateFromObjectId} messageList={messageList} setRecipient={setRecipient} userList={userList} />
-            {recipient ? <CurrentRecipient  chatArea={chatArea} handleTabChange={handleTabChange} recipient={recipient} handleChatSearchBar={handleChatSearchBar} searchMessagesToggle={searchMessagesToggle} /> : null}
-            <ChatWindow recipient={recipient} sender={sender} chatArea={chatArea} dateFromObjectId={dateFromObjectId} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} messageList={messageList} />
+            <SideBar addToRefs={addToRefs} dateFromObjectId={dateFromObjectId} messageList={messageList} setRecipient={setRecipient} userList={userList} />
+            {recipient ? <CurrentRecipient chatArea={chatArea} handleTabChange={handleTabChange} recipient={recipient} handleChatSearchBar={handleChatSearchBar} searchMessagesToggle={searchMessagesToggle} /> : null}
+            <ChatWindow sentMessage={sentMessage} setSentFile={setSentFile} recipient={recipient} sender={sender} chatArea={chatArea} dateFromObjectId={dateFromObjectId} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} messageList={messageList} />
         </div>
     );
 }

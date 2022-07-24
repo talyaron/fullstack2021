@@ -93,7 +93,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
     }
 
     return (
-        <div className={mentorWindow ? "backgroungd-overlay" : "back"}>
+        <div className={mentorWindow ? "background-overlay" : "back"}>
             <div className={mentorWindow ? "form__wrapper" : "back"}>
                 <div className={showProgressBar}>
                     <button className="closeButton" onClick={() => { handleCloseRegisterWindow() }}>X</button>
@@ -132,7 +132,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                                     <input type="text" name="phone" />
                                 </div>
                                 <div className="inputBox">
-                                    <div className="form__text">LinkdIN profile</div>
+                                    <div className="form__text">LinkedIn profile</div>
                                     <input type="text" name="linkedInProfile" />
                                 </div>
                                 <div className="inputBox">
