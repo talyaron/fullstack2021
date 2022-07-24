@@ -3,7 +3,7 @@ import Profile from './view/pages/mentee/Profile';
 // import Card from "./view/pages/mentee/Card"//
 import React from 'react';
 
-import './view/Styles/global.scss';
+import './view/styles/global.scss';
 
 import HomePage from './view/components/HomePage';
 import Matching from './view/pages/matching/Matching';

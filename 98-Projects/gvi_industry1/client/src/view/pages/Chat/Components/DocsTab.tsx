@@ -9,6 +9,9 @@ function DocsTab() {
 
     const myFile = fileToUpload?.current?.files[0]
     const formData = new FormData();
+    const reader = new FileReader();
+    reader.readAsDataURL(myFile)
+    console.log(reader);
     formData.append("file", myFile)
     formData.append("upload-file",'q3wqh4p7')
     
