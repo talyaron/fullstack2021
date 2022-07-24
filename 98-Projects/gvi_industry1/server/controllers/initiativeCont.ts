@@ -34,13 +34,17 @@ export const getAllRecipients = async (req, res) => {
         res.send({error: error.message, ok: false});
     }
 };
+
+
 export const getInitiative = async (req, res) => {
     try {
         const {userId} = req.body;
 
         const userInitiative = await InitiativeModel.findOne({ownerUserId: userId});
-
+        
+        
         res.send({userInitiative});
+
     } catch (err) {
         console.error(err);
         res.send({error: err.message, ok: false});
