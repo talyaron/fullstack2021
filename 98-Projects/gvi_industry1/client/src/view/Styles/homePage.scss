@@ -2,22 +2,18 @@
 
 .homeContainer {
     width: 1100px;
-    // height: 50%;
     padding-top: 60px;
     margin: auto;
     font-family: 'Inter';
     font-weight: 400;
     font-style: normal;
-    // margin: 50px 50px 0px 50px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    // grid-template-rows: repeat(2, 1fr);
     gap: 10px;
     background-color: rgb(255, 255, 255);
 }
 
 .welcomeText {
-    // border: 3px solid pink;
     display: grid;
     grid-row: 1fr 1fr 1fr;
 
@@ -84,12 +80,11 @@
 
 .videoWindow {
     width: 380px;
-    // height: 50%;
+
     margin: auto;
     margin-bottom: 0;
     margin-left: 2em;
-    // border: 3px solid pink;
-    // background-color: pink;
+
 
     img{
         width: 100%;
@@ -108,13 +103,9 @@
     align-self: center;
 
 
-
-
-    // border: 3px solid red;
-
     &__news {
         border: 3px solid rgb(68, 0, 255);
-        // width:500px;
+
 
     }
 

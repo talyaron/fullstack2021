@@ -70,7 +70,6 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             console.error(error);
         }
 
-        // window.location.reload();
     }
 
     return (

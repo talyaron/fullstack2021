@@ -1,8 +1,6 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import Matching from "../../matching/Matching";
-import Profile from "../..//mentee/Profile";
-import {Link, useNavigate } from "react-router-dom";
+
+import {Link} from "react-router-dom";
 
 interface navBarMentorProps {
 

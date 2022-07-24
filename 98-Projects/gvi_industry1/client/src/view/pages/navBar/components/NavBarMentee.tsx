@@ -1,7 +1,6 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-// import Profile from "../../mentee/Profile";
+import { Link} from "react-router-dom";
+
 
 interface navBarMenteeProps {
 

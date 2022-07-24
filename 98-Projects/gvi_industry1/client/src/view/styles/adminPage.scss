@@ -1,8 +1,37 @@
 .usersOverView{
-    border:black solid 2px;
+    border:rgb(56, 56, 56) solid 2px;
     margin:10px 0 10px 0;
     width:50vw;
-   // height:500px;
+}
+ .scrollBar{
+     height: 50vh;
+      overflow-y: scroll;
+  }
+::-webkit-scrollbar {
+     width: 10px;
+    
+  }
+ 
+  /* Track */
+::-webkit-scrollbar-track {
+    background: #d6d6d6;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+.center{ 
+      align-items: center;
+   flex-direction: column;
+    display: flex;
+
 }
 .allConect{
     display: flex;
