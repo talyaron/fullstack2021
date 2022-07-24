@@ -4,6 +4,7 @@
     grid-template-rows: repeat(5, 0.5fr);
     column-gap: 20px;
     padding: 5px;
+    margin-bottom: 10%;
 
     // grid-template-rows: 1.5fr 1.5fr 1.5fr 1.5fr;
     // column-gap: 1vw;
@@ -84,10 +85,9 @@
     &__button {
         height: 39px;
         width: 159px;
-        left: 153px;
-        top: 170px;
+        // left: 153px;
+        // top: 170px;
         border-radius: 15px;
-
         background-color: #ADADAD;
         border: none;
         grid-column-start: 4;
