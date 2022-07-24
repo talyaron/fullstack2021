@@ -15,7 +15,7 @@ import AdminLayout from './view/pages/AdminLayout';
 import axios from 'axios';
 import {BrowserRouter as Router, Routes, Route, useParams} from 'react-router-dom';
 
-import SelectedMentors from './view/pages/mentee/SelctedMentors';
+import SelectedUsers from './view/components/SelctedUsers';
 import NavBar from './view/pages/navBar/NavBar';
 import NavBarMentee from './view/pages/navBar/components/NavBarMentee';
 import Layout from './view/pages/Layout';
@@ -76,7 +76,7 @@ function App() {
               />
             }
           />
-          <Route path="matching/selected-mentors" element={<SelectedMentors />} />
+          <Route path="matching/selected-users" element={<SelectedUsers />} />
         </Route>
         <Route
           path="mainPageAdmin"

@@ -2,7 +2,7 @@
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 //@ts-ignore
 import StarIcon from "@mui/icons-material/Star";
-import "./style/card.scss";
+import "../styles/card.scss";
 
 interface CardProps {
   selectedUsers: any;
