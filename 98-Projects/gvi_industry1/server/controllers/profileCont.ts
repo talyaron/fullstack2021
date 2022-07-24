@@ -12,8 +12,6 @@ export async function saveImage(req, res) {
         folder:"imgs",
       })
       
-      console.log(result);
-      
       res.send({  ok: true ,result});
     } catch (error) {
       console.log(error.error);
@@ -32,11 +30,13 @@ export async function changePofilePic(req, res) {
         folder:"imgs",
       })
 
-      const ImgUrl = result.url
-
-      // const user = UserModel.findOne({_id:userId,image:ImgUrl})
+      const imgUrl = result.url
+      console.log(imgUrl);
       
-      res.send({  ok: true ,result});
+      await UserModel.updateOne({_id:userId},{image:imgUrl})
+
+      res.send({  ok: true ,imgUrl});
+
     } catch (error) {
       console.log(error.error);
       res.send({ error: error.message });

@@ -25,15 +25,15 @@ export function Profile () {
 
     // let {userId} = useParams();
 
-    const [userId , serUserId] = useState("")
+    const [userId , setUserId] = useState("")
     const [gotId , setGotId] = useState(false)
      const [userName , setUserName] = useState({first:"first",last:"last"})
      const [userSector , setUserSector] = useState("sector")
+     const [profilePic , setProfilePic] = useState(" ")
      const [contactInfo, setContactInfo] = useState({})
      const [companyInfo , setCompanyInfo] = useState<any>([])
      const [isInitiative , setIsInitiative] = useState(false)
      const [isMentee , setIsMentee] = useState(false)
-     const [isMentor , setIsMentor] = useState(false)
      const [editAddress , setEditAddress] = useState(false)
      const [editCompany , setEditCompany] = useState(false)
      const [userDetails , setUserDetails] = useState()
@@ -44,7 +44,7 @@ export function Profile () {
         (async () => {
           const { data } = await axios.get("/api/users/get-user");
           const { user } = data;
-          serUserId(user._id)
+          setUserId(user._id)
           setGotId(true)
         })();
       }, []);
@@ -57,15 +57,17 @@ export function Profile () {
 
           const {data} = await axios.post('/api/users/get-userById',{userId});
           const userFound = data.user;
-          if(userFound.type === "mentee") setIsMentee(true)
-          if(userFound.type === "mentor") setIsMentee(false)
-            
+          const type = userFound.type;
+          if(type === "mentee") setIsMentee(true)
+          if(type === "mentor") setIsMentee(false)
+          
           setUserDetails(userFound)
           setUserName(userFound.name)
           setUserSector(userFound.sector)
           const newContactInfo = {country:userFound.country,city:userFound.city,address:userFound.address,
           email:userFound.email,phone:userFound.phone,linkdInProfile:userFound.linkdInProfile}
           await setContactInfo(newContactInfo)
+          await setProfilePic(userFound.image)
           getInitiative(userId)
           setGotId(false)
         }
@@ -76,29 +78,32 @@ export function Profile () {
      const [currentUserType, setCurrentUserType] = useState("");
 
       async function getInitiative(userId:any){
-        
+
+
+        try {
+          if(isMentee){
         const {data} = await axios.post('/api/initiatives/get-initiative',{userId});
 
-        console.log(data);
-        
         const companyName = data.userInitiative.companyName;
         const description = data.userInitiative.description;
         const sector = data.userInitiative.sector;
         const stage = data.userInitiative.stage;
         const linkToOnePager = data.userInitiative.linkToOnePager;
 
-        if(companyName  ){          
+        if(companyName ){          
           setIsInitiative(true)
           const companyDetails = [companyName,description,sector,stage,linkToOnePager]
             setCompanyInfo(companyDetails)
         }else{          
           setIsInitiative(false)
         }
+      }
+      } catch (err) {
+        console.error(err);
+    }
         
       }
 
-
-    
 
     function editAddressDetails(){
         setEditAddress(!editAddress)
@@ -132,7 +137,7 @@ export function Profile () {
     
   return (
     <div className='profile'>
-      <ProfileImage userId={userId}/>
+      <ProfileImage userId={userId} profilePic={profilePic}/>
 
         <div className='profile_contactInfo'>
         <div className='profile_contactInfo-edit' onClick={editAddressDetails}>✏️</div>

@@ -34,7 +34,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
     const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, menteeWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
 
     const [activeStep, setActiveStep] = React.useState(0);
-    const [isImage, setIsImage] = useState(false);
+    // const [isImage, setIsImage] = useState(false);
     const [imageFile , setImageFile] = useState<any>()
     const [profilePic, setProfilePic] = useState(" ");
     
@@ -74,7 +74,6 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
             const userData = await axios.post('/api/users/add-user', { user });
 
-            // console.log(userData)
             const { data } = userData;
             const  result  = data;
             
@@ -105,15 +104,13 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         reader.readAsDataURL(image)
         reader.onloadend = async () => {
         await setImageFile(`${reader.result}`)
-        console.log(reader.result);
         const imageFile = reader.result
         const {data} = await axios.post('/api/profile/saveImage',{imageFile})
                 const ImgUrl = data.result.url;
-                console.log(ImgUrl);
                 
                 setProfilePic(ImgUrl)
         
-        setIsImage(true)     
+            
                 }
     }
 
