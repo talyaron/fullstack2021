@@ -17,69 +17,93 @@ const companyDetails = ['Company Name', 'Discription','Sectors','Startup Stage',
 
 const mentorDetails = ["The Escort Offer","finance","Start Up Stage" , "description of field", "Website"]
 
-interface ProfileProps{
- 
-}
 
 
-export function Profile (props:ProfileProps) {
 
-    const {userId} = useParams();
-    const id = userId;
+export function Profile () {
 
-  
-     const [userName , setUserName] = useState()
-     const [userSector , setUserSector] = useState(" ")
-     const [contactInformation , setContactInfo] = useState({})
+
+    // let {userId} = useParams();
+
+    const [userId , setUserId] = useState("")
+    const [gotId , setGotId] = useState(false)
+     const [userName , setUserName] = useState({first:"first",last:"last"})
+     const [userSector , setUserSector] = useState("sector")
+     const [profilePic , setProfilePic] = useState(" ")
+     const [contactInfo, setContactInfo] = useState({})
      const [companyInfo , setCompanyInfo] = useState<any>([])
-     const [isMentee , setIsMentee] = useState(true)
-     const [isMentor , setIsMentor] = useState(false)
+     const [isInitiative , setIsInitiative] = useState(false)
+     const [isMentee , setIsMentee] = useState(false)
      const [editAddress , setEditAddress] = useState(false)
      const [editCompany , setEditCompany] = useState(false)
      const [userDetails , setUserDetails] = useState()
 
 
-     useEffect(() => {
+     
+      useEffect(() => {
         (async () => {
-          const {data} = await axios.post('/api/users/get-userById',{id});
-          console.log(data)
+          const { data } = await axios.get("/api/users/get-user");
+          const { user } = data;
+          setUserId(user._id)
+          setGotId(true)
+        })();
+      }, []);
+    
+     if(gotId){
+       getUserDetails()
+     }
+
+        async function getUserDetails(){
+
+          const {data} = await axios.post('/api/users/get-userById',{userId});
           const userFound = data.user;
-          await getInitiative()
+          const type = userFound.type;
+          if(type === "mentee") setIsMentee(true)
+          if(type === "mentor") setIsMentee(false)
+          
           setUserDetails(userFound)
-          MentorOrMentee(userFound.type)
           setUserName(userFound.name)
           setUserSector(userFound.sector)
-          console.log(userFound);
           const newContactInfo = {country:userFound.country,city:userFound.city,address:userFound.address,
-            email:userFound.email,phone:userFound.phone,linkdInProfile:userFound.linkdInProfile}
-            setContactInfo(newContactInfo)
-        })();
-      }, [])
+          email:userFound.email,phone:userFound.phone,linkdInProfile:userFound.linkdInProfile}
+          await setContactInfo(newContactInfo)
+          await setProfilePic(userFound.image)
+          getInitiative(userId)
+          setGotId(false)
+        }
+         
+       
+      
      const [loggedInUser, setloggedInUser] = useState({});
      const [currentUserType, setCurrentUserType] = useState("");
 
-      async function getInitiative(){
+      async function getInitiative(userId:any){
+
+
+        try {
+          if(isMentee){
         const {data} = await axios.post('/api/initiatives/get-initiative',{userId});
-        console.log(data)
-        const companyDetails = [
-          data.userInitiative.companyName,
-          data.userInitiative.description,
-          data.userInitiative.sector,data.userInitiative.stage,
-          data.userInitiative.linkToOnePager]
-          setCompanyInfo(companyDetails)
+
+        const companyName = data.userInitiative.companyName;
+        const description = data.userInitiative.description;
+        const sector = data.userInitiative.sector;
+        const stage = data.userInitiative.stage;
+        const linkToOnePager = data.userInitiative.linkToOnePager;
+
+        if(companyName ){          
+          setIsInitiative(true)
+          const companyDetails = [companyName,description,sector,stage,linkToOnePager]
+            setCompanyInfo(companyDetails)
+        }else{          
+          setIsInitiative(false)
+        }
+      }
+      } catch (err) {
+        console.error(err);
+    }
+        
       }
 
-      function MentorOrMentee(type:string){
-        if(type === "mentee") {
-            setIsMentee(true)
-            setIsMentor(false)
-          } else if(type === "mentor") {
-            setIsMentee(false)
-            setIsMentor(true)
-          }
-      }
-
-    
 
     function editAddressDetails(){
         setEditAddress(!editAddress)
@@ -90,45 +114,39 @@ export function Profile (props:ProfileProps) {
        
     }
 
-    useEffect(() => {
-        //get data on the user and show the chosen user by id
-        (async () => {
-          try {
-            const { data } = await axios.post("/api/users/get-LoggedIn-Profile");
-            const { currentUser } = data;
+    // useEffect(() => {
+    //     //get data on the user and show the chosen user by id
+    //     (async () => {
+    //       try {
+    //         const { data } = await axios.post("/api/users/get-LoggedIn-Profile");
+    //         const { currentUser } = data;
         
          
-            setloggedInUser(currentUser);
-              setCurrentUserType(currentUser.type);
-    
-            if (!loggedInUser) {
-              throw new Error("no profile");
-            }
-          } catch (err: any) {
-            console.error(err.message);
-          }
-        })();
-      }, []);
+    //         setloggedInUser(currentUser);
+    //           setCurrentUserType(currentUser.type);
+            
+    //         if (!loggedInUser) {
+    //           throw new Error("no profile");
+    //         }
+    //       } catch (err: any) {
+    //         console.error(err.message);
+    //       }
+    //     })();
+    //   }, []);
     
     
   return (
     <div className='profile'>
-      <ProfileImage userId={userId}/>
-        {/* <div className="profile_profilePic" >
-           <img className="profile_profilePic-img" src={profileImg} alt="" />
-        <label htmlFor="changeImage" className='profile_profilePic-changeImg'>
-            <input type="file" id='changeImage'  accept="image/*" 
-            onChange={changeImage}/>
-        </label>
-        </div> */}
+      <ProfileImage userId={userId} profilePic={profilePic}/>
+
         <div className='profile_contactInfo'>
         <div className='profile_contactInfo-edit' onClick={editAddressDetails}>✏️</div>
         <h1 style={{gridColumn:'1/11',gridRow:'2/3',fontSize:'17px',textAlign:'center'}}>Contact Information</h1>
-        {editAddress?<FormAddress userId={id} setEditAddress={setEditAddress} contactInfo={contactInformation}/>:
-        <ContactDetails contactInfo={contactInformation} />}
+        {editAddress?<FormAddress userId={userId} setEditAddress={setEditAddress} contactInfo={contactInfo }/>:
+        <ContactDetails contactInfo={contactInfo} />}
         </div>
         <div className='profile_nameProffession'>
-          {/* <NameAndPro userName={userName} userSector={userSector}/> */}
+          <NameAndPro userName={userName} userSector={userSector}/>
             {/* <h1 style={{marginTop:'-5px'}}>{userDemo.name}</h1>
             <h2 style={{fontSize:'25px',marginTop:'-5px'}}>{userDemo.profession}</h2> */}
         </div>
@@ -139,9 +157,8 @@ export function Profile (props:ProfileProps) {
                 <div className='profile_companyDetails_header-edit' onClick={editCompanyDetails}>✏️</div>
                 </div>
                 {editCompany?
-                <FormProffesion userId={id} isMentee={isMentee} companyInfo={companyInfo} mentorDetails={mentorDetails}/>:
-                <ProffesionalDetails companyInfo={companyInfo} mentorDetails={mentorDetails} 
-                isMentee={isMentee} />}
+                <FormProffesion userId={userId} isMentee={isMentee} companyInfo={companyInfo} mentorDetails={mentorDetails}/>:
+                <ProffesionalDetails companyInfo={companyInfo} mentorDetails={mentorDetails} isInitiative={isInitiative} />}
                 
         </div>
     </div>
