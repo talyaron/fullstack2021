@@ -1,7 +1,7 @@
 import {useContext} from 'react';
 import {ChatContext} from '../../../Contexts/ChatContext';
-import ConversationsTab from '../Components/ConversationsTab';
-import DocsTab from '../Components/DocsTab';
+import ConversationsTab from './ConversationsTab';
+import DocsTab from './DocsTab';
 
 interface ChatWindowProps {
     chatArea: String;

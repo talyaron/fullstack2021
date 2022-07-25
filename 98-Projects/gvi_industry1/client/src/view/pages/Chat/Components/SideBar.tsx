@@ -2,7 +2,7 @@ import {useId, useContext} from 'react';
 import {InputBase} from '@mui/material';
 import {MessageUserInterface} from '../Chat';
 import SearchUsersIcon from '../Icons/SearchUsers';
-import RecipientCard from '../Components/RecipientCard';
+import RecipientCard from './RecipientCard';
 import {ChatContext} from '../../../Contexts/ChatContext';
 
 interface SideBarProps {
