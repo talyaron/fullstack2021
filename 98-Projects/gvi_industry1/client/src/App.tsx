@@ -81,7 +81,7 @@ function App() {
           element={<AdminLayout loggedInUser={loggedInUser} />}
         >
           <Route index element={<AdminPage />} />
-          <Route path="chat/:userId" element={<Chat />} />
+          <Route path="chatAdmin/:userId" element={<Chat />} />
           <Route path="profile/:userId" element={<Profile />} />
         </Route>
       </Routes>
