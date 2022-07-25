@@ -2,11 +2,13 @@ import react, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
+
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import {color} from '@mui/system';
 
 interface RegisterMenteeProps {
   countryArray: Array<object>;
@@ -48,10 +50,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
     handleCloseRegisterWindow,
   } = props;
 
-  const [activeStep, setActiveStep] = React.useState(0);
-  // const [isImage, setIsImage] = useState(false);
-  const [imageFile, setImageFile] = useState<any>();
-  const [profilePic, setProfilePic] = useState(" ");
+    const [activeStep, setActiveStep] = React.useState(0);
 
   async function handleMenteeForm(ev: any) {
     ev.preventDefault();
@@ -77,22 +76,25 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
       const type = "mentee";
       const name = { first, last };
 
-      const user = {
-        name,
-        password,
-        image,
-        description,
-        linkedInProfile,
-        email,
-        country,
-        phone,
-        sector,
-        stage,
-        type,
-      };
-      console.log(user);
+            const first = ev.target.elements.first.value;
+            const last = ev.target.elements.last.value;
+            const password = ev.target.elements.password.value;
+            const email = ev.target.elements.email.value;
+            const phone = ev.target.elements.phone.value;
+            const linkedInProfile = ev.target.elements.linkedInProfile.value;
+            const country = ev.target.elements.country.value;
+            const companyName = ev.target.elements.companyName.value;
+            const stage = ev.target.elements.startupStage.value;
+            const sector = ev.target.elements.sector.value;
+            const webSite = ev.target.elements.website.value;
+            const presentations = ev.target.elements.presentations.value;
+            const linkToOnePager = ev.target.elements.linkToOnePager.value;
+            const description = ev.target.elements.description.value;
+            const profilePic = ev.target.elements.profilePic.value;
+            const type = 'mentee';
+            const name = { first, last };
 
-      const userData = await axios.post("/api/users/add-user", { user });
+        const user = { name,password,profilePic, description,linkedInProfile, email, country, phone, sector, stage,type }
 
       const { data } = userData;
       console.log(data);
@@ -138,10 +140,101 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
       });
       const ImgUrl = data.result.url;
 
-      setProfilePic(ImgUrl);
-    };
-  }
+        // window.location.reload();
+    }
 
+    return (
+        <div>
+            <div className={menteeWindow ? 'backgroungd-overlay' : 'back'}>
+                <div className={menteeWindow ? 'form__wrapper' : 'back'}>
+                    <div className={showProgressBar}>
+                        <button
+                            className='closeButton'
+                            onClick={() => {
+                                handleCloseRegisterWindow();
+                            }}>
+                            X
+                        </button>
+                    </div>
+                    <Box sx={{width: '100%'}}>
+                        <Stepper activeStep={activeStep} alternativeLabel>
+                            {steps.map((label) => (
+                                <Step key={label}>
+                                    <StepLabel>{label}</StepLabel>
+                                </Step>
+                            ))}
+                        </Stepper>
+                    </Box>
+                    <form onSubmit={handleMenteeForm}>
+                        <div className={firstSection}>
+                            <div className='firstSectionWrapper'>
+                                <div className='firstSection'>
+                                    <div className='inputBox'>
+                                        <div className='form__text'>First Name</div>
+                                        <input type='text' name='first' />
+                                    </div>
+                                    <div className='inputBox'>
+                                        <div className='form__text'>Last Name</div>
+                                        <input type='text' name='last' />
+                                    </div>
+                                    <div className='inputBox'>
+                                        <div className='form__text'>Password</div>
+                                        <input type='password' name='password' />
+                                    </div>
+                                    <div className='inputBox'>
+                                        <div className='form__text'>Email</div>
+                                        <input type='email' name='email' />
+                                    </div>
+                                    <div className='inputBox'>
+                                        <div className='form__text'>Phone</div>
+                                        <input type='text' name='phone' />
+                                    </div>
+                                    <div className='inputBox'>
+                                        <div className='form__text'>LinkdIN profile</div>
+                                        <input type='text' name='linkedInProfile' />
+                                    </div>
+                                    <div className='inputBox'>
+                                        <div className='form__text'>Country</div>
+                                        <select name='country'>
+                                            <option hidden></option>
+                                            {countryArray.map((country: any, i) => {
+                                                return (
+                                                    <option key={i} value={`${country.name.common}`}>
+                                                        {country.name.common}
+                                                    </option>
+                                                );
+                                            })}
+                                        </select>
+                                    </div>
+                                    <div className='inputBox'>
+                                        <div className='form__text'>Upload Profile Image</div>
+                                        <input className='file-input' type='file' name='profilePic' />
+                                    </div>
+                                </div>
+                                <div className='btn-back-next'>
+                                    <div className='back-btn'>
+                                        <button
+                                            type='button'
+                                            onClick={() => {
+                                                handleBackToSelection();
+                                                setActiveStep(0);
+                                            }}>
+                                            <span className='fa fa-angle-left'></span> BACK
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button
+                                            type='button'
+                                            onClick={() => {
+                                                handleToggleShowSections();
+                                                setActiveStep(1);
+                                            }}>
+                                            NEXT
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 function moveToMainPage(){
   console.log("go to main page");
