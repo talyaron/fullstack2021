@@ -96,6 +96,8 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
         // window.location.reload();
     }
+// save image url from cloudinary in mongo
+
 
     function saveImage(ev:any){
 
@@ -109,8 +111,6 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                 const ImgUrl = data.result.url;
                 
                 setProfilePic(ImgUrl)
-        
-            
                 }
     }
 
