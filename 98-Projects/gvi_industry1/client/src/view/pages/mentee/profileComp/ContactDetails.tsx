@@ -18,8 +18,8 @@ const [linkdInProfile,setlinkdInProfile] = useState("")
         <>
         <div className='profile_contactInfo-address'>
               <p style={{gridRow:1,gridColumn:'1/5',fontSize:'15px',textAlign:'center'}}>{contactInfo.country},</p>
-              <p style={{gridRow:1,gridColumn:'6/11',fontSize:'15px'}}>{contactInfo.city}</p>
-              <p style={{gridRow:2,fontSize:'15px',gridColumn:'1/10',textAlign:'center'}}>{contactInfo.address}</p>
+              <p style={{gridRow:1,gridColumn:'6/8',fontSize:'15px'}}>{contactInfo.city}</p>
+              <p style={{gridRow:2,fontSize:'15px',gridColumn:'1/7',textAlign:'center'}}>{contactInfo.address}</p>
               </div>
               <p className='profile_contactInfo-email'>{contactInfo.email}</p>
               <p className='profile_contactInfo-phone'>{contactInfo.phone}</p>
