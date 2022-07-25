@@ -31,13 +31,13 @@ function App() {
   let { userId } = useParams();
 
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get("/api/users/get-user");
-      const { user } = data;
-      setCurrentUser(user);
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const { data } = await axios.get("/api/users/get-user");
+  //     const { user } = data;
+  //     setCurrentUser(user);
+  //   })();
+  // }, []);
 
  
   return (
@@ -65,12 +65,14 @@ function App() {
                 usersList={usersList}
                 setUsersList={setUsersList}
                 currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
                 currentSearch={currentSearch}
                 setCurrentSearch={setCurrentSearch}
                 filterOptions={filterOptions}
                 setFilterOptions={setFilterOptions}
                 checked={checked}
                 setChecked={setChecked}
+
               />
             }
           />
