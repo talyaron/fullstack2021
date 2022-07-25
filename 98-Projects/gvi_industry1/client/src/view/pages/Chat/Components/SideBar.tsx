@@ -2,7 +2,6 @@ import {useId, useContext} from 'react';
 import {InputBase} from '@mui/material';
 import {MessageUserInterface} from '../Chat';
 import SearchUsersIcon from '../Icons/SearchUsers';
-import SideBarDivider from '../Icons/SideBarDivider';
 import RecipientCard from './RecipientCard';
 import {ChatContext} from '../../../Contexts/ChatContext';
 
