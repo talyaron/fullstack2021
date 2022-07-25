@@ -1,7 +1,8 @@
-import { useId, useEffect } from 'react';
+import { useId, useEffect,  useContext } from 'react';
 import { Avatar, InputBase } from '@mui/material';
 import SearchMessages from '../Icons/SearchMessages';
 import { UserInterface } from '../Chat';
+import { ChatContext } from '../../../Contexts/ChatContext';
 
 interface CurrentRecipientProps {
     recipient: UserInterface;
@@ -10,8 +11,8 @@ interface CurrentRecipientProps {
     chatArea: String;
     searchMessagesToggle: boolean;
 }
-function CurrentRecipient(props: CurrentRecipientProps) {
-    const { chatArea, recipient, handleChatSearchBar, searchMessagesToggle, handleTabChange } = props;
+function CurrentRecipient() {
+    const { chatArea, recipient, handleChatSearchBar, searchMessagesToggle, handleTabChange } = useContext<CurrentRecipientProps>(ChatContext);
     const fullName: any = `${recipient.name.first + ' ' + recipient.name.last}`;
 
     const initial = fullName.match(/\b(\w)/g).join('').toUpperCase();

@@ -1,7 +1,8 @@
-import {LegacyRef} from 'react';
+import {LegacyRef,useContext} from 'react';
 import {InputBase} from '@mui/material';
 import {MessageInterface, MessageUserInterface} from '../Chat';
 import PaperPlaneIcon from '../Icons/PaperPlaneRight';
+import { ChatContext } from '../../../Contexts/ChatContext';
 
 interface conversationsTabProps {
     messageListRef: LegacyRef<HTMLUListElement>;
@@ -13,8 +14,10 @@ interface conversationsTabProps {
     handleSendMessage: Function;
     sentMessage:any;
 }
-function ConversationsTab(props: conversationsTabProps) {
-    const {sentMessage,messageListRef, recipient, sender, messageList, dateFromObjectId, setSentMessage, handleSendMessage} = props;
+function ConversationsTab() {
+const {messageListRef, sentMessage,recipient, sender, dateFromObjectId, messageList, setSentMessage, handleSendMessage} = useContext<conversationsTabProps>(ChatContext)
+
+
 
     return (
         <div className='chat__chatWindowTabs'>

@@ -1,7 +1,8 @@
 import PaperPlaneIcon from '../Icons/PaperPlaneRight';
 import {MessageInterface, MessageUserInterface} from '../Chat'
-import {useRef, useState} from 'react';
+import {useContext, useRef, useState} from 'react';
 import axios from 'axios';
+import { ChatContext } from '../../../Contexts/ChatContext';
 interface DocsTabInterface {
     messageList: Array<MessageInterface>;
     setSentFile:Function;
@@ -10,10 +11,12 @@ interface DocsTabInterface {
     sender: MessageUserInterface;
     recipient: MessageUserInterface;
 }
-function DocsTab(props:DocsTabInterface) {
-    const {recipient, sender, dateFromObjectId,messageList,setSentFile, handleSendMessage} = props;
+function DocsTab() {
+    const {recipient, sender, dateFromObjectId,messageList,setSentFile, handleSendMessage} = useContext<DocsTabInterface>(ChatContext);
+    
     const [fileResult, setFileResult]= useState<any>();
     const fileToUpload = useRef<any>();
+
 
     async function handleUploadFile() {
 
@@ -23,7 +26,7 @@ function DocsTab(props:DocsTabInterface) {
         reader.readAsDataURL(myFile);
         reader.onloadend = async () => {
             await setFileResult(`${reader.result}`)
-            console.log(fileResult, 'fileResult');
+            // console.log(fileResult, 'fileResult');
             const {data} = await axios.post('/api/messages/upload-file', {result: fileResult});
            docLink = data.docLink;
            await setSentFile(docLink.url);
@@ -34,6 +37,7 @@ function DocsTab(props:DocsTabInterface) {
     }
 
     return (
+
         <div className='chat__chatWindowTabs'>
             <div className="chat__chatWindow__messagesList">
             {messageList
@@ -66,7 +70,7 @@ function DocsTab(props:DocsTabInterface) {
                 <label>
                     <button
                         style={{display: 'none'}}
-                        onClick={(ev) => {
+                        onClick={() => {
                             handleUploadFile();
                         }}
                         className='sendButton'

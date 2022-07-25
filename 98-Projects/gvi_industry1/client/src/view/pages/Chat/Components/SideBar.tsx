@@ -1,24 +1,18 @@
-import {useId, useEffect, useState, useRef, LegacyRef} from 'react';
-import {Avatar, InputBase} from '@mui/material';
-import {MessageInterface, MessageUserInterface, UserInterface} from '../Chat';
+import {useId, useContext} from 'react';
+import {InputBase} from '@mui/material';
+import {MessageUserInterface} from '../Chat';
 import SearchUsersIcon from '../Icons/SearchUsers';
 import SideBarDivider from '../Icons/SideBarDivider';
-import {socket} from '../../../../index';
 import RecipientCard from './RecipientCard';
+import {ChatContext} from '../../../Contexts/ChatContext';
 
 interface SideBarProps {
-    addToRefs:LegacyRef<HTMLLIElement>;
-    messageList: Array<MessageInterface>;
     userList: Array<MessageUserInterface>;
-    dateFromObjectId: Function;
-    setRecipient: Function;
-
 }
 
-function SideBar(props: SideBarProps) {
-    const { addToRefs,dateFromObjectId, messageList, userList, setRecipient} = props;
-    const id = useId(); 
-    
+function SideBar() {
+    const {userList} = useContext<SideBarProps>(ChatContext);
+    const id = useId();
     return (
         <div className='chat__sideBar'>
             <div className='chat__sideBar__searchBar'>
@@ -30,12 +24,13 @@ function SideBar(props: SideBarProps) {
             <ul className='chat__sideBar__recipientsList'>
                 {userList ? (
                     userList.map((user: any, i: any) => {
-                        return <RecipientCard dateFromObjectId={dateFromObjectId} messageList={messageList} addToRefs={addToRefs}  setRecipient={setRecipient} user={user} key={i} />;
+                        return <RecipientCard user={user} key={i} />;
                     })
                 ) : (
                     <h1>userList</h1>
                 )}
             </ul>
+            <SideBarDivider/>
         </div>
     );
 }
