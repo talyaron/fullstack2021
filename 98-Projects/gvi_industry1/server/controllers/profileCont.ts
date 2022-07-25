@@ -7,11 +7,9 @@ export async function saveImage(req, res) {
     try {
       
       const {imageFile,userId} = req.body;
-      
       const result = await cloudinary.uploader.upload(imageFile,{
         folder:"imgs",
       })
-      
       res.send({  ok: true ,result});
     } catch (error) {
       console.log(error.error);

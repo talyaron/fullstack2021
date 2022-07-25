@@ -1,62 +1,18 @@
-import { useId, useEffect, useState, useRef } from 'react';
-import { InputBase } from '@mui/material';
-import { MessageInterface, MessageUserInterface, UserInterface } from '../Chat';
+import {useId, useContext} from 'react';
+import {InputBase} from '@mui/material';
+import {MessageUserInterface} from '../Chat';
 import SearchUsersIcon from '../Icons/SearchUsers';
 import SideBarDivider from '../Icons/SideBarDivider';
-import { socket } from '../../../../index';
-
+import RecipientCard from './RecipientCard';
+import {ChatContext} from '../../../Contexts/ChatContext';
 
 interface SideBarProps {
-    messageList: Array<MessageInterface>
     userList: Array<MessageUserInterface>;
-
-    setRecipient: Function;
-
 }
 
-function SideBar(props: SideBarProps) {
-
-    const { messageList ,userList, setRecipient } = props;
-
-    const [userListMap, setUserListMap] = useState(userList[0])
-
-    const [selectedRec, setSelectedRec] = useState<any>('')
-
-    // const SelectedRefs = useRef<HTMLLIElement>(null!);
-    const SelectedRefs: any = useRef([])
-    SelectedRefs.current = [];
-
+function SideBar() {
+    const {userList} = useContext<SideBarProps>(ChatContext);
     const id = useId();
-
-
-    const addToRefs = (el: any) => {
-
-        if (el && !SelectedRefs.current.includes(el)) {
-            SelectedRefs.current.push(el)
-        }
-    }
-
-    useEffect(() => {
-
-        SelectedRefs.current.forEach((recipient: any) => {
-
-            if (recipient.classList.contains('selected')) {
-                recipient.classList.remove('selected')
-            }
-
-            if (selectedRec) {
-                if (selectedRec._id === recipient.id) {
-                    recipient.classList.add('selected')
-                }
-            }
-
-
-
-        });
-
-
-    }, [selectedRec])
-
     return (
         <div className='chat__sideBar'>
             <div className='chat__sideBar__searchBar'>
@@ -66,29 +22,15 @@ function SideBar(props: SideBarProps) {
                 </div>
             </div>
             <ul className='chat__sideBar__recipientsList'>
-                {userList ? ( 
+                {userList ? (
                     userList.map((user: any, i: any) => {
-                        return (
-                            <li
-                                ref={addToRefs}
-                                key={i}
-                                id={user._id}
-                                className='recipient'
-                                onClick={() => {
-                                    setSelectedRec(user)
-                                    setRecipient(user);
-                                }}
-                            >
-                                <h1 >{user.name.first} {user.name.last}</h1>
-
-                            </li>
-                        );
+                        return <RecipientCard user={user} key={i} />;
                     })
                 ) : (
                     <h1>userList</h1>
                 )}
             </ul>
-            {/* <SideBarDivider/> */}
+            <SideBarDivider/>
         </div>
     );
 }

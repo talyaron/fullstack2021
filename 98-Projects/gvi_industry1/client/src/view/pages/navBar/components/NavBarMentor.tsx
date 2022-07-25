@@ -20,7 +20,7 @@ function NavBarMentor(props: navBarMentorProps) {
     <div className="navBar">
       <div className="logo">
       <Link className="link" to='/'>
-        <img src="./gvi-logo.png" alt="logo" />
+        <img src="../gvi-logo.png" alt="logo" />
         </Link>
       </div>
 
@@ -37,16 +37,17 @@ function NavBarMentor(props: navBarMentorProps) {
         </div>
         <div className="profileIMG"> 
 
-          <Link to="profile">
+        {loggedInUser ? <p>{loggedInUser?.name?.first}</p> : null}
+          {/* <Link to="profile">
           <img
             src={
               loggedInUser && loggedInUser.image
                 ? loggedInUser.image
                 : null
             }
-            alt="profile logo"
+            alt='{loggedInUser.name.first}'
          
-          /></Link>
+          /></Link> */}
         </div>
       </div>
     
