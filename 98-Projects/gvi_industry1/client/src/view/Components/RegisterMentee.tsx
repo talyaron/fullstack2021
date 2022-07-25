@@ -152,7 +152,7 @@ function moveToMainPage(){
 
   return (
     <div>
-      <div className={menteeWindow ? "backgroungd-overlay" : "back"}>
+      <div className={menteeWindow ? "background-overlay" : "back"}>
         <div className={menteeWindow ? "form__wrapper" : "back"}>
           <div className={showProgressBar}>
             <button

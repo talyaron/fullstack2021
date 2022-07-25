@@ -335,11 +335,13 @@ export const addUser = async (req, res) => {
       const newUser = new UserModel(user);
       const result = await newUser.save();
       console.log(newUser);
+     
       const payload = {
+        email:newUser.email,
         loggedInUser: true,
         type: newUser.type,
         id: newUser._id,
-        name: user.name,
+        name: newUser.name,
       };
       const token = JWT.encode(payload, secret);
       res.cookie("userInfo", token, { httpOnly: true });
