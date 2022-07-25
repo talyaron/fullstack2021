@@ -120,8 +120,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
       await axios.post("/api/initiatives/add-initiative", { initiative });
 
-      console.log("go to main page");
-      navigate("/mainPage");
+     
     } catch (err) {
       console.error(err);
     }
@@ -142,6 +141,14 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
       setProfilePic(ImgUrl);
     };
   }
+
+
+function moveToMainPage(){
+  console.log("go to main page");
+  navigate("/mainPage");
+}
+
+
 
   return (
     <div>
@@ -338,7 +345,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                 </button>
               </div>
               <div>
-                <input type="submit" value="NEXT" />
+                <button  onClick={() => { moveToMainPage() }} >NEXT</button>
               </div>
             </div>
           </div>

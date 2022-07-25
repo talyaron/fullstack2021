@@ -1,5 +1,6 @@
 import react , {useState} from "react";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 
 import * as React from 'react';
@@ -33,6 +34,7 @@ const steps = [
 ];
 
 const RegisterMentor = (props: RegisterMentorProps) => {
+    const navigate = useNavigate();
     const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, mentorWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
 
     const [activeStep, setActiveStep] = React.useState(0);
@@ -90,6 +92,12 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                 setProfilePic(ImgUrl)
                 }
     }
+
+
+    function moveToMainPage(){
+        console.log("go to main page");
+        navigate("/mainPage");
+      }
 
     return (
         <div className={mentorWindow ? "background-overlay" : "back"}>
@@ -216,7 +224,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                     <p className="welcomeNote__text">Since you are part of the founding generation, we would like to offer you 15 days of free use without any additional commitment on your part</p>
                     <div className="btn-back-next">
                                     <div className="back-btn"><button type="button" onClick={() => { handleBackToggleShowThirdSection(); setActiveStep(0) }}><span className="fa fa-angle-left"></span> BACK</button></div>
-                                    <div><input type='submit' value='NEXT' onClick={() => { setActiveStep(3) }} /></div>
+                                    <div><button  onClick={() => { moveToMainPage() }} >NEXT</button> </div>
                                 </div>
                 </div>
             </div>
