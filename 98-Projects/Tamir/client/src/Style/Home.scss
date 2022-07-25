@@ -1,0 +1,12 @@
+.Home {
+   align-items: center;
+
+   &__btn {
+      font-size: 1.5em;
+   }
+   &__Link{
+      text-decoration: none;
+      color: black;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   }
+}
