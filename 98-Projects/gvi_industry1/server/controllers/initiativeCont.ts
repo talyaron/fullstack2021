@@ -16,8 +16,6 @@ export const addInitiative = async (req, res) => {
 
 export const getAllRecipients = async (req, res) => {
     try {
-        console.log('in getAllRecipients initiative side!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-        
         const {id} = req.body.user;
         const currentUsersInitiative = await InitiativeModel.findOne({ownerUserId: id});
         let recipients:any = currentUsersInitiative.mentors;
@@ -36,13 +34,17 @@ export const getAllRecipients = async (req, res) => {
         res.send({error: error.message, ok: false});
     }
 };
+
+
 export const getInitiative = async (req, res) => {
     try {
         const {userId} = req.body;
 
         const userInitiative = await InitiativeModel.findOne({ownerUserId: userId});
-
+        
+        
         res.send({userInitiative});
+
     } catch (err) {
         console.error(err);
         res.send({error: err.message, ok: false});

@@ -15,7 +15,9 @@ import AdminLayout from './view/pages/AdminLayout';
 import axios from 'axios';
 import {BrowserRouter as Router, Routes, Route, useParams} from 'react-router-dom';
 
-import SelectedMentors from './view/pages/mentee/SelctedMentors';
+import SelectedUsers from './view/components/SelctedUsers';
+import NavBar from './view/pages/navBar/NavBar';
+import NavBarMentee from './view/pages/navBar/components/NavBarMentee';
 import Layout from './view/pages/Layout';
 
 function App() {
@@ -31,13 +33,13 @@ function App() {
   let { userId } = useParams();
 
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get("/api/users/get-user");
-      const { user } = data;
-      setCurrentUser(user);
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const { data } = await axios.get("/api/users/get-user");
+  //     const { user } = data;
+  //     setCurrentUser(user);
+  //   })();
+  // }, []);
 
  
   return (
@@ -56,7 +58,7 @@ function App() {
           }
         >
           <Route index element={<WelcomePage />} />
-          <Route path="profile/:userId" element={<Profile />} />
+          <Route path="profile" element={<Profile />} />
           <Route path="chat" element={<Chat />} />
           <Route
             path="matching"
@@ -65,16 +67,18 @@ function App() {
                 usersList={usersList}
                 setUsersList={setUsersList}
                 currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
                 currentSearch={currentSearch}
                 setCurrentSearch={setCurrentSearch}
                 filterOptions={filterOptions}
                 setFilterOptions={setFilterOptions}
                 checked={checked}
                 setChecked={setChecked}
+
               />
             }
           />
-          <Route path="matching/selected-mentors" element={<SelectedMentors />} />
+          <Route path="matching/selected-users" element={<SelectedUsers />} />
         </Route>
         <Route
           path="mainPageAdmin"

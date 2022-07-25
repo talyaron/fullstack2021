@@ -11,10 +11,9 @@ export const getUser = async (req: any, res: any) => {
     const { userInfo } = req.cookies;
     const payload = JWT.decode(userInfo, secret);
     const { id } = payload;
-    console.log(id);
-
     const user = await UserModel.findOne({ _id: id });
     res.send({ user });
+
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
@@ -26,7 +25,6 @@ export const getUsers = async (req, res) => {
     const { currentUser } = req.body;
     if (Object.keys(currentUser).length === 0)
       throw new Error("no user connected");
-    console.log("current", currentUser);
     if (currentUser.type === "mentee") {
       const users = await UserModel.find({ type: "mentor" });
       const filterUsers = users.filter(
@@ -118,7 +116,6 @@ export const selectUser = async (req: any, res: any) => {
     if (!selectedUser) throw new Error("couldnt find the user in the DB");
 
     const { email, name, image } = selectedUser;
-    console.log("selectedUser", selectedUser);
 
     const searchSelecting = {
       "selectedUser.email": selectedUser.email,
@@ -128,13 +125,10 @@ export const selectUser = async (req: any, res: any) => {
     const selectingUser: any = await selectedUsersModel.findOne(
       searchSelecting
     );
-    console.log("selectingUser", selectingUser);
-
     let newSelection: any;
     if (!selectingUser) {
       console.log("no record in DB - saving");
       const newSelectionDB = new selectedUsersModel({
-        // bothId: `${id}-${selectedUser._id}`,
         selectingUserId: currentUserId,
         selectedUser: { email, name, image },
         selected: true,
@@ -172,7 +166,7 @@ export async function getSelectingUser(req, res) {
     if (!id) throw new Error("id not found");
     const selectingUser = await UserModel.findById(id);
 
-    if (!selectUser) throw new Error("User not found");
+    if (!selectingUser) throw new Error("User not found");
     res.send(selectingUser);
 
   } catch (error) {
@@ -193,7 +187,7 @@ export async function getSelectedUser(req, res) {
     const flags = await countryFlagModel.find({});
 
     if (type === "mentee") {
-      let selected = [];
+      let chosen = [];
       selectedUsers.forEach((selectedUser, i) => {
         const mentor = selectedUesrModel.filter(
           (selectedMentor) =>
@@ -203,15 +197,17 @@ export async function getSelectedUser(req, res) {
         const country = flags.filter(
           (country) => country.countryName === user.country
         );
-        user['country'] = `${country[0].countryFlag}`;
-        selected.push(user);
+        if(country.length > 0){
+          user['country'] = `${country[0].countryFlag}`;
+          };
+        chosen.push(user);
       });
-      res.send({ ok: true, selected });
+      res.send({ ok: true, chosen });
     }
-
+    
     else if (type === "mentor") {
-      let selected = [];
-      selectedUsers.forEach((selectedUser) => {
+      let chosen = [];
+      selectedUsers.forEach((selectedUser, i) => {
         const mentee = selectedUesrModel.filter(
           (selectedMentee) =>
             selectedMentee.email === selectedUser.selectedUser["email"]
@@ -220,15 +216,20 @@ export async function getSelectedUser(req, res) {
         const country = flags.filter(
           (country) => country.countryName === user.country
         );
+        if(country.length > 0){
+        user['country'] = `${country[0].countryFlag}`;
+        };
         const menteeIntiative = selectedUserInitiatives.filter(
           (selectedMentee) => selectedMentee.ownerUserId === user.id
         );
-        user['country'] = `${country[0].countryFlag}`;
-        user['fieldsOfKnowledge'] = `${menteeIntiative[0].companyName}`;
-        user['sector'] = `${menteeIntiative[0].stage}`
-        selected.push(user);
+        if(menteeIntiative.length > 0){
+          user['fieldsOfKnowledge'] = `${menteeIntiative[0].companyName}`
+          user['sector'] = `${menteeIntiative[0].stage}`
+        }
+        console.log(menteeIntiative);
+        chosen.push(user);
       });
-      res.send({ ok: true, selected });
+      res.send({ ok: true, chosen });
     }
 
   } catch (error) {
@@ -245,8 +246,6 @@ export async function getAllRecipients(req, res) {
     const currentUser = await UserModel.findOne({ _id: id });
     let allRecipients = [];
     if (currentUser.type === 'mentee') {
-        console.log('im a mentee');
-
         res.send({user:userDecodedInfo});
         return;
     }
@@ -262,20 +261,15 @@ export async function getAllRecipients(req, res) {
 
           let readyRec = {userId: rec._id, name: rec.name}
           localArr.push(readyRec);
-          // console.log(readyRec, 'readyRec');
         }
-
-        // console.log(localArr, 'localArr readyRec');
         return localArr;
         
       };
       allRecipients = await getRecipientsList();
-      // console.log(allRecipients, 'all recipients');
     }
 
     if (allRecipients === []) throw new Error("no Users were found");
     if (allRecipients.length>0) {
-      console.log(allRecipients, 'is not empty!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
       res.send({ allRecipients, user: userDecodedInfo });
     }
   } catch (error) {
@@ -360,9 +354,10 @@ export const addUser = async (req, res) => {
 
 export const getUserProfile = async (req, res) => {
   try {
-    const { id } = req.body;
 
-    const user = await UserModel.findOne({ _id: id });
+    const { userId } = req.body;
+    
+    const user = await UserModel.findOne({_id:userId});    
 
     res.send({ user, ok: true });
   } catch (err) {

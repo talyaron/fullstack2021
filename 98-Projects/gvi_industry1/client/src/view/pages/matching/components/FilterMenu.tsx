@@ -23,7 +23,7 @@ const FilterMenu = (props: any) => {
       const { data } = await axios.get("/api/users/get-filter");
       const { result } = data;
       setFilterOptions(result);
-      console.log("receive:" + result);
+      console.log(result);
     })();
   }, []);
 
