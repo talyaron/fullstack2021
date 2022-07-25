@@ -33,13 +33,20 @@ function App() {
   let { userId } = useParams();
 
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const { data } = await axios.get("/api/users/get-user");
-  //     const { user } = data;
-  //     setCurrentUser(user);
-  //   })();
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get("/api/users/get-user");
+      const { user } = data;
+     
+      setCurrentUser(user);
+
+      const {type} = user;
+      if(type){
+        setCurrentUserType(type)
+        
+      }
+    })();
+  }, []);
 
  
   return (
