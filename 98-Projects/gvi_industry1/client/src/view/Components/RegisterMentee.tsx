@@ -1,6 +1,7 @@
 import react, {useState} from 'react';
 import axios from 'axios';
 
+
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
@@ -34,6 +35,8 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
     const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, menteeWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
 
     const [activeStep, setActiveStep] = React.useState(0);
+    const [imageFile , setImageFile] = useState<any>() 
+    const [profilePic, setProfilePic] = useState(" ");
 
     async function handleMenteeForm(ev: any) {
         ev.preventDefault();
@@ -55,11 +58,13 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             const presentations = ev.target.elements.presentations.value;
             const linkToOnePager = ev.target.elements.linkToOnePager.value;
             const description = ev.target.elements.description.value;
-            const profilePic = ev.target.elements.profilePic.value;
+            // const profilePic = ev.target.elements.profilePic.value;
+            const image = profilePic;
+
             const type = 'mentee';
             const name = { first, last };
 
-        const user = { name,password,profilePic, description,linkedInProfile, email, country, phone, sector, stage,type }
+        const user = { name,password,image, description,linkedInProfile, email, country, phone, sector, stage,type }
 
 
             const userData = await axios.post('/api/users/add-user', { user });
@@ -85,6 +90,18 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
         // window.location.reload();
     }
+    async function saveImage(ev:any)
+    {
+         const image = ev.target.files[0] 
+         const reader = new FileReader(); reader.readAsDataURL(image) 
+         reader.onloadend = async () => { 
+            await setImageFile(`${reader.result}`) 
+            const imageFile = reader.result 
+            const {data} = await axios.post('/api/profile/saveImage',{imageFile}) 
+            const ImgUrl = data.result.url; 
+            setProfilePic(ImgUrl) 
+        } 
+        }
 
     return (
         <div>

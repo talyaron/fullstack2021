@@ -1,4 +1,4 @@
-import react from "react";
+import react,{useState} from "react";
 import axios from 'axios'
 
 
@@ -36,6 +36,8 @@ const RegisterMentor = (props: RegisterMentorProps) => {
     const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, mentorWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
 
     const [activeStep, setActiveStep] = React.useState(0);
+    const [imageFile , setImageFile] = useState<any>() 
+    const [profilePic, setProfilePic] = useState(" ");
 
     async function handleMentorForm(ev: any) {
         ev.preventDefault()
@@ -51,11 +53,12 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             const stage = ev.target.elements.startupStage.value;
             const sector = ev.target.elements.sector.value;
             const description = ev.target.elements.description.value;
-            const profilePic = ev.target.elements.profilePic.value;
+            // const profilePic = ev.target.elements.profilePic.value;
+            const image = profilePic;
             const type = 'mentor';
             const name = { first, last };
 
-            const user = { name, password, profilePic, description, linkedInProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
+            const user = { name, password, image, description, linkedInProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
 
 
             const userData = await axios.post('/api/users/add-user', { user });
@@ -72,6 +75,18 @@ const RegisterMentor = (props: RegisterMentorProps) => {
 
         // window.location.reload();
     }
+    async function saveImage(ev:any)
+    {
+         const image = ev.target.files[0] 
+         const reader = new FileReader(); reader.readAsDataURL(image) 
+         reader.onloadend = async () => { 
+            await setImageFile(`${reader.result}`) 
+            const imageFile = reader.result 
+            const {data} = await axios.post('/api/profile/saveImage',{imageFile}) 
+            const ImgUrl = data.result.url; 
+            setProfilePic(ImgUrl) 
+        } 
+        }
 
     return (
         <div className={mentorWindow ? "backgroungd-overlay" : "back"}>
