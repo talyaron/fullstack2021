@@ -1,6 +1,6 @@
 import PaperPlaneIcon from '../Icons/PaperPlaneRight';
 import {MessageInterface, MessageUserInterface} from '../Chat'
-import {useContext, useRef, useState} from 'react';
+import {useContext, useRef, useState, LegacyRef} from 'react';
 import axios from 'axios';
 import { ChatContext } from '../../../Contexts/ChatContext';
 interface DocsTabInterface {
@@ -10,9 +10,10 @@ interface DocsTabInterface {
     dateFromObjectId: Function;
     sender: MessageUserInterface;
     recipient: MessageUserInterface;
+    messageListRef: LegacyRef<HTMLUListElement>;
 }
 function DocsTab() {
-    const {recipient, sender, dateFromObjectId,messageList,setSentFile, handleSendMessage} = useContext<DocsTabInterface>(ChatContext);
+    const {messageListRef,recipient, sender, dateFromObjectId,messageList,setSentFile, handleSendMessage} = useContext<DocsTabInterface>(ChatContext);
     
     const [fileResult, setFileResult]= useState<any>();
     const fileToUpload = useRef<any>();
@@ -39,7 +40,7 @@ function DocsTab() {
     return (
 
         <div className='chat__chatWindowTabs'>
-            <div className="chat__chatWindow__messagesList">
+            <ul  ref={messageListRef} className="chat__chatWindow__messagesList">
             {messageList
                     ? messageList.map((message, i) => {
                         if(message.file !== ""){
@@ -64,7 +65,7 @@ function DocsTab() {
                         }
                       })
                     : null}
-            </div>
+            </ul>
             <div className='chat__chatWindow__messageBar'>
                 <input type='file' className='fileUpload' ref={fileToUpload} />
                 <label>

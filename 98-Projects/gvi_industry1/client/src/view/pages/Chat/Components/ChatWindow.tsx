@@ -1,6 +1,5 @@
 import {useContext} from 'react';
 import {ChatContext} from '../../../Contexts/ChatContext';
-
 import ConversationsTab from './ConversationsTab';
 import DocsTab from './DocsTab';
 

@@ -65,7 +65,7 @@ function Chat() {
         if (messageListRef.current) {
             messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
         }
-}, [messageList, chatArea]);
+}, [messageList, chatArea, recipient]);
     function handleTabChange(ev: any) {
         ev.preventDefault();
         const pickedTab = ev.target.textContent;
