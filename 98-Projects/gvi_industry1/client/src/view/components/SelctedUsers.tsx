@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../styles/selectedPage.scss";
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios"
-import Card from './SelectedUserCard'
+import SelectedUserCard from './SelectedUserCard'
 const SelectedUsers = () => {
 
   const [selectedUsers, setSelectedUsers] = useState([]);
@@ -29,7 +29,7 @@ const SelectedUsers = () => {
     <div className="selectedPage">
       <h5 className="selectedPage__title">Selcted-{type} <StarIcon id='star'></StarIcon> </h5>
       <div className="selectedPage__wrapper">
-        <Card selectedUsers={selectedUsers} />
+        <SelectedUserCard selectedUsers={selectedUsers} />
       </div>
     </div>
   );
