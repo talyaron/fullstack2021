@@ -5,19 +5,17 @@ import React from 'react';
 
 import './view/styles/global.scss';
 
-import HomePage from './view/components/HomePage';
+import HomePage from './view/Components/HomePage';
 import Matching from './view/pages/matching/Matching';
 import Chat from './view/pages/Chat/Chat';
-import WelcomePage from './view/components/WelcomePage';
+import WelcomePage from './view/Components/WelcomePage';
 import {useState, useEffect} from 'react';
-import AdminPage from './view/components/AdminPage';
+import AdminPage from './view/Components/AdminPage';
 import AdminLayout from './view/pages/AdminLayout';
 import axios from 'axios';
 import {BrowserRouter as Router, Routes, Route, useParams} from 'react-router-dom';
 
-import SelectedUsers from './view/components/SelctedUsers';
-import NavBar from './view/pages/navBar/NavBar';
-import NavBarMentee from './view/pages/navBar/components/NavBarMentee';
+import SelectedUsers from './view/Components/SelctedUsers';
 import Layout from './view/pages/Layout';
 
 function App() {
