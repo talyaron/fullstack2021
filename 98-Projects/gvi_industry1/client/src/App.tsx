@@ -86,7 +86,7 @@ function App() {
         >
           <Route index element={<AdminPage />} />
           <Route path="chatAdmin/:userId" element={<Chat />} />
-          <Route path="profile/:userId" element={<Profile />} />
+          <Route path="profileAdmin/:userId" element={<Profile />} />
         </Route>
       </Routes>
     </Router>
