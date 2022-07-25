@@ -187,7 +187,7 @@ export async function getSelectedUser(req, res) {
     const flags = await countryFlagModel.find({});
 
     if (type === "mentee") {
-      let selected = [];
+      let chosen = [];
       selectedUsers.forEach((selectedUser, i) => {
         const mentor = selectedUesrModel.filter(
           (selectedMentor) =>
@@ -197,15 +197,17 @@ export async function getSelectedUser(req, res) {
         const country = flags.filter(
           (country) => country.countryName === user.country
         );
-        user['country'] = `${country[0].countryFlag}`;
-        selected.push(user);
+        if(country.length > 0){
+          user['country'] = `${country[0].countryFlag}`;
+          };
+        chosen.push(user);
       });
-      res.send({ ok: true, selected });
+      res.send({ ok: true, chosen });
     }
-
+    
     else if (type === "mentor") {
-      let selected = [];
-      selectedUsers.forEach((selectedUser) => {
+      let chosen = [];
+      selectedUsers.forEach((selectedUser, i) => {
         const mentee = selectedUesrModel.filter(
           (selectedMentee) =>
             selectedMentee.email === selectedUser.selectedUser["email"]
@@ -214,15 +216,20 @@ export async function getSelectedUser(req, res) {
         const country = flags.filter(
           (country) => country.countryName === user.country
         );
+        if(country.length > 0){
+        user['country'] = `${country[0].countryFlag}`;
+        };
         const menteeIntiative = selectedUserInitiatives.filter(
           (selectedMentee) => selectedMentee.ownerUserId === user.id
         );
-        user['country'] = `${country[0].countryFlag}`;
-        user['fieldsOfKnowledge'] = `${menteeIntiative[0].companyName}`;
-        user['sector'] = `${menteeIntiative[0].stage}`
-        selected.push(user);
+        if(menteeIntiative.length > 0){
+          user['fieldsOfKnowledge'] = `${menteeIntiative[0].companyName}`
+          user['sector'] = `${menteeIntiative[0].stage}`
+        }
+        console.log(menteeIntiative);
+        chosen.push(user);
       });
-      res.send({ ok: true, selected });
+      res.send({ ok: true, chosen });
     }
 
   } catch (error) {
