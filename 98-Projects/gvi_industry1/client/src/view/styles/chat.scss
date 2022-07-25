@@ -234,6 +234,9 @@
             top: 0;
             margin: 0 25px 0 25px;
             place-self: flex-start;
+            &::-webkit-scrollbar {
+                display: none;
+              }
             .MessageCard {
                 position: relative;
                 width: fit-content;

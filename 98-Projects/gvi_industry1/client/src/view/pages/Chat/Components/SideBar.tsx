@@ -30,7 +30,6 @@ function SideBar() {
                     <h1>userList</h1>
                 )}
             </ul>
-            <SideBarDivider/>
         </div>
     );
 }
