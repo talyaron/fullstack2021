@@ -166,7 +166,7 @@ export async function getSelectingUser(req, res) {
     if (!id) throw new Error("id not found");
     const selectingUser = await UserModel.findById(id);
 
-    if (!selectUser) throw new Error("User not found");
+    if (!selectingUser) throw new Error("User not found");
     res.send(selectingUser);
 
   } catch (error) {

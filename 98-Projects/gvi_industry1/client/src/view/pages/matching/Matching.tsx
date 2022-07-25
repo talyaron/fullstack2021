@@ -62,7 +62,7 @@ const Matching = (props: MatchingProps) => {
   }, [currentUser]);
   return (
     <div className="matching ">
-      <Link to="selected-mentors">Selected-mentors</Link>
+      <Link to="selected-users">Selected-Users</Link>
       <Search
         currentSearch={currentSearch}
         setCurrentSearch={setCurrentSearch}
