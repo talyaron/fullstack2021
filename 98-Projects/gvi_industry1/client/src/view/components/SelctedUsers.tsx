@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../styles/selectedPage.scss";
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios"
-import Card from "./SelectedUserCard";
+import Card from './SelectedUserCard'
 const SelectedUsers = () => {
 
   const [selectedUsers, setSelectedUsers] = useState([]);

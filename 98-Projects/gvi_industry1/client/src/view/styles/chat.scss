@@ -234,6 +234,8 @@
             top: 0;
             margin: 0 25px 0 25px;
             place-self: flex-start;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
             &::-webkit-scrollbar {
                 display: none;
               }
