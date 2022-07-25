@@ -5,7 +5,6 @@ import {
   decrement,
   increment,
   incrementByAmount,
-  decrementByAmount,
   incrementAsync,
   incrementIfOdd,
   selectCount,
@@ -13,7 +12,7 @@ import {
 import styles from './Counter.module.css';
 
 export function Counter() {
-  const count = useAppSelector(state=>state.counter.value);
+  const count = useAppSelector(selectCount);
   const dispatch = useAppDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
 
@@ -50,12 +49,6 @@ export function Counter() {
           onClick={() => dispatch(incrementByAmount(incrementValue))}
         >
           Add Amount
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => dispatch(decrementByAmount(incrementValue))}
-        >
-          Decrease Amount
         </button>
         <button
           className={styles.asyncButton}
