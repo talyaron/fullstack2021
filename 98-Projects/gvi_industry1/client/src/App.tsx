@@ -58,7 +58,7 @@ function App() {
           }
         >
           <Route index element={<WelcomePage />} />
-          <Route path="profile/:userId" element={<Profile />} />
+          <Route path="profile" element={<Profile />} />
           <Route path="chat" element={<Chat />} />
           <Route
             path="matching"
@@ -84,7 +84,7 @@ function App() {
         >
           <Route index element={<AdminPage />} />
           <Route path="chat" element={<Chat />} />
-          <Route path="profile" element={<Profile />} />
+          <Route path="profile/:userId" element={<Profile />} />
         </Route>
       </Routes>
     </Router>

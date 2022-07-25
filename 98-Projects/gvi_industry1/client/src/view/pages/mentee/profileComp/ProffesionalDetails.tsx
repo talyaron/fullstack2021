@@ -6,7 +6,7 @@ import axios from 'axios'
 
 interface ProffesionalDetailsProps{
     
-    isMentee:boolean
+    isInitiative:boolean
     companyInfo:Array<any>;
     mentorDetails:Array<any>
 }
@@ -14,22 +14,27 @@ interface ProffesionalDetailsProps{
 
 function ProffesionalDetails(props:ProffesionalDetailsProps) {
 
-    const {isMentee,companyInfo,mentorDetails} = props;
+    const {companyInfo,mentorDetails,isInitiative} = props;
 
-    const [companyDetails , setCompanyDetails] = useState(companyInfo)
     
-    return (
-        <div className='profile_companyDetails-sections'>
-            
-        {companyInfo.map((section,i) => {
-            return(
-         <div key={i} className='profile_companyDetails-sections-section'>{section}</div>
-            )
-        })}
-        {/* {isMentee?<a className='profile_companyDetails-sections-section' 
-        href='https://trello.com/b/6geq1VEQ/gvi'>Link to presentation</a>:null} */}
-        </div>  
-    )
+    if(isInitiative){
+        return (
+            <div className='profile_companyDetails-sections'>
+                
+            {companyInfo.map((section,i) => {
+                return(
+             <div key={i} className='profile_companyDetails-sections-section'>{section}</div>
+                )
+            })}
+           
+            </div>  
+        )
+    }else {
+        return(
+            <h1 style={{width:'100%',height:'20px',margin:'auto'}}>user has no initiative</h1>
+        )
+    }
+   
   
 }
 

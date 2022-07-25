@@ -34,6 +34,13 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
     const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, menteeWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
 
     const [activeStep, setActiveStep] = React.useState(0);
+    // const [isImage, setIsImage] = useState(false);
+    const [imageFile , setImageFile] = useState<any>()
+    const [profilePic, setProfilePic] = useState(" ");
+    
+
+
+    
 
     async function handleMenteeForm(ev: any) {
         ev.preventDefault();
@@ -55,19 +62,23 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             const presentations = ev.target.elements.presentations.value;
             const linkToOnePager = ev.target.elements.linkToOnePager.value;
             const description = ev.target.elements.description.value;
-            const profilePic = ev.target.elements.profilePic.value;
+            const image = profilePic;
+            
+            
             const type = 'mentee';
             const name = { first, last };
 
-        const user = { name,password,profilePic, description,linkedInProfile, email, country, phone, sector, stage,type }
+
+        const user = { name,password,image,description,linkedInProfile, email, country, phone, sector, stage,type }
 
 
             const userData = await axios.post('/api/users/add-user', { user });
 
-            // console.log(userData)
             const { data } = userData;
-            const { result } = data;
-            const ownerUserId = result._id;
+            const  result  = data;
+            
+            const ownerUserId = data.result._id;
+            
 
             // Already exists CHECK
             if (userData.data === 'Already exists' || userData.data == null) {
@@ -75,16 +86,35 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
             }
             // Already exists CHECK
             let ownerName = name;
-            const initiative = { ownerName, sector, companyName, description, stage, webSite, linkToOnePager, presentations, ownerUserId }
+            const initiative = { ownerName, sector, companyName, description, stage, webSite, linkToOnePager,presentations, ownerUserId }
 
             const initiativeData = await axios.post('/api/initiatives/add-initiative', { initiative });
 
-        } catch (error) {
-            console.error(error);
+        } catch (err) {
+            console.error(err);
         }
 
         // window.location.reload();
     }
+
+    function saveImage(ev:any){
+
+        const image = ev.target.files[0]
+        const reader = new FileReader();
+        reader.readAsDataURL(image)
+        reader.onloadend = async () => {
+        await setImageFile(`${reader.result}`)
+        const imageFile = reader.result
+        const {data} = await axios.post('/api/profile/saveImage',{imageFile})
+                const ImgUrl = data.result.url;
+                
+                setProfilePic(ImgUrl)
+        
+            
+                }
+    }
+
+    
 
     return (
         <div>
@@ -151,7 +181,8 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
                                     </div>
                                     <div className='inputBox'>
                                         <div className='form__text'>Upload Profile Image</div>
-                                        <input className='file-input' type='file' name='profilePic' />
+                                        <input className='file-input' type='file' name='profilePic' 
+                                        onChange={saveImage} />
                                     </div>
                                 </div>
                                 <div className='btn-back-next'>
