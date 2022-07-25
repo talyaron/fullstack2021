@@ -74,6 +74,7 @@ function App() {
                 setFilterOptions={setFilterOptions}
                 checked={checked}
                 setChecked={setChecked}
+
               />
             }
           />

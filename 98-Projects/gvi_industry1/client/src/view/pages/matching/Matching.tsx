@@ -16,6 +16,7 @@ interface MatchingProps {
   setFilterOptions: Function;
   checked: any;
   setChecked: Function;
+
 }
 
 const Matching = (props: MatchingProps) => {
@@ -30,6 +31,7 @@ const Matching = (props: MatchingProps) => {
     setCurrentUser,
     checked,
     setChecked,
+
   } = props;
 
   useEffect(() => {
