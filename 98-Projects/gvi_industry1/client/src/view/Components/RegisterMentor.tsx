@@ -140,7 +140,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                                 </div>
                                 <div className="inputBox">
                                     <div className="form__text">Upload Profile Image</div>
-                                    <input className="file-input" type="file" name="profilePic" />
+                                    <input className="file-input" type="file" name="profilePic" onChange={saveImage}/>
                                 </div>
                             </div>
                             <div className="btn-back-next">
