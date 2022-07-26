@@ -254,6 +254,8 @@ export async function getAllRecipients(req, res) {
       let localArr: Array<any> = [];
       const getRecipientsList = async () => {
         for (let recipient of allRecipientsIds) {
+          console.log(recipient, 'mentor');
+          
           let rec = await UserModel.findOne(
             { _id: recipient },
             { password: 0 }

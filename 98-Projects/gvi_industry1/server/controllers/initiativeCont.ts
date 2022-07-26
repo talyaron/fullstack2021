@@ -1,4 +1,5 @@
 import InitiativeModel from '../models/initiativeModel';
+import {UserTypeSchema} from '../models/userModel';
 
 export const addInitiative = async (req, res) => {
     try {
@@ -18,12 +19,17 @@ export const getAllRecipients = async (req, res) => {
     try {
         const {id} = req.body.user;
         const currentUsersInitiative = await InitiativeModel.findOne({ownerUserId: id});
-        let recipients:any = currentUsersInitiative.mentors;
+        let recipients: any = currentUsersInitiative.mentors;
         let localArr: Array<any> = [];
         const getRecipientsList = async () => {
             for (let recipient of recipients) {
-                let rec = {userId: recipient.userId, name: recipient.name};
-                localArr.push(rec);
+                if (recipient.image) {
+                    let rec = {userId: recipient.userId, name: recipient.name, image: recipient.image};
+                    localArr.push(rec);
+                } else {
+                    let rec = {userId: recipient.userId, name: recipient.name};
+                    localArr.push(rec);
+                }
             }
             return localArr;
         };
@@ -35,16 +41,13 @@ export const getAllRecipients = async (req, res) => {
     }
 };
 
-
 export const getInitiative = async (req, res) => {
     try {
         const {userId} = req.body;
 
         const userInitiative = await InitiativeModel.findOne({ownerUserId: userId});
-        
-        
-        res.send({userInitiative});
 
+        res.send({userInitiative});
     } catch (err) {
         console.error(err);
         res.send({error: err.message, ok: false});

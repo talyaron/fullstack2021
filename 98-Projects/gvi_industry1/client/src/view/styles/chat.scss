@@ -78,6 +78,10 @@
             &:hover {
                 background: #e2e2e2;
             }
+            &_image {
+                width: 56px;
+                height: 56px;
+            }
             &_text {
                 font-size: clamp(0.8rem, 0.9vw, 1rem);
                 padding-inline: 1em;
@@ -181,6 +185,10 @@
         }
         &__info {
             gap: 16px;
+            .image{
+                width:40px;
+                height:40px;
+            }
         }
         &__Buttons {
             padding: 0;
@@ -336,21 +344,24 @@
             background-color: #ffffff;
             border-radius: 12px;
             flex: 1;
-
+            input{
+                width: 100%;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                outline: none;
+                border: none;
+                font-size:1.25em;
+                line-height: 1;
+                &:focus{
+                    outline: none;
+                }
+            }
             .fileUpload {
                 width: 70%;
                 height: 100%;
             }
-            div {
-                line-height: 1;
-                width: 100%;
-                input {
-                    width: 100%;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                    white-space: nowrap;
-                }
-            }
+            
 
             label {
                 cursor: pointer;
