@@ -24,7 +24,8 @@
     &__photo {
         grid-column-start: 1;
         grid-column-end: 2;
-
+        position: relative;
+        bottom: 25px;
         img {
             border-radius: 50%;
             height: 76px;
@@ -40,19 +41,14 @@
         grid-template-rows: repeat(4, 0.5fr);
 
         width: 100%;
-
+        position: relative;
+        bottom: 25px;
         img {
             height: 30px;
             width: 30px;
         }
 
-        &__company {
-            // margin-top: -5%;
-        }
-
-        &__profession {
-            // margin-top: -15%;
-        }
+       
         grid-column-start: 2;
         grid-column-end: 5;
         row-gap: 4px;
@@ -76,11 +72,6 @@
         }
     }
 
-    &__star {
-        grid-column-start: 5;
-        grid-column-end: 5;
-
-    }
 
     &__button {
         height: 39px;
@@ -98,3 +89,66 @@
     }
 
 }
+
+
+.card__photo{
+    border-radius: 40% ;
+    height: 110px;
+    width: 110px;
+    padding-top: 5px;
+    
+}
+#envelope{
+  position: relative;
+  top:20px;
+  left:85%;
+  height: 25px;
+  width: 30px;
+
+}
+#selfi{
+  height: 110px;
+  width: 110px;
+
+}
+.request-card-buttons-flex{
+
+    //display: flex;
+   // justify-content: space-between;
+    height: 35px;
+    width:150px;
+    font-size: medium;
+    position: relative;
+    border:none;
+    border-radius: 20px;
+}
+.request-card-flex__mismatch{
+    background-color: lightgray;
+    padding: 10px 10px 10px 10px;
+    border-radius: 20px;
+    position: relative;
+    right:130%;
+    top:170px;
+    border: none;
+
+
+}
+.match{
+    background-color: grey;
+    padding: 10px 10px 10px 10px;
+    border-radius: 20px;
+    position: relative;
+    right:0px;
+    top:130px;
+    border: none;
+
+
+}
+#envelope{
+    position: relative;
+    top:5px;
+    left:250px;
+    height: 25px;
+    width: 30px;
+  
+  }

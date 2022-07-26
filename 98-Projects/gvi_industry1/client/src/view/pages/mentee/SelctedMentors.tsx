@@ -3,7 +3,23 @@ import "../mentee/style/selectedPage.scss";
 //@ts-ignore
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios"
-import Card from "../../components/SelectedUserCard";
+import Card from ".client/src/view/components/s";
+import React from 'react'``
+import renderer from 'react-test-renderer';
+
+import SelctedMentors from '';
+
+describe('<SelctedMentors />', () => {
+  const defaultProps = {}
+  const wrapper = renderer.create(<SelctedMentors {...defaultProps} />)
+
+  test('render', () => {
+    expect(wrapper).toMatchSnapshot()
+  })
+})";
+
+
+
 const SelctedMentors = () => {
 
   const [selectedUsers, setSelectedUsers] = useState([]);
