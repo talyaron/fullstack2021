@@ -15,6 +15,7 @@ export function Counter() {
   const count = useAppSelector(selectCount);
   const dispatch = useAppDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
+  const [text, setText] = useState('Write Here!')
 
   const incrementValue = Number(incrementAmount) || 0;
 
@@ -62,6 +63,19 @@ export function Counter() {
         >
           Add If Odd
         </button>
+      </div>
+
+
+      <div className={styles.row}>
+
+
+        <input
+          className={styles.text}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+
+
       </div>
     </div>
   );

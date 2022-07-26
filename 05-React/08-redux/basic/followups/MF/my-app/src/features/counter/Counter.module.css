@@ -43,6 +43,11 @@
   width: 64px;
   text-align: center;
   margin-right: 4px;
+  box-sizing: content-box;
+}
+
+.text {
+  padding-right: 50px;
 }
 
 .button:hover,

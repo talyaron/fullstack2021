@@ -12,6 +12,16 @@ const initialState: CounterState = {
   status: 'idle',
 };
 
+export interface TextState {
+  value: string;
+  status: 'idle' | 'loading' | 'failed';
+}
+
+const firstState: TextState = {
+  value: 'Text it',
+  status: 'idle',
+};
+
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
 // will call the thunk with the `dispatch` function as the first argument. Async
@@ -74,11 +84,36 @@ export const selectCount = (state: RootState) => state.counter.value;
 // Here's an example of conditionally dispatching actions based on current state.
 export const incrementIfOdd =
   (amount: number): AppThunk =>
-  (dispatch, getState) => {
-    const currentValue = selectCount(getState());
-    if (currentValue % 2 === 1) {
-      dispatch(incrementByAmount(amount));
-    }
-  };
+    (dispatch, getState) => {
+      const currentValue = selectCount(getState());
+      if (currentValue % 2 === 1) {
+        dispatch(incrementByAmount(amount));
+      }
+    };
+
+
+//---------------------------------
+
+
+export const textSlice = createSlice({
+  name: 'text',
+  firstState,
+  // The `reducers` field lets us define reducers and generate associated actions
+  reducers: {
+    texting: (item) => {
+
+
+      item.value = "1";
+    },
+
+
+
+  },
+
+});
+
+export const { texting } = counterSlice.actions;
+
+
 
 export default counterSlice.reducer;
