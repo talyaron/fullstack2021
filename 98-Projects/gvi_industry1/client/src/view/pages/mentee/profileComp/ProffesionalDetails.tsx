@@ -31,7 +31,7 @@ function ProffesionalDetails(props:ProffesionalDetailsProps) {
         )
     }else {
         return(
-            <h1 style={{width:'100%',height:'20px',margin:'auto'}}>user has no initiative</h1>
+            <h1 style={{width:'30vw',height:'20px',margin:'15vh 15vw auto',fontSize:'50px',color:'blue'}}>user has no initiative</h1>
         )
     }
    
