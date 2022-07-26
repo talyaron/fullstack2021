@@ -37,7 +37,7 @@ function AdminPage() {
 
 
   return (
-    <div>
+    <div className="center">
       <h1>hello admin</h1>
       <div className="usersOverView">
         <div className="allConect">
@@ -65,7 +65,7 @@ function AdminPage() {
             }}
           />
         </div>
-        <div>
+        <div className="scrollBar">
           {users &&
             users
               .filter((user: any) => {
@@ -90,14 +90,12 @@ function AdminPage() {
               })
               .map((user: any, i: any) => (
                 <div className="allConect" key={i}>
-                  {/* <img src={mentor.image}/>  */}
 
                   <p>
                     {user.name ? user.name.first : null}{" "}
                     {user.name ? user.name.last : null}
-                    {/* {user.email} */}
                   </p>
-                  <Link className="link" to="chat">
+                  <Link className="link" to="chat/:userId">
                     See all connections
                   </Link>
                 </div>

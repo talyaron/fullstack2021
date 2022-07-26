@@ -15,9 +15,7 @@ import AdminLayout from './view/pages/AdminLayout';
 import axios from 'axios';
 import {BrowserRouter as Router, Routes, Route, useParams} from 'react-router-dom';
 
-import SelectedMentors from './view/pages/mentee/SelctedMentors';
-import NavBar from './view/pages/navBar/NavBar';
-import NavBarMentee from './view/pages/navBar/components/NavBarMentee';
+import SelectedUsers from './view/Components/SelctedUsers';
 import Layout from './view/pages/Layout';
 
 function App() {
@@ -37,7 +35,14 @@ function App() {
     (async () => {
       const { data } = await axios.get("/api/users/get-user");
       const { user } = data;
+     
       setCurrentUser(user);
+
+      const {type} = user;
+      if(type){
+        setCurrentUserType(type)
+        
+      }
     })();
   }, []);
 
@@ -58,7 +63,7 @@ function App() {
           }
         >
           <Route index element={<WelcomePage />} />
-          <Route path="profile/:userId" element={<Profile />} />
+          <Route path="profile" element={<Profile />} />
           <Route path="chat" element={<Chat />} />
           <Route
             path="matching"
@@ -67,24 +72,26 @@ function App() {
                 usersList={usersList}
                 setUsersList={setUsersList}
                 currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
                 currentSearch={currentSearch}
                 setCurrentSearch={setCurrentSearch}
                 filterOptions={filterOptions}
                 setFilterOptions={setFilterOptions}
                 checked={checked}
                 setChecked={setChecked}
+
               />
             }
           />
-          <Route path="matching/selected-mentors" element={<SelectedMentors />} />
+          <Route path="matching/selected-users" element={<SelectedUsers />} />
         </Route>
         <Route
           path="mainPageAdmin"
           element={<AdminLayout loggedInUser={loggedInUser} />}
         >
           <Route index element={<AdminPage />} />
-          <Route path="chat" element={<Chat />} />
-          <Route path="profile" element={<Profile />} />
+          <Route path="chatAdmin/:userId" element={<Chat />} />
+          <Route path="profileAdmin/:userId" element={<Profile />} />
         </Route>
       </Routes>
     </Router>

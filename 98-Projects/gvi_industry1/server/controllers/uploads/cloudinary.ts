@@ -1,5 +1,4 @@
 import { v2 as cloudinary } from "cloudinary";
-import UserModel from "../../models/userModel";
 
 const cloud_name = process.env.CLOUD_NAME;
 const api_key = process.env.API_KEY;
@@ -13,6 +12,5 @@ cloudinary.config({
   api_secret:process.env.API_SECRET,
   secure: true,
 });
-
 
 module.exports = cloudinary

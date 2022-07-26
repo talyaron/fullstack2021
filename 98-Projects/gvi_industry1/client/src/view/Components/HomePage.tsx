@@ -57,6 +57,8 @@ const HomePage = (props:HomePageProps) => {
 
   async function getCountries() {
     const { data } = await axios.get('https://restcountries.com/v3.1/all')
+    const countries = data.sort((a:any, b:any) => a.name.common.localeCompare(b.name.common));
+    console.log(countries)
     setCountryArray(data)
   }
 
@@ -92,12 +94,6 @@ const HomePage = (props:HomePageProps) => {
       <UserSelection registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} setMenteeWindow={setMenteeWindow} mentorWindow={mentorWindow} setMentorWindow={setMentorWindow} />
       <RegisterMentee registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} setMenteeWindow={setMenteeWindow} countryArray={countryArray} handleCloseRegisterWindow={handleCloseRegisterWindow} secondSection={secondSection} firstSection={firstSection} thirdSection={thirdSection} showProgressBar={showProgressBar} handleToggleShowSections={handleToggleShowSections} handleBackToggleShowSections={handleBackToggleShowSections} handleBackToSelection={handleBackToSelection} handleToggleShowThirdSection={handleToggleShowThirdSection} handleBackToggleShowThirdSection={handleBackToggleShowThirdSection}/>
       <RegisterMentor countryArray={countryArray} registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} mentorWindow={mentorWindow} setMenteeWindow={setMenteeWindow} handleCloseRegisterWindow={handleCloseRegisterWindow} secondSection={secondSection} firstSection={firstSection}  thirdSection={thirdSection} showProgressBar={showProgressBar} handleToggleShowSections={handleToggleShowSections} handleBackToggleShowSections={handleBackToggleShowSections} handleBackToSelection={handleBackToSelection} handleToggleShowThirdSection={handleToggleShowThirdSection} handleBackToggleShowThirdSection={handleBackToggleShowThirdSection}/>
-      {/* <div className='feed'>
-
-        <div className='feed__news' id="news"> news</div>
-
-        <div className='feed__events' id="events"> events</div>
-      </div> */}
 
     </div>
   )

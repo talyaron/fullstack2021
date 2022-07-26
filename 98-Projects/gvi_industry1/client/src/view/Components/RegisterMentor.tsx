@@ -1,5 +1,6 @@
-import react,{useState} from "react";
+import react , {useState} from "react";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 
 import * as React from 'react';
@@ -33,10 +34,11 @@ const steps = [
 ];
 
 const RegisterMentor = (props: RegisterMentorProps) => {
+    const navigate = useNavigate();
     const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, mentorWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
 
     const [activeStep, setActiveStep] = React.useState(0);
-    const [imageFile , setImageFile] = useState<any>() 
+    const [imageFile , setImageFile] = useState<any>()
     const [profilePic, setProfilePic] = useState(" ");
 
     async function handleMentorForm(ev: any) {
@@ -58,11 +60,13 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             const type = 'mentor';
             const name = { first, last };
 
+
             const user = { name, password, image, description, linkedInProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
 
 
             const userData = await axios.post('/api/users/add-user', { user });
-
+            console.log(userData);
+            
             // Already exists CHECK
             if (userData.data === 'Already exists') {
                 window.alert('Already Exists')
@@ -73,23 +77,30 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             console.error(error);
         }
 
-        // window.location.reload();
     }
-    async function saveImage(ev:any)
-    {
-         const image = ev.target.files[0] 
-         const reader = new FileReader(); reader.readAsDataURL(image) 
-         reader.onloadend = async () => { 
-            await setImageFile(`${reader.result}`) 
-            const imageFile = reader.result 
-            const {data} = await axios.post('/api/profile/saveImage',{imageFile}) 
-            const ImgUrl = data.result.url; 
-            setProfilePic(ImgUrl) 
-        } 
-        }
+
+    async function saveImage(ev:any){
+
+        const image = ev.target.files[0]
+        const reader = new FileReader();
+        reader.readAsDataURL(image)
+        reader.onloadend = async () => {
+        await setImageFile(`${reader.result}`)
+        const imageFile = reader.result
+        const {data} = await axios.post('/api/profile/saveImage',{imageFile})
+                const ImgUrl = data.result.url;
+                setProfilePic(ImgUrl)
+                }
+    }
+
+
+    function moveToMainPage(){
+        console.log("go to main page");
+        navigate("/mainPage");
+      }
 
     return (
-        <div className={mentorWindow ? "backgroungd-overlay" : "back"}>
+        <div className={mentorWindow ? "background-overlay" : "back"}>
             <div className={mentorWindow ? "form__wrapper" : "back"}>
                 <div className={showProgressBar}>
                     <button className="closeButton" onClick={() => { handleCloseRegisterWindow() }}>X</button>
@@ -128,7 +139,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                                     <input type="text" name="phone" />
                                 </div>
                                 <div className="inputBox">
-                                    <div className="form__text">LinkdIN profile</div>
+                                    <div className="form__text">LinkedIn profile</div>
                                     <input type="text" name="linkedInProfile" />
                                 </div>
                                 <div className="inputBox">
@@ -213,7 +224,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                     <p className="welcomeNote__text">Since you are part of the founding generation, we would like to offer you 15 days of free use without any additional commitment on your part</p>
                     <div className="btn-back-next">
                                     <div className="back-btn"><button type="button" onClick={() => { handleBackToggleShowThirdSection(); setActiveStep(0) }}><span className="fa fa-angle-left"></span> BACK</button></div>
-                                    <div><input type='submit' value='NEXT' onClick={() => { setActiveStep(3) }} /></div>
+                                    <div><button  onClick={() => { moveToMainPage() }} >NEXT</button> </div>
                                 </div>
                 </div>
             </div>
