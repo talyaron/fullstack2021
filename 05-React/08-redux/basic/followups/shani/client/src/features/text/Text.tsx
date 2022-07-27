@@ -24,8 +24,9 @@ export const Text = () => {
       <input
         type="text"
         placeholder="text"
-        value={turnedText}
-        onChange={(e) => setTurnedText(e.target.value)}
+        
+        //this is with the useState value={turnedText} onChange={(e) => setTurnedText(e.target.value)
+        onChange={(ev:any) => dispatch(toCapitalCase(ev.target.value))}
       />
       <div
         style={{

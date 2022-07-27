@@ -9,7 +9,7 @@ export interface TextState {
 
 //the way the state starts
 const initialState: TextState = {
-  value: " ",
+  value: "",
   status: 'idle',
 };
 
