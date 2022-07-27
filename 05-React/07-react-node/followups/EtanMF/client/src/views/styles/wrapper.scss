@@ -1,0 +1,44 @@
+.wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    place-content: flex-start;
+    &__Login {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        place-items: center;
+        place-content: center;
+        gap: 2em;
+        height: clamp(100vh, 1000px, 80vw);
+        width: clamp(40%, 600px, 100%);
+    }
+    &__HomePage {
+        position: relative;
+        display: flex;
+        top: 0px;
+        flex-direction: column;
+        place-items: flex-start;
+        place-content: flex-start;
+        gap: 2em;
+        height: clamp(95vh, 600px, 80vw);
+        width: 100%;
+        &-lists {
+            display: flex;
+            flex-direction: row;
+            place-content: space-around;
+            width: 100%;
+            max-height: 100vh;
+            // overflow-x: scroll;
+        }
+    }
+    &__Article {
+    }
+    &__User {
+    }
+    &__Login {
+    }
+}

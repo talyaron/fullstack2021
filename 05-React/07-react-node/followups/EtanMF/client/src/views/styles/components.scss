@@ -1,0 +1,133 @@
+.comp {
+    &-newArticle {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        place-content: flex-start;
+        // min-height: 30vh;
+        // max-height: 50vh;
+        width: 100%;
+
+        &-triggerButton {
+            position: relative;
+            top: 0px;
+            z-index: 2;
+        }
+
+        &-section {
+            top: 10px;
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            place-items: center;
+            place-content: center;
+        }
+    }
+
+    &-allUsers {
+        position: relative;
+        gap: 1em;
+        // width: 100%;
+        // max-width: 100%;
+        overflow-x: scroll;
+    }
+
+    &-allArticles {
+        position: relative;
+        gap: 2em;
+        overflow-x: scroll;
+        z-index: 4;
+        font-size: clamp(0.5em, 2vh, 1em);
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        width: 40vw;
+        // max-height: 20vh;
+    }
+    //allUsers is the list parent of userCard list item
+    &-userCard {
+        font-size: clamp(0.5em, 2vh, 1em);
+        padding-block-end: 1em;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        width: 40vw;
+        max-height: 20vh;
+        cursor: pointer;
+
+        &-personal {
+            display: flex;
+            place-items: space-between;
+            place-content: space-between;
+            // flex-direction: column;
+        }
+
+        &-professional {
+            display: flex;
+            place-items: space-between;
+            place-content: space-between;
+        }
+    }
+    &-articleCard {
+        padding-block-end: 1em;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        // overflow: none;
+        max-width: 40vw;
+        width: 40vw;
+        max-height: 20vh;
+
+        &-header {
+            &-authorInfo {
+                all: unset;
+                display: flex;
+                flex-direction: column;
+                text-align: start;
+                cursor: pointer;
+                align-self: flex-start;
+                &-personal {
+                }
+                &-professional {
+                }
+            }
+            &-update {
+                &Button {
+                }
+                &Form {
+                }
+            }
+        }
+        &-content {
+            // padding-right: 40vw;
+            // max-width: 40vw;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            min-height: 30vh;
+            max-width: 40vw;
+            text-align:start;
+            // width: min-content;
+            &Title {
+
+                white-space: nowrap;
+                overflow: hidden !important;
+                text-overflow: ellipsis;
+                width: 35ch;
+            }
+            &Preview {
+                width: 70ch;
+                display: inline-block;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+                // height: 1.2em;
+                // max-width: 40vw;
+                // text-overflow: ellipsis;
+                // white-space: nowrap;
+                // overflow: hidden;
+            }
+        }
+    }
+}

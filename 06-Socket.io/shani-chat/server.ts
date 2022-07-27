@@ -16,9 +16,9 @@ const io = new Server(server, {
   },
 });
 
-;
+// app.use(cors());
+
 //app.use(cors());
-//why needed if i didnd use it
 
 io.on('connection', (socket) => {
   socket.on('connectionToRoom', ({ chatRoomNumber, user }) => {
