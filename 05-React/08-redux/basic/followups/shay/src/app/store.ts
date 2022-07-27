@@ -2,11 +2,10 @@ import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
 import textReducer from '../features/text/textSlice';
 
-//what does this do and mean??
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    text:textReducer,
+    text: textReducer,
   },
 });
 
