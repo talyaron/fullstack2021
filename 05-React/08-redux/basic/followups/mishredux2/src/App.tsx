@@ -1,9 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
+import { useSelector } from "react-redux";
+import { Text } from './features/text/text'
 import './App.css';
 
+
 function App() {
+
+  
+
   return (
     <div className="App">
       <header className="App-header">
@@ -50,6 +56,8 @@ function App() {
             React Redux
           </a>
         </span>
+
+        <Text />
       </header>
     </div>
   );
