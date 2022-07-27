@@ -7,8 +7,9 @@ export interface TextState {
   status: 'idle' | 'loading' | 'failed';
 }
 
+//the way the state starts
 const initialState: TextState = {
-  value: "",
+  value: " ",
   status: 'idle',
 };
 
@@ -43,8 +44,8 @@ export const textSlice = createSlice({
        
      
     },
-    incrementByAmount: (state, action: PayloadAction<string>) => {
-      state.value = action.payload;
+    hallelujah: (state) => {
+      state.value = 'Hallelujah';
     },
    
  
@@ -67,7 +68,7 @@ export const textSlice = createSlice({
 });
 
  
-export const { toCapitalCase,incrementByAmount} = textSlice.actions;
+export const { toCapitalCase,hallelujah} = textSlice.actions;
 
 
 export const selectMyText = (state: RootState) => state.text.value;

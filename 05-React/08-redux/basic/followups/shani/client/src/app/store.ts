@@ -2,7 +2,8 @@ import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
 import textReducer from '../features/text/textSlice';
 
-//what does this do and mean??
+//the name we give the state in the slice and shows that they have reducers?
+// or the name of the reducers we will have??
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
