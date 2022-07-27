@@ -28,8 +28,8 @@ useEffect(()=>{
   console.log(amount, 'amount');
 },[count])
   return (
-    <div>
-      <div className={styles.row}>
+    <div style={{width: '100vw'}} >
+      <div style={{width: '90%'}} className={styles.row}>
         <button
           className={styles.button}
           aria-label="Decrement value"
@@ -37,7 +37,7 @@ useEffect(()=>{
         >
           -
         </button>
-        <span className={styles.value}>{givenText}</span>
+        <span style={{width: '90%'}} className={styles.value}>{givenText}</span>
         <button
           className={styles.button}
           aria-label="Increment value"
@@ -55,7 +55,7 @@ useEffect(()=>{
         />
         <button
           className={styles.button}
-          onClick={() => dispatch(incrementByAmount(amount))}
+          onClick={() => dispatch(incrementByAmount(textValue.repeat(amount)))}
         >
           Add Amount
         </button>

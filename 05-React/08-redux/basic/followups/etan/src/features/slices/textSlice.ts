@@ -39,7 +39,7 @@ export const textSlice = createSlice({
             state.value = state.value.substring(0, state.value.length - action.payload.length);
         },
         // Use the PayloadAction type to declare the contents of `action.payload`
-        incrementByAmount: (state, action: PayloadAction<number>) => {
+        incrementByAmount: (state, action: PayloadAction<string>) => {
             state.value += action.payload;
         },
         decrementByAmount: (state, action: PayloadAction<number>) => {
@@ -77,7 +77,7 @@ export const incrementIfOdd =
     (dispatch, getState) => {
         const currentValue = selectGivenText(getState());
         if (currentValue.length >50) {
-            dispatch(incrementByAmount(amount));
+            dispatch(incrementByAmount(currentValue.repeat(amount)));
         }
     };
 

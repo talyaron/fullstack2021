@@ -1,13 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useAppSelector } from './app/hooks';
+import {
+  
+  selectGivenText,
+} from './features/slices/textSlice'
 import { Counter } from './features/components/counter/Counter';
 import './App.css';
 
 function App() {
+  const givenText = useAppSelector(selectGivenText)
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src='' className="App-logo" style={{width: '100%', overflowWrap: 'break-word'}} alt={givenText} />
         <Counter />
         
         <p>
