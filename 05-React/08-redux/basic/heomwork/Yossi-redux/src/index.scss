@@ -51,62 +51,98 @@ button {
     font-weight: bolder;
 }
 
-textarea {
-    box-sizing: border-box;
-    padding: 1em 1em;
-    font-size: 16px;
-    width: 50%;
-    height: 8em;
-    resize: none;
-    border-radius: 0.5em;
-    border-color: #ffc4005d;
-}
+// textarea {
+//     box-sizing: border-box;
+//     padding: 1em 1em;
+//     font-size: 16px;
+//     width: 50%;
+//     height: 8em;
+//     resize: none;
+//     border-radius: 0.5em;
+//     border-color: #ffc4005d;
+// }
 
-textarea:focus {
-    outline: none !important;
-    border: 1px solid #ffc4005d;
-    box-shadow: 0 0 10px #858585;
-}
+// textarea:focus {
+//     outline: none !important;
+//     border: 1px solid #ffc4005d;
+//     box-shadow: 0 0 10px #858585;
+// }
 
-.showText {
-    // flex-wrap: wrap;
-    box-sizing: border-box;
-    padding-left: 1em;
-    margin: 0%;
-    padding-top: 1em;
-    border-radius: 0.5em;
-    min-width: 70%;
-    max-width: 70%;
-    min-height: 16em;
+.showTextWrapper {
+    width: 80%;
     display: flex;
     flex-direction: column;
-    // justify-content: center;
-    align-items: left;
-    white-space: pre-wrap;
-    background-image: url("../public/paper.jpg");
-    white-space: wrap;
-    overflow-x: scroll;
-    text-overflow: ellipsis;
-    box-shadow: 4px 4px 6px rgba(133, 133, 133, 0.516);
+    justify-content: center;
+    align-items: center;
 
-    p {
-        padding: 0%;
-        margin: 0%;
-        margin-top: 1%;
-        font-weight: bold;
+    .textField {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1em;
+        margin-top: 1.5em;
+        textarea {
+            box-sizing: border-box;
+            padding: 1em 1em;
+            font-size: 16px;
+            width: 50%;
+            height: 8em;
+            resize: none;
+            border-radius: 0.5em;
+            border-color: #ffc4005d;
+        }
+
+        textarea:focus {
+            outline: none !important;
+            border: 1px solid #ffc4005d;
+            box-shadow: 0 0 10px #858585;
+        }
     }
 
-    h2 {
-        padding: 0%;
+    .showText {
+        // flex-wrap: wrap;
+        box-sizing: border-box;
+        padding-left: 1em;
         margin: 0%;
-        margin-top: 0.5%;
-        margin-bottom: 5%;
+        padding-top: 1em;
+        border-radius: 0.5em;
+        min-width: 70%;
+        max-width: 70%;
+        min-height: 16em;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        align-items: left;
+        white-space: pre-wrap;
+        background-image: url("../public/paper.jpg");
+        white-space: wrap;
+        overflow-x: scroll;
+        text-overflow: ellipsis;
+        box-shadow: 4px 4px 6px rgba(133, 133, 133, 0.516);
+
+        p {
+            padding: 0%;
+            margin: 0%;
+            margin-top: 1%;
+            font-weight: bold;
+        }
+
+        h2 {
+            padding: 0%;
+            margin: 0%;
+            margin-top: 0.5%;
+            margin-bottom: 5%;
+        }
     }
 }
+
 
 // div {
 //     border: 1px solid red;
 // }
+
 ::-webkit-scrollbar {
     width: 12px;
     height: 12px;

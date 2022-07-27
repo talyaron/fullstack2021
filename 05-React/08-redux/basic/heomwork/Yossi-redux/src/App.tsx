@@ -19,7 +19,7 @@ function App() {
       <button onClick={() => dispatch(increment())}>Increment Days <span>(+1)</span></button>
       <button onClick={() => dispatch(decrement())}>Decrement Days <span>(-1)</span></button>
       <button onClick={() => dispatch(incrementByAmunt(10))}>Increment Days By 10 <span>(are you nuts?#!)</span></button>
-      <textarea placeholder="Continue..." onChange={(e) => dispatch(changeText(e.target.value))} />
+      {/* <textarea placeholder="Continue..." onChange={(e) => dispatch(changeText(e.target.value))} /> */}
       <ShowText />
     </div>
   );
