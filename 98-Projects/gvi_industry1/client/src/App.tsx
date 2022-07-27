@@ -19,6 +19,7 @@ import SelctedMentors from './view/pages/mentee/SelctedMentors';
 import NavBar from './view/pages/navBar/NavBar';
 import NavBarMentee from './view/pages/navBar/components/NavBarMentee';
 import Layout from './view/pages/Layout';
+import MatchingMentor from './view/pages/matching/components/MatchingMentor';
 
 function App() {
     const [usersList, setUsersList] = useState([]);
@@ -68,6 +69,7 @@ function App() {
                     <Route index element={<WelcomePage />} />
                     <Route path='profile' element={<Profile id='' />} />
                     <Route path='chat' element={<Chat />} />
+                    <Route path='quick-matching' element={<MatchingMentor />} />
                     <Route path='matching' element={<Matching usersList={usersList} setUsersList={setUsersList} currentUser={currentUser} currentSearch={currentSearch} setCurrentSearch={setCurrentSearch} checked={checked} setChecked={setChecked} />} />
                     <Route path=':id' element={<SelctedMentors />} />
                 </Route>

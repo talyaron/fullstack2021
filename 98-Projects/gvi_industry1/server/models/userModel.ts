@@ -30,7 +30,8 @@ export enum UserTypeSchema{
 
 export enum Sector{
   EDUCATION = 'education',
-  DIGIATL_HEALTH = "digital-health"
+  DIGIATL_HEALTH = "digital-health",
+  BUISNESS = "buisness"
 }
 
 export const UserSchema = new mongoose.Schema({

@@ -107,9 +107,9 @@ io.on('connection', (socket: any) => {
 import initiativesRouter from './routes/initiativesRoute';
 app.use('/api/initiatives', initiativesRouter);
 
+
 import userRoute from './routes/userRoute';
 app.use('/api/users',testServer, userRoute);
-
 function testServer(req, res, next){
     console.log('test server')
     next()
@@ -118,6 +118,8 @@ function testServer(req, res, next){
 import messageRoute from './routes/messageRoute';
 app.use('/api/messages', messageRoute);
 
+import matchingRoute from './routes/matchingRoute'
+app.use('/api/match' , matchingRoute);
 // app.post('/images', upload.single('image'), (req, res) => {
 //     try {
 //         res.send('g');
