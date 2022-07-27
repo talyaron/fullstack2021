@@ -14,7 +14,8 @@ export const Text = () => {
   const [turnedText, setTurnedText] = useState(myText);
 
   //what does this do in line 16
-  const textValue = String(turnedText) || "nope";
+  const textValue = String(myText) || "nope";
+  //const textValue = String(turnedText) || "nope";
 
   //why does the text add on to the last state and not restart it??
 
