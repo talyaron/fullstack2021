@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { changeText } from '../redux/counter'
+import axios from 'axios'
 
 const Text = () => {
     const dispatch = useDispatch()
@@ -8,6 +9,12 @@ const Text = () => {
     const [text, setText] = useState("")
     const textValue = String(text) || ""
 
+
+    // useEffect(() => {
+    //     (async () => {
+    //         const {data} = await axios.post('/api/users/create')})()
+
+    // }, [])
 
     return (
         <div>Text
@@ -25,3 +32,7 @@ const Text = () => {
 }
 
 export default Text
+
+
+
+
