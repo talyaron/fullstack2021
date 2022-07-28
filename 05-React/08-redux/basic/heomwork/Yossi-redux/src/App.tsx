@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ChangeColor from './components/ChangeColor';
 import ShowText from './components/ShowText';
 import { decrement, increment, incrementByAmunt } from './redux/counter';
-import { changeText } from './redux/text';
 
 
 function App() {
 
   const { count } = useSelector((state: any) => state.counter)
-  // const count = useSelector((state: any) => state.counter.count)
   // const {textInsert}= useSelector((state:any)=> state.inputText)
+  
   const dispatch = useDispatch();
 
   return (
@@ -21,6 +21,7 @@ function App() {
       <button onClick={() => dispatch(incrementByAmunt(10))}>Increment Days By 10 <span>(are you nuts?#!)</span></button>
       {/* <textarea placeholder="Continue..." onChange={(e) => dispatch(changeText(e.target.value))} /> */}
       <ShowText />
+      <ChangeColor/>
     </div>
   );
 }

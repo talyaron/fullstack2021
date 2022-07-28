@@ -1,13 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface TextInsert{
+    value:String
+}
+
 export const textSlice = createSlice({
     name: "inputText",
-    initialState: {
-        textInsert: "..."
+    initialState:  {
+        value: "..."
     },
     reducers: {
         changeText: (state, action) => {
-            state.textInsert = action.payload;
+            state.value = action.payload;
         }
     }
 })
