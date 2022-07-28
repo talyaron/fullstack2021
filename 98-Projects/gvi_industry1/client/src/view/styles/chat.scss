@@ -1,8 +1,8 @@
 .chat {
     font-family: Inter;
     position: absolute;
-    width: 1222px;
-    height: 715px;
+    width: 80%;
+    height: 80%;
     left: 120px;
     top: calc(206px - 73px);
     border: solid 1px rgba(128, 128, 128, 0.38);
@@ -338,7 +338,7 @@
             // place-items: center;
             bottom: 35px;
             right: 100px;
-            width: 660px;
+            width: 70%;
             max-height: 20px;
             padding: 18px 18.25px 18px 16px;
             background-color: #ffffff;
