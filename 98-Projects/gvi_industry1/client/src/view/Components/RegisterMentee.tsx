@@ -24,6 +24,7 @@ interface RegisterMenteeProps {
   handleBackToSelection: Function;
   handleBackToggleShowThirdSection: Function;
   handleToggleShowThirdSection: Function;
+  setCurrentUserType:Function;
 }
 
 const steps = ["personal details", "Your company", "payment details"];
@@ -46,6 +47,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
     menteeWindow,
     setMenteeWindow,
     handleCloseRegisterWindow,
+    setCurrentUserType
   } = props;
 
   const [activeStep, setActiveStep] = React.useState(0);
@@ -145,7 +147,8 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
 
 function moveToMainPage(){
   console.log("go to main page");
-  navigate("/mainPage");
+  setCurrentUserType("mentee")
+  navigate("mainPage");
 }
 
 

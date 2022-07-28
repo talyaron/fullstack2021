@@ -24,7 +24,8 @@ interface RegisterMentorProps {
     handleBackToggleShowSections: Function,
     handleBackToSelection: Function,
     handleBackToggleShowThirdSection: Function
-    handleToggleShowThirdSection: Function
+    handleToggleShowThirdSection: Function,
+    setCurrentUserType:Function;
 }
 
 const steps = [
@@ -35,7 +36,7 @@ const steps = [
 
 const RegisterMentor = (props: RegisterMentorProps) => {
     const navigate = useNavigate();
-    const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, mentorWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
+    const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, mentorWindow, setMenteeWindow, handleCloseRegisterWindow,setCurrentUserType } = props;
 
     const [activeStep, setActiveStep] = React.useState(0);
     const [imageFile , setImageFile] = useState<any>()
@@ -96,7 +97,8 @@ const RegisterMentor = (props: RegisterMentorProps) => {
 
     function moveToMainPage(){
         console.log("go to main page");
-        navigate("/mainPage");
+        setCurrentUserType("mentor")
+         navigate(`mainPage`);
       }
 
     return (
