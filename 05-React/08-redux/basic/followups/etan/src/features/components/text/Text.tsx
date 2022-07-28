@@ -24,10 +24,7 @@ export function Text() {
 const incrementValue = Number(count)
   const stringToAdd = textValue.repeat(incrementValue);
   // const stringToDecrementByAmount = textValue.repeat(incrementAmount)
-useEffect(()=>{
-  console.log(count, 'count');
-  console.log(amount, 'amount');
-},[count])
+
   return (
     <div style={{width: '100vw'}} >
       <div style={{width: '90%'}} className={styles.row}>
