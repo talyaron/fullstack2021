@@ -5,12 +5,13 @@ import {
   increment,
   incrementByAmount,
   decrementByAmount,
+  decrementByValue,
   incrementAsync,
-  incrementIfOdd,
+  decrementIfOdd,
   selectGivenText,
 } from '../../slices/textSlice';
 import {selectAmount, selectCount} from '../../slices/counterSlice'
-import styles from './Text.module.css';
+import styles from '../styles/Text.module.scss';
 import { useSelector } from 'react-redux';
 
 export function Text() {
@@ -35,21 +36,24 @@ useEffect(()=>{
           aria-label="Decrement value"
           onClick={() => dispatch(decrement(stringToAdd))}
         >
-          -
+          - By Value
         </button>
-        <span style={{width: '90%'}} className={styles.value}>{givenText}</span>
+
+        <span
+        aria-label="Text You Are About To Add"
+        style={{width: '90%'}} className={styles.value}>{addingText.length > 0 ? addingText : 'Type something below! ' }</span>
         <button
           className={styles.button}
           aria-label="Increment value"
           onClick={() => dispatch(increment(stringToAdd))}
         >
-          +
+          + By Value
         </button>
       </div>
       <div className={styles.row}>
         <input
           className={styles.textbox}
-          aria-label="Set increment amount"
+          aria-label="Set Text"
           value={addingText}
           onChange={(e) => setAddingText(e.target.value)}
         />
@@ -57,25 +61,25 @@ useEffect(()=>{
           className={styles.button}
           onClick={() => dispatch(incrementByAmount(textValue.repeat(amount)))}
         >
-          Add Amount
+          Add Text X Amount
         </button>
         <button
           className={styles.button}
-          onClick={() => dispatch(decrementByAmount(count))}
+          onClick={() => dispatch(decrementByAmount(amount))}
         >
-          Decrement Amount
+          Decrement Text X Amount
         </button>
-        <button
+        {/* <button
           className={styles.asyncButton}
           // onClick={() => dispatch(incrementAsync(count))}
         >
           Add Async
-        </button>
+        </button> */}
         <button
           className={styles.button}
-          onClick={() => dispatch(incrementIfOdd(count))}
+          onClick={() => dispatch(decrementIfOdd(count))}
         >
-          Add If Odd
+          Decrement Text By Value If Odd
         </button>
       </div>
     </div>

@@ -13,7 +13,7 @@ import {
   selectAmount
 } from '../../slices/counterSlice';
 import { Text } from '../text/Text';
-import styles from './Counter.module.css';
+import styles from '../styles/Counter.module.scss';
 
 export function Counter() {
   const count = useAppSelector(selectCount);
@@ -52,13 +52,13 @@ const incrementValue = Number(amount) || 0;
           className={styles.button}
           onClick={() => dispatch(incrementByAmount(incrementValue))}
         >
-          Add Amount
+          Add Amount To Value
         </button>
         <button
           className={styles.button}
           onClick={() => dispatch(decrementByAmount(incrementValue))}
         >
-          Decrement Amount
+          Decrement Value By Amount
         </button>
         <button
           className={styles.asyncButton}
@@ -70,7 +70,7 @@ const incrementValue = Number(amount) || 0;
           className={styles.button}
           onClick={() => dispatch(incrementIfOdd(incrementValue))}
         >
-          Add If Odd
+          Add Amount To Value If It's Odd
         </button>
       </div>
       <Text/>

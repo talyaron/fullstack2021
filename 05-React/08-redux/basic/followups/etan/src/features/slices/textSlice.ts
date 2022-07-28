@@ -43,7 +43,12 @@ export const textSlice = createSlice({
             state.value += action.payload;
         },
         decrementByAmount: (state, action: PayloadAction<number>) => {
-            // state.value -= action.payload;
+            state.value = state.value.slice(0, -(action.payload))
+            
+        },
+        decrementByValue: (state, action: PayloadAction<number>) => {
+            state.value = state.value.slice(0, -(action.payload))
+            
         },
     },
     // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -63,7 +68,7 @@ export const textSlice = createSlice({
     },
 });
 
-export const {increment, decrement, incrementByAmount, decrementByAmount} = textSlice.actions;
+export const {increment, decrement, incrementByAmount, decrementByAmount, decrementByValue} = textSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
@@ -72,12 +77,12 @@ export const selectGivenText = (state: RootState) => state.text.value;
 
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.
-export const incrementIfOdd =
-    (amount: number): AppThunk =>
+export const decrementIfOdd =
+    ( value: number):AppThunk =>
     (dispatch, getState) => {
         const currentValue = selectGivenText(getState());
-        if (currentValue.length >50) {
-            dispatch(incrementByAmount(currentValue.repeat(amount)));
+        if (currentValue.length  % 2 === 1) {
+            dispatch(decrementByValue(value));
         }
     };
 
