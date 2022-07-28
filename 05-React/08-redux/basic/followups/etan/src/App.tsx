@@ -1,6 +1,5 @@
 import { useAppSelector } from './app/hooks';
 import {
-  
   selectGivenText,
 } from './features/slices/textSlice'
 import { Counter } from './features/components/counter/Counter';
