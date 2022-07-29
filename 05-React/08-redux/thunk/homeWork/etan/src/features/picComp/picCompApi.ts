@@ -13,9 +13,9 @@ export const getPicAsync = createAsyncThunk('pic/fetchPic', async () => {
         const {data} = await axios.get('https://dog.ceo/api/breeds/image/random');
         console.dir(data);
         
-        // const picLink = data.message;
-        // if (!picLink) throw new Error('No picLink was provided');
-        // return picLink;
+        const picLink = data.message;
+        if (!picLink) throw new Error('No picLink was provided');
+        return picLink;
     } catch (error) {
         
     }
