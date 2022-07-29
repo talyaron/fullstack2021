@@ -1,10 +1,18 @@
-import React from 'react'
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import {selectPic} from '../../features/picComp/picCompSlice'
+import { PacmanLoader } from 'react-spinners';
+import { useAppSelector } from '../../app/hooks';
+import {selectPic, selectPicStatus, status} from '../../features/picComp/picCompSlice'
+
 function Pic() {
   const image = useAppSelector(selectPic)
+  const imageReady:status = useAppSelector(selectPicStatus)
   return (
-<img src={image} className="App-logo" alt="" />
+    <div className="picComp">
+
+{imageReady === status.LOADING? <PacmanLoader/> 
+:
+<img src='{image}' className="App-logo" alt="" />
+}
+    </div>
   )
 }
 

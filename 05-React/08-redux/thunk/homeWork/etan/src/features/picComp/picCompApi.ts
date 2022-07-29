@@ -2,13 +2,20 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
 
+
+
+
+
+
 export const getPicAsync = createAsyncThunk('pic/fetchPic', async () => {
     try {
-        
+       
         const {data} = await axios.get('https://dog.ceo/api/breeds/image/random');
-        const picLink = data.message;
-        if (!picLink) throw new Error('No picLink was provided');
-        return picLink;
+        console.dir(data);
+        
+        // const picLink = data.message;
+        // if (!picLink) throw new Error('No picLink was provided');
+        // return picLink;
     } catch (error) {
         
     }
