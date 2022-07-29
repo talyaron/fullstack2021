@@ -46,8 +46,8 @@ function CurrentRecipient() {
                 </div>
             </div>
             <ul className='chat__currentRecipient__Buttons'>
-                {searchMessagesToggle && <InputBase style={{ backgroundColor: 'red' }} />}
-                <SearchMessages handleChatSearchBar={handleChatSearchBar} />
+                {/* {searchMessagesToggle && <InputBase style={{ backgroundColor: 'red' }} />}
+                <SearchMessages handleChatSearchBar={handleChatSearchBar} /> */}
             </ul>
         </div>
     );
