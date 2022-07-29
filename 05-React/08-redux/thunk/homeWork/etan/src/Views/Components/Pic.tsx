@@ -10,7 +10,7 @@ function Pic() {
 
 {imageReady === status.LOADING? <PacmanLoader/> 
 :
-<img src='{image}' className="App-logo" alt="" />
+<img src={image} className="App-logo" alt="" />
 }
     </div>
   )
