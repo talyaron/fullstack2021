@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import "../styles/cardReq.scss";
+import "../styles/request.scss";
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios"
 import SelectedUserCard from './SelectedUserCard';

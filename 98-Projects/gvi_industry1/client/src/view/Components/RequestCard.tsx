@@ -1,6 +1,6 @@
 
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import "../styles/cardReq.scss";
+import "../styles/request.scss";
 import Popup from 'reactjs-popup';
 import { useNavigate } from "react-router-dom";
 

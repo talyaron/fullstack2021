@@ -7,12 +7,14 @@ import './view/styles/global.scss';
 
 import HomePage from './view/Components/HomePage';
 import Matching from './view/pages/matching/Matching';
+import Request from './view/Components/Request';
 import Chat from './view/pages/Chat/Chat';
 import WelcomePage from './view/Components/WelcomePage';
 import {useState, useEffect} from 'react';
 import AdminPage from './view/Components/AdminPage';
 import AdminLayout from './view/pages/AdminLayout';
-import axios from 'axios';
+import axios from 'axios'
+
 import {BrowserRouter as Router, Routes, Route, useParams} from 'react-router-dom';
 
 import SelectedUsers from './view/Components/SelctedUsers';
@@ -84,6 +86,7 @@ function App() {
             }
           />
           <Route path="matching/selected-users" element={<SelectedUsers />} />
+          <Route path="request" element={<Request />} />
         </Route>
         <Route
           path="mainPageAdmin"
