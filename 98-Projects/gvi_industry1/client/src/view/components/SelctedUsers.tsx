@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/selectedPage.scss";
+//@ts-ignore
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios"
 import SelectedUserCard from './SelectedUserCard';

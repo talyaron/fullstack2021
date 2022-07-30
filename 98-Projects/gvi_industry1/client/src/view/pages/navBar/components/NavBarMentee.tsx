@@ -1,6 +1,6 @@
 import React from "react";
 import { Link} from "react-router-dom";
-
+// import * as profileImg from '../img/profileImg.jpg'
 
 interface navBarMenteeProps {
 
@@ -45,17 +45,17 @@ function NavBarMentee(props: navBarMenteeProps) {
                 </Link>
               </div>
               <div className="profileIMG" >  
-              {loggedInUser ? <p>{loggedInUser?.name?.first}</p> : null}
-                    {/* <Link to="profile">
-                <img
+              {/* {loggedInUser ? <p>{loggedInUser?.name?.first}</p> : null} */}
+                    <Link to="profile">
+                <img 
                   src={
                     loggedInUser && loggedInUser.image
                       ? loggedInUser.image
-                      : null
+                      : 'https://t4.ftcdn.net/jpg/03/40/12/49/360_F_340124934_bz3pQTLrdFpH92ekknuaTHy8JuXgG7fi.jpg' 
                   }
                   alt="profile logo"
                
-                /></Link> */}
+                /></Link>
               </div>
             </div>
 
