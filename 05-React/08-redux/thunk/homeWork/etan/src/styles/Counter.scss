@@ -61,7 +61,10 @@
 
 .myButton {
   position: fixed;
-  top: 0;
+  top: 1em;
+  appearance: none;
+  background: none;
+  padding: 1em 2em;
 }
 
 .myButton:after {
