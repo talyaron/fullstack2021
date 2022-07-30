@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import axios from 'axios';
-// import RegisterMentee from './RegisterMentee';
+
 import RegisterMentee from './RegisterMentee';
 import RegisterMentor from './RegisterMentor'
 interface RegisterProps{
@@ -13,12 +13,7 @@ interface RegisterProps{
 } 
 const UserSelection = (props:RegisterProps) => {
     const {registerWindow,setRegisterWindow, menteeWindow, setMenteeWindow,mentorWindow,setMentorWindow}=props
-    // function handleCheck(ev:any){
-    //     const name= ev.target.value
-    //     console.log(name)
-    // }
 
-    // const [mentorWindow,setMentorWindow]=useState()
 
     function handleRegisterWindow(){
       setMenteeWindow(true)

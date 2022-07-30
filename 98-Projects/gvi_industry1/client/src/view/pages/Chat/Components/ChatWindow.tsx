@@ -1,44 +1,19 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState,useContext} from 'react';
 import PaperPlaneIcon from '../Icons/PaperPlaneRight';
 import {InputBase} from '@mui/material';
 import {MessageInterface, MessageUserInterface} from '../Chat';
 import {socket} from '../../../../index';
-import ConversationsTab from './ConversationsTab';
-import DocsTab from './DocsTab';
+import ConversationsTab from '../Components/ConversationsTab';
+import DocsTab from '../Components/DocsTab';
+import { ChatContext } from '../../../Contexts/ChatContext';
 
 interface ChatWindowProps {
-    scroll: String;
     chatArea: String;
-    messageList?: Array<MessageInterface>;
-    getMessageList: Function;
-    setMessageList: Function;
-    handleSendMessage: Function;
-    setSentMessage: Function;
-    dateFromObjectId: Function;
 }
 
-function ChatWindow(props: ChatWindowProps) {
-    const {dateFromObjectId, getMessageList, chatArea, messageList, setMessageList, setSentMessage, handleSendMessage, scroll} = props;
+function ChatWindow() {
+    const {chatArea} = useContext<ChatWindowProps>(ChatContext);
 
-    useEffect(() => {
-        let messageList = document.querySelector('.chat__chatWindow__messagesList');
-        if (messageList) {
-            messageList.scrollTop = messageList.scrollHeight;
-        }
-    }, [messageList]);
-
-    useEffect(() => {
-        const messages = getMessageList();
-        return () => {
-            console.log(messages, 'messages ChatWindow');
-        };
-    }, []);
-
-    return (
-        <div className='chat__chatWindow'>
-            {chatArea === "Conversation" ?<ConversationsTab messageList={messageList} dateFromObjectId={dateFromObjectId} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} />
-            : <DocsTab/> }
-        </div>
-    );
+    return <div className='chat__chatWindow'>{chatArea === 'Conversation' ? <ConversationsTab /> : <DocsTab />}</div>;
 }
 export default ChatWindow;

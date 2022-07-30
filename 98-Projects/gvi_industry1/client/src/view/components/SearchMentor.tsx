@@ -4,7 +4,7 @@ import {useState} from "react";
 
 
 
-// import SearchForm from './components/SearchForm';
+
 
    export function SearchMentor() {  
 const myMovies = [
@@ -117,7 +117,7 @@ const myMovies = [
     ev.preventDefault();
     
     const search = ev.target.value;
-    console.log(search);
+
     const regex: RegExp = new RegExp(search, 'i');
     let flag=0;
     setSearch(true)
@@ -126,19 +126,17 @@ const myMovies = [
         for (let i in myMovies) {
 
             if (regex.test(myMovies[i].name)) {
-                console.log(myMovies[i].name);              
+          
                 setResultFound([...resultFound,myMovies[i]]);
-                console.log(myMovies[i]);
-                console.log(resultFound); 
+ 
                 flag=1; 
-                console.log(flag);
+
             }
             
                        
 
         }
         if (flag===0){
-            console.log(search+" not found");
             return <h1 className="searchNotFound">NotFound </h1>
    
         }
@@ -148,7 +146,7 @@ const myMovies = [
 
   if(search)
   {
-    console.log(search);
+
     
     return(
       <>
@@ -319,7 +317,7 @@ const myMovies = [
     ev.preventDefault();
     
     const search = ev.target.value;
-    console.log(search);
+
     const regex: RegExp = new RegExp(search, 'i');
     let flag=0;
     setSearch(true)
@@ -328,19 +326,19 @@ const myMovies = [
         for (let i in myMovies) {
 
             if (regex.test(myMovies[i].name)) {
-                console.log(myMovies[i].name);              
+            
                 setResultFound([...resultFound,myMovies[i]]);
-                console.log(myMovies[i]);
-                console.log(resultFound); 
+
+
                 flag=1; 
-                console.log(flag);
+
             }
             
                        
 
         }
         if (flag===0){
-            console.log(search+" not found");
+
             return <h1 className="searchNotFound">NotFound </h1>
    
         }
@@ -350,7 +348,7 @@ const myMovies = [
 
   if(search)
   {
-    console.log(search);
+
     
     return(
       <>

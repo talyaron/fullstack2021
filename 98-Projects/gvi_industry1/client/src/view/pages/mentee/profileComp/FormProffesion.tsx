@@ -5,7 +5,7 @@ interface FormProffesionProps{
     isMentee:boolean
     companyInfo:Array<any>
     mentorDetails:Array<any>;
-    userId:String;
+    userId?:String;
 }
 
 
@@ -15,15 +15,19 @@ function FormProffesion (props:FormProffesionProps){
 
     const [companySections , setCompanySection] = useState(
         ["CompanyName" , "sector" , "description","stage","linkToOnePager"])
+
+        const [mentorSections , setmentorSections] = useState(
+            ["Sector Offer" , "Sector" , "StartUp stage that you are willing to work on..",
+            "Description..","Website"])
     
 
     console.log(userId);
     
     
    async function editUser(ev:any){
-        
-        ev.preventDefault()
-        let companyName,description,sector,linkToOnePager,stage
+    ev.preventDefault()
+        if(isMentee) {
+            let companyName,description,sector,linkToOnePager,stage
         const inputs = ev.target.elements
         for(let element of inputs){
             if(element.name !== "submit"){
@@ -43,15 +47,24 @@ function FormProffesion (props:FormProffesionProps){
         const {data} = await axios.post('/api/initiatives/update-initiative',{newDetails,userId})
         
         window.location.reload();
+
+        }
+        
+        
             
     }
     
     return (
         <form className='profile_companyDetails-sections formProffesion' onSubmit={editUser}>
-        
-        {companyInfo.map((section,i) => {
+        {isMentee?
+        companyInfo.map((section,i) => {
             return(
          <input key={i} type="text" name={companySections[i]} className='formProffesion-input' placeholder={companySections[i]} />
+            )
+        }):
+        mentorSections.map((section,i) => {
+            return(
+         <input key={i} type="text" name={mentorSections[i]} className='formProffesion-input' placeholder={mentorSections[i]} />
             )
         })}
         <input className='formProffesion-submit' name="submit" type="submit" value="save Details"/>

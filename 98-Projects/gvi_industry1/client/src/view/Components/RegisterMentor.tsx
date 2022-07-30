@@ -1,5 +1,6 @@
-import react from "react";
+import react , {useState} from "react";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 
 import * as React from 'react';
@@ -23,7 +24,8 @@ interface RegisterMentorProps {
     handleBackToggleShowSections: Function,
     handleBackToSelection: Function,
     handleBackToggleShowThirdSection: Function
-    handleToggleShowThirdSection: Function
+    handleToggleShowThirdSection: Function,
+    setCurrentUserType:Function;
 }
 
 const steps = [
@@ -33,33 +35,39 @@ const steps = [
 ];
 
 const RegisterMentor = (props: RegisterMentorProps) => {
-    const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, mentorWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
+    const navigate = useNavigate();
+    const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, mentorWindow, setMenteeWindow, handleCloseRegisterWindow,setCurrentUserType } = props;
 
     const [activeStep, setActiveStep] = React.useState(0);
+    const [imageFile , setImageFile] = useState<any>()
+    const [profilePic, setProfilePic] = useState(" ");
 
     async function handleMentorForm(ev: any) {
         ev.preventDefault()
         try {
-            const first = ev.target.elements.firstName.value;
-            const last = ev.target.elements.lastName.value;
+            const first = ev.target.elements.first.value;
+            const last = ev.target.elements.last.value;
             const password = ev.target.elements.password.value;
             const email = ev.target.elements.email.value;
             const phone = ev.target.elements.phone.value;
-            const linkdInProfile = ev.target.elements.linkdinProfile.value;
+            const linkedInProfile = ev.target.elements.linkedInProfile.value;
             const country = ev.target.elements.country.value;
             const FieldsOfKnowledged = ev.target.elements.FieldsOfKnowledged.value;
             const stage = ev.target.elements.startupStage.value;
             const sector = ev.target.elements.sector.value;
             const description = ev.target.elements.description.value;
-            const profilePic = ev.target.elements.profilePic.value;
+            // const profilePic = ev.target.elements.profilePic.value;
+            const image = profilePic;
             const type = 'mentor';
             const name = { first, last };
 
-            const user = { name, password, profilePic, description, linkdInProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
-            console.log(user);
+
+            const user = { name, password, image, description, linkedInProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
+
 
             const userData = await axios.post('/api/users/add-user', { user });
-            console.log(userData)
+            console.log(userData);
+            
             // Already exists CHECK
             if (userData.data === 'Already exists') {
                 window.alert('Already Exists')
@@ -70,11 +78,31 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             console.error(error);
         }
 
-        // window.location.reload();
     }
 
+    async function saveImage(ev:any){
+
+        const image = ev.target.files[0]
+        const reader = new FileReader();
+        reader.readAsDataURL(image)
+        reader.onloadend = async () => {
+        await setImageFile(`${reader.result}`)
+        const imageFile = reader.result
+        const {data} = await axios.post('/api/profile/saveImage',{imageFile})
+                const ImgUrl = data.result.url;
+                setProfilePic(ImgUrl)
+                }
+    }
+
+
+    function moveToMainPage(){
+        console.log("go to main page");
+        setCurrentUserType("mentor")
+         navigate(`mainPage`);
+      }
+
     return (
-        <div className={mentorWindow ? "backgroungd-overlay" : "back"}>
+        <div className={mentorWindow ? "background-overlay" : "back"}>
             <div className={mentorWindow ? "form__wrapper" : "back"}>
                 <div className={showProgressBar}>
                     <button className="closeButton" onClick={() => { handleCloseRegisterWindow() }}>X</button>
@@ -94,11 +122,11 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                             <div className="firstSection">
                                 <div className="inputBox">
                                     <div className="form__text">First Name</div>
-                                    <input type="text" name="firstName" />
+                                    <input type="text" name="first" />
                                 </div>
                                 <div className="inputBox">
                                     <div className="form__text">Last Name</div>
-                                    <input type="text" name="lastName" />
+                                    <input type="text" name="last" />
                                 </div>
                                 <div className="inputBox">
                                     <div className="form__text">Password</div>
@@ -113,8 +141,8 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                                     <input type="text" name="phone" />
                                 </div>
                                 <div className="inputBox">
-                                    <div className="form__text">LinkdIN profile</div>
-                                    <input type="text" name="linkdinProfile" />
+                                    <div className="form__text">LinkedIn profile</div>
+                                    <input type="text" name="linkedInProfile" />
                                 </div>
                                 <div className="inputBox">
                                     <div className="form__text">Country</div>
@@ -125,7 +153,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                                 </div>
                                 <div className="inputBox">
                                     <div className="form__text">Upload Profile Image</div>
-                                    <input className="file-input" type="file" name="profilePic" />
+                                    <input className="file-input" type="file" name="profilePic" onChange={saveImage}/>
                                 </div>
                             </div>
                             <div className="btn-back-next">
@@ -198,7 +226,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                     <p className="welcomeNote__text">Since you are part of the founding generation, we would like to offer you 15 days of free use without any additional commitment on your part</p>
                     <div className="btn-back-next">
                                     <div className="back-btn"><button type="button" onClick={() => { handleBackToggleShowThirdSection(); setActiveStep(0) }}><span className="fa fa-angle-left"></span> BACK</button></div>
-                                    <div><input type='submit' value='NEXT' onClick={() => { setActiveStep(3) }} /></div>
+                                    <div><button  onClick={() => { moveToMainPage() }} >NEXT</button> </div>
                                 </div>
                 </div>
             </div>

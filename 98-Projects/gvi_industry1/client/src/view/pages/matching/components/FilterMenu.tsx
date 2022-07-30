@@ -16,62 +16,54 @@ import axios from "axios";
 import Mentor from "../../mentor/Mentor";
 
 const FilterMenu = (props: any) => {
-  const { checked, setChecked } = props;
-
-  // const handleToggle = (value: number) => () => {
-  //   const currentIndex = checked.indexOf(value);
-  //   const newChecked = [...checked];
-  //   if (currentIndex === -1) {
-  //     newChecked.push(value);
-  //   } else {
-  //     newChecked.splice(currentIndex, 1);
-  //   }
-  //   setChecked(newChecked);
-  // };
+  const { checked, setChecked, filterOptions, setFilterOptions } = props;
 
   useEffect(() => {
     (async () => {
       const { data } = await axios.get("/api/users/get-filter");
-      const { allFiltered } = data;
-      setChecked(allFiltered);
+      const { result } = data;
+      setFilterOptions(result);
+      console.log(result);
     })();
   }, []);
-  try {
-    return (
-      <div className="matching__filter-menu">
-        <div className="_section">
-          <div className="_title"></div>
-          <div className="_more">
-            <Accordion>
-              <AccordionSummary>
-                <Typography>Sector</Typography>
-              </AccordionSummary>
 
-              <AccordionDetails>
-                <List
-                  sx={{
-                    width: "100%",
-                    maxWidth: 360,
-                  }}>
-                  {checked.map((check: any) => (
-                    <ListItemButton disableGutters>
-                      <Checkbox />
-                      <p>{check.sector}</p>
+  const handleOnChange = () => {
+    setChecked(!checked);
+    console.log("checked");
+    
+  };
 
-                      <ListItemText primary={check.sector} />
-                    </ListItemButton>
-                  ))}
-                </List>
-              </AccordionDetails>
-            </Accordion>
-          </div>
+  return (
+    <div className="matching__filter-menu">
+      <div className="_section">
+        <div className="_title"></div>
+        <div className="_more">
+          <Accordion>
+            <AccordionSummary>
+              <Typography>Sector</Typography>
+            </AccordionSummary>
+
+            <AccordionDetails>
+              <List
+                sx={{
+                  width: "100%",
+                  maxWidth: 360,
+                }}
+              >
+                {filterOptions.map((option: any, i: any) => (
+                  <ListItemButton disableGutters>
+                    <Checkbox onChange={handleOnChange} checked={checked} />
+
+                    <ListItemText key={i} primary={option.sector} />
+                  </ListItemButton>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
         </div>
       </div>
-    );
-  } catch (err) {
-    console.error(err);
-    return null;
-  }
+    </div>
+  );
 };
 
 export default FilterMenu;
