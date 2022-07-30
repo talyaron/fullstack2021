@@ -44,7 +44,13 @@
     width: 60px;
     height: 60px;
     border-radius: 100%;
-    background-color: aqua;
+  //  background-color: aqua;
+    img{
+        text-align: center;
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;  
+    }
 }
 
 .showMentee {
