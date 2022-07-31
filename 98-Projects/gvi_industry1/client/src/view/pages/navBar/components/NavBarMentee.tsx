@@ -7,13 +7,11 @@ interface navBarMenteeProps {
 
   loggedInUser: any;
   profilePic:any;
-  logo:String;
-
 }
 function NavBarMentee(props: navBarMenteeProps) {
 
   
-  const {loggedInUser,profilePic,logo} = props;
+  const {loggedInUser,profilePic} = props;
 
   console.log(loggedInUser);
   
@@ -21,7 +19,7 @@ function NavBarMentee(props: navBarMenteeProps) {
           <div className="navBar">
             <div className="logo">
               <Link className="link" to='/'>
-              <img src={`${logo}`} alt="logo" />
+              <img src={ require('../../../../public/gvi-logo.png') } alt="logo" />
               </Link>
             </div>
 

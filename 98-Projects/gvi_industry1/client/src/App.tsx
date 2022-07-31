@@ -13,7 +13,7 @@ import WelcomePage from './view/Components/WelcomePage';
 import {useState, useEffect} from 'react';
 import AdminPage from './view/Components/AdminPage';
 import AdminLayout from './view/pages/AdminLayout';
-import axios from 'axios'
+import axios from 'axios';
 
 import {BrowserRouter as Router, Routes, Route, useParams} from 'react-router-dom';
 
@@ -30,6 +30,7 @@ function App() {
   const [myProfile, setMyProfile] = useState(false);
   const [loggedInUser, setloggedInUser] = useState({});
   const [currentUserType, setCurrentUserType] = useState("");
+  
 
   
 
