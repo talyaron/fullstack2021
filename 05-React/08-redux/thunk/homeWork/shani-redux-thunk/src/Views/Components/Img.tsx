@@ -6,6 +6,7 @@ import { selectImg } from "../../features/imgSlice";
 export const Img = () => {
     //const [meme,setMeme]=useState<Array<string>>([])
     const [meme,setMeme]=useState("")
+    const [memeCap,setMemeCap]=useState("")
   const dispatch = useAppDispatch();
   const img = useAppSelector(selectImg);
   async function handleGetGif() {
@@ -17,6 +18,7 @@ export const Img = () => {
         console.log(show.url)
        
         setMeme(show.url)
+        setMemeCap(show.name)
       
     } catch (error) {
       console.log(error);
@@ -29,6 +31,7 @@ export const Img = () => {
       
       <button onClick={handleGetGif}>Get Gif</button>
       <img src={meme}/>
+      <h1>{memeCap}</h1>
       {/* <div>
       {meme.map((m: any, i) => {
             return (
