@@ -116,8 +116,9 @@ function Chat() {
     }, [userList]);
 
     useEffect(() => {
+        getMessageList();
         return () => {
-            getMessageList();
+            // getMessageList();
         };
     }, [recipient]);
 
