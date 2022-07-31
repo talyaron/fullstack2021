@@ -369,8 +369,10 @@ export const getUserProfile = async (req, res) => {
     res.send({ error: err.message, ok: false });
   }
 };
+
 export const updateUserDetails = async (req, res) => {
   try {
+    
     const { updatedDetails, userId } = req.body;
 
     const user = await UserModel.findOne({ _id: userId });

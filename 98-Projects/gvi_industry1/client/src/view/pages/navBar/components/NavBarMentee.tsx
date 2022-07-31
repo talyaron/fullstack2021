@@ -1,27 +1,27 @@
-import React from "react";
+import React ,{useEffect,useState} from "react";
+import axios from "axios";
 import { Link} from "react-router-dom";
 
 
 interface navBarMenteeProps {
 
   loggedInUser: any;
+  profilePic:any;
+  logo:String;
 
 }
 function NavBarMentee(props: navBarMenteeProps) {
 
   
-  const {
+  const {loggedInUser,profilePic,logo} = props;
 
-    loggedInUser,
-
-  } = props;
-
-
+  console.log(loggedInUser);
+  
   return (
           <div className="navBar">
             <div className="logo">
               <Link className="link" to='/'>
-              <img src="./gvi-logo.png" alt="logo" />
+              <img src={`${logo}`} alt="logo" />
               </Link>
             </div>
 
@@ -45,17 +45,23 @@ function NavBarMentee(props: navBarMenteeProps) {
                 </Link>
               </div>
               <div className="profileIMG" >  
-              {loggedInUser ? <p>{loggedInUser?.name?.first}</p> : null}
-                    {/* <Link to="profile">
-                <img
+<<<<<<< HEAD
+                    <Link to="profile">
+                <img 
+                  src={profilePic} 
+=======
+              {/* {loggedInUser ? <p>{loggedInUser?.name?.first}</p> : null} */}
+                    <Link to="profile">
+                <img 
                   src={
                     loggedInUser && loggedInUser.image
                       ? loggedInUser.image
-                      : null
+                      : 'https://t4.ftcdn.net/jpg/03/40/12/49/360_F_340124934_bz3pQTLrdFpH92ekknuaTHy8JuXgG7fi.jpg' 
                   }
+>>>>>>> dev
                   alt="profile logo"
                
-                /></Link> */}
+                /></Link>
               </div>
             </div>
 

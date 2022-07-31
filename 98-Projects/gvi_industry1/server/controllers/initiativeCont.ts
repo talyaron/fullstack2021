@@ -44,9 +44,9 @@ export const getAllRecipients = async (req, res) => {
 export const getInitiative = async (req, res) => {
     try {
         const {userId} = req.body;
-
+        
         const userInitiative = await InitiativeModel.findOne({ownerUserId: userId});
-
+        
         res.send({userInitiative});
     } catch (err) {
         console.error(err);
