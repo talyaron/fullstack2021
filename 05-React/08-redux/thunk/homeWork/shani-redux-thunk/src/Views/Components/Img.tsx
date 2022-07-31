@@ -11,17 +11,12 @@ export const Img = () => {
   async function handleGetGif() {
     try {
       const { data } = await axios.get("https://api.imgflip.com/get_memes");
-      const { url } = data.data.memes;
-
+    
      
-      for (var i = 0; i < data.data.memes.length; i++) {
-        let value = data.data.memes[i];
-
-        //console.log(value.url);
-
-        setMeme(data.data.memes[i].url)
-        
-      }
+      let show = data.data.memes[Math.floor(Math.random() * data.data.memes.length)];
+        console.log(show.url)
+       
+        setMeme(show.url)
       
     } catch (error) {
       console.log(error);
