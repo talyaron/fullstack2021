@@ -52,7 +52,7 @@ export function Profile () {
           const userFound = data.user;          
           const type = userFound.type;
           
-          if(type === "mentee") setIsMentee(true)
+          if(type === "mentee") await setIsMentee(true)
           if(type === "mentor") {
             console.log("yes");
             
@@ -61,7 +61,7 @@ export function Profile () {
             setMentorInitiative(mentorInit)
             console.log(mentorInit);
             
-            setIsMentee(false)  
+            await setIsMentee(false)  
           } 
           
           setUserDetails(userFound)
@@ -69,7 +69,7 @@ export function Profile () {
           setUserSector(userFound.sector)
           
           const newContactInfo = {country:userFound.country,city:userFound.city,address:userFound.address,
-          email:userFound.email,phone:userFound.phone,linkdInProfile:userFound.linkdInProfile}
+          email:userFound.email,phone:userFound.phone,linkdInProfile:userFound.linkedInProfile}
           await setContactInfo(newContactInfo)
           await setProfilePic(userFound.image)
           await getInitiative(userId)
