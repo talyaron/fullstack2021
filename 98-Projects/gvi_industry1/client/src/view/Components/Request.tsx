@@ -4,7 +4,7 @@ import "../styles/request.scss";
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios"
 import SelectedUserCard from './SelectedUserCard';
-import RequestCard from "./RequestCard";
+// import RequestCard from "./RequestCard";
 const Request = () => {
 
   const [requestUsers, setRequestUsers] = useState([]);
@@ -31,7 +31,7 @@ const Request = () => {
     <div className="selectedPage">
       <h5 className="selectedPage__title">Requests-{type} </h5>
       <div className="selectedPage__wrapper">
-        <RequestCard requestUsers={requestUsers} />
+        {/* <RequestCard requestUs  ers={requestUsers} /> */}
       </div>
     </div>
   );
