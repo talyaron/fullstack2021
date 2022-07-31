@@ -6,3 +6,6 @@ get data from the api, and show it on the DOM
 
 use spinner when loading
 
+
+
+
