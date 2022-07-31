@@ -35,22 +35,9 @@ console.log(loggedInUser);
         </div>
         <div className="profileIMG"> 
 
-<<<<<<< HEAD
           <Link to="profile">
           <img
             src={profilePic}
-=======
-        {/* {loggedInUser ? <p>{loggedInUser?.name?.first}</p> : null} */}
-          <Link to="profile">
-          <img
-            src={
-              loggedInUser && loggedInUser.image
-                ? loggedInUser.image
-                : 'https://t4.ftcdn.net/jpg/03/40/12/49/360_F_340124934_bz3pQTLrdFpH92ekknuaTHy8JuXgG7fi.jpg' 
-            }
-            alt='profile imge'
-         
->>>>>>> dev
           /></Link>
         </div>
       </div>
