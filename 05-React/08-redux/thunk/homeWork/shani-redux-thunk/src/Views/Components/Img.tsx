@@ -1,47 +1,34 @@
-import React,{useState}from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import axios from "axios";
-import { selectImg } from "../../features/imgSlice";
+import React, { useEffect } from "react";
+import { selectImg, selectImgStatus, Status } from "../../features/imgSlice";
+import { getImgAsync } from "../../features/imgAPI";
+
 
 export const Img = () => {
-    //const [meme,setMeme]=useState<Array<string>>([])
-    const [meme,setMeme]=useState("")
-    const [memeCap,setMemeCap]=useState("")
   const dispatch = useAppDispatch();
   const img = useAppSelector(selectImg);
+  const imgStatus = useAppSelector(selectImgStatus);
+
+  
+
   async function handleGetGif() {
     try {
-      const { data } = await axios.get("https://api.imgflip.com/get_memes");
-    
-     
-      let show = data.data.memes[Math.floor(Math.random() * data.data.memes.length)];
-        console.log(show.url)
-       
-        setMeme(show.url)
-        setMemeCap(show.name)
-      
+      ///----another way to do it but not with thunk
+      //   const { data } = await axios.get("https://api.imgflip.com/get_memes");
+      //   let show = data.data.memes[Math.floor(Math.random() * data.data.memes.length)];
+      //     if (!data) throw new Error("missing meme");
+      //     dispatch(setImg(show.url))
+      dispatch(getImgAsync());
     } catch (error) {
       console.log(error);
     }
   }
   return (
     <div>
-      Img
-      
-      
       <button onClick={handleGetGif}>Get Gif</button>
-      <img src={meme}/>
-      <h1>{memeCap}</h1>
-      {/* <div>
-      {meme.map((m: any, i) => {
-            return (
-              <div key={i}  >
-                <img src={m.url} />
-              </div>
-            );
-          })}
-          </div> */}
-    
+      <img src={img} />
+      {imgStatus === Status.LOADING ? <div className="loader"></div> : null}
     </div>
   );
 };
