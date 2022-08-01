@@ -4,13 +4,17 @@ import React, { useEffect } from "react";
 import { selectImg, selectImgStatus, Status } from "../../features/imgSlice";
 import { getImgAsync } from "../../features/imgAPI";
 
-
 export const Img = () => {
   const dispatch = useAppDispatch();
   const img = useAppSelector(selectImg);
-  const imgStatus = useAppSelector(selectImgStatus);
+  let imgStatus = useAppSelector(selectImgStatus);
 
-  
+  //   useEffect(() => {
+  //     const timer = setTimeout(() => {
+
+  //     }, 5000);
+  //     return () => clearTimeout(timer);
+  //   }, [imgStatus]);
 
   async function handleGetGif() {
     try {
@@ -19,14 +23,23 @@ export const Img = () => {
       //   let show = data.data.memes[Math.floor(Math.random() * data.data.memes.length)];
       //     if (!data) throw new Error("missing meme");
       //     dispatch(setImg(show.url))
+
+
+       setTimeout(() => {
+        
+        imgStatus = Status.LOADING 
+        
+      }, 3000);
       dispatch(getImgAsync());
+      
     } catch (error) {
       console.log(error);
     }
   }
   return (
     <div>
-      <button onClick={handleGetGif}>Get Gif</button>
+      <button onClick={handleGetGif}>Get a meme template</button>
+
       <img src={img} />
       {imgStatus === Status.LOADING ? <div className="loader"></div> : null}
     </div>
