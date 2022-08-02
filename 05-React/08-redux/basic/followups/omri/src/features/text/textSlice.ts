@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../../app/store';
 
-export interface CounterState {
+export interface TextState {
   value: string;
   status: 'idle' | 'loading' | 'failed';
 }
 
-const initialState: CounterState = {
+const initialState: TextState = {
   value: '',
   status: 'idle',
 };
@@ -17,12 +17,14 @@ export const textSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-   
+   changeText: (state, action: PayloadAction<string>) => {
+    state.value = action.payload;
+   }
   
   },
 });
 
-export const {  } = textSlice.actions;
+export const { changeText } = textSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

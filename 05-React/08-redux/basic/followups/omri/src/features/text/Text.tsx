@@ -3,27 +3,24 @@ import React, { useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import {
     selectText,
+    changeText,
 } from './textSlice';
-import styles from './Counter.module.css';
+import styles from '../counter/Counter.module.css';
 
-export function Counter() {
-    const count = useAppSelector(selectText);
+export function Text() {
+    const text = useAppSelector(selectText);
     const dispatch = useAppDispatch();
-    const [addedText, setAddedText] = useState('');
-
-    //   const incrementValue = Number(incrementAmount) || 0;
 
     return (
         <div>
             <div className={styles.row}>
-                <span className={styles.value}>{count}</span>
+                <span className={styles.value}>{text || 'Hello'}</span>
             </div>
             <div className={styles.row}>
                 <input
                     className={styles.textbox}
-                    aria-label="Set increment amount"
-                    value={incrementAmount}
-                    onChange={(e) => setAddedText(e.target.value)}
+                    // aria-label="Set Text"
+                    onKeyUp={(e) => dispatch(changeText(e.target.value))}
                 />
             </div>
         </div>
