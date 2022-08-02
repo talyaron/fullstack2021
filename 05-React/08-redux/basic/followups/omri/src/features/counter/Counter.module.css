@@ -44,6 +44,13 @@
   text-align: center;
   margin-right: 4px;
 }
+.textbox1 {
+  font-size: 32px;
+  padding: 2px;
+  width: 164px;
+  text-align: center;
+  margin-right: 4px;
+}
 
 .button:hover,
 .button:focus {

@@ -1,3 +1,68 @@
+body{
+  
+    background-color: rgb(141, 221, 135);
+    
+}
+.pageHeader{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    .pageTitle{
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+      
+       
+    }
+    .flower{
+width:80px;
+animation: rotate-scale-up 1s linear both;
+
+    }
+}
+@keyframes rotate-scale-up {
+    0% {
+      transform: scale(1) rotateZ(0);
+    }
+    50% {
+      transform: scale(2) rotateZ(180deg);
+    }
+    100% {
+      transform: scale(1) rotateZ(360deg);
+    }
+  }
+button{
+    margin:50px;
+    background-color: red;
+    border-radius: 50%;
+    width:100px;
+    height:100px;
+    cursor:pointer;
+    &:hover{
+        background-color: rgb(153, 16, 16);
+    }
+    &:active{
+        background-color: rgb(92, 13, 13);
+    }
+}
+
+.imgMeme{
+    border:black solid 1px;
+    max-width: 1000px;
+    height: 50vh;
+    
+    animation: shadow-pop-br 1s ease-in forwards;
+    
+}
+@keyframes shadow-pop-br {
+    0% {
+      box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+      transform: translateX(0) translateY(0);
+    }
+    100% {
+      box-shadow: 1px 1px #f61919, 2px 2px #1526a2, 3px 3px #15f192, 4px 4px #e720bf, 5px 5px #e2ef22, 6px 6px #42dffe, 7px 7px #52168b, 8px 8px #ff85d6;
+      transform: translateX(-8px) translateY(-8px);
+    }
+  }
+
 .loader {
     box-sizing: border-box;
     display: inline-block;
@@ -93,3 +158,5 @@
         background-position: 50% 36px;
     }
 }
+
+
