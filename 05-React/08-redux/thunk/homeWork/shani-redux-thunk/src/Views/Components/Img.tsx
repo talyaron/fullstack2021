@@ -9,12 +9,7 @@ export const Img = () => {
   const img = useAppSelector(selectImg);
   let imgStatus = useAppSelector(selectImgStatus);
 
-  //   useEffect(() => {
-  //     const timer = setTimeout(() => {
-
-  //     }, 5000);
-  //     return () => clearTimeout(timer);
-  //   }, [imgStatus]);
+  
 
   async function handleGetGif() {
     try {
@@ -24,24 +19,22 @@ export const Img = () => {
       //     if (!data) throw new Error("missing meme");
       //     dispatch(setImg(show.url))
 
-
-       setTimeout(() => {
-        
-        imgStatus = Status.LOADING 
-        
-      }, 3000);
       dispatch(getImgAsync());
-      
     } catch (error) {
       console.log(error);
     }
   }
   return (
     <div>
-      <button onClick={handleGetGif}>Get a meme template</button>
+        <div className="pageHeader"><h1 className="pageTitle">Meme Template Generator </h1>
+      <img src='https://cdn130.picsart.com/336759945011211.png?type=webp&to=min&r=240' className="flower"/></div>
+      
+      <div>
+        <button onClick={handleGetGif}>Get a meme template</button>
+      </div>
 
-      <img src={img} />
-      {imgStatus === Status.LOADING ? <div className="loader"></div> : null}
+     
+      {imgStatus === Status.LOADING ? <div className="loader"></div> :  <div><img src={img}  className="imgMeme"/></div>}
     </div>
   );
 };

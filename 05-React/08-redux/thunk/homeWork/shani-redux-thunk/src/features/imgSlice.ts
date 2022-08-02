@@ -49,6 +49,8 @@ export const { setImg } =imgSlice.actions;
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
+
+//img is an object and inside meme and status
 export const selectImg = (state: RootState) => state.img.meme;
 export const selectImgStatus=(state:RootState)=>state.img.status
 //state.IMG the img is from the store
