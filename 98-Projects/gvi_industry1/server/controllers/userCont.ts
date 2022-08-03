@@ -4,6 +4,7 @@ import selectedUsersModel from "../models/selectedUsers";
 import initiativeModel from "../models/initiativeModel";
 import countryFlagModel from "../models/countryFlagModel";
 import JWT from "jwt-simple";
+import requestsUsersModel from "../models/requestedModel";
 const cloudinary = require('./uploads/cloudinary')
 
 export const getUser = async (req: any, res: any) => {
@@ -464,6 +465,66 @@ export async function getLoggedInProfile(req, res) {
   }
 }
 
+//======================================================================================
+
+export const request = async (req: any, res: any) => {
+  try {
+    const { userInfo } = req.cookies;
+    const payload = JWT.decode(userInfo, secret);
+    const currentUserId = payload.id;
+
+    const { selectedUserId } = req.body;
+    const selectedUser = await UserModel.findById(selectedUserId);
+    if (!selectedUser) throw new Error("couldnt find the user in the DB");
+
+    const { email, name, image } = selectedUser;
+
+    const searchSelecting = {
+      "selectedUser.email": selectedUser.email,
+      selectingUserId: currentUserId,
+    };
+
+    const selectingUser: any = await requestsUsersModel.findOne(
+      searchSelecting
+    );
+    let newSelection: any;
+    if (!selectingUser) {
+      console.log("no record in DB - saving");
+      const newSelectionDB = new requestsUsersModel({
+        userSendingRequestId: currentUserId,
+        userSendingRequestDetails: { email, name, image },
+        userRecievingRequestId:"........",
+        userRecievingRequestDetails: { email, name, image },
+        requestText:".........",
+        sendingTheRequest: true,
+        recievigTheRequest: false,
+
+      });
+      newSelection = await newSelectionDB.save();
+    } else {
+      if (selectingUser.sendingTheRequest === true) {
+        console.log("a record in DB - turning off");
+        newSelection = await requestsUsersModel.findOneAndUpdate(
+          searchSelecting,
+          { sendingTheRequest: false }
+        );
+      } else {
+        console.log("a record in DB - turning on");
+        newSelection = await requestsUsersModel.findOneAndUpdate(
+          searchSelecting,
+          { selected: true }
+        );
+      }
+    }
+
+    res.send({ success: true, selection: newSelection });
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+};
 
 
 
+
+//======================================================================================

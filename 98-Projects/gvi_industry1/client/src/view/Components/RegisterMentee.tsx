@@ -94,7 +94,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
       };
       console.log(user);
 
-      const userData = await axios.post("/api/users/add-user", { user });
+      const userData = await axios.post("/api/users", { user });
 
       const { data } = userData;
       console.log(data);
