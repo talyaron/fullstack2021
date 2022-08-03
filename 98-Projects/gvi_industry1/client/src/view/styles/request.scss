@@ -71,24 +71,17 @@
     }
 
 
-    &__button {
-        height: 39px;
-        width: 159px;
-        // left: 153px;
-        // top: 170px;
-        border-radius: 15px;
-        background-color: #ADADAD;
-        border: none;
-        grid-column-start: 4;
-        grid-column-end: 6;
-        grid-row-start: 5;
-        grid-row-end: 5;
-
-    }
-
 }
 
 #envelope{
     height: 30px;
     width: 30px;
+}
+
+.matching-card-flex__button{
+   display: inline-flex;
+   border-radius: 40px;
+   padding: 10px;
+   
+
 }

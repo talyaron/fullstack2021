@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 
-import "../styles/request.scss";
+import "../Styles/request.scss";
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios"
-import SelectedUserCard from './SelectedUserCard';
-import RequestCard from "./RequestCard";
+import RequestCard from "../components/RequestCard"
+
+
 const Request = () => {
 
   const [requestUsers, setRequestUsers] = useState([]);
@@ -87,9 +88,9 @@ async function handleRequestForm(ev: any) {
 
 
   return (
-    <div className="selectedPage">
-      <h5 className="selectedPage__title"></h5>
-      <div className="selectedPage__wrapper">
+    <div className="requestPage">
+      <h5 className="requestPage__title"></h5>
+      <div className="requestPage__wrapper">
         <RequestCard requestUsers={requestUsers} />
       </div>
     </div>

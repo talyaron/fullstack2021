@@ -1,6 +1,6 @@
 
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import "../styles/request.scss";
+import "../Styles/request.scss";
 import Popup from 'reactjs-popup';
 import { useNavigate } from "react-router-dom";
 
@@ -39,9 +39,10 @@ const RequestCard = (props: CardReqProps) => {
             <p className="card_req__center__company">{item.fieldsOfKnowledge}</p>
             {/* <p className="card__center__profession">{item.sector}</p> */}
           </div>
-          <div className='matching-card_req-buttons-flex'>
+       
                 {/* <button onClick={()=> window.open("someLink", "_blank")}>text</button> */}
-                <Popup  trigger={<button className='matching-card-flex__mismatch' >Mismatch</button>} position="right center">
+                
+                <Popup  trigger={<button className='matching-card-flex__button' >Mismatch</button>}>
                   <div>
                     <form>
                         <label>
@@ -58,7 +59,7 @@ const RequestCard = (props: CardReqProps) => {
                 </Popup>
                
 
-                <button onClick={()=>{navigate('/mainPage/chat')}}>Start Mentoring</button>
+                <button className='matching-card-flex__button' onClick={()=>{navigate('/mainPage/chat')}}>Start Mentoring</button>
            
 
                 
@@ -66,7 +67,7 @@ const RequestCard = (props: CardReqProps) => {
               </div>
           
           
-        </div>
+      
       )
       }
     </>

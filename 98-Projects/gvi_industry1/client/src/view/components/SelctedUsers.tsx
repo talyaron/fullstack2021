@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import "../styles/selectedPage.scss";
+import "../Styles/selectedPage.scss";
 //@ts-ignore
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios"
-import SelectedUserCard from './SelectedUserCard';
+import SelectedUserCard from '../components/SelectedUserCard';
 const SelectedUsers = () => {
 
   const [selectedUsers, setSelectedUsers] = useState([]);

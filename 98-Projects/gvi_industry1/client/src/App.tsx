@@ -2,24 +2,24 @@ import {socket} from './index';
 import Profile from './view/pages/mentee/Profile';
 // import Card from "./view/pages/mentee/Card"//
 import React from 'react';
-import './view/styles/global.scss';
+import './view/Styles/global.scss';
 
 import Matching from './view/pages/matching/Matching';
-import Request from './view/Components/Request';
+import Request from './view/components/Request';
 import Chat from './view/pages/Chat/Chat';
 import {useState, useEffect} from 'react';
 import AdminLayout from './view/pages/AdminLayout';
 import axios from 'axios'
 import {BrowserRouter as Router, Routes, Route, useParams, BrowserRouter} from 'react-router-dom';
-import SelectedUsers from './view/Components/SelctedUsers';
+import SelectedUsers from './view/components/SelctedUsers';
 import Layout from './view/pages/Layout';
 import RequestUsers from './view/pages/mentee/RequestUsers';
-import HomePage from './view/Components/HomePage';
-import WelcomePage from './view/Components/WelcomePage';
-import AdminPage from './view/Components/AdminPage';
+import HomePage from './view/components/HomePage';
+import WelcomePage from './view/components/WelcomePage';
+import AdminPage from './view/components/AdminPage';
 import RequestLayout from './view/pages/RequestLayout';
-import Answered from './view/Components/Answered';
-import Pending from './view/Components/Pending';
+import Answered from './view/components/Answered';
+import Pending from './view/components/Pending';
 
 
 function App() {
