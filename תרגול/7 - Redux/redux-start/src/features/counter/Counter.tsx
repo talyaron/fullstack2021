@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 
-import // useAppSelector, useAppDispatch
-"../../app/hooks";
-import // decrement,
-// increment,
-// incrementByAmount,
-// incrementIfOdd,
-// selectCount,
-"./counterSlice";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
 
 export function Text() {
-  const handleSend = (e: any) => {};
+  const handleSend = (e: any) => {
+    e.preventDefault();
+
+    const text = e.target.elements.text.value;
+
+    console.log(text);
+  };
+
   return (
     <div>
       <form onSubmit={handleSend}>
