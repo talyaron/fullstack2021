@@ -1,26 +1,24 @@
 import React from "react";
-
 import {Link} from "react-router-dom";
+
 
 interface navBarMentorProps {
 
   loggedInUser: any;
-
+  profilePic:any;
+  
 }
 
 function NavBarMentor(props: navBarMentorProps) {
-  const {
+  const {loggedInUser,profilePic} = props;
 
-    loggedInUser,
-
-  } = props;
-
+console.log(loggedInUser);
 
   return (
     <div className="navBar">
-      <div className="logo">
+      <div className="logo" >
       <Link className="link" to='/'>
-        <img src="../gvi-logo.png" alt="logo" />
+        <img src={ require('../../../../public/gvi-logo.png') }alt="logo" />
         </Link>
       </div>
 
@@ -37,17 +35,10 @@ function NavBarMentor(props: navBarMentorProps) {
         </div>
         <div className="profileIMG"> 
 
-        {loggedInUser ? <p>{loggedInUser?.name?.first}</p> : null}
-          {/* <Link to="profile">
+          <Link to="profile">
           <img
-            src={
-              loggedInUser && loggedInUser.image
-                ? loggedInUser.image
-                : null
-            }
-            alt='{loggedInUser.name.first}'
-         
-          /></Link> */}
+            src={profilePic}
+          /></Link>
         </div>
       </div>
     

@@ -193,18 +193,21 @@ export async function getSelectedUser(req, res) {
           (selectedMentor) =>
             selectedMentor.email === selectedUser.selectedUser["email"]
         );
-        let user = mentor[0];
-        const country = flags.filter(
-          (country) => country.countryName === user.country
-        );
-        if(country.length > 0){
-          user['country'] = `${country[0].countryFlag}`;
+
+        if (mentor[0] !== undefined) {
+          let user = mentor[0];
+          const country = flags.filter(
+            (country) => country.countryName === user.country
+          );
+          if (country.length > 0) {
+            user['country'] = `${country[0].countryFlag}`;
           };
-        chosen.push(user);
+          chosen.push(user);
+        };
       });
       res.send({ ok: true, chosen });
     }
-    
+
     else if (type === "mentor") {
       let chosen = [];
       selectedUsers.forEach((selectedUser, i) => {
@@ -212,22 +215,24 @@ export async function getSelectedUser(req, res) {
           (selectedMentee) =>
             selectedMentee.email === selectedUser.selectedUser["email"]
         );
-        let user = mentee[0];
-        const country = flags.filter(
-          (country) => country.countryName === user.country
-        );
-        if(country.length > 0){
-        user['country'] = `${country[0].countryFlag}`;
-        };
-        const menteeIntiative = selectedUserInitiatives.filter(
-          (selectedMentee) => selectedMentee.ownerUserId === user.id
-        );
-        if(menteeIntiative.length > 0){
-          user['fieldsOfKnowledge'] = `${menteeIntiative[0].companyName}`
-          user['sector'] = `${menteeIntiative[0].stage}`
+        if (mentee[0] !== undefined) {
+          let user = mentee[0];
+          const country = flags.filter(
+            (country) => country.countryName === user.country
+          );
+          if (country.length > 0) {
+            user['country'] = `${country[0].countryFlag}`;
+          };
+          const menteeIntiative = selectedUserInitiatives.filter(
+            (selectedMentee) => selectedMentee.ownerUserId === user.id
+          );
+          if (menteeIntiative.length > 0) {
+            user['fieldsOfKnowledge'] = `${menteeIntiative[0].companyName}`
+            user['sector'] = `${menteeIntiative[0].stage}`
+          }
+          console.log(menteeIntiative);
+          chosen.push(user);
         }
-        console.log(menteeIntiative);
-        chosen.push(user);
       });
       res.send({ ok: true, chosen });
     }
@@ -246,30 +251,32 @@ export async function getAllRecipients(req, res) {
     const currentUser = await UserModel.findOne({ _id: id });
     let allRecipients = [];
     if (currentUser.type === 'mentee') {
-        res.send({user:userDecodedInfo});
-        return;
+      res.send({ user: userDecodedInfo });
+      return;
     }
     if (currentUser.type === "mentor") {
       const allRecipientsIds = currentUser.mentees;
       let localArr: Array<any> = [];
       const getRecipientsList = async () => {
         for (let recipient of allRecipientsIds) {
+          console.log(recipient, 'mentor');
+
           let rec = await UserModel.findOne(
             { _id: recipient },
             { password: 0 }
           );
 
-          let readyRec = {userId: rec._id, name: rec.name}
+          let readyRec = { userId: rec._id, name: rec.name }
           localArr.push(readyRec);
         }
         return localArr;
-        
+
       };
       allRecipients = await getRecipientsList();
     }
 
     if (allRecipients === []) throw new Error("no Users were found");
-    if (allRecipients.length>0) {
+    if (allRecipients.length > 0) {
       res.send({ allRecipients, user: userDecodedInfo });
     }
   } catch (error) {
@@ -335,11 +342,13 @@ export const addUser = async (req, res) => {
       const newUser = new UserModel(user);
       const result = await newUser.save();
       console.log(newUser);
+
       const payload = {
+        email: newUser.email,
         loggedInUser: true,
         type: newUser.type,
         id: newUser._id,
-        name: user.name,
+        name: newUser.name,
       };
       const token = JWT.encode(payload, secret);
       res.cookie("userInfo", token, { httpOnly: true });
@@ -356,8 +365,8 @@ export const getUserProfile = async (req, res) => {
   try {
 
     const { userId } = req.body;
-    
-    const user = await UserModel.findOne({_id:userId});    
+
+    const user = await UserModel.findOne({ _id: userId });
 
     res.send({ user, ok: true });
   } catch (err) {
@@ -365,8 +374,10 @@ export const getUserProfile = async (req, res) => {
     res.send({ error: err.message, ok: false });
   }
 };
+
 export const updateUserDetails = async (req, res) => {
   try {
+    
     const { updatedDetails, userId } = req.body;
 
     const user = await UserModel.findOne({ _id: userId });

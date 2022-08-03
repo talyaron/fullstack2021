@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Owner</title>
+    
+
+  <link rel="icon" type="image/x-icon" href="images/logo.png">
+
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body>
+    <nav class="navigation">
+        <ul>
+            <a href="index.html">
+                <li class="navigation--logo"><img src="../images/logoTitle.png" alt="airbnb"></li>
+            </a>
+            <li class="navigation--search">
+                <form class="form" onsubmit="handleFindAirbnb(event)">
+                    
+                    <div class="form--searchLocation">
+                        <label for="searchLocation">Location </label>
+                        <input id="searchLocation" type="text" name="searchLocation" placeholder="Where are you going?">
+    
+    
+                    </div>
+    
+                    <div class="form--checkIn">
+                      <label for="checkIn">Check in <br>
+                          <input type="date" value="2022-02-05" name="checkIn" id="date" >
+                         
+                      </label>
+                   
+                  </div>
+    
+                  <div class="form--checkOut">
+                      <label for="checkOut">Check out<br>
+                          <input type="date" value="2022-02-05" name="checkOut" id="date" >
+                         
+                      </label>
+                     
+                  </div>
+    
+                    <div class="form--guests">
+                        <label for="guests">Guests <br><span>Add guests</span></label>
+                        
+                        <div class="dropdown">
+                            <label for="adults">Adults:
+                                <span>Ages 13 or above</span> </label>
+                            <input type="number" id="adults" name="adults" min="0" max="10" placeholder="0">
+    
+                            <label for="children">Children:
+                                <span>Ages 2–12</span> </label>
+                            <input type="number" id="children" name="children" min="0" max="10" placeholder="0">
+    
+                            <label for="infants">Infants:
+                                <span>Under 2</span></label>
+                            <input type="number" id="infants" name="infants" min="0" max="10" placeholder="0">
+    
+                            <label for="pets">Pets:</label>
+                            <input type="number" id="pets" name="pets" min="0" max="5" placeholder="0">
+    
+    
+                        </div>
+                    </div>
+    
+    
+                  <button type="submit" value="submit" class="form--searchIcon"><img src="./images/searchIcon.png"></button>
+    
+    
+                </form>
+            </li>
+            <li class="navigation--greeting">Welcome!<span id="theUsersName"></span></li>
+    
+            <li class="navigation--user popup" onclick="handlePopup()"><img src="../images/visitorProfile.png">
+    
+                <div class="popuptext" id="myPopup">
+                    <form  onsubmit="handleLogin(event)" id="login" >
+                        <h2>Login</h2>
+                        <input type="text" name="username" placeholder="username" required>
+                        <input type="password" name="password" placeholder="password" autocomplete="current-password" required>
+    
+                        <select name="role" id="role" required>
+                            <option selected disabled hidden>"I am a"</option>
+                            <option value="admin">Admin</option>
+                            <option value="host">Host</option>
+                            <option value="guest">Guest</option>
+                        </select>
+    
+                        <input type="submit" value="login">
+                    </form>
+    
+                    <form onsubmit="handleRegister(event)" id="register">
+                        <h2>Register</h2>
+                        <input type="text" name="username" placeholder="username" required>
+                        <input type="password" name="password" placeholder="password"
+                            autocomplete="current-password" required>
+    
+                        <select name="role" id="role" required>
+                            <option selected disabled hidden>"I am a"</option>
+                            <option value="host">Host</option>
+                            <option value="guest">Guest</option>
+                        </select>
+    
+                        <input type="submit" value="register">
+                    </form>
+    
+                </div>
+    
+            </li>
+        </ul>
+    </nav>
+
+ <h1>Owner Page</h1>
+ <button onclick="handleGetUsers()">Get users</button>
+ <div id="user"></div>
+
+    <script src="dist/index.js"></script>
+</body>
+</html>
