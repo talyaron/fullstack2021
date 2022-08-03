@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import "../styles/selectedPage.scss";
+import "../mentee/style/selectedPage.scss";
+//@ts-ignore
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios"
-import Card from "./SelectedUserCard";
-const SelectedUsers = () => {
+import Card from "../../components/SelectedUserCard";
+const SelctedMentors = () => {
 
   const [selectedUsers, setSelectedUsers] = useState([]);
   const [type, setType] = useState('');
@@ -35,4 +36,4 @@ const SelectedUsers = () => {
   );
 }
 
-export default SelectedUsers;
+export default SelctedMentors;

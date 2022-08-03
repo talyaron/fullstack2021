@@ -1,11 +1,7 @@
-import {useEffect, useState,useContext} from 'react';
-import PaperPlaneIcon from '../Icons/PaperPlaneRight';
-import {InputBase} from '@mui/material';
-import {MessageInterface, MessageUserInterface} from '../Chat';
-import {socket} from '../../../../index';
-import ConversationsTab from '../Components/ConversationsTab';
-import DocsTab from '../Components/DocsTab';
-import { ChatContext } from '../../../Contexts/ChatContext';
+import {useContext} from 'react';
+import {ChatContext} from '../../../Contexts/ChatContext';
+import ConversationsTab from './ConversationsTab';
+import DocsTab from './DocsTab';
 
 interface ChatWindowProps {
     chatArea: String;

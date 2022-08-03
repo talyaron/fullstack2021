@@ -8,8 +8,9 @@ function ContactDetails (props:ContactDetailsProps) {
   
 const {contactInfo} =props;
 
-console.log(contactInfo);
 
+
+const [linkdInProfile,setlinkdInProfile] = useState("")
 
     if(contactInfo){
       return (

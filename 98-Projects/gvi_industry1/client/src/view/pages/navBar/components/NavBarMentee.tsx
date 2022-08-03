@@ -1,25 +1,27 @@
-import React ,{useEffect,useState} from "react";
-import axios from "axios";
+import React from "react";
 import { Link} from "react-router-dom";
 
 
 interface navBarMenteeProps {
 
   loggedInUser: any;
-  profilePic:any;
+
 }
 function NavBarMentee(props: navBarMenteeProps) {
 
   
-  const {loggedInUser,profilePic} = props;
+  const {
 
-  console.log(loggedInUser);
-  
+    loggedInUser,
+
+  } = props;
+
+
   return (
           <div className="navBar">
             <div className="logo">
               <Link className="link" to='/'>
-              <img src={ require('../../../../public/gvi-logo.png') } alt="logo" />
+              <img src="./gvi-logo.png" alt="logo" />
               </Link>
             </div>
 
@@ -43,12 +45,17 @@ function NavBarMentee(props: navBarMenteeProps) {
                 </Link>
               </div>
               <div className="profileIMG" >  
-                    <Link to="profile">
-                <img 
-                  src={profilePic} 
+              {loggedInUser ? <p>{loggedInUser?.name?.first}</p> : null}
+                    {/* <Link to="profile">
+                <img
+                  src={
+                    loggedInUser && loggedInUser.image
+                      ? loggedInUser.image
+                      : null
+                  }
                   alt="profile logo"
                
-                /></Link>
+                /></Link> */}
               </div>
             </div>
 

@@ -5,21 +5,20 @@ import React from 'react';
 
 import './view/styles/global.scss';
 
-import HomePage from './view/Components/HomePage';
+import HomePage from './view/components/HomePage';
 import Matching from './view/pages/matching/Matching';
-import Request from './view/Components/Request';
 import Chat from './view/pages/Chat/Chat';
-import WelcomePage from './view/Components/WelcomePage';
+import WelcomePage from './view/components/WelcomePage';
 import {useState, useEffect} from 'react';
-import AdminPage from './view/Components/AdminPage';
+import AdminPage from './view/components/AdminPage';
 import AdminLayout from './view/pages/AdminLayout';
 import axios from 'axios';
-
 import {BrowserRouter as Router, Routes, Route, useParams} from 'react-router-dom';
 
-import SelectedUsers from './view/Components/SelctedUsers';
+import SelectedUsers from './view/components/SelctedUsers';
+import NavBar from './view/pages/navBar/NavBar';
+import NavBarMentee from './view/pages/navBar/components/NavBarMentee';
 import Layout from './view/pages/Layout';
-
 
 function App() {
   const [usersList, setUsersList] = useState([]);
@@ -30,27 +29,17 @@ function App() {
   const [myProfile, setMyProfile] = useState(false);
   const [loggedInUser, setloggedInUser] = useState({});
   const [currentUserType, setCurrentUserType] = useState("");
-  
-
-  
 
   let { userId } = useParams();
 
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get("/api/users/get-user");
-      const { user } = data;
-     
-      setCurrentUser(user);
-      
-      const {type} = user;
-      if(type){
-        setCurrentUserType(type)
-        
-      }
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const { data } = await axios.get("/api/users/get-user");
+  //     const { user } = data;
+  //     setCurrentUser(user);
+  //   })();
+  // }, []);
 
  
   return (
@@ -62,7 +51,7 @@ function App() {
         <Route
           path="mainPage"
           element={
-            <Layout 
+            <Layout
               loggedInUser={loggedInUser}
               currentUserType={currentUserType}
             />
@@ -90,15 +79,14 @@ function App() {
             }
           />
           <Route path="matching/selected-users" element={<SelectedUsers />} />
-          <Route path="request" element={<Request />} />
         </Route>
         <Route
           path="mainPageAdmin"
           element={<AdminLayout loggedInUser={loggedInUser} />}
         >
           <Route index element={<AdminPage />} />
-          <Route path="chatAdmin/:userId" element={<Chat />} />
-          <Route path="profileAdmin/:userId" element={<Profile />} />
+          <Route path="chat/:userId" element={<Chat />} />
+          <Route path="profile/:userId" element={<Profile />} />
         </Route>
       </Routes>
     </Router>

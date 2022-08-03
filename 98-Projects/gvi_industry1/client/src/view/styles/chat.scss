@@ -1,12 +1,10 @@
 .chat {
-    font-size: clamp(0.8rem, 0.9vw, 1rem);
     font-family: Inter;
     position: absolute;
-    width: 80%;
-    height: 80%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    width: 1222px;
+    height: 715px;
+    left: 120px;
+    top: calc(206px - 73px);
     border: solid 1px rgba(128, 128, 128, 0.38);
     display: grid;
     grid-template-rows: 56px 1fr;
@@ -24,6 +22,8 @@
         place-items: center;
         place-content: flex-start;
         gap: 30px;
+        width: 306px;
+        height: 715px;
         grid-area: b;
         box-shadow: inset -1px 0px 0px 0px rgba(128, 128, 128, 0.38);
         &__searchBar {
@@ -77,10 +77,6 @@
             // width: 25vh;
             &:hover {
                 background: #e2e2e2;
-            }
-            &_image {
-                width: 56px;
-                height: 56px;
             }
             &_text {
                 font-size: clamp(0.8rem, 0.9vw, 1rem);
@@ -155,19 +151,20 @@
                 border-radius: 50px;
                 border: none;
                 outline: none;
-
+                margin-block: 0;
                 &:-webkit-autofill {
                     box-shadow: 0 0 0 30px white inset;
                 }
                 button {
                     display: flex;
                     align-items: center;
-                    // margin-inline-end: 1.5em;
+                    height: 150%;
+                    width: 150%;
+                    margin-inline-end: 1.5em;
                     background: none;
                     color: inherit;
                     border: none;
-                    padding-inline: .5em;
-                    padding-block: .25em;
+                    padding-inline: 1em;
                     font: inherit;
                     cursor: pointer;
                     outline: inherit;
@@ -184,10 +181,6 @@
         }
         &__info {
             gap: 16px;
-            .image{
-                width:40px;
-                height:40px;
-            }
         }
         &__Buttons {
             padding: 0;
@@ -209,8 +202,6 @@
             width: 100%;
             max-height: 100%;
             isolation: isolate;
-            display: flex;
-            flex-direction: column;
         }
         &__docsList {
             list-style: none;
@@ -242,11 +233,7 @@
             position: relative;
             top: 0;
             margin: 0 25px 0 25px;
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-            &::-webkit-scrollbar {
-                display: none;
-              }
+            place-self: flex-start;
             .MessageCard {
                 position: relative;
                 width: fit-content;
@@ -331,37 +318,34 @@
             }
         }
         &__messageBar {
-            position: relative;
+            position: absolute;
             display: flex;
             justify-content: space-between;
             align-items: center;
             // place-items: center;
-
+            bottom: 35px;
+            right: 100px;
+            width: 660px;
             max-height: 20px;
             padding: 18px 18.25px 18px 16px;
             background-color: #ffffff;
             border-radius: 12px;
             flex: 1;
-            margin: 0 3em 2.5em 3em;
 
-            input{
-                width: 100%;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                white-space: nowrap;
-                outline: none;
-                border: none;
-                font-size:1.25em;
-                line-height: 1;
-                &:focus{
-                    outline: none;
-                }
-            }
             .fileUpload {
                 width: 70%;
                 height: 100%;
             }
-            
+            div {
+                line-height: 1;
+                width: 100%;
+                input {
+                    width: 100%;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+            }
 
             label {
                 cursor: pointer;

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import react,{useState} from "react";
-=======
-import react , {useState} from "react";
->>>>>>> dev
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 
@@ -28,10 +24,7 @@ interface RegisterMentorProps {
     handleBackToggleShowSections: Function,
     handleBackToSelection: Function,
     handleBackToggleShowThirdSection: Function
-    handleToggleShowThirdSection: Function,
-    setCurrentUserType:Function;
-    setloggedInUser:Function;
-
+    handleToggleShowThirdSection: Function
 }
 
 const steps = [
@@ -42,18 +35,9 @@ const steps = [
 
 const RegisterMentor = (props: RegisterMentorProps) => {
     const navigate = useNavigate();
-    const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, 
-        firstSection, secondSection, thirdSection, showProgressBar, 
-        handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, 
-        registerWindow, setRegisterWindow, countryArray, mentorWindow, setMenteeWindow, 
-        handleCloseRegisterWindow,setCurrentUserType,setloggedInUser } = props;
+    const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, mentorWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
 
     const [activeStep, setActiveStep] = React.useState(0);
-<<<<<<< HEAD
-=======
-    const [imageFile , setImageFile] = useState<any>()
-    const [profilePic, setProfilePic] = useState("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAM1BMVEXk5ueutLfn6eqrsbTp6+zg4uOwtrnJzc/j5earsbW0uby4vcDQ09XGyszU19jd3+G/xMamCvwDAAAFLklEQVR4nO2d2bLbIAxAbYE3sDH//7WFbPfexG4MiCAcnWmnrzkjIRaD2jQMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMw5wQkHJczewxZh2lhNK/CBOQo1n0JIT74/H/qMV0Z7GU3aCcVPuEE1XDCtVLAhgtpme7H0s1N1U7QjO0L8F7llzGeh1hEG/8Lo7TUmmuSrOfns9xnGXpXxsONPpA/B6OqqstjC6Ax/0ujkNdYQQbKNi2k64qiiEZ+ohi35X+2YcZw/WujmslYewiAliVYrxgJYrdwUmwXsU+RdApUi83oNIE27YvrfB/ZPg8+BJETXnqh9CVzBbTQHgojgiCvtqU9thFJg/CKz3VIMKMEkIXxIWqIpIg2SkjYj+xC816mrJae2aiWGykxRNsW0UwiJghJDljYI5CD8GRiCtIsJxizYUPQ2pzItZy5pcisTRdk/a9m4amtNNfBuQkdVhSaYqfpNTSFGfb9GRIakrE2Pm+GFLaCQPqiu0OpWP+HMPQQcgQMiQprWXNmsVwIjQjYi/ZrhAqNTCgr2gu0Jnz85RSSjso0HkMFZ0YZjKkc26a/jlmh9JiDyDxi9oeorTYAzZkwwoMz19pzj9bnH/GP/+qbchjSGflneWYhtTuKdMOmNKZcJ5TjInQKcYXnESd/jQxy0ENpULTNGOGgxpap/oyw9pbUAqhfx2Dbkhovvfgz4iUzoM9+GlK6/Mh4q29hyC1mwro30hpVVLPF9wYQr71RazOeM5/cw81iBRD+A03aM9/C/obbrKjbYSpCmIVG3qT/Q8oeUo3Rz0IL7vI1tEbCB9pSiu8I/aV8x3Kg/BGWrWp4ZVs0nZfmAoEG4h/61yHYIJiFSl6Q0Vk6tTW1N8kYp8hdOkfHYYMXd2Qft+8CYwqYDSKvqIh+MCF8Wgca2u/cwdgeW3TtuVn6+1oBs3yLo5C2JpK6CvQzGpfUkz9UG/87gCsi5o2LIXolxN0FbwAsjOLEr+YJmXn7iR6N0BCt5p5cMxm7eAsfS+/CACQf4CTpKjzgkvr2cVarVTf96372yut7XLJ1sa7lv6VcfgYrWaxqr3Wlo1S6pvStr22sxOtTNPLzdY3nj20bPP+ejFdJYkLsjGLdtPBEbe/mr2bQKiXWJDroA+vtzc0p9aahuwqHMDYrQEXHEw9jwQl3drMpts9JBU1SdktPe5FBRdJQ6bwXBpa57ib2A8kukQDzMjh++Uo7Fo6Wd02Pkf4fknqoo4HtvAIjsqUcjx6DIPgWCaOML9rKI/oqD9/lgNrn+eF+p7j8tnzHBiR7+kdUGw/+V1Kzkc75mMy6U+FMaxjPibiM1U1uGM+puInHpmALZCgP4pt7i840MV8+0R1zPsRB6UTcqpizncYwZ89syDydfyWCwXB1l8/zRNGWbTG/GHKUm9AkxHMc/EGSk3z2+ArEhPEV5TUBLEvUGFcjEUH80J/jveTGOAJEljJbILWGQT3zRYiwuKsUXN1EEJAzBhRJFll7mBUG7KD8EqPkKekBREaL8hMDZLQSG6AQjtHPYmvTQnX0TtpC1SYCe2YdkkyLP3jj5BSbKiuR585eQhTgoje6yIb0Yb0C+mV6EYvebqw5SDy2WmubogZiF2AVxPC2FpDf8H2Q9QWo6IkjUxTWVEI3WY/wrCeSuqJ+eRWzXR/JXwgVjUMozbCOfoEZiSiKVGepqv5CJ8RyR4D7xBeamqa7z3BJ/z17JxuBPdv93d/a2Ki878MMAzDMAzDMAzDMAzDMF/KP09VUmxBAiI3AAAAAElFTkSuQmCC");
->>>>>>> dev
 
     async function handleMentorForm(ev: any) {
         ev.preventDefault()
@@ -69,24 +53,18 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             const stage = ev.target.elements.startupStage.value;
             const sector = ev.target.elements.sector.value;
             const description = ev.target.elements.description.value;
+            // const profilePic = ev.target.elements.profilePic.value;
             const image = profilePic;
-            
-            
             const type = 'mentor';
             const name = { first, last };
 
-<<<<<<< HEAD
             const user = { name, password, profilePic, description, linkedInProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
-=======
->>>>>>> dev
 
             const user = { name, password, image, description, linkedInProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
-            
+
+
             const userData = await axios.post('/api/users/add-user', { user });
-            const userFound = userData.data.result;
-            setloggedInUser(userFound)
-            
-            console.log(userFound);
+            console.log(userData);
             
             // Already exists CHECK
             if (userData.data === 'Already exists') {
@@ -97,7 +75,20 @@ const RegisterMentor = (props: RegisterMentorProps) => {
         } catch (error) {
             console.error(error);
         }
+
     }
+    async function saveImage(ev:any)
+    {
+         const image = ev.target.files[0] 
+         const reader = new FileReader(); reader.readAsDataURL(image) 
+         reader.onloadend = async () => { 
+            await setImageFile(`${reader.result}`) 
+            const imageFile = reader.result 
+            const {data} = await axios.post('/api/profile/saveImage',{imageFile}) 
+            const ImgUrl = data.result.url; 
+            setProfilePic(ImgUrl) 
+        } 
+        }
 
     async function saveImage(ev:any){
 
@@ -109,16 +100,14 @@ const RegisterMentor = (props: RegisterMentorProps) => {
         const imageFile = reader.result
         const {data} = await axios.post('/api/profile/saveImage',{imageFile})
                 const ImgUrl = data.result.url;
-                if(ImgUrl) setProfilePic(ImgUrl)
-                
+                setProfilePic(ImgUrl)
                 }
     }
 
 
     function moveToMainPage(){
         console.log("go to main page");
-        setCurrentUserType("mentor")
-         navigate(`mainPage`);
+        navigate("/mainPage");
       }
 
     return (
