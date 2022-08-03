@@ -57,13 +57,17 @@ export function Profile () {
 
           const {data} = await axios.post('/api/users/get-userById',{userId});
           const userFound = data.user;
-          const type = userFound.type;
+          const type = userFound.type; 
           if(type === "mentee") setIsMentee(true)
-          if(type === "mentor") setIsMentee(false)
+          if(type === "mentor"){
+            setIsMentee(false)
+            
+          } 
           
           setUserDetails(userFound)
           setUserName(userFound.name)
           setUserSector(userFound.sector)
+          
           const newContactInfo = {country:userFound.country,city:userFound.city,address:userFound.address,
           email:userFound.email,phone:userFound.phone,linkdInProfile:userFound.linkdInProfile}
           await setContactInfo(newContactInfo)
@@ -72,8 +76,6 @@ export function Profile () {
           setGotId(false)
         }
          
-       
-      
      const [loggedInUser, setloggedInUser] = useState({});
      const [currentUserType, setCurrentUserType] = useState("");
 
@@ -147,8 +149,6 @@ export function Profile () {
         </div>
         <div className='profile_nameProffession'>
           <NameAndPro userName={userName} userSector={userSector}/>
-            {/* <h1 style={{marginTop:'-5px'}}>{userDemo.name}</h1>
-            <h2 style={{fontSize:'25px',marginTop:'-5px'}}>{userDemo.profession}</h2> */}
         </div>
         <div className="profile_companyDetails">
         <div className='profile_companyDetails_header'>

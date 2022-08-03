@@ -1,8 +1,8 @@
 import {useState, useEffect, useRef} from 'react';
 import axios from 'axios';
-import ChatWindow from './components/ChatWindow';
-import CurrentRecipient from './components/CurrentRecipient';
-import SideBar from './components/SideBar';
+import ChatWindow from './Components/ChatWindow';
+import CurrentRecipient from './Components/CurrentRecipient';
+import SideBar from './Components/SideBar';
 import {socket} from '../../../index';
 import {ChatProvider} from '../../Contexts/ChatContext';
 export interface nameInterface {
@@ -12,10 +12,12 @@ export interface nameInterface {
 export interface MessageUserInterface {
     userId: String;
     name: nameInterface;
+    image?: String;
 }
 export interface UserInterface {
     _id: String;
     name: nameInterface;
+    image?: String;
 }
 export interface MessageInterface {
     _id?: String;
@@ -40,6 +42,7 @@ function Chat() {
     const [searchMessagesToggle, setSearchMessagesToggle] = useState<boolean>(false);
     const SelectedRefs: any = useRef([]);
     const messageListRef = useRef<HTMLUListElement>(null);
+    const messageInputRef = useRef<any>(null);
 
     SelectedRefs.current = [];
     const addToRefs = (el: any) => {
@@ -121,8 +124,9 @@ function Chat() {
     function handleChatSearchBar() {
         setSearchMessagesToggle((p: boolean) => !p);
     }
-    async function handleSendMessage() {
+    async function handleSendMessage(e:any) {
         try {
+            e.preventDefault();
             let id: any = recipient?._id;
 
             if (!id) {
@@ -157,8 +161,8 @@ function Chat() {
                 recipient: recipient,
                 file: '',
             };
-            // setSentMessage('')
             socket.emit('send-message', payload);
+return setSentMessage('')
         } catch (error) {
             console.log(error);
         }
@@ -202,7 +206,7 @@ function Chat() {
     }
     return (
         <div className='chat'>
-            <ChatProvider value={{setSentFile, sender, handleSendMessage,messageListRef,handleTabChange,addToRefs, messageList, setRecipient,dateFromObjectId,sentMessage, setSentMessage, recipient, chatArea, handleChatSearchBar, searchMessagesToggle, userList}}>
+            <ChatProvider value={{messageInputRef,setSentFile, sender, handleSendMessage,messageListRef,handleTabChange,addToRefs, messageList, setRecipient,dateFromObjectId,sentMessage, setSentMessage, recipient, chatArea, handleChatSearchBar, searchMessagesToggle, userList}}>
                 <SideBar/>
                 {recipient ? <CurrentRecipient /> : null}
                 <ChatWindow />

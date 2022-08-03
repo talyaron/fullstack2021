@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import "../styles/selectedPage.scss";
-//@ts-ignore
-import StarIcon from "@mui/icons-material/Star";
+import "../mentee/style/requestPage.scss";
 import axios from "axios"
-import SelectedUserCard from './SelectedUserCard';
-const SelectedUsers = () => {
+import CardReq from "./CardReq";
+const RequestUsers = () => {
 
-  const [selectedUsers, setSelectedUsers] = useState([]);
+  const [RequestUsers, setRequestUsers] = useState([]);
   const [type, setType] = useState('');
 
   useEffect(() => {
@@ -16,7 +14,7 @@ const SelectedUsers = () => {
       const { _id, type } = data;
       const users = await axios.post('/api/users/get-selected-users', { _id, type });
       const { chosen } = users.data;
-      setSelectedUsers(chosen);
+      setRequestUsers(chosen);
       if(type === 'mentee'){
         setType('Mentors')
       }
@@ -27,13 +25,13 @@ const SelectedUsers = () => {
   }, []);
 
   return (
-    <div className="selectedPage">
-      <h5 className="selectedPage__title">Selcted-{type} <StarIcon id='star'></StarIcon> </h5>
-      <div className="selectedPage__wrapper">
-        <SelectedUserCard selectedUsers={selectedUsers} />
+    <div className="requestPage">
+      <h5 className="requestPage__title"> Request-{type} </h5>
+      <div className="requestPage__wrapper">
+        <CardReq RequestUsers={RequestUsers} />
       </div>
     </div>
   );
 }
 
-export default SelectedUsers;
+export default RequestUsers;

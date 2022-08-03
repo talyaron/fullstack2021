@@ -6,6 +6,7 @@ import { ChatContext } from '../../../Contexts/ChatContext';
 
 interface conversationsTabProps {
     messageListRef: LegacyRef<HTMLUListElement>;
+    messageInputRef: any;
     recipient: MessageUserInterface;
     sender: MessageUserInterface;
     messageList?: Array<MessageInterface>;
@@ -13,9 +14,10 @@ interface conversationsTabProps {
     setSentMessage: Function;
     handleSendMessage: Function;
     sentMessage:any;
+    
 }
 function ConversationsTab() {
-const {messageListRef, sentMessage,recipient, sender, dateFromObjectId, messageList, setSentMessage, handleSendMessage} = useContext<conversationsTabProps>(ChatContext)
+const {messageInputRef,messageListRef, sentMessage,recipient, sender, dateFromObjectId, messageList, setSentMessage, handleSendMessage} = useContext<conversationsTabProps>(ChatContext)
 
 
 
@@ -45,26 +47,30 @@ const {messageListRef, sentMessage,recipient, sender, dateFromObjectId, messageL
                       })
                     : null}
             </ul>
-            <div className='chat__chatWindow__messageBar'>
-                <InputBase
-                    onChange={(ev) => {
-                        setSentMessage(ev.target.value);
-                    }}
-                    defaultValue={sentMessage}
-                    placeholder='Message'
+            <form onSubmit={(e)=>{handleSendMessage(e)}} className='chat__chatWindow__messageBar'>
+                
+
+                <input
+                ref={messageInputRef}
+                onChange={(ev:any) => {
+                    setSentMessage(ev.target.value); 
+                    // const userLanguage = window.navigator.userLanguage || window.navigator.language;
+                    // if(ev.target.value)
+                }}
+                value={sentMessage}
+                placeholder='Message'
                 />
 
                 <label>
                     <button
+                    type='submit'
                         style={{display: 'none'}}
-                        onClick={(ev) => {
-                            handleSendMessage(ev);
-                        }}
                         className='sendButton'
-                    />
+                        />
                     <PaperPlaneIcon />
                 </label>
-            </div>
+                        
+            </form>
         </div>
     );
 }

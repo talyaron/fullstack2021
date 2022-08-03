@@ -1,4 +1,4 @@
-import react,{useState} from "react";
+import react , {useState} from "react";
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 
@@ -24,7 +24,8 @@ interface RegisterMentorProps {
     handleBackToggleShowSections: Function,
     handleBackToSelection: Function,
     handleBackToggleShowThirdSection: Function
-    handleToggleShowThirdSection: Function
+    handleToggleShowThirdSection: Function,
+    setCurrentUserType:Function;
 }
 
 const steps = [
@@ -35,9 +36,11 @@ const steps = [
 
 const RegisterMentor = (props: RegisterMentorProps) => {
     const navigate = useNavigate();
-    const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, mentorWindow, setMenteeWindow, handleCloseRegisterWindow } = props;
+    const { handleToggleShowThirdSection, handleBackToggleShowThirdSection, firstSection, secondSection, thirdSection, showProgressBar, handleToggleShowSections, handleBackToggleShowSections, handleBackToSelection, registerWindow, setRegisterWindow, countryArray, mentorWindow, setMenteeWindow, handleCloseRegisterWindow,setCurrentUserType } = props;
 
     const [activeStep, setActiveStep] = React.useState(0);
+    const [imageFile , setImageFile] = useState<any>()
+    const [profilePic, setProfilePic] = useState(" ");
 
     async function handleMentorForm(ev: any) {
         ev.preventDefault()
@@ -58,7 +61,6 @@ const RegisterMentor = (props: RegisterMentorProps) => {
             const type = 'mentor';
             const name = { first, last };
 
-            const user = { name, password, profilePic, description, linkedInProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
 
             const user = { name, password, image, description, linkedInProfile, email, country, phone, sector, stage, FieldsOfKnowledged, type };
 
@@ -77,18 +79,6 @@ const RegisterMentor = (props: RegisterMentorProps) => {
         }
 
     }
-    async function saveImage(ev:any)
-    {
-         const image = ev.target.files[0] 
-         const reader = new FileReader(); reader.readAsDataURL(image) 
-         reader.onloadend = async () => { 
-            await setImageFile(`${reader.result}`) 
-            const imageFile = reader.result 
-            const {data} = await axios.post('/api/profile/saveImage',{imageFile}) 
-            const ImgUrl = data.result.url; 
-            setProfilePic(ImgUrl) 
-        } 
-        }
 
     async function saveImage(ev:any){
 
@@ -107,7 +97,8 @@ const RegisterMentor = (props: RegisterMentorProps) => {
 
     function moveToMainPage(){
         console.log("go to main page");
-        navigate("/mainPage");
+        setCurrentUserType("mentor")
+         navigate(`mainPage`);
       }
 
     return (
