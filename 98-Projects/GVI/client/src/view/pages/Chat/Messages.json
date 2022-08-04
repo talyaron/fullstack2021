@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "62b51036d25ac3f868c2e40a"
+  },
+  "sender": {
+    "userId": "62b50ec96bd21c886f8fc3ad",
+    "name": {
+      "first": "Etan",
+      "last": "Heyman"
+    }
+  },
+  "recipients": [
+    {
+      "name": {
+        "first": "Michael",
+        "last": "Dubovyk"
+      },
+      "userId": "62b50f046bd21c886f8fc3ae"
+    },
+    {
+      "userId": "62b50f5b6bd21c886f8fc3af",
+      "name": {
+        "first": "Michael",
+        "last": "Frankel"
+      }
+    },
+    {
+      "userId": "62b50fc26bd21c886f8fc3b0",
+      "name": {
+        "first": "Andrew",
+        "last": "Lishafay"
+      }
+    }
+  ],
+  "text": "Good Evening!"
+}]
