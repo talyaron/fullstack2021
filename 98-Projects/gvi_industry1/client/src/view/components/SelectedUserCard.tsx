@@ -3,6 +3,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 //@ts-ignore
 import StarIcon from "@mui/icons-material/Star";
 import "../styles/card.scss";
+import axios from 'axios'
+
 
 interface CardProps {
   selectedUsers: any;
@@ -11,14 +13,16 @@ interface CardProps {
 const Card = (props: CardProps) => {
 
   const { selectedUsers } = props;
+ 
 
   return (
     <>
       {selectedUsers.map((selectedUser: any, i: any) =>
         <div className="card" key={i}>
 
-          <div className="card__photo">
-            <img src={selectedUser.image ? `${selectedUser.image}` : 'https://www.pngitem.com/pimgs/m/504-5040528_empty-profile-picture-png-transparent-png.png'} />
+          <div  className ="card__photo">
+            <img  id={selectedUser._id}  src={selectedUser.image ? `${selectedUser.image}` 
+             : 'https://www.pngitem.com/pimgs/m/504-5040528_empty-profile-picture-png-transparent-png.png'}  />
           </div>
 
           <div className="card__center">

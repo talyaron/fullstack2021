@@ -1,0 +1,102 @@
+.cardProfile {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    width: 98vw;
+    height: 95vh;
+
+    position: absolute;
+    height: 458px;
+    width: 784px;
+    border-radius: 25px;
+    // border: solid black;
+    margin-left: 35vw;
+    margin-top: 35vh;
+
+
+    z-index: 1;
+    opacity: 100 !important;
+    background: #FFFFFF;
+    display: grid;
+    column-gap: 50px;
+    padding: 10px;
+
+
+
+    &__flex {
+        display: flex;
+        flex-direction: column;
+        grid-column: 1/2;
+        grid-row: 1/4;
+
+        & h1 {
+            font-family: Inter;
+            font-size: 35px;
+            font-weight: bolder;
+            line-height: 42px;
+            letter-spacing: 0em;
+            text-align: left;
+            opacity: 1;
+            color: black;
+            z-index: 1.5;
+
+        }
+
+        &__sector {}
+
+        &__company {
+            font-weight: bold;
+        }
+
+        &__fieldsOfKnowledge {}
+
+    }
+
+    &__countryLink {
+        grid-column: 2/3;
+        grid-row: 2/3;
+        display: flex;
+        justify-content: flex-end;
+        gap: 5px;
+
+        &__linkdIn {}
+
+    }
+
+
+    &__description {
+        grid-column: 1/4;
+        grid-row: 3/4;
+        font-family: Inter;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 30px;
+        letter-spacing: 0em;
+        text-align: left;
+        
+
+
+
+
+    }
+
+    &__photo {
+        grid-column: 3/4;
+        grid-row: 2/3;
+        padding: 5px;
+    }
+
+    &__button {
+        height: 39px;
+        width: 159px;
+        border-radius: 15px;
+        background-color: #ADADAD;
+        border: none;
+        grid-column: 3/4;
+        grid-row: 3/3;
+        margin: 15px;
+    }
+
+
+}
