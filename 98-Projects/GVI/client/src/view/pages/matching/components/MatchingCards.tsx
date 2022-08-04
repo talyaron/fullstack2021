@@ -39,7 +39,7 @@ const MatchingCard = (props: MatchingCardProps) => {
        
       <h2>Matchings that are appropriate for you</h2>
       <div className='matching__wrapper'>
-        {usersList.map((user: any) =>
+        {usersList? usersList.map((user: any) =>
           <div className='matching__wrapper_card' key={user._id}>
             <StarSvg handleSelectUser={handleSelectUser} userId={user._id} />
             <img className='matching__wrapper_card_pic' id={user._id}  
@@ -57,7 +57,7 @@ const MatchingCard = (props: MatchingCardProps) => {
               </div>
             </div>
           </div>
-        )}
+        ):null}
       </div>
    
     </div>

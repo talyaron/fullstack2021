@@ -44,9 +44,11 @@ const Matching = (props: MatchingProps) => {
       try {
         if (Object.keys(currentUser).length === 0)
           throw new Error("User is not logged in");
+          console.log('/api/users/get-users')
         const { data } = await axios.post("/api/users/get-users", {
           currentUser,
         });
+        console.log(data)
 
         const { filterUsers } = data;
         setUsersList(filterUsers);
