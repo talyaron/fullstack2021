@@ -1,7 +1,0 @@
-// .env schema {
-// JWT_SECRET=
-// ENV = production
-// PORT=4000
-// MONGODB_URI=mongodb+srv://${username}:${password}@cluster0.gedel.mongodb.net/chat?retryWrites=true&w=majority
-
-// }

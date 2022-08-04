@@ -1,5 +1,7 @@
 import React from "react";
 import { Link} from "react-router-dom";
+// import logo from './gvi_logo.png';
+const logo = require('./gvi_logo.png');
 
 
 interface navBarMenteeProps {
@@ -21,7 +23,7 @@ function NavBarMentee(props: navBarMenteeProps) {
           <div className="navBar">
             <div className="logo">
               <Link className="link" to='/'>
-              <img src="./gvi-logo.png" alt="logo" />
+              <img src={logo} alt="logo" />
               </Link>
             </div>
 
@@ -38,12 +40,8 @@ function NavBarMentee(props: navBarMenteeProps) {
    
                 <Link className="link" to='matching'> Mentor Matching</Link>
               </div>
-              <div className="btn">
-
-                <Link className="link" to='task'>
-                100Task
-                </Link>
-              </div>
+             
+             
               <div className="profileIMG" >  
               {/* {loggedInUser ? <p>{loggedInUser?.name?.first}</p> : null} */}
                     <Link to="profile">

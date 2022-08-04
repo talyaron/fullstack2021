@@ -1,6 +1,7 @@
 import React from "react";
 
 import {Link} from "react-router-dom";
+const logo = require('./gvi_logo.png');
 
 interface navBarMentorProps {
 
@@ -20,7 +21,7 @@ function NavBarMentor(props: navBarMentorProps) {
     <div className="navBar">
       <div className="logo">
       <Link className="link" to='/'>
-        <img src="../gvi-logo.png" alt="logo" />
+        <img src={logo} alt="logo" />
         </Link>
       </div>
 
