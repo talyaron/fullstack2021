@@ -2,25 +2,49 @@ import React, { useEffect } from "react";
 import axios from "axios";
 
 interface MatchingProps {
-  currentSearch: Array<string>;
-  setCurrentSearch: Function;
+  setUsersList: Function;
+  currentUser: any;
+  setCurrentUser: Function;
 }
 
 const Search = (props: MatchingProps) => {
-  const { currentSearch, setCurrentSearch } = props;
+  const { setUsersList, currentUser, setCurrentUser } = props;
+
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get("/api/users/get-user");
+      const { user } = data;
+      setCurrentUser(user);
+    })();
+  }, []);
+
+
+  async function getAllUsers() {
+    const { data } = await axios.post("/api/users/get-users", { currentUser, });
+    const { filterUsers } = data;
+    console.log(filterUsers);
+
+    setUsersList(filterUsers);
+  }
+
 
   async function getSearchResults(ev: any) {
     const currentSearch = ev.target.value;
     console.log(currentSearch);
-
-      const { data } = await axios.post("/api/users/get-search", {
-        currentSearch,
-      });
+    if (currentSearch === "") {console.log("empty");
+    }
+    else {
+      const { data } = await axios.post("/api/users/get-search", { currentSearch, });
       const { allSearches } = data;
       console.log(allSearches);
-      setCurrentSearch(allSearches);
+      setUsersList(allSearches);
+    }
 
     
+
+
+
   }
   return (
     <div className={"matching__search"}>

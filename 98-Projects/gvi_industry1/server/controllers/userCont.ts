@@ -24,7 +24,6 @@ export const getUser = async (req: any, res: any) => {
 export const getUsers = async (req, res) => {
   try {
     const { currentUser } = req.body;
-    console.log(currentUser);
     if (Object.keys(currentUser).length === 0)
       throw new Error("no user connected");
     if (currentUser.type === "mentee") {
@@ -45,7 +44,7 @@ export const getUsers = async (req, res) => {
     res.send({ error: error.message });
   }
 };
-export const getFilter = async (req, res) => {
+export const getSector = async (req, res) => {
   try {
     const allFiltered = await UserModel.find({}).select('sector')
     const filterArray = new Set()
@@ -69,11 +68,38 @@ export const getFilter = async (req, res) => {
   }
 };
 
-export const getChecked = async (req, res) => {
+export const getField = async (req, res) => {
+  try {
+    const allFiltered = await UserModel.find({}).select('fieldsOfKnowledge')
+    const filterArray = new Set()
+    const result = allFiltered.filter(item => {
+      const isDuplicate = filterArray.has(item.fieldsOfKnowledge);
+      filterArray.add(item.fieldsOfKnowledge)
+      if (!isDuplicate) {
+        return true
+      }
+      return false
+    })
+    console.log("server:" + result)
+
+    res.json({ result });
+    console.log("filtered: " + result);
+
+
+  } catch (error) {
+    
+    res.send({ error: error.message });
+  }
+};
+
+
+
+/////////////// filter function based on checkedField/ClickedField
+export const getCheckedSector = async (req, res) => {
   try {
     const {checkedField,checked} = req.body;
 
-    console.log(checked);
+    
 
     const allChecked = await UserModel.find({ sector: checkedField })
     
@@ -86,17 +112,47 @@ export const getChecked = async (req, res) => {
   }
 }
 
+
+
+export const getCheckedField = async (req, res) => {
+  try {
+    const {checkedField,checked} = req.body;
+
+    
+
+    const allChecked = await UserModel.find({ fieldsOfKnowledge: checkedField })
+    
+    
+    res.send({ allChecked, ok: true })
+
+
+  } catch (error) {
+    res.send({ error: error.message });
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 export const getSearch = async (req, res) => {
   try {
     const { currentSearch } = req.body;
     if (!currentSearch) throw new Error('No search term')
     console.log(currentSearch)
 
-    // let searchPattern = new RegExp(`${currentSearch}`,'i')
-    // console.log(searchPattern);
+    let searchPattern = new RegExp(`${currentSearch}`,'i')
+    console.log(searchPattern);
     const regex = new RegExp(currentSearch, 'i')
 
-    const allSearches = await UserModel.find({ country: regex });
+    const allSearches = await UserModel.find({ "name.first": regex }||{"name.last": regex});
     res.send({ allSearches, ok: true });
   } catch (error) {
     console.error(error);

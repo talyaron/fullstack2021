@@ -25,7 +25,6 @@ import Pending from './view/Components/Pending';
 function App() {
   const [usersList, setUsersList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
-  const [currentSearch, setCurrentSearch] = useState([]);
   const [filterOptions,setFilterOptions] = useState([]);
   const [checked,setChecked] = useState(false);
   const [myProfile, setMyProfile] = useState(false);
@@ -80,8 +79,6 @@ function App() {
                 setUsersList={setUsersList}
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
-                currentSearch={currentSearch}
-                setCurrentSearch={setCurrentSearch}
                 filterOptions={filterOptions}
                 setFilterOptions={setFilterOptions}
                 checked={checked}

@@ -171,7 +171,7 @@ const RegisterMentor = (props: RegisterMentorProps) => {
                                     <select name="FieldsOfKnowledged">
                                         <option hidden></option>
                                         <option value="ux">UX</option>
-                                        <option value="businessDevelopment">Business Development</option>
+                                        <option value="development">Business Development</option>
                                     </select>
                                 </div>
                                 <div className="inputBox">

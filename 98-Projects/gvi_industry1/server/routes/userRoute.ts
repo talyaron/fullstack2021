@@ -2,15 +2,17 @@ import express from 'express';
 const router = express.Router();
 import {isAdmin} from'../middlewares/loginMiddleware'
 
-import { addUser, login, getUsers, getUser,getFilter,getChecked, getAllRecipients,getSearch,getLoggedInProfile,adminGetAllUsers,
+import { addUser, login, getUsers, getUser,getSector,getCheckedSector,getCheckedField,getField, getAllRecipients,getSearch,getLoggedInProfile,adminGetAllUsers,
      selectUser,getSelectingUser,getSelectedUser ,getUserProfile,updateUserDetails,addFlags} from '../controllers/userCont'
 
 router
      
     .post('/add-user', addUser)
     .post('/login', login)
-    .get('/get-filter', getFilter)
-    .post('/get-checked',getChecked)
+    .get('/get-sector', getSector)
+    .get('/get-field',getField)
+    .post('/get-checked-sector',getCheckedSector)
+    .post('/get-checked-field',getCheckedField)
     .post('/get-users', getUsers)
     .post('/get-all-recipients', getAllRecipients)
     .get('/get-user', getUser)

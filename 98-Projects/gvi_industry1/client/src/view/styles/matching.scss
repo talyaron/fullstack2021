@@ -105,6 +105,10 @@
         position: sticky;
         grid-column: 1/2;
         grid-row: 2/2;
+        .buttonBox{
+            display: flex;
+            flex-direction: column;
+        }
 
 
         &_section {

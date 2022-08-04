@@ -16,47 +16,68 @@ import axios from "axios";
 import Mentor from "../../mentor/Mentor";
 
 const FilterMenu = (props: any) => {
-  const { checked, setChecked, filterOptions, setFilterOptions, setUsersList,setCurrentUser,currentUser} = props;
+  const { checked, setChecked, filterOptions, setFilterOptions, setUsersList, setCurrentUser, currentUser } = props;
+  const [fieldsOptions, setFieldsOptions] = useState([]);
+////////////// sector filter options
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get("/api/users/get-filter");
+      const { data } = await axios.get("/api/users/get-sector");
       const { result } = data;
       setFilterOptions(result);
       console.log(result);
     })();
   }, []);
-  
- async function HandleClick(){
-  try {
-    
-    const {data} = await axios.get('/api/users/get-user')
-    const {user} = data;
-    console.log(user);
-    setCurrentUser(user)
-    handleGetUsers(currentUser)
 
-  } catch (error) {
-    console.error(error);
+
+/////////// fieldOfKnowledge filter options
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get("/api/users/get-field");
+      const { result } = data;
+      setFieldsOptions(result);
+     
+    })();
+  }, []);
+  ////////////////////////////////////////the click gets the info about the current users and activates a function that brings all the matchings for the user (default page)
+  async function handleClick() {
+    try {
+
+      const { data } = await axios.get('/api/users/get-user')
+      const { user } = data;
+      setCurrentUser(user)
+      handleGetUsers(currentUser)
+
+    } catch (error) {
+      console.error(error);
+    }
   }
- }
+  ////////////////////// brings all of the user best matching (default page)
+  async function handleGetUsers(currentUser: any) {
+    try {
+      const { data } = await axios.post("/api/users/get-users", { currentUser, });
+      const { filterUsers } = data;
+      console.log(filterUsers);
 
- async function handleGetUsers(currentUser:any){
-  try {
-    const { data } = await axios.post("/api/users/get-users", { currentUser, });
-    const{filterUsers} = data;
-    console.log(filterUsers);
-    
-    // setUsersList(filterUsers);
-  } catch (error) {
-    console.error(error)
+      setUsersList(filterUsers);
+    } catch (error) {
+      console.error(error)
+    }
   }
- }
 
-
-  async function handleOnChange(ev: any) {
+  /////////// brings the filtered array of users
+  async function handleOnChangeSector(ev: any) {
     // setChecked(!checked);
     const checkedField = ev.target.id;
-    const { data } = await axios.post(`/api/users/get-checked`, { checkedField, checked })
+    const { data } = await axios.post(`/api/users/get-checked-sector`, { checkedField, })
+    const { allChecked } = data;
+    setUsersList(allChecked)
+
+  }
+
+  async function handleOnChangeField(ev: any) {
+    // setChecked(!checked);
+    const checkedField = ev.target.id;
+    const { data } = await axios.post(`/api/users/get-checked-field`, { checkedField, })
     const { allChecked } = data;
     setUsersList(allChecked)
 
@@ -65,7 +86,7 @@ const FilterMenu = (props: any) => {
 
 
 
-
+ 
 
 
 
@@ -73,6 +94,7 @@ const FilterMenu = (props: any) => {
 
   return (
     <div className="matching__filter-menu">
+      <button onClick={handleClick}>My Matchings</button>
       <div className="_section">
         <div className="_title"></div>
         <div className="_more">
@@ -80,7 +102,7 @@ const FilterMenu = (props: any) => {
             <AccordionSummary>
               <Typography>Sector</Typography>
             </AccordionSummary>
-            <button onClick={HandleClick}>My Matching</button>
+            
             <AccordionDetails>
               <List
                 sx={{
@@ -90,10 +112,32 @@ const FilterMenu = (props: any) => {
               >
                 {filterOptions.map((option: any, i: any) => (
                   <ListItemButton disableGutters>
-                    {/* <Checkbox onChange={handleOnChange} checked={checked} /> */}
-                    {/* <input type="checkbox" id={option.sector} onClick={handleOnChange} />{option.sector} */}
-                    <button id={option.sector} key={i} onClick={handleOnChange} >{option.sector}</button>
-                    {/* <ListItemText key={i} primary={option.sector} /> */}
+
+                    <button id={option.sector} key={i} onClick={handleOnChangeSector} >{option.sector}</button>
+
+                  </ListItemButton>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion>
+            <AccordionSummary>
+              <Typography>Country</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <List
+                sx={{
+                  width: "100%",
+                  maxWidth: 360,
+                }}
+              >
+
+                {fieldsOptions.map((option: any, i: any) => (
+                  <ListItemButton disableGutters>
+
+                    <button id={option.fieldsOfKnowledge} key={i} onClick={handleOnChangeField} >{option.fieldsOfKnowledge}</button>
+
                   </ListItemButton>
                 ))}
               </List>
