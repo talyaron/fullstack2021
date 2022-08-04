@@ -1,7 +1,7 @@
 import StarSvg from "./StarSvg";
 import axios from 'axios'
 import { useState } from "react";
-import CardProfile from "../../../Components/CardProfile";
+import CardProfile from "../../../components/CardProfile";
 
 interface MatchingCardProps {
   usersList: any

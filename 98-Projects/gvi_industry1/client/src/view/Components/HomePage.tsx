@@ -1,9 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import Login from '../Components/Login'
-import RegisterMentee from '../Components/RegisterMentee'
-import RegisterMentor from '../Components/RegisterMentor'
-import UserSelection from '../Components/UserSelection'
+import Login from './Login'
+import RegisterMentee from './RegisterMentee'
+import RegisterMentor from './RegisterMentor'
+import UserSelection from './UserSelection'
 
 interface HomePageProps{
   setloggedInUser:Function;

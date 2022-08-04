@@ -3,8 +3,8 @@ import PaperPlaneIcon from '../Icons/PaperPlaneRight';
 import {InputBase} from '@mui/material';
 import {MessageInterface, MessageUserInterface} from '../Chat';
 import {socket} from '../../../../index';
-import ConversationsTab from '../Components/ConversationsTab';
-import DocsTab from '../Components/DocsTab';
+import ConversationsTab from '../components/ConversationsTab';
+import DocsTab from '../components/DocsTab';
 import { ChatContext } from '../../../Contexts/ChatContext';
 
 interface ChatWindowProps {

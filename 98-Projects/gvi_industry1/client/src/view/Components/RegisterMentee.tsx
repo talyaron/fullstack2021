@@ -24,7 +24,7 @@ interface RegisterMenteeProps {
   handleBackToSelection: Function;
   handleBackToggleShowThirdSection: Function;
   handleToggleShowThirdSection: Function;
-  setCurrentUserType:Function;
+  setCurrentUserType: Function;
 }
 
 const steps = ["personal details", "Your company", "payment details"];
@@ -47,7 +47,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
     menteeWindow,
     setMenteeWindow,
     handleCloseRegisterWindow,
-    setCurrentUserType
+    setCurrentUserType,
   } = props;
 
   const [activeStep, setActiveStep] = React.useState(0);
@@ -121,8 +121,6 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
       };
 
       await axios.post("/api/initiatives/add-initiative", { initiative });
-
-     
     } catch (err) {
       console.error(err);
     }
@@ -144,14 +142,11 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
     };
   }
 
-
-function moveToMainPage(){
-  console.log("go to main page");
-  setCurrentUserType("mentee")
-  navigate("mainPage");
-}
-
-
+  function moveToMainPage() {
+    console.log("go to main page");
+    setCurrentUserType("mentee");
+    navigate("mainPage");
+  }
 
   return (
     <div>
@@ -348,7 +343,12 @@ function moveToMainPage(){
                 </button>
               </div>
               <div>
-                <button  onClick={() => { moveToMainPage() }} >NEXT</button>
+                <button
+                  onClick={() => {
+                    moveToMainPage();
+                  }}>
+                  NEXT
+                </button>
               </div>
             </div>
           </div>
