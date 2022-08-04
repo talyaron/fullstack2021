@@ -14,7 +14,6 @@ interface CurrentRecipientProps {
 function CurrentRecipient() {
     const { chatArea, recipient, handleChatSearchBar, searchMessagesToggle, handleTabChange } = useContext<CurrentRecipientProps>(ChatContext);
     const fullName: any = `${recipient.name.first + ' ' + recipient.name.last}`;
-
     const initial = fullName.match(/\b(\w)/g).join('').toUpperCase();
     const id = useId();
 
@@ -30,7 +29,7 @@ function CurrentRecipient() {
     return (
         <div className='chat__currentRecipient'>
             <div className='chat__currentRecipient__info'>
-                <Avatar>{initial}</Avatar>
+                <Avatar>{recipient.image? <img src={`${recipient.image}`} alt="" className="image" /> :initial }</Avatar>
                 <div className={`text` + id}>
                     <p className='userName'>{recipient.name.first} {recipient.name.last}</p>
 
@@ -47,8 +46,8 @@ function CurrentRecipient() {
                 </div>
             </div>
             <ul className='chat__currentRecipient__Buttons'>
-                {searchMessagesToggle && <InputBase style={{ backgroundColor: 'red' }} />}
-                <SearchMessages handleChatSearchBar={handleChatSearchBar} />
+                {/* {searchMessagesToggle && <InputBase style={{ backgroundColor: 'red' }} />}
+                <SearchMessages handleChatSearchBar={handleChatSearchBar} /> */}
             </ul>
         </div>
     );

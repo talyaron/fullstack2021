@@ -9,9 +9,8 @@ interface MatchingProps {
   usersList: any;
   setUsersList: Function;
   currentUser: any;
-  setCurrentUser:Function;
-  currentSearch: any;
-  setCurrentSearch: Function;
+  setCurrentUser: Function;
+  
   filterOptions: any;
   setFilterOptions: Function;
   checked: any;
@@ -23,8 +22,6 @@ const Matching = (props: MatchingProps) => {
   const {
     usersList,
     setUsersList,
-    currentSearch,
-    setCurrentSearch,
     filterOptions,
     setFilterOptions,
     currentUser,
@@ -53,25 +50,57 @@ const Matching = (props: MatchingProps) => {
 
         const { filterUsers } = data;
         setUsersList(filterUsers);
-      
+
 
       } catch (error) {
         console.error(error);
       }
     })();
   }, [currentUser]);
+
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await axios.post("/api/users/get-users", { currentUser, });
+        const{filterUsers} = data;
+        setUsersList(filterUsers);
+
+
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, []);
+
+
+
+
+
+
+
+
+
+
   return (
     <div className="matching ">
       <Link to="selected-users">Selected-Users</Link>
       <Search
-        currentSearch={currentSearch}
-        setCurrentSearch={setCurrentSearch}
+        setUsersList={setUsersList}
+        setCurrentUser={setCurrentUser}
+        currentUser={currentUser}
       />
       <FilterMenu
         filterOptions={filterOptions}
         setFilterOptions={setFilterOptions}
+        setChecked={setChecked}
+        checked={checked}
+        setUsersList={setUsersList}
+        setCurrentUser={setCurrentUser}
+        currentUser={currentUser}
+        
       />
-      <MatchingCard usersList={usersList}/>
+      <MatchingCard usersList={usersList} />
     </div>
   );
 };

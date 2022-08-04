@@ -1,4 +1,4 @@
-.card {
+.card_req {
     display: grid;
     grid-template-columns: repeat(5,0.5fr);
     grid-template-rows: repeat(5, 0.5fr);
@@ -46,13 +46,7 @@
             width: 30px;
         }
 
-        &__company {
-            // margin-top: -5%;
-        }
-
-        &__profession {
-            // margin-top: -15%;
-        }
+        
         grid-column-start: 2;
         grid-column-end: 5;
         row-gap: 4px;
@@ -76,11 +70,6 @@
         }
     }
 
-    &__star {
-        grid-column-start: 5;
-        grid-column-end: 5;
-
-    }
 
     &__button {
         height: 39px;
@@ -97,4 +86,9 @@
 
     }
 
+}
+
+#envelope{
+    height: 30px;
+    width: 30px;
 }
