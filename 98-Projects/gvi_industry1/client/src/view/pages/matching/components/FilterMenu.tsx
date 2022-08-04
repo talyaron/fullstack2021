@@ -16,7 +16,7 @@ import axios from "axios";
 import Mentor from "../../mentor/Mentor";
 
 const FilterMenu = (props: any) => {
-  const { checked, setChecked, filterOptions, setFilterOptions } = props;
+  const { checked, setChecked, filterOptions, setFilterOptions, setUsersList } = props;
 
   useEffect(() => {
     (async () => {
@@ -27,11 +27,30 @@ const FilterMenu = (props: any) => {
     })();
   }, []);
 
-  const handleOnChange = () => {
+  async function handleOnChange(ev: any) {
     setChecked(!checked);
-    console.log("checked");
     
-  };
+    
+    const checkedField = ev.target.name;
+    console.log(checkedField);
+    const { data } = await axios.post(`/api/users/get-checked`, { checkedField,checked })
+    const { allChecked } = data;
+    setUsersList(allChecked)
+    console.log(checked);
+
+
+    console.log(allChecked);
+
+
+    if(checked===false){setTimeout(setChecked(!checked), 100);
+      }
+    
+
+
+
+
+      
+  }
 
   return (
     <div className="matching__filter-menu">
@@ -52,9 +71,9 @@ const FilterMenu = (props: any) => {
               >
                 {filterOptions.map((option: any, i: any) => (
                   <ListItemButton disableGutters>
-                    <Checkbox onChange={handleOnChange} checked={checked} />
-
-                    <ListItemText key={i} primary={option.sector} />
+                    {/* <Checkbox onChange={handleOnChange} checked={checked} /> */}
+                    <input type="checkbox" name={option.sector} onClick={handleOnChange} />{option.sector}
+                    {/* <ListItemText key={i} primary={option.sector} /> */}
                   </ListItemButton>
                 ))}
               </List>

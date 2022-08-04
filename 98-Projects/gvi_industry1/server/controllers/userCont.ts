@@ -68,25 +68,22 @@ export const getFilter = async (req, res) => {
   }
 };
 
-// export const getChecked = async (req, res) => {
-//   try {
-//     const allChecked = await UserModel.find({})
-//     const checkedArray = new Set()
-//     const result = allChecked.filter(item => {
-//       const isChecked = checkedArray.has(item.sector);
-//       checkedArray.add(item.sector)
-//       if (!isChecked) {
-//         return true
-//       }
-//       return false
-//     })
-//     res.json({ result });
+export const getChecked = async (req, res) => {
+  try {
+    const {checkedField,checked} = req.body;
 
-//   } catch (err) {
-//     console.error(err)
+    console.log(checked);
 
-//   }
-// }
+    const allChecked = await UserModel.find({ sector: checkedField })
+    
+    
+    res.send({ allChecked, ok: true })
+
+
+  } catch (error) {
+    res.send({ error: error.message });
+  }
+}
 
 export const getSearch = async (req, res) => {
   try {
@@ -198,14 +195,14 @@ export async function getSelectedUser(req, res) {
         const country = flags.filter(
           (country) => country.countryName === user.country
         );
-        if(country.length > 0){
+        if (country.length > 0) {
           user['country'] = `${country[0].countryFlag}`;
-          };
+        };
         chosen.push(user);
       });
       res.send({ ok: true, chosen });
     }
-    
+
     else if (type === "mentor") {
       let chosen = [];
       selectedUsers.forEach((selectedUser, i) => {
@@ -217,13 +214,13 @@ export async function getSelectedUser(req, res) {
         const country = flags.filter(
           (country) => country.countryName === user.country
         );
-        if(country.length > 0){
-        user['country'] = `${country[0].countryFlag}`;
+        if (country.length > 0) {
+          user['country'] = `${country[0].countryFlag}`;
         };
         const menteeIntiative = selectedUserInitiatives.filter(
           (selectedMentee) => selectedMentee.ownerUserId === user.id
         );
-        if(menteeIntiative.length > 0){
+        if (menteeIntiative.length > 0) {
           user['fieldsOfKnowledge'] = `${menteeIntiative[0].companyName}`
           user['sector'] = `${menteeIntiative[0].stage}`
         }
@@ -247,8 +244,8 @@ export async function getAllRecipients(req, res) {
     const currentUser = await UserModel.findOne({ _id: id });
     let allRecipients = [];
     if (currentUser.type === 'mentee') {
-        res.send({user:userDecodedInfo});
-        return;
+      res.send({ user: userDecodedInfo });
+      return;
     }
     if (currentUser.type === "mentor") {
       const allRecipientsIds = currentUser.mentees;
@@ -256,23 +253,23 @@ export async function getAllRecipients(req, res) {
       const getRecipientsList = async () => {
         for (let recipient of allRecipientsIds) {
           console.log(recipient, 'mentor');
-          
+
           let rec = await UserModel.findOne(
             { _id: recipient },
             { password: 0 }
           );
 
-          let readyRec = {userId: rec._id, name: rec.name}
+          let readyRec = { userId: rec._id, name: rec.name }
           localArr.push(readyRec);
         }
         return localArr;
-        
+
       };
       allRecipients = await getRecipientsList();
     }
 
     if (allRecipients === []) throw new Error("no Users were found");
-    if (allRecipients.length>0) {
+    if (allRecipients.length > 0) {
       res.send({ allRecipients, user: userDecodedInfo });
     }
   } catch (error) {
@@ -338,9 +335,9 @@ export const addUser = async (req, res) => {
       const newUser = new UserModel(user);
       const result = await newUser.save();
       console.log(newUser);
-     
+
       const payload = {
-        email:newUser.email,
+        email: newUser.email,
         loggedInUser: true,
         type: newUser.type,
         id: newUser._id,
@@ -361,8 +358,8 @@ export const getUserProfile = async (req, res) => {
   try {
 
     const { userId } = req.body;
-    
-    const user = await UserModel.findOne({_id:userId});    
+
+    const user = await UserModel.findOne({ _id: userId });
 
     res.send({ user, ok: true });
   } catch (err) {
@@ -493,9 +490,9 @@ export const request = async (req: any, res: any) => {
       const newSelectionDB = new requestsUsersModel({
         userSendingRequestId: currentUserId,
         userSendingRequestDetails: { email, name, image },
-        userRecievingRequestId:"........",
+        userRecievingRequestId: "........",
         userRecievingRequestDetails: { email, name, image },
-        requestText:".........",
+        requestText: ".........",
         sendingTheRequest: true,
         recievigTheRequest: false,
 
