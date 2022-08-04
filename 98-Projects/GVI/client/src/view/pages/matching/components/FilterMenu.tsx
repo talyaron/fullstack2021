@@ -111,7 +111,7 @@ const FilterMenu = (props: any) => {
                 }}
               >
                 {filterOptions.map((option: any, i: any) => (
-                  <ListItemButton disableGutters>
+                  <ListItemButton disableGutters key={`listItemButton-${i}`}>
 
                     <button id={option.sector} key={i} onClick={handleOnChangeSector} >{option.sector}</button>
 
@@ -134,7 +134,7 @@ const FilterMenu = (props: any) => {
               >
 
                 {fieldsOptions.map((option: any, i: any) => (
-                  <ListItemButton disableGutters>
+                  <ListItemButton disableGutters key={`list2-${i}-2`}>
 
                     <button id={option.fieldsOfKnowledge} key={i} onClick={handleOnChangeField} >{option.fieldsOfKnowledge}</button>
 
