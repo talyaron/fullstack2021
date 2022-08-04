@@ -24,6 +24,7 @@ export const getUser = async (req: any, res: any) => {
 export const getUsers = async (req, res) => {
   try {
     const { currentUser } = req.body;
+    console.log(currentUser);
     if (Object.keys(currentUser).length === 0)
       throw new Error("no user connected");
     if (currentUser.type === "mentee") {

@@ -98,6 +98,9 @@ const Matching = (props: MatchingProps) => {
         setChecked={setChecked}
         checked={checked}
         setUsersList={setUsersList}
+        setCurrentUser={setCurrentUser}
+        currentUser={currentUser}
+        
       />
       <MatchingCard usersList={usersList} />
     </div>

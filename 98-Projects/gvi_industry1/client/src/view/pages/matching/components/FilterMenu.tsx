@@ -16,8 +16,7 @@ import axios from "axios";
 import Mentor from "../../mentor/Mentor";
 
 const FilterMenu = (props: any) => {
-  const { checked, setChecked, filterOptions, setFilterOptions, setUsersList } = props;
-
+  const { checked, setChecked, filterOptions, setFilterOptions, setUsersList,setCurrentUser,currentUser} = props;
   useEffect(() => {
     (async () => {
       const { data } = await axios.get("/api/users/get-filter");
@@ -26,31 +25,51 @@ const FilterMenu = (props: any) => {
       console.log(result);
     })();
   }, []);
+  
+ async function HandleClick(){
+  try {
+    
+    const {data} = await axios.get('/api/users/get-user')
+    const {user} = data;
+    console.log(user);
+    setCurrentUser(user)
+    handleGetUsers(currentUser)
+
+  } catch (error) {
+    console.error(error);
+  }
+ }
+
+ async function handleGetUsers(currentUser:any){
+  try {
+    const { data } = await axios.post("/api/users/get-users", { currentUser, });
+    const{filterUsers} = data;
+    console.log(filterUsers);
+    
+    // setUsersList(filterUsers);
+  } catch (error) {
+    console.error(error)
+  }
+ }
+
 
   async function handleOnChange(ev: any) {
-    setChecked(!checked);
-    
-    
-    const checkedField = ev.target.name;
-    console.log(checkedField);
-    const { data } = await axios.post(`/api/users/get-checked`, { checkedField,checked })
+    // setChecked(!checked);
+    const checkedField = ev.target.id;
+    const { data } = await axios.post(`/api/users/get-checked`, { checkedField, checked })
     const { allChecked } = data;
     setUsersList(allChecked)
-    console.log(checked);
 
-
-    console.log(allChecked);
-
-
-    if(checked===false){setTimeout(setChecked(!checked), 100);
-      }
-    
-
-
-
-
-      
   }
+
+
+
+
+
+
+
+
+
 
   return (
     <div className="matching__filter-menu">
@@ -61,7 +80,7 @@ const FilterMenu = (props: any) => {
             <AccordionSummary>
               <Typography>Sector</Typography>
             </AccordionSummary>
-
+            <button onClick={HandleClick}>My Matching</button>
             <AccordionDetails>
               <List
                 sx={{
@@ -72,7 +91,8 @@ const FilterMenu = (props: any) => {
                 {filterOptions.map((option: any, i: any) => (
                   <ListItemButton disableGutters>
                     {/* <Checkbox onChange={handleOnChange} checked={checked} /> */}
-                    <input type="checkbox" name={option.sector} onClick={handleOnChange} />{option.sector}
+                    {/* <input type="checkbox" id={option.sector} onClick={handleOnChange} />{option.sector} */}
+                    <button id={option.sector} key={i} onClick={handleOnChange} >{option.sector}</button>
                     {/* <ListItemText key={i} primary={option.sector} /> */}
                   </ListItemButton>
                 ))}
