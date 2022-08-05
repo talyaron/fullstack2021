@@ -32,7 +32,8 @@ const Search = (props: MatchingProps) => {
   async function getSearchResults(ev: any) {
     const currentSearch = ev.target.value;
     console.log(currentSearch);
-    if (currentSearch === "") {console.log("empty");
+    if (currentSearch === "") {
+      console.log("empty");
     }
     else {
       const { data } = await axios.post("/api/users/get-search", { currentSearch, });
@@ -41,19 +42,23 @@ const Search = (props: MatchingProps) => {
       setUsersList(allSearches);
     }
 
-    
+
 
 
 
   }
   return (
     <div className={"matching__search"}>
-      <input type="text" name="inputText" onChange={getSearchResults} />
-      <button>search</button>
+      <input type="text" name="inputText" onChange={getSearchResults}
+        placeholder="Type full name..." />
+      {/* <button>search</button> */}
       {/* {currentSearch.map((search: any) => {
         return <h2>country:{search.country}</h2>;
       })} */}
-    </div>
+      <span className="material-symbols-outlined">
+      search
+    </span>
+    </div >
   );
 };
 

@@ -1,12 +1,26 @@
 .matching {
     margin-top: 50px;
-     padding: 20px;
+    padding: 20px;
     display: grid;
     // height: 450px;
     grid-template-columns: repeat(3, minmax(auto-fit, 80fr));
     grid-template-rows: repeat(3, 1fr);
     //     border: 1px solid black;
     height: 5px;
+    position: relative;
+
+    h2 {
+        font-family: 'inter', 'sans-serif';
+        height: 30px;
+        width: 576px;
+        font-size: 25px;
+        line-height: 30.26px;
+        position: absolute;
+        right: 690px;
+        top: 12px;
+        text-decoration: underline;
+
+    }
 
     // grid-template-rows: 1fr 1fr 1fr;
     &__wrapper {
@@ -22,9 +36,20 @@
         justify-items: center;
         grid-auto-flow: row;
         flex-wrap: wrap;
+        position: relative;
+
+        &::before {
+            content: "";
+            width: 1px;
+            height: 500px;
+            background: #757575;
+            position: absolute;
+            right: 1270px;
+            top: 10px;
+        }
 
         &_card {
-            width: 348px;
+            //width: 348px;
             height: 393px;
             border-radius: 8% 8% 0 0;
             background-color: #E1E1E1;
@@ -52,11 +77,12 @@
                 width: 348px;
                 height: 250px;
                 object-fit: cover;
-                border-radius: 8% 8% 0 0;
+                border-radius: 8%;
                 cursor: pointer;
 
             }
-            &_seen{
+
+            &_seen {
                 position: absolute;
                 background-color: #D9D9D9;
                 right: 0;
@@ -66,6 +92,7 @@
 
             &_description {
                 padding: 1rem;
+                width: 307px;
             }
 
             &_footer {
@@ -91,13 +118,51 @@
     }
 
     &__search {
-        // border: 1px solid black;
         grid-column: 2/2;
         grid-row: 1/2;
+        position: relative;
+        bottom: 50px;
+
+
+        input {
+            box-sizing: border-box;
+            width: 307px;
+            height: 54px;
+            border: 1px solid #000000;
+            border-radius: 15px;
+            position: absolute;
+            padding-left: 50px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            right: 940px;
+
+
+            &::placeholder {
+                position: absolute;
+                top: 13px;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+
+            }
+
+        }
+
+        .material-symbols-outlined {
+            position: absolute;
+            right: 1200px;
+            top: 13px;
+            font-size: 30px;
+        }
+
+
     }
 
     &__filter-menu {
-        // border: 1px solid black;
         margin-top: 150px;
         margin-right: 50px;
         height: 50px;
@@ -105,7 +170,10 @@
         position: sticky;
         grid-column: 1/2;
         grid-row: 2/2;
-        .buttonBox{
+        width: 200px;
+
+
+        .buttonBox {
             display: flex;
             flex-direction: column;
         }
@@ -153,11 +221,12 @@
         }
     }
 }
-.opacityZero{
+
+.opacityZero {
     opacity: 0.5;
     background-color: #CACACA;
     ;
-   
-    
+
+
 
 }
