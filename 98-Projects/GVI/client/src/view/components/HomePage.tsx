@@ -4,6 +4,7 @@ import Login from './Login'
 import RegisterMentee from './RegisterMentee'
 import RegisterMentor from './RegisterMentor'
 import UserSelection from './UserSelection'
+const logo = require("../../img/gvi_logo.png");
 
 interface HomePageProps{
   setloggedInUser:Function;
@@ -72,7 +73,7 @@ const HomePage = (props:HomePageProps) => {
     <div className='homeContainer'>
 
       <div className='welcomeText'>
-        <div className='logo'><img src="./gvi-logo.png" alt="logo" /></div>
+        <div className='logo'><img src={logo} alt="logo" /></div>
         <div className='text-btn-wrapper'>
           <div >
             <h1>Welcome to GVI</h1>
