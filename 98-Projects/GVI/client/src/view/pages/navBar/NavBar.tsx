@@ -1,14 +1,25 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 const logo = require("../navBar/components/img/gvi_logo.png");
 const defaultImage =require("../navBar/components/img/defaultProfileImage.png")
 
 interface navBarProps {
   currentUserType: String;
-  loggedInUser: any;
+  currentUser: any;
 }
 function NavBar(props: navBarProps) {
-  const { currentUserType, loggedInUser } = props;
+
+  const { currentUserType, currentUser } = props;
+
+  const [profilePic , setProfilePic] = useState("") 
+  
+  console.log(currentUser);
+  
+
+  useEffect(() => {
+    setProfilePic(currentUser.image)
+  },[])
+  
 
   return currentUserType === "mentee" ? (
     <div className="navBar">
@@ -40,12 +51,8 @@ function NavBar(props: navBarProps) {
          
           <Link to="profile">
             <img
-              src={
-                loggedInUser && loggedInUser.image
-                  ? loggedInUser.image
-                  : {defaultImage}
-              }
-              alt="profile logo"
+              src={profilePic}
+             
             />
           </Link>
         </div>
@@ -79,11 +86,7 @@ function NavBar(props: navBarProps) {
           
           <Link to="profile">
             <img
-              src={
-                loggedInUser && loggedInUser.image
-                  ? loggedInUser.image
-                  : {defaultImage}
-              }
+              src={profilePic}
               alt="profile imge"
             />
           </Link>
