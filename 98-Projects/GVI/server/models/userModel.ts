@@ -63,12 +63,12 @@ export const UserSchema = new mongoose.Schema({
     default: FieldsOfKnowledgeSchema.UX,
   },
   stage:String,
-  escortOffer:String,
   sector: {
     type: String,
     enum: Sector,
     default: Sector.EDUCATION,
   },
+  escortOffer:String,
   profession: String,
 });
 
