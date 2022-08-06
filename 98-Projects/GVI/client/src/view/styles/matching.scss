@@ -10,24 +10,19 @@
     position: relative;
 
 
-    &__grid {
-        grid-row-start: 1/1;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 2fr;
-
-        &__title {
-            // grid-row: 1/3;
-
-            font-family: 'inter', 'sans-serif';
-
-            font-size: 25px;
-            font-weight: 500;
-            position: absolute;
 
 
-        }
+    &__title {
+        top: 150px;
+        left: 320px;
+        font-family: 'inter', 'sans-serif';
+        font-size: 25px;
+        font-weight: 500;
+        position: absolute;
+
+
     }
+
 
     // grid-template-rows: 1fr 1fr 1fr;
     &__wrapper {
@@ -121,7 +116,7 @@
     &__search {
         grid-column: 2/2;
         grid-row: 1/2;
-        bottom: 50px;
+        // bottom: 50px;
 
 
         &_input {

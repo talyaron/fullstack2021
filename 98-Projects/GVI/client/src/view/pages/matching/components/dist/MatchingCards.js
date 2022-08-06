@@ -80,25 +80,24 @@ var MatchingCard = function (props) {
     try {
         return (React.createElement("div", { className: cardClicked ? "opacityZero" : "" },
             cardClicked ? (React.createElement(CardProfile_1["default"], { userClicked: userClicked, setcardClicked: setcardClicked })) : null,
-            React.createElement("div", { className: "matching__grid" },
-                React.createElement("h2", { className: "matching__grid__title" }, "Matchings that are appropriate for you"),
-                React.createElement("div", { className: "matching__wrapper" }, usersList
-                    ? usersList.map(function (user) { return (React.createElement("div", { className: "matching__wrapper_card", key: user._id },
-                        React.createElement(StarSvg_1["default"], { handleSelectUser: handleSelectUser, userId: user._id }),
-                        React.createElement("img", { className: "matching__wrapper_card_pic", id: user._id, src: user.image ||
-                                "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", onClick: handleCardProfile }),
-                        React.createElement("p", { className: "matching__wrapper_card_seen" }, "Last Seen"),
-                        React.createElement("div", { className: "matching__wrapper_card_description" },
-                            React.createElement("p", null,
-                                user.name.first,
-                                " ",
-                                user.name.last),
-                            React.createElement("p", null, user.sector),
-                            React.createElement("div", { className: "matching__wrapper_card_footer " },
-                                React.createElement("a", { href: user.linkedInProfile },
-                                    React.createElement("img", { className: "matching__wrapper_card_footer_linkedin", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png", alt: "" })),
-                                React.createElement("button", { className: "matching__wrapper_card_footer_request" }, "Send Request"))))); })
-                    : null))));
+            React.createElement("h2", { className: "matching__title" }, "Matchings that are appropriate for you"),
+            React.createElement("div", { className: "matching__wrapper" }, usersList
+                ? usersList.map(function (user) { return (React.createElement("div", { className: "matching__wrapper_card", key: user._id },
+                    React.createElement(StarSvg_1["default"], { handleSelectUser: handleSelectUser, userId: user._id }),
+                    React.createElement("img", { className: "matching__wrapper_card_pic", id: user._id, src: user.image ||
+                            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", onClick: handleCardProfile }),
+                    React.createElement("p", { className: "matching__wrapper_card_seen" }, "Last Seen"),
+                    React.createElement("div", { className: "matching__wrapper_card_description" },
+                        React.createElement("p", null,
+                            user.name.first,
+                            " ",
+                            user.name.last),
+                        React.createElement("p", null, user.sector),
+                        React.createElement("div", { className: "matching__wrapper_card_footer " },
+                            React.createElement("a", { href: user.linkedInProfile },
+                                React.createElement("img", { className: "matching__wrapper_card_footer_linkedin", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png", alt: "" })),
+                            React.createElement("button", { className: "matching__wrapper_card_footer_request" }, "Send Request"))))); })
+                : null)));
     }
     catch (error) {
         console.error(error);
