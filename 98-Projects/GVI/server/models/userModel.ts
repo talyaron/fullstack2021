@@ -62,6 +62,8 @@ export const UserSchema = new mongoose.Schema({
     enum: FieldsOfKnowledgeSchema,
     default: FieldsOfKnowledgeSchema.UX,
   },
+  stage:String,
+  escortOffer:String,
   sector: {
     type: String,
     enum: Sector,

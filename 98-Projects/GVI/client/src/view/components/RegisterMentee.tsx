@@ -133,11 +133,8 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
     reader.onloadend = async () => {
       await setImageFile(`${reader.result}`);
       const imageFile = reader.result;
-      const { data } = await axios.post("/api/profile/saveImage", {
-        imageFile,
-      });
+      const { data } = await axios.post("/api/profile/saveImage", {imageFile});
       const ImgUrl = data.result.url;
-
       setProfilePic(ImgUrl);
     };
   }

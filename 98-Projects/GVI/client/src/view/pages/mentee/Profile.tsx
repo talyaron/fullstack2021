@@ -57,11 +57,11 @@ export function Profile () {
 
           const {data} = await axios.post('/api/users/get-userById',{userId});
           const userFound = data.user;
-          const type = userFound.type; 
+          const type = userFound.type;
+
           if(type === "mentee") setIsMentee(true)
           if(type === "mentor"){
             setIsMentee(false)
-            
           } 
           
           setUserDetails(userFound)
@@ -83,9 +83,10 @@ export function Profile () {
 
 
         try {
+
           if(isMentee){
         const {data} = await axios.post('/api/initiatives/get-initiative',{userId});
-
+        
         const companyName = data.userInitiative.companyName;
         const description = data.userInitiative.description;
         const sector = data.userInitiative.sector;
