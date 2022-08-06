@@ -5,16 +5,20 @@ import axios from 'axios'
 
 
 interface ProffesionalDetailsProps{
-    
+    isMentee:boolean;
     isInitiative:boolean
     companyInfo:Array<any>;
-    mentorDetails:Array<any>
+    mentorSec:Array<any>;
+    companySec:Array<any>;
+    mentorInitiative:Array<any>;
+
+
 }
 
 
 function ProffesionalDetails(props:ProffesionalDetailsProps) {
 
-    const {companyInfo,mentorDetails,isInitiative} = props;
+    const {companyInfo,isMentee,isInitiative,mentorSec,companySec,mentorInitiative} = props;
 
     
     if(isInitiative){
@@ -23,7 +27,7 @@ function ProffesionalDetails(props:ProffesionalDetailsProps) {
                 
             {companyInfo.map((section,i) => {
                 return(
-             <div key={i} className='profile_companyDetails-sections-section'>{section}</div>
+             <div key={i} className='profile_companyDetails-sections-section'>{companySec[i]} : {section}</div>
                 )
             })}
            
@@ -31,7 +35,13 @@ function ProffesionalDetails(props:ProffesionalDetailsProps) {
         )
     }else {
         return(
-            <h1 style={{width:'30vw',height:'20px',margin:'15vh 15vw auto',fontSize:'50px',color:'blue'}}>user has no initiative</h1>
+            <div className='profile_companyDetails-sections'>
+                {mentorInitiative.map((section,i) => {
+                    return(
+                <div key={i} className='profile_companyDetails-sections-section'>{mentorSec[i]} : {section}</div>
+                    )
+                })}
+                </div>
         )
     }
    
