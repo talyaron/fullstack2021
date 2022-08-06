@@ -33,9 +33,10 @@ const MatchingCard = (props: MatchingCardProps) => {
             setcardClicked={setcardClicked}
           />
         ) : null}
-
-        <h2>Matchings that are appropriate for you</h2>
+<div className="matching__grid"><h2 className="matching__grid__title">Matchings that are appropriate for you</h2>
         <div className="matching__wrapper">
+        
+
           {usersList
             ? usersList.map((user: any) => (
                 <div className="matching__wrapper_card" key={user._id}>
@@ -59,7 +60,7 @@ const MatchingCard = (props: MatchingCardProps) => {
                       {user.name.first} {user.name.last}
                     </p>
                     <p>{user.sector}</p>
-                    <div className="matching__wrapper_card_footer">
+                    <div className="matching__wrapper_card_footer ">
                       <a href={user.linkedInProfile}>
                         <img
                           className="matching__wrapper_card_footer_linkedin"
@@ -76,6 +77,7 @@ const MatchingCard = (props: MatchingCardProps) => {
               ))
             : null}
         </div>
+      </div>
       </div>
     );
   } catch (error) {

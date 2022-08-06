@@ -165,7 +165,6 @@ var FilterMenu = function (props) {
         });
     }
     return (React.createElement("div", { className: "matching__filter-menu" },
-        React.createElement("button", { onClick: handleClick }, "My Matchings"),
         React.createElement("div", { className: "_section" },
             React.createElement("div", { className: "_title" }),
             React.createElement("div", { className: "_more" },
@@ -188,6 +187,8 @@ var FilterMenu = function (props) {
                                 width: "100%",
                                 maxWidth: 360
                             } }, fieldsOptions.map(function (option, i) { return (React.createElement(material_1.ListItemButton, { disableGutters: true, key: "list2-" + i + "-2" },
-                            React.createElement("button", { id: option.fieldsOfKnowledge, key: i, onClick: handleOnChangeField }, option.fieldsOfKnowledge))); }))))))));
+                            React.createElement(material_1.Checkbox, null),
+                            React.createElement("button", { id: option.fieldsOfKnowledge, key: i, onClick: handleOnChangeField }, option.fieldsOfKnowledge))); })))))),
+        React.createElement("button", { className: "matching__filter-menu_clear", onClick: handleClick }, "clear selection")));
 };
 exports["default"] = FilterMenu;

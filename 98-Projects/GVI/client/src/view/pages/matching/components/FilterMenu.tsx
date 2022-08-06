@@ -93,7 +93,6 @@ const FilterMenu = (props: any) => {
 
   return (
     <div className="matching__filter-menu">
-      <button onClick={handleClick}>My Matchings</button>
       <div className="_section">
         <div className="_title"></div>
         <div className="_more">
@@ -138,6 +137,7 @@ const FilterMenu = (props: any) => {
               >
                 {fieldsOptions.map((option: any, i: any) => (
                   <ListItemButton disableGutters key={`list2-${i}-2`}>
+                    <Checkbox />
                     <button
                       id={option.fieldsOfKnowledge}
                       key={i}
@@ -152,6 +152,7 @@ const FilterMenu = (props: any) => {
           </Accordion>
         </div>
       </div>
+      <button className="matching__filter-menu_clear" onClick={handleClick}>clear selection</button>
     </div>
   );
 };
