@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { UserSchema } from "./userModel";
 
-const requestedUserSchema = new mongoose.Schema({
+const AnsUserSchema = new mongoose.Schema({
   selectingUserId: {
     type: String,
     required: true,
@@ -17,6 +17,6 @@ const requestedUserSchema = new mongoose.Schema({
   selected: Boolean,
 });
 
-const requestedUsersModel = mongoose.model("requested-users", requestedUserSchema);
+const AnsUsersModel = mongoose.model("requested-answered", AnsUserSchema);
 
-export default requestedUsersModel;
+export default AnsUsersModel;

@@ -5,7 +5,11 @@ import initiativeModel from "../models/initiativeModel";
 import countryFlagModel from "../models/countryFlagModel";
 import JWT from "jwt-simple";
 import requestsUsersModel from "../models/requestedModel";
-const cloudinary = require('./uploads/cloudinary')
+
+import requestedUsersModel from "../models/requestedModel";
+import AnsUsersModel from "../models/answerReqModel";
+const cloudinary = require('./uploads/cloudinary');
+
 
 export const getUser = async (req: any, res: any) => {
   try {
@@ -466,8 +470,7 @@ export async function getLoggedInProfile(req, res) {
 }
 
 //======================================================================================
-
-export const request = async (req: any, res: any) => {
+export const requestUser = async (req: any, res: any) => {
   try {
     const { userInfo } = req.cookies;
     const payload = JWT.decode(userInfo, secret);
@@ -491,22 +494,17 @@ export const request = async (req: any, res: any) => {
     if (!selectingUser) {
       console.log("no record in DB - saving");
       const newSelectionDB = new requestsUsersModel({
-        userSendingRequestId: currentUserId,
-        userSendingRequestDetails: { email, name, image },
-        userRecievingRequestId:"........",
-        userRecievingRequestDetails: { email, name, image },
-        requestText:".........",
-        sendingTheRequest: true,
-        recievigTheRequest: false,
-
+        selectingUserId: currentUserId,
+        selectedUser: { email, name, image },
+        selected: true,
       });
       newSelection = await newSelectionDB.save();
     } else {
-      if (selectingUser.sendingTheRequest === true) {
+      if (selectingUser.selected === true) {
         console.log("a record in DB - turning off");
         newSelection = await requestsUsersModel.findOneAndUpdate(
           searchSelecting,
-          { sendingTheRequest: false }
+          { selected: false }
         );
       } else {
         console.log("a record in DB - turning on");
@@ -526,5 +524,290 @@ export const request = async (req: any, res: any) => {
 
 
 
+//======================================================================================//
 
 //======================================================================================
+
+
+//======================================================================================//
+
+
+export async function getRequestedUser(req, res) {
+  try {
+    const { _id, type } = req.body;
+
+    const selected = await requestsUsersModel.find({});
+    const selectedUsers = selected.filter(
+      (user) => user.selectingUserId === _id && user.selected === true);
+    const selectedUesrModel = await UserModel.find({});
+    const selectedUserInitiatives = await initiativeModel.find({});
+    const flags = await countryFlagModel.find({});
+
+    if (type === "mentee") {
+      let chosen = [];
+      selectedUsers.forEach((selectedUser, i) => {
+        const mentor = selectedUesrModel.filter(
+          (selectedMentor) =>
+            selectedMentor.email === selectedUser.selectedUser["email"]
+        );
+        let user = mentor[0];
+        const country = flags.filter(
+          (country) => country.countryName === user.country
+        );
+        if(country.length > 0){
+          user['country'] = `${country[0].countryFlag}`;
+          };
+        chosen.push(user);
+      });
+      res.send({ ok: true, chosen });
+    }
+    
+    else if (type === "mentor") {
+      let chosen = [];
+      selectedUsers.forEach((selectedUser, i) => {
+        const mentee = selectedUesrModel.filter(
+          (selectedMentee) =>
+            selectedMentee.email === selectedUser.selectedUser["email"]
+        );
+        let user = mentee[0];
+        const country = flags.filter(
+          (country) => country.countryName === user.country
+        );
+        if(country.length > 0){
+        user['country'] = `${country[0].countryFlag}`;
+        };
+        const menteeIntiative = selectedUserInitiatives.filter(
+          (selectedMentee) => selectedMentee.ownerUserId === user.id
+        );
+        if(menteeIntiative.length > 0){
+          user['fieldsOfKnowledge'] = `${menteeIntiative[0].companyName}`
+          user['sector'] = `${menteeIntiative[0].stage}`
+        }
+        console.log(menteeIntiative);
+        chosen.push(user);
+      });
+      res.send({ ok: true, chosen });
+    }
+
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+}
+
+
+
+
+
+
+
+//=========================================================================================//
+export async function getAnsReqUser(req, res) {
+  try {
+    const { _id, type } = req.body;
+
+    const selected = await requestsUsersModel.find({});
+    const selectedUsers = selected.filter(
+      (user) => user.selectingUserId === _id && user.selected === true);
+    const selectedUesrModel = await UserModel.find({});
+    const selectedUserInitiatives = await initiativeModel.find({});
+    const flags = await countryFlagModel.find({});
+
+    if (type === "mentee") {
+      let chosen = [];
+      selectedUsers.forEach((selectedUser, i) => {
+        const mentor = selectedUesrModel.filter(
+          (selectedMentor) =>
+            selectedMentor.email === selectedUser.selectedUser["email"]
+        );
+        let user = mentor[0];
+        const country = flags.filter(
+          (country) => country.countryName === user.country
+        );
+        if(country.length > 0){
+          user['country'] = `${country[0].countryFlag}`;
+          };
+        chosen.push(user);
+      });
+      res.send({ ok: true, chosen });
+    }
+    
+    else if (type === "mentor") {
+      let chosen = [];
+      selectedUsers.forEach((selectedUser, i) => {
+        const mentee = selectedUesrModel.filter(
+          (selectedMentee) =>
+            selectedMentee.email === selectedUser.selectedUser["email"]
+        );
+        let user = mentee[0];
+        const country = flags.filter(
+          (country) => country.countryName === user.country
+        );
+        if(country.length > 0){
+        user['country'] = `${country[0].countryFlag}`;
+        };
+        const menteeIntiative = selectedUserInitiatives.filter(
+          (selectedMentee) => selectedMentee.ownerUserId === user.id
+        );
+        if(menteeIntiative.length > 0){
+          user['fieldsOfKnowledge'] = `${menteeIntiative[0].companyName}`
+          user['sector'] = `${menteeIntiative[0].stage}`
+        }
+        console.log(menteeIntiative);
+        chosen.push(user);
+      });
+      res.send({ ok: true, chosen });
+    }
+
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+}
+
+
+
+
+//==========================================================================================
+
+export async function mentee_mentor_users_req(req, res) {
+  try {
+    const { _id, type } = req.body;
+
+    const requested = await requestsUsersModel.find({});
+    const selectedUsers = requested.filter(
+      (user) => user.selectingUserId === _id );
+    const selectedUesrModel = await UserModel.find({});
+    const selectedUserInitiatives = await initiativeModel.find({});
+    const flags = await countryFlagModel.find({});
+
+    if (type === "mentee") {
+      let chosenMentors = [];
+      selectedUsers.forEach((selectedUser, i) => {
+        const mentor = selectedUesrModel.filter(
+          (selectedMentor) =>
+            selectedMentor.email === selectedUser.selectedUser["email"]
+        );
+        let user = mentor[0];
+        const country = flags.filter(
+          (country) => country.countryName === user.country
+        );
+        if(country.length > 0){
+          user['country'] = `${country[0].countryFlag}`;
+          };
+          chosenMentors.push(user);
+      });
+      res.send({ ok: true, chosenMentors });
+    }
+    
+    else if (type === "mentor") {
+      let chosenMentees = [];
+      selectedUsers.forEach((selectedUser, i) => {
+        const mentee = selectedUesrModel.filter(
+          (selectedMentee) =>
+            selectedMentee.email === selectedUser.selectedUser["email"]
+        );
+        let user = mentee[0];
+        const country = flags.filter(
+          (country) => country.countryName === user.country
+        );
+        if(country.length > 0){
+        user['country'] = `${country[0].countryFlag}`;
+        };
+        const menteeIntiative = selectedUserInitiatives.filter(
+          (selectedMentee) => selectedMentee.ownerUserId === user.id
+        );
+        if(menteeIntiative.length > 0){
+          user['fieldsOfKnowledge'] = `${menteeIntiative[0].companyName}`
+          user['sector'] = `${menteeIntiative[0].stage}`
+        }
+        console.log(menteeIntiative);
+        chosenMentees.push(user);
+      });
+      res.send({ ok: true, chosenMentees });
+    }
+
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+}
+
+//=================================================================================//
+export const getRequestUsers = async (req, res) => {
+  try {
+    const { _id, type } = req.body;
+    const currentUserID=_id; 
+    const requested = await requestsUsersModel.find({});
+    //const { currentUser } = req.body;
+   
+    if (type === "mentee") {
+      const menteeRequests = await requestsUsersModel.find({ type: "mentor" });
+    
+      res.send({ menteeRequests, ok: true });
+    } else if (type === "mentor") {
+      const mentorRequests = await requestsUsersModel.find({ type: "mentee" });
+      res.send({ mentorRequests, ok: true });
+    }
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+};
+
+//============================================================================================
+
+
+
+export const requestAnsUser = async (req: any, res: any) => {
+  try {
+    const { userInfo } = req.cookies;
+    const payload = JWT.decode(userInfo, secret);
+    const currentUserId = payload.id;
+
+    const { selectedUserId } = req.body;
+    const selectedUser = await UserModel.findById(selectedUserId);
+    if (!selectedUser) throw new Error("couldnt find the user in the DB");
+
+    const { email, name, image } = selectedUser;
+
+    const searchSelecting = {
+      "selectedUser.email": selectedUser.email,
+      selectingUserId: currentUserId,
+    };
+
+    const selectingUser: any = await AnsUsersModel.findOne(
+      searchSelecting
+    );
+    let newSelection: any;
+    if (!selectingUser) {
+      console.log("no record in DB - saving");
+      const newAnsDB = new AnsUsersModel({
+        selectingUserId: currentUserId,
+        selectedUser: { email, name, image },
+        selected: true,
+      });
+      newSelection = await newAnsDB.save();
+    } else {
+      if (selectingUser.selected === true) {
+        console.log("a record in DB - turning off");
+        newSelection = await AnsUsersModel.findOneAndUpdate(
+          searchSelecting,
+          { selected: false }
+        );
+      } else {
+        console.log("a record in DB - turning on");
+        newSelection = await AnsUsersModel.findOneAndUpdate(
+          searchSelecting,
+          { selected: true }
+        );
+      }
+    }
+
+    res.send({ success: true, selection: newSelection });
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+};
+

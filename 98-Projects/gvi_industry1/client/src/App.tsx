@@ -20,6 +20,8 @@ import AdminPage from './view/Components/AdminPage';
 import RequestLayout from './view/pages/RequestLayout';
 import Answered from './view/Components/Answered';
 import Pending from './view/Components/Pending';
+import FromMentee from './view/Components/FromMentee';
+import FromMentors from './view/Components/FromMentors';
 
 
 function App() {
@@ -97,15 +99,15 @@ function App() {
             <Route path="request" element={<RequestLayout  loggedInUser={loggedInUser}
               currentUserType={currentUserType} />}>
                 {currentUserType==='mentor'}?(
-                <Route index element={<Request />} />
-                <Route path="from-mentee" element={<Request />} />
-                <Route path="answered" element={<Answered />} />
-                <Route path="pending" element={<Pending />} />
+                <Route index element={<FromMentee />} />
+                <Route path="from-mentee" element={<FromMentee />} />
+                <Route path="answered" element={<Request />} />
+                <Route path="pending" element={<Request />} />
                   ):(
-                    <Route index element={<Request />} />
-                <Route path="from-mentor" element={<Request />} />
-                <Route path="answered" element={<Answered />} />
-                <Route path="pending" element={<Pending />} />
+                    <Route index element={<FromMentors />} />
+                <Route path="from-mentor" element={<FromMentors />} />
+                <Route path="answered" element={<Request />} />
+                <Route path="pending" element={<Request />} />
                   )
 
 
@@ -119,7 +121,7 @@ function App() {
         >
           <Route index element={<AdminPage />} />
           <Route path="chat" element={<Chat />} />
-          <Route path="request" element={<RequestUsers />} />
+          <Route path="request" element={<Request />} />
 
           <Route path="profile" element={<Profile />} />
 
