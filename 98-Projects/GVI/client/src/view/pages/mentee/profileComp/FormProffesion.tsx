@@ -54,7 +54,7 @@ function FormProffesion (props:FormProffesionProps){
             const newDetails = {escortOffer:EscortOffer,sector:sector,description:description,stage:stage,website:website}
             console.log(newDetails);
             
-            const {data} = await axios.patch('/api/profile//Update-MentorProfDet',{newDetails,userId})            
+            const {data} = await axios.patch('/api/profile/Update-MentorProfDet',{newDetails,userId})            
             window.location.reload();
         }
         

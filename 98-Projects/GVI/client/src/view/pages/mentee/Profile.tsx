@@ -54,7 +54,6 @@ export function Profile () {
           
           if(type === "mentee") setIsMentee(true)
           if(type === "mentor") {
-            console.log("yes");
             
             const mentorInit = [userFound.escortOffer,userFound.sector,
             userFound.stage,userFound.description,"website"]
@@ -84,7 +83,9 @@ export function Profile () {
         try {
 
           if(isMentee){
+
         const {data} = await axios.post('/api/initiatives/get-initiative',{userId});
+        console.log(data);
         
         const companyName = data.userInitiative.companyName;
         const description = data.userInitiative.description;
@@ -93,7 +94,10 @@ export function Profile () {
         const linkToOnePager = data.userInitiative.linkToOnePager;
         
           const companyDetails = [companyName,description,sector,stage,linkToOnePager]
-            setCompanyInfo(companyDetails)   
+            setCompanyInfo(companyDetails)
+            setIsInitiative(true)   
+        }else if(!isMentee){
+          
         }
       
       } catch (err) {

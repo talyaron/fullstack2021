@@ -19,7 +19,7 @@ interface ProffesionalDetailsProps{
 function ProffesionalDetails(props:ProffesionalDetailsProps) {
 
     const {companyInfo,isMentee,isInitiative,mentorSec,companySec,mentorInitiative} = props;
-
+    
     
     if(isInitiative){
         return (
