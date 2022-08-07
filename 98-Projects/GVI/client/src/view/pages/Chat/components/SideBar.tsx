@@ -6,17 +6,22 @@ import RecipientCard from './RecipientCard';
 import {ChatContext} from '../../../Contexts/ChatContext';
 
 interface SideBarProps {
-    userList: Array<MessageUserInterface>;
+    userList?: Array<MessageUserInterface>;
+    handleChatSearchBar: Function;
 }
 
+
+
 function SideBar() {
-    const {userList} = useContext<SideBarProps>(ChatContext);
+
+    const {userList, handleChatSearchBar} = useContext<SideBarProps>(ChatContext);
+
     const id = useId();
     return (
         <div className='chat__sideBar'>
             <div className='chat__sideBar__searchBar'>
                 <div className={`search` + id}>
-                    <InputBase placeholder='Search' />
+                    <InputBase placeholder='Search' onChange={(event)=>handleChatSearchBar(event)} />
                     <SearchUsersIcon />
                 </div>
             </div>
