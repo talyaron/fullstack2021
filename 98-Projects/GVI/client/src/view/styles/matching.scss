@@ -71,6 +71,23 @@
                 width: 2rem;
                 aspect-ratio: 1/1;
                 cursor: pointer;
+
+
+            }
+            &_deselect {
+                position: absolute;
+                top: 3%;
+                left: 88%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 0.5;
+                border-radius: 50%;
+                background-color: #db9840;
+                // border: 1px solid black;
+                width: 2rem;
+                aspect-ratio: 1/1;
+                cursor: pointer;
             }
 
             &_pic {
