@@ -26,18 +26,19 @@ const MatchingCard = (props: MatchingCardProps) => {
 
   try {
     return (
-      <div className={cardClicked ? "opacityZero" : ""}>
+      
+      <div className={cardClicked ? "opacityZero" : "matching__wrapper"}>
         {cardClicked ? (
           <CardProfile
             userClicked={userClicked}
             setcardClicked={setcardClicked}
           />
+          
         ) : null}
        
-          <h2 className="matching__title">
-            Matchings that are appropriate for you
-          </h2>
+         
           <div className="matching__wrapper">
+            
             {usersList
               ? usersList.map((user: any) => (
                   <div className="matching__wrapper_card" key={user._id}>

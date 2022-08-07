@@ -78,9 +78,8 @@ var MatchingCard = function (props) {
         });
     }
     try {
-        return (React.createElement("div", { className: cardClicked ? "opacityZero" : "" },
+        return (React.createElement("div", { className: cardClicked ? "opacityZero" : "matching__wrapper" },
             cardClicked ? (React.createElement(CardProfile_1["default"], { userClicked: userClicked, setcardClicked: setcardClicked })) : null,
-            React.createElement("h2", { className: "matching__title" }, "Matchings that are appropriate for you"),
             React.createElement("div", { className: "matching__wrapper" }, usersList
                 ? usersList.map(function (user) { return (React.createElement("div", { className: "matching__wrapper_card", key: user._id },
                     React.createElement(StarSvg_1["default"], { handleSelectUser: handleSelectUser, userId: user._id }),

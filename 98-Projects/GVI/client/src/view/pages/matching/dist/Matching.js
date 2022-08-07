@@ -36,11 +36,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var react_1 = require("react");
 var axios_1 = require("axios");
-var react_router_dom_1 = require("react-router-dom");
-var Search = function (props) {
-    var setUsersList = props.setUsersList, currentUser = props.currentUser, setCurrentUser = props.setCurrentUser;
+var react_1 = require("react");
+var FilterMenu_1 = require("./components/FilterMenu");
+var Search_1 = require("./components/Search");
+var MatchingCards_1 = require("./components/MatchingCards");
+var Matching = function (props) {
+    var usersList = props.usersList, setUsersList = props.setUsersList, filterOptions = props.filterOptions, setFilterOptions = props.setFilterOptions, currentUser = props.currentUser, setCurrentUser = props.setCurrentUser, checked = props.checked, setChecked = props.setChecked;
     react_1.useEffect(function () {
         (function () { return __awaiter(void 0, void 0, void 0, function () {
             var data, user;
@@ -56,51 +58,61 @@ var Search = function (props) {
             });
         }); })();
     }, []);
-    function getAllUsers() {
-        return __awaiter(this, void 0, void 0, function () {
-            var data, filterUsers;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, axios_1["default"].post("/api/users/get-users", { currentUser: currentUser })];
-                    case 1:
-                        data = (_a.sent()).data;
-                        filterUsers = data.filterUsers;
-                        console.log(filterUsers);
-                        setUsersList(filterUsers);
-                        return [2 /*return*/];
-                }
-            });
-        });
-    }
-    function getSearchResults(ev) {
-        return __awaiter(this, void 0, void 0, function () {
-            var currentSearch, data, allSearches;
+    react_1.useEffect(function () {
+        (function () { return __awaiter(void 0, void 0, void 0, function () {
+            var data, filterUsers, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        currentSearch = ev.target.value;
-                        console.log(currentSearch);
-                        if (!(currentSearch === "")) return [3 /*break*/, 1];
-                        console.log("empty");
-                        return [3 /*break*/, 3];
-                    case 1: return [4 /*yield*/, axios_1["default"].post("/api/users/get-search", {
-                            currentSearch: currentSearch
-                        })];
-                    case 2:
+                        _a.trys.push([0, 2, , 3]);
+                        if (Object.keys(currentUser).length === 0)
+                            throw new Error("User is not logged in");
+                        console.log("/api/users/get-users");
+                        return [4 /*yield*/, axios_1["default"].post("/api/users/get-users", {
+                                currentUser: currentUser
+                            })];
+                    case 1:
                         data = (_a.sent()).data;
-                        allSearches = data.allSearches;
-                        console.log(allSearches);
-                        setUsersList(allSearches);
-                        _a.label = 3;
+                        console.log(data);
+                        filterUsers = data.filterUsers;
+                        setUsersList(filterUsers);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_1 = _a.sent();
+                        console.error(error_1);
+                        return [3 /*break*/, 3];
                     case 3: return [2 /*return*/];
                 }
             });
-        });
-    }
-    return (react_1["default"].createElement("div", { className: "matching__search" },
-        react_1["default"].createElement("h2", null, "Entrepreneur Matching"),
-        react_1["default"].createElement("h3", { className: "matching__title" }, "Matchings that are appropriate for you"),
-        react_1["default"].createElement("input", { className: "matching__search_input", type: "text", name: "inputText", onChange: getSearchResults, placeholder: "Type full name..." }),
-        react_1["default"].createElement(react_router_dom_1.Link, { className: "matching__search_link", to: "selected-users" }, "Selected Entrepreneur")));
+        }); })();
+    }, [currentUser]);
+    react_1.useEffect(function () {
+        (function () { return __awaiter(void 0, void 0, void 0, function () {
+            var data, filterUsers, error_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, axios_1["default"].post("/api/users/get-users", {
+                                currentUser: currentUser
+                            })];
+                    case 1:
+                        data = (_a.sent()).data;
+                        filterUsers = data.filterUsers;
+                        setUsersList(filterUsers);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_2 = _a.sent();
+                        console.error(error_2);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        }); })();
+    }, []);
+    return (React.createElement("div", { className: "matching " },
+        React.createElement(MatchingCards_1["default"], { usersList: usersList }),
+        React.createElement(Search_1["default"], { setUsersList: setUsersList, setCurrentUser: setCurrentUser, currentUser: currentUser }),
+        React.createElement(FilterMenu_1["default"], { filterOptions: filterOptions, setFilterOptions: setFilterOptions, setChecked: setChecked, checked: checked, setUsersList: setUsersList, setCurrentUser: setCurrentUser, currentUser: currentUser })));
 };
-exports["default"] = Search;
+exports["default"] = Matching;

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 interface MatchingProps {
   setUsersList: Function;
@@ -42,6 +43,11 @@ const Search = (props: MatchingProps) => {
   }
   return (
     <div className="matching__search">
+      <h2>Entrepreneur Matching</h2>
+      <h3 className="matching__title">
+        Matchings that are appropriate for you
+      </h3>
+
       <input
         className="matching__search_input"
         type="text"
@@ -49,11 +55,12 @@ const Search = (props: MatchingProps) => {
         onChange={getSearchResults}
         placeholder="Type full name..."
       />
+
       {/* <button>search</button> */}
       {/* {currentSearch.map((search: any) => {
         return <h2>country:{search.country}</h2>;
       })} */}
-      <span className="material-symbols-outlined">search</span>
+      <Link className="matching__search_link" to="selected-users">Selected Entrepreneur</Link>
     </div>
   );
 };
