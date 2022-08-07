@@ -7,9 +7,12 @@ interface navBarLayoutProps {
   currentUserType: String;
   currentUser: any;
 }
+
 const Layout = (props: navBarLayoutProps) => {
+
   const { currentUserType, currentUser } = props;
 
+  
   const profilePic = currentUser.image
 
   
