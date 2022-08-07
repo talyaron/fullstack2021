@@ -28,7 +28,6 @@ function RecipientCard(props: RecipientCardProps) {
         return newMessageList[newMessageList.length - 1];
     };
     useEffect(() => {
-        console.log(user);
         
         (async () => {
             setLastMessage(await makeRecLastMessage());
