@@ -87,12 +87,11 @@ async function handleRequestForm(ev: any) {
 
 
   return (
-    <div className="selectedPage">
-      <h5 className="selectedPage__title"></h5>
-      <div className="selectedPage__wrapper">
-        <RequestCard requestUsers={requestUsers} />
-      </div>
-    </div>
+    <div>from Mentee</div>
+    // <div className="selectedPage">
+    //   <h5 className="selectedPage__title"></h5>
+    //   <div className="selectedPage__wrapper"> <RequestCard requestUsers={requestUsers} /></div>
+    // </div>
   );
 }
 
