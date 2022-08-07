@@ -6,14 +6,10 @@
     padding: 5px;
     margin-bottom: 10%;
 
-    // grid-template-rows: 1.5fr 1.5fr 1.5fr 1.5fr;
-    // column-gap: 1vw;
+    grid-template-rows: 1.5fr 1.5fr 1.5fr 1.5fr;
+    column-gap: 1vw;
 
-    // grid-template-rows: repeat(4, 1fr);
-    height: 190px;
-    width: 301px;
-    border: solid black;
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    grid-template-rows: repeat(4, 1fr);
     border-radius: 5px;
     background-color: #F0F0F0;
     padding: 5%;
