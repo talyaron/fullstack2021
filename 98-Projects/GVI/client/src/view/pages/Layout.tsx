@@ -4,14 +4,14 @@ import { Outlet } from "react-router-dom";
 
 interface navBarLayoutProps {
   currentUserType: String;
-  loggedInUser: any;
+  currentUser: any;
 }
 const Layout = (props: navBarLayoutProps) => {
-  const { currentUserType, loggedInUser } = props;
+  const { currentUserType, currentUser } = props;
   
   return (
     <>
-      <NavBar loggedInUser={loggedInUser} currentUserType={currentUserType} />
+      <NavBar currentUser={currentUser} currentUserType={currentUserType} />
 
       <Outlet />
     </>

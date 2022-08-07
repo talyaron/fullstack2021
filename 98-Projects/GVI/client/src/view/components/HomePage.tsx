@@ -4,15 +4,16 @@ import Login from './Login'
 import RegisterMentee from './RegisterMentee'
 import RegisterMentor from './RegisterMentor'
 import UserSelection from './UserSelection'
+const logo = require("../../img/gvi_logo.png");
 
 interface HomePageProps{
-  setloggedInUser:Function;
+  setCurrentUser:Function;
   setCurrentUserType:Function;
 }
 
 const HomePage = (props:HomePageProps) => {
   const {
-    setloggedInUser,
+    setCurrentUser,
     setCurrentUserType
   }=props;
   const [loginWindow, setLoginWindow] = useState(false)
@@ -72,7 +73,7 @@ const HomePage = (props:HomePageProps) => {
     <div className='homeContainer'>
 
       <div className='welcomeText'>
-        <div className='logo'><img src="./gvi-logo.png" alt="logo" /></div>
+        <div className='logo'><img src={logo} alt="logo" /></div>
         <div className='text-btn-wrapper'>
           <div >
             <h1>Welcome to GVI</h1>
@@ -90,7 +91,8 @@ const HomePage = (props:HomePageProps) => {
       <div className='videoWindow'>
         <img src="./video.png" alt="" />
       </div>
-      <Login loginWindow={loginWindow} setLoginWindow={setLoginWindow}  setCurrentUserType={ setCurrentUserType} setloggedInUser={setloggedInUser} />
+      <Login loginWindow={loginWindow} setLoginWindow={setLoginWindow}  
+      setCurrentUserType={ setCurrentUserType} setCurrentUser={setCurrentUser} />
       <UserSelection registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} setMenteeWindow={setMenteeWindow} mentorWindow={mentorWindow} setMentorWindow={setMentorWindow} />
       <RegisterMentee setCurrentUserType={ setCurrentUserType} registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} setMenteeWindow={setMenteeWindow} countryArray={countryArray} handleCloseRegisterWindow={handleCloseRegisterWindow} secondSection={secondSection} firstSection={firstSection} thirdSection={thirdSection} showProgressBar={showProgressBar} handleToggleShowSections={handleToggleShowSections} handleBackToggleShowSections={handleBackToggleShowSections} handleBackToSelection={handleBackToSelection} handleToggleShowThirdSection={handleToggleShowThirdSection} handleBackToggleShowThirdSection={handleBackToggleShowThirdSection}/>
       <RegisterMentor setCurrentUserType={ setCurrentUserType} countryArray={countryArray} registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} mentorWindow={mentorWindow} setMenteeWindow={setMenteeWindow} handleCloseRegisterWindow={handleCloseRegisterWindow} secondSection={secondSection} firstSection={firstSection}  thirdSection={thirdSection} showProgressBar={showProgressBar} handleToggleShowSections={handleToggleShowSections} handleBackToggleShowSections={handleBackToggleShowSections} handleBackToSelection={handleBackToSelection} handleToggleShowThirdSection={handleToggleShowThirdSection} handleBackToggleShowThirdSection={handleBackToggleShowThirdSection}/>
