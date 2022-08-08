@@ -26,23 +26,24 @@ const MatchingCard = (props: MatchingCardProps) => {
 
   try {
     return (
-      <div className={cardClicked ? "opacityZero" : ""}>
+      <div>
         {cardClicked ? (
           <CardProfile
-            userClicked={userClicked}
-            setcardClicked={setcardClicked}
+          userClicked={userClicked}
+          setcardClicked={setcardClicked}
           />
-        ) : null}
+          ) : null}
 
         <h2>Matchings that are appropriate for you</h2>
+      <div className={cardClicked ? "opacityZero" : ""}>
         <div className="matching__wrapper">
           {usersList
             ? usersList.map((user: any) => (
-                <div className="matching__wrapper_card" key={user._id}>
+              <div className="matching__wrapper_card" key={user._id}>
                   <StarSvg
                     handleSelectUser={handleSelectUser}
                     userId={user._id}
-                  />
+                    />
                   <img
                     className="matching__wrapper_card_pic"
                     id={user._id}
@@ -51,7 +52,7 @@ const MatchingCard = (props: MatchingCardProps) => {
                       "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
                     }
                     onClick={handleCardProfile}
-                  />
+                    />
                   <p className="matching__wrapper_card_seen">Last Seen</p>
 
                   <div className="matching__wrapper_card_description">
@@ -65,7 +66,7 @@ const MatchingCard = (props: MatchingCardProps) => {
                           className="matching__wrapper_card_footer_linkedin"
                           src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png"
                           alt=""
-                        />
+                          />
                       </a>
                       <button className="matching__wrapper_card_footer_request">
                         Send Request
@@ -74,9 +75,10 @@ const MatchingCard = (props: MatchingCardProps) => {
                   </div>
                 </div>
               ))
-            : null}
+              : null}
         </div>
       </div>
+    </div>
     );
   } catch (error) {
     console.error(error);
