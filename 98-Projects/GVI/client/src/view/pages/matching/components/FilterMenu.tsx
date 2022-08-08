@@ -83,60 +83,66 @@ const FilterMenu = (props: any) => {
 
   return (
     <div className="matching__filter-menu">
-      <button onClick={handleClick}>My Matchings</button>
+      <div className="_section">
+        <div className="_title"></div>
+        <div className="_more">
+          <Accordion>
+            <AccordionSummary>
+              <Typography>Sector</Typography>
+            </AccordionSummary>
 
-      <div className="more">
-        <Accordion>
-          <AccordionSummary>
-            <Typography>Sector</Typography>
-          </AccordionSummary>
+            <AccordionDetails>
+              <List
+                sx={{
+                  width: "100%",
+                  maxWidth: 360,
+                }}
+              >
+                {filterOptions.map((option: any, i: any) => (
+                  <ListItemButton disableGutters key={`listItemButton-${i}`}>
+                    <Checkbox />{" "}
+                    <button
+                      id={option.sector}
+                      key={i}
+                      onClick={handleOnChangeSector}
+                    >
+                      {option.sector}
+                    </button>
+                  </ListItemButton>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
 
-          <AccordionDetails>
-            <List
-              sx={{
-                width: "100%",
-                maxWidth: 360,
-              }}>
-              {filterOptions.map((option: any, i: any) => (
-                <ListItemButton disableGutters key={`listItemButton-${i}`}>
-                  <button
-                    className="filter-btn"
-                    id={option.sector}
-                    key={i}
-                    onClick={handleOnChangeSector}>
-                    {option.sector}
-                  </button>
-                </ListItemButton>
-              ))}
-            </List>
-          </AccordionDetails>
-        </Accordion>
-
-        <Accordion>
-          <AccordionSummary>
-            <Typography>Fields Of Knowledge</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <List
-              sx={{
-                width: "100%",
-                maxWidth: 360,
-              }}>
-              {fieldsOptions.map((option: any, i: any) => (
-                <ListItemButton disableGutters key={`list2-${i}-2`}>
-                  <button
-                    className="filter-btn"
-                    id={option.fieldsOfKnowledge}
-                    key={i}
-                    onClick={handleOnChangeField}>
-                    {option.fieldsOfKnowledge}
-                  </button>
-                </ListItemButton>
-              ))}
-            </List>
-          </AccordionDetails>
-        </Accordion>
+          <Accordion>
+            <AccordionSummary>
+              <Typography>Country</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <List
+                sx={{
+                  width: "100%",
+                  maxWidth: 360,
+                }}
+              >
+                {fieldsOptions.map((option: any, i: any) => (
+                  <ListItemButton disableGutters key={`list2-${i}-2`}>
+                    <Checkbox />
+                    <button
+                      id={option.fieldsOfKnowledge}
+                      key={i}
+                      onClick={handleOnChangeField}
+                    >
+                      {option.fieldsOfKnowledge}
+                    </button>
+                  </ListItemButton>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
+        </div>
       </div>
+      <button className="matching__filter-menu_clear" onClick={handleClick}>clear selection</button>
     </div>
   );
 };

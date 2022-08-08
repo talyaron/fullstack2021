@@ -1,23 +1,78 @@
 .matching {
     margin-top: 50px;
-    padding: 20px;
+    padding-left: 100px;
     display: grid;
     // height: 450px;
-    grid-template-columns: repeat(3, minmax(auto-fit, 80fr));
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, minmax(auto-fit, 80fr));
+    grid-template-rows: repeat(4, 1fr);
     //     border: 1px solid black;
     height: 5px;
     position: relative;
 
-    h2 {
+
+
+    &__search {
+        position: relative;
+        grid-column: 1/3;
+        grid-row: 1/2;
+        // bottom: 50px;
+        display: flex;
+        justify-content: space-around;
         font-family: 'inter', 'sans-serif';
-        height: 30px;
-        width: 576px;
+        font-size: 18px;
+        font-weight: 500;
+        color: black;
+        text-decoration: underline;
+        // width:min-max(70em,120em);
+
+        &_input {
+            box-sizing: border-box;
+            width: 307px;
+            height: 54px;
+            border: 1px solid #000000;
+            border-radius: 15px;
+            padding-left: 50px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            right: 940px;
+            background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
+            background-repeat: no-repeat;
+            background-position: right;
+
+            &::placeholder {
+                position: absolute;
+                top: 13px;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+
+            }
+
+
+        }
+
+        &_link {
+            font-family: 'inter', 'sans-serif';
+            font-size: 18px;
+            font-weight: 500;
+            color: black;
+            width: min(20em);
+        }
+
+    }
+
+    &__title {
+        top: 140px;
+        left: 310px;
+        font-family: 'inter', 'sans-serif';
         font-size: 25px;
-        line-height: 30.26px;
+        font-weight: 500;
         position: absolute;
-        right: 690px;
-        top: 12px;
+        width: min(20em);
 
     }
     &__linkSelected{
@@ -31,9 +86,52 @@ letter-spacing: 0em;
 text-align: left;
 text-decoration: underline;
 
-    }
 
     // grid-template-rows: 1fr 1fr 1fr;
+
+    &__filter-menu {
+        margin-top: 150px;
+        margin-right: 50px;
+        height: 50px;
+        height: 100px;
+        position: sticky;
+        grid-column: 1/2;
+        grid-row: 2/2;
+        width: 200px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 630px;
+            background: #d5d5d5;
+            border-radius: 3px;
+            left: 120%;
+            // position: absolute;
+            // right: 590px;
+            // top: 60px;
+        }
+
+        .buttonBox {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        & button {
+            background: none;
+            border: none;
+
+        }
+
+        &_clear {
+            padding: 10%;
+            font-family: 'inter', 'sans-serif';
+            font-size: 15px;
+
+        }
+    }
+
     &__wrapper {
         margin-top: 50px;
         // background-color: rgb(173, 173, 173);
@@ -49,15 +147,8 @@ text-decoration: underline;
         flex-wrap: wrap;
         position: relative;
 
-        &::before {
-            content: "";
-            width: 1px;
-            height: 500px;
-            background: #757575;
-            position: absolute;
-            right: 1270px;
-            top: 10px;
-        }
+
+
 
         &_card {
             //width: 348px;
@@ -65,8 +156,10 @@ text-decoration: underline;
             border-radius: 8% 8% 0 0;
             background-color: #E1E1E1;
             position: relative;
+            margin: 5%;
             // grid-column: 2/2;
             // grid-row: 2/3;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px;
 
             &_select {
                 position: absolute;
@@ -145,79 +238,6 @@ text-decoration: underline;
 
     }
 
-    &__search {
-        grid-column: 2/2;
-        grid-row: 1/2;
-        position: relative;
-        bottom: 50px;
-
-        
-        input {
-            box-sizing: border-box;
-            width: 307px;
-            height: 54px;
-            border: 1px solid #000000;
-            border-radius: 15px;
-            position: absolute;
-            padding-left: 50px;
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 20px;
-            right: 940px;
-
-
-            &::placeholder {
-                position: absolute;
-                top: 13px;
-                font-family: 'Inter';
-                font-style: normal;
-                font-weight: 400;
-                font-size: 20px;
-                line-height: 24px;
-
-            }
-
-        }
-
-        .material-symbols-outlined {
-            position: absolute;
-            right: 1200px;
-            top: 13px;
-            font-size: 30px;
-        }
-
-
-    }
-
-    &__filter-menu {
-        margin-top: 150px;
-        margin-right: 50px;
-        height: 50px;
-        height: 100px;
-        position: sticky;
-        grid-column: 1/2;
-        grid-row: 2/2;
-        width: 200px;
-       
-
-
-        .filter-btn{
-            border: none;
-            
-        }
-
-        .buttonBox {
-            display: flex;
-            flex-direction: column;
-        }
-
-
-        
-          
-            
-    
-    }
 
     &--wrapper {
         display: flex;
@@ -247,6 +267,7 @@ text-decoration: underline;
             font-size: 1.5em;
             border-radius: 30px;
             cursor: pointer;
+
         }
     }
 }
