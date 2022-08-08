@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import {changeImg,selectedImage,imgStatus} from './imgSlice';
+import {getImageAsync,selectedImage,imgStatus, Status} from './imgSlice';
 import axios from 'axios';
 
-import styles from './Counter.module.css';
+import './spinner.css';
 
 export default function Text() {
 
@@ -14,16 +14,13 @@ export default function Text() {
   const dispatch = useAppDispatch();
   
   async function changeImage(){
-     await axios.get("https://dog.ceo/api/breeds/image/random").then(response => {
-          const imgURL = response.data.message;
-          dispatch(changeImg(imgURL));  
-        });
+    dispatch(getImageAsync());  
   }
 
   return (
     <div className='img'>
-    {status === "loading" ?
-    <div className="lds-facebook"><div></div><div></div><div></div></div>:
+    {status === Status.LOADING ?
+    <span className="loader"></span>:
     <img src={img} alt="" />}
     
     <button style={{width:'50%',height:'20px'}} onClick={changeImage}>get image</button>
