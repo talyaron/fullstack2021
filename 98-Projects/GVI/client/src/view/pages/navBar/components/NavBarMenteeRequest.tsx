@@ -31,7 +31,7 @@ function NavBarMentee(props: navBarMenteeProps) {
           </Link>
         </div>
       </div>
-    </div>
+     </div>
   );
 }
 

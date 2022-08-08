@@ -1,44 +1,42 @@
 .card {
     display: grid;
-    grid-template-columns: repeat(5,0.5fr);
-    grid-template-rows: repeat(5, 0.5fr);
-    column-gap: 20px;
-    padding: 5px;
-    margin-bottom: 10%;
+    grid-template-columns: 1fr,1fr,1fr;
+    grid-template-rows: 1fr,1fr,1fr;
+    width: 15vw;
+    height: 30vh;
+    column-gap: 15px;
 
-    // grid-template-rows: 1.5fr 1.5fr 1.5fr 1.5fr;
-    // column-gap: 1vw;
-
-    // grid-template-rows: repeat(4, 1fr);
-    height: 190px;
-    width: 301px;
-    border: solid black;
-    border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     background-color: #F0F0F0;
-    padding: 5%;
     font-family: 'Inter';
     font-weight: 520;
     font-style: normal;
+    transform-style: preserve-3d;
+    padding: 0rem 5rem;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
+    border: solid 1px;
 
-    &__photo {
-        grid-column-start: 1;
-        grid-column-end: 2;
+   
 
-        img {
+        .photo {
             border-radius: 50%;
             height: 76px;
             width: 76px;
+            grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        padding: 10px;
+        
+
 
 
         }
 
-    }
 
     &__center {
-        display: grid;
-        grid-template-rows: repeat(4, 0.5fr);
-
+        display: flex;
+       flex-direction: column;
         width: 100%;
 
         img {
@@ -77,8 +75,10 @@
     }
 
     &__star {
-        grid-column-start: 5;
-        grid-column-end: 5;
+        grid-column-start: 6;
+        grid-column-end: 6;
+        position:absolute;
+        margin-right: 10px;
 
     }
 
@@ -92,8 +92,8 @@
         border: none;
         grid-column-start: 4;
         grid-column-end: 6;
-        grid-row-start: 5;
-        grid-row-end: 5;
+        grid-row-start: 6;
+        grid-row-end: 6;
 
     }
 
