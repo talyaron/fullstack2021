@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 interface LoginProps {
   loginWindow: boolean;
   setLoginWindow: Function;
-  setloggedInUser: Function;
+  setCurrentUser: Function;
   setCurrentUserType: Function;
 }
 
 const Login = (props: LoginProps) => {
   const [showPassword, setShowPassword] = useState(true);
 
-  const { loginWindow, setLoginWindow, setloggedInUser, setCurrentUserType } =
+  const { loginWindow, setLoginWindow, setCurrentUser, setCurrentUserType } =
     props;
   const navigate = useNavigate();
 
@@ -29,8 +29,10 @@ const Login = (props: LoginProps) => {
     if (user) {
       setCurrentUserType(user.type);
 
-
-      setloggedInUser(user);
+      console.log();
+      
+      
+      setCurrentUser(user);
       if(user.type==='admin'){
   
           navigate(`mainPageAdmin`);

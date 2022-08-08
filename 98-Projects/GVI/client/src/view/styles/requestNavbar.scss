@@ -22,20 +22,19 @@
   flex-direction: row;
   align-items: center;
   //padding-right: 2em;
- 
 }
 
 .req_btn_ans_pen{
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-right: 0.5em;
+  // padding-right: 0.5em;
 }
 
 .req_btn {
 background-color: rgb(197, 204, 204);
   
-        width: 134px;
+  width: 134px;
   height: 39px;
   // border-radius: 15px;
   display: flex;
@@ -44,11 +43,19 @@ background-color: rgb(197, 204, 204);
    align-items: center;
    border: solid 1px grey;
   .link{ 
+    background-color: rgb(197, 204, 204);
     color: black;
-     
+    font-weight: bold;
     text-decoration: none;  
   }
+}
 
+.req_btn:hover{
+  background-color: rgb(237, 248, 248);
+  cursor: pointer;
+  .link{
+    background-color: rgb(237, 248, 248);
+  }
 }
 
 .profileIMG {

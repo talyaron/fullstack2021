@@ -64,7 +64,7 @@ function App() {
           element={
             <HomePage
               setCurrentUserType={setCurrentUserType}
-              setloggedInUser={setloggedInUser}
+              setCurrentUser={setCurrentUser}
             />
           }
         />
@@ -72,7 +72,7 @@ function App() {
           path="mainPage"
           element={
             <Layout
-              loggedInUser={currentUser}
+              currentUser={currentUser}
               currentUserType={currentUserType}
             />
           }>

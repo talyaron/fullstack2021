@@ -3,28 +3,20 @@ import axios from 'axios'
 
 interface FormProffesionProps{
     isMentee:boolean
-    companyInfo:Array<any>
-    mentorDetails:Array<any>;
+    companyInfo:Array<any>;
+    companySec:Array<any>;
+    mentorSec:Array<any>
     userId?:String;
 }
 
 
 function FormProffesion (props:FormProffesionProps){
 
-    const {isMentee,companyInfo,mentorDetails,userId} = props;
-
-    const [companySections , setCompanySection] = useState(
-        ["CompanyName" , "sector" , "description","stage","linkToOnePager"])
-
-        const [mentorSections , setmentorSections] = useState(
-            ["Sector Offer" , "Sector" , "StartUp stage that you are willing to work on..",
-            "Description..","Website"])
-    
-
-    console.log(userId);
+    const {isMentee,companyInfo,userId,companySec,mentorSec} = props;
     
     
    async function editUser(ev:any){
+
     ev.preventDefault()
         if(isMentee) {
             let companyName,description,sector,linkToOnePager,stage
@@ -48,6 +40,22 @@ function FormProffesion (props:FormProffesionProps){
         
         window.location.reload();
 
+        }else if(!isMentee){
+
+            let EscortOffer ,sector,description,stage,website;
+            const inputs = ev.target.elements
+            for(let field of inputs){
+                if(field.name === "escortOffer") EscortOffer = field.value
+                if(field.name === "sector") sector = field.value
+                if(field.name === "start up stage") stage = field.value
+                if(field.name === "description") description = field.value
+                if(field.name === "website") website = field.value
+            }
+            const newDetails = {escortOffer:EscortOffer,sector:sector,description:description,stage:stage,website:website}
+            console.log(newDetails);
+            
+            const {data} = await axios.patch('/api/profile/Update-MentorProfDet',{newDetails,userId})            
+            window.location.reload();
         }
         
         
@@ -57,14 +65,14 @@ function FormProffesion (props:FormProffesionProps){
     return (
         <form className='profile_companyDetails-sections formProffesion' onSubmit={editUser}>
         {isMentee?
-        companyInfo.map((section,i) => {
+        companySec.map((section,i) => {
             return(
-         <input key={i} type="text" name={companySections[i]} className='formProffesion-input' placeholder={companySections[i]} />
+         <input key={i} type="text" name={companySec[i]} className='formProffesion-input' placeholder={companySec[i]} />
             )
         }):
-        mentorSections.map((section,i) => {
+        mentorSec.map((section,i) => {
             return(
-         <input key={i} type="text" name={mentorSections[i]} className='formProffesion-input' placeholder={mentorSections[i]} />
+         <input key={i} type="text" name={section} className='formProffesion-input' placeholder={section} />
             )
         })}
         <input className='formProffesion-submit' name="submit" type="submit" value="save Details"/>

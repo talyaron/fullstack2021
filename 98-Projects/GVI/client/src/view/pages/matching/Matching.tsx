@@ -86,7 +86,7 @@ const Matching = (props: MatchingProps) => {
 
   return (
     <div className="matching ">
-      <Link to="selected-users">Selected-Users</Link>
+      <Link to="selected-users" className="matching__linkSelected">Selected-Users</Link>
       <Search
         setUsersList={setUsersList}
         setCurrentUser={setCurrentUser}

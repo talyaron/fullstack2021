@@ -11,8 +11,10 @@ interface ChatWindowProps {
     chatArea: String;
 }
 
+
 function ChatWindow() {
     const {chatArea} = useContext<ChatWindowProps>(ChatContext);
+    
 
     return <div className='chat__chatWindow'>{chatArea === 'Conversation' ? <ConversationsTab /> : <DocsTab />}</div>;
 }

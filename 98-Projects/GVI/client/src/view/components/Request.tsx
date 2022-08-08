@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import "../styles/request.scss";
-import StarIcon from "@mui/icons-material/Star";
+// import StarIcon from "@mui/icons-material/Star";
 import axios from "axios"
 import SelectedUserCard from './SelectedUserCard';
 import RequestCard from "./RequestCard";
@@ -87,12 +87,11 @@ async function handleRequestForm(ev: any) {
 
 
   return (
-    <div className="selectedPage">
-      <h5 className="selectedPage__title"></h5>
-      <div className="selectedPage__wrapper">
-        <RequestCard requestUsers={requestUsers} />
-      </div>
-    </div>
+    <div>from Mentee</div>
+    // <div className="selectedPage">
+    //   <h5 className="selectedPage__title"></h5>
+    //   <div className="selectedPage__wrapper"> <RequestCard requestUsers={requestUsers} /></div>
+    // </div>
   );
 }
 

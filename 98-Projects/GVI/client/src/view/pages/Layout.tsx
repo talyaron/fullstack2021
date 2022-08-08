@@ -1,17 +1,22 @@
-import React from "react";
+import React ,{useEffect,useState} from "react";
+import axios from 'axios'
 import NavBar from "./navBar/NavBar";
 import { Outlet } from "react-router-dom";
 
 interface navBarLayoutProps {
   currentUserType: String;
-  loggedInUser: any;
+  currentUser: any;
 }
 const Layout = (props: navBarLayoutProps) => {
-  const { currentUserType, loggedInUser } = props;
+  const { currentUserType, currentUser } = props;
+
+  const profilePic = currentUser.image
+
+  
   
   return (
     <>
-      <NavBar loggedInUser={loggedInUser} currentUserType={currentUserType} />
+      <NavBar profilePic={profilePic} currentUser={currentUser} currentUserType={currentUserType} />
 
       <Outlet />
     </>

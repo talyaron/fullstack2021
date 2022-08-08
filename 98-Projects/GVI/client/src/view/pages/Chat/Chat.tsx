@@ -5,6 +5,7 @@ import CurrentRecipient from './components/CurrentRecipient';
 import SideBar from './components/SideBar';
 import {socket} from '../../../index';
 import {ChatProvider} from '../../Contexts/ChatContext';
+import e from 'express';
 export interface nameInterface {
     first: string;
     last: string;
@@ -23,7 +24,7 @@ export interface MessageInterface {
     _id?: String;
     sender?: MessageUserInterface;
     recipient?: MessageUserInterface;
-    text?: String;
+    text?: string;
     file?: String;
     time?: String;
 }
@@ -39,7 +40,7 @@ function Chat() {
     const [recipient, setRecipient] = useState<any>({_id: '1', name: {first: 'a', last: 'a'}});
     const [sender, setSender] = useState<MessageUserInterface>({userId: '', name: {first: '', last: ''}});
     const [userList, setUserList] = useState<Array<any>>([]);
-    const [searchMessagesToggle, setSearchMessagesToggle] = useState<boolean>(false);
+    const [searchTerm, setSearchTerm] = useState<String>('');
     const SelectedRefs: any = useRef([]);
     const messageListRef = useRef<HTMLUListElement>(null);
     const messageInputRef = useRef<any>(null);
@@ -121,9 +122,12 @@ function Chat() {
         };
     }, [recipient]);
 
-    function handleChatSearchBar() {
-        setSearchMessagesToggle((p: boolean) => !p);
+    function handleChatSearchBar(ev:any) {
+
+        setSearchTerm(ev.target.value);
+
     }
+
     async function handleSendMessage(e:any) {
         try {
             e.preventDefault();
@@ -206,7 +210,7 @@ return setSentMessage('')
     }
     return (
         <div className='chat'>
-            <ChatProvider value={{messageInputRef,setSentFile, sender, handleSendMessage,messageListRef,handleTabChange,addToRefs, messageList, setRecipient,dateFromObjectId,sentMessage, setSentMessage, recipient, chatArea, handleChatSearchBar, searchMessagesToggle, userList}}>
+            <ChatProvider value={{setMessageList, searchTerm, messageInputRef,setSentFile, sender, handleSendMessage,messageListRef,handleTabChange,addToRefs, messageList, setRecipient,dateFromObjectId,sentMessage, setSentMessage, recipient, chatArea, handleChatSearchBar, userList}}>
                 <SideBar/>
                 {recipient ? <CurrentRecipient /> : null}
                 <ChatWindow />
