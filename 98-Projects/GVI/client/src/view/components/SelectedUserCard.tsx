@@ -66,7 +66,7 @@ const Card = (props: CardProps) => {
                 />
                 <a
                   href={
-                    selectedUser.linkedInProfile
+                    ( `${selectedUser.linkedInProfile}`.startsWith('https://'))
                       ? `${selectedUser.linkedInProfile}`
                       : "https://www.linkedin.com/"
                   }
