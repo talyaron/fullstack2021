@@ -59,7 +59,7 @@ const Card = (props: CardProps) => {
                     `${selectedUser.linkedInProfile}`.startsWith("https://")
                       ? `${selectedUser.linkedInProfile}`
                       : "https://www.linkedin.com/"
-                  }
+                  } target="_blank"
                 >
                   <LinkedInIcon
                     className="card__flex__linkdIn"
