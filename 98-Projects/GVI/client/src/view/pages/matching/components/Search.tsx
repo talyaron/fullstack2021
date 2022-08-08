@@ -34,6 +34,8 @@ const Search = (props: MatchingProps) => {
     console.log(currentSearch);
     if (currentSearch === "") {
       console.log("empty");
+      getAllUsers();
+     
     }
     else {
       const { data } = await axios.post("/api/users/get-search", { currentSearch, });

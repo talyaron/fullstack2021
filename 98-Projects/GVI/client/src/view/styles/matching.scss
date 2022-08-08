@@ -151,7 +151,7 @@ text-decoration: underline;
         position: relative;
         bottom: 50px;
 
-
+        
         input {
             box-sizing: border-box;
             width: 307px;
@@ -199,7 +199,13 @@ text-decoration: underline;
         grid-column: 1/2;
         grid-row: 2/2;
         width: 200px;
+       
 
+
+        .filter-btn{
+            border: none;
+            
+        }
 
         .buttonBox {
             display: flex;
@@ -207,15 +213,10 @@ text-decoration: underline;
         }
 
 
-        &_section {
-            &_title {}
-
-            &_option {
-                &_checkbox {}
-            }
-
-            &_more {}
-        }
+        
+          
+            
+    
     }
 
     &--wrapper {

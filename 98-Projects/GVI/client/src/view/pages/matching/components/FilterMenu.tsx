@@ -18,7 +18,8 @@ import Mentor from "../../mentor/Mentor";
 const FilterMenu = (props: any) => {
   const { checked, setChecked, filterOptions, setFilterOptions, setUsersList, setCurrentUser, currentUser } = props;
   const [fieldsOptions, setFieldsOptions] = useState([]);
-////////////// sector filter options
+  
+
   useEffect(() => {
     (async () => {
       const { data } = await axios.get("/api/users/get-sector");
@@ -29,16 +30,16 @@ const FilterMenu = (props: any) => {
   }, []);
 
 
-/////////// fieldOfKnowledge filter options
+
   useEffect(() => {
     (async () => {
       const { data } = await axios.get("/api/users/get-field");
       const { result } = data;
       setFieldsOptions(result);
-     
+
     })();
   }, []);
-  ////////////////////////////////////////the click gets the info about the current users and activates a function that brings all the matchings for the user (default page)
+  
   async function handleClick() {
     try {
 
@@ -51,7 +52,9 @@ const FilterMenu = (props: any) => {
       console.error(error);
     }
   }
-  ////////////////////// brings all of the user best matching (default page)
+ 
+
+
   async function handleGetUsers(currentUser: any) {
     try {
       const { data } = await axios.post("/api/users/get-users", { currentUser, });
@@ -64,9 +67,9 @@ const FilterMenu = (props: any) => {
     }
   }
 
-  /////////// brings the filtered array of users
+  
+
   async function handleOnChangeSector(ev: any) {
-    // setChecked(!checked);
     const checkedField = ev.target.id;
     const { data } = await axios.post(`/api/users/get-checked-sector`, { checkedField, })
     const { allChecked } = data;
@@ -75,7 +78,6 @@ const FilterMenu = (props: any) => {
   }
 
   async function handleOnChangeField(ev: any) {
-    // setChecked(!checked);
     const checkedField = ev.target.id;
     const { data } = await axios.post(`/api/users/get-checked-field`, { checkedField, })
     const { allChecked } = data;
@@ -86,7 +88,7 @@ const FilterMenu = (props: any) => {
 
 
 
- 
+
 
 
 
@@ -95,57 +97,56 @@ const FilterMenu = (props: any) => {
   return (
     <div className="matching__filter-menu">
       <button onClick={handleClick}>My Matchings</button>
-      <div className="_section">
-        <div className="_title"></div>
-        <div className="_more">
-          <Accordion>
-            <AccordionSummary>
-              <Typography>Sector</Typography>
-            </AccordionSummary>
-            
-            <AccordionDetails>
-              <List
-                sx={{
-                  width: "100%",
-                  maxWidth: 360,
-                }}
-              >
-                {filterOptions.map((option: any, i: any) => (
-                  <ListItemButton disableGutters key={`listItemButton-${i}`}>
 
-                    <button id={option.sector} key={i} onClick={handleOnChangeSector} >{option.sector}</button>
+      <div className="more">
+        <Accordion>
+          <AccordionSummary>
+            <Typography>Sector</Typography>
+          </AccordionSummary>
 
-                  </ListItemButton>
-                ))}
-              </List>
-            </AccordionDetails>
-          </Accordion>
+          <AccordionDetails>
+            <List
+              sx={{
+                width: "100%",
+                maxWidth: 360,
+              }}
+            >
+              {filterOptions.map((option: any, i: any) => (
+                <ListItemButton disableGutters key={`listItemButton-${i}`}>
 
-          <Accordion>
-            <AccordionSummary>
-              <Typography>Country</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <List
-                sx={{
-                  width: "100%",
-                  maxWidth: 360,
-                }}
-              >
+                  <button className="filter-btn" id={option.sector} key={i} onClick={handleOnChangeSector} >{option.sector}</button>
 
-                {fieldsOptions.map((option: any, i: any) => (
-                  <ListItemButton disableGutters key={`list2-${i}-2`}>
+                </ListItemButton>
+              ))}
+            </List>
+          </AccordionDetails>
+        </Accordion>
 
-                    <button id={option.fieldsOfKnowledge} key={i} onClick={handleOnChangeField} >{option.fieldsOfKnowledge}</button>
+        <Accordion>
+          <AccordionSummary>
+            <Typography>Fields Of Knowledge</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <List
+              sx={{
+                width: "100%",
+                maxWidth: 360,
+              }}
+            >
 
-                  </ListItemButton>
-                ))}
-              </List>
-            </AccordionDetails>
-          </Accordion>
-        </div>
+              {fieldsOptions.map((option: any, i: any) => (
+                <ListItemButton disableGutters key={`list2-${i}-2`}>
+
+                  <button className="filter-btn" id={option.fieldsOfKnowledge} key={i} onClick={handleOnChangeField} >{option.fieldsOfKnowledge}</button>
+
+                </ListItemButton>
+              ))}
+            </List>
+          </AccordionDetails>
+        </Accordion>
       </div>
     </div>
+
   );
 };
 
