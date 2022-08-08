@@ -9,7 +9,6 @@ interface MatchingCardProps {
 const MatchingCard = (props: MatchingCardProps) => {
   const { usersList } = props;
   const [cardClicked, setcardClicked] = useState(false);
-  const [ClassName, setClassName] = useState("");
   const [userClicked, setuserClicked] = useState<any>({});
 
   async function handleSelectUser(selectedUserId: any) {

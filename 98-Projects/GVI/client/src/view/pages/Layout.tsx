@@ -16,7 +16,7 @@ const Layout = (props: navBarLayoutProps) => {
   
   return (
     <>
-      <NavBar profilePic={profilePic} currentUser={currentUser} currentUserType={currentUserType} />
+      <NavBar profilePic={profilePic} currentUserType={currentUserType} />
 
       <Outlet />
     </>
