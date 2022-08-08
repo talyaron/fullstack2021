@@ -251,9 +251,10 @@ text-decoration: underline;
 }
 
 .opacityZero {
-    opacity: 0.5;
-    background-color: #CACACA;
-    ;
+    opacity: 1;
+    backdrop-filter: blur(8px);
+    backdropFilter: blur(8px);
+
 
 
 

@@ -14,14 +14,17 @@ const MatchingCard = (props: MatchingCardProps) => {
 
   async function handleSelectUser(selectedUserId: any) {
     await axios.post("/api/users/selected-user", { selectedUserId });
+
   }
 
-  async function handleCardProfile(ev: any) {
+  async function handleCardProfile(ev: any) 
+  {
+
     const userId = ev.target.id;
     const { data } = await axios.post("/api/users/get-userById", { userId });
     const userFound = data.user;
     setcardClicked(!cardClicked);
-    await setuserClicked(userFound);
+    await setuserClicked(userFound);   
   }
 
   try {

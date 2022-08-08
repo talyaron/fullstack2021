@@ -23,33 +23,23 @@ const Card = (props: CardProps) => {
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
         style={{
           columnGap: "1vw",
-          rowGap: "1vw",
+          rowGap: "5vw",
           display: "flex",
           justifyContent: "center",
+          width: "100%",
         }}
       >
         {selectedUsers.map((selectedUser: any, i: any) => (
-          <div
-            className="card"
-            // item
-            // xs={4}
-            // sm={4}
-            // md={3}
-            // xl={3}
-            // key={i}
-            // className="card"
-            // style={{ border: "solid 1px", backgroundColor: "white" }}
-          >
-            <div className="card__photo">
-              <img
-                id={selectedUser._id}
-                src={
-                  selectedUser.image
-                    ? `${selectedUser.image}`
-                    : "https://www.pngitem.com/pimgs/m/504-5040528_empty-profile-picture-png-transparent-png.png"
-                }
-              />
-            </div>
+          <div className="card">
+            <img
+              className="photo"
+              id={selectedUser._id}
+              src={
+                selectedUser.image
+                  ? `${selectedUser.image}`
+                  : "https://www.pngitem.com/pimgs/m/504-5040528_empty-profile-picture-png-transparent-png.png"
+              }
+            />
 
             <div className="card__center">
               <p>
@@ -66,7 +56,7 @@ const Card = (props: CardProps) => {
                 />
                 <a
                   href={
-                    ( `${selectedUser.linkedInProfile}`.startsWith('https://'))
+                    `${selectedUser.linkedInProfile}`.startsWith("https://")
                       ? `${selectedUser.linkedInProfile}`
                       : "https://www.linkedin.com/"
                   }
@@ -76,7 +66,6 @@ const Card = (props: CardProps) => {
                     style={{ fontSize: "30px" }}
                   ></LinkedInIcon>
                 </a>
-                <button className="card__button"> Send-Requst</button>
               </div>
 
               <p className="card__center__company">
@@ -88,6 +77,7 @@ const Card = (props: CardProps) => {
             <div className="card__star">
               <StarIcon></StarIcon>
             </div>
+            <button className="card__button"> Send-Requst</button>
           </div>
         ))}
       </Grid>

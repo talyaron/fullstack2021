@@ -39,13 +39,7 @@ const SelectedUsers = () => {
         Selcted-{type} <StarIcon id="star"></StarIcon>{" "}
       </h5>
       <div
-        className="selectedPage__wrapper"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+        className="selectedPage__wrapper"     >
         <SelectedUserCard selectedUsers={selectedUsers} />
       </div>
     </div>
