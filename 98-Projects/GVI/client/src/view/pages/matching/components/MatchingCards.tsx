@@ -32,8 +32,8 @@ const MatchingCard = (props: MatchingCardProps) => {
       <div className={cardClicked ? "opacityZero" : "matching__wrapper"}>
         {cardClicked ? (
           <CardProfile
-            userClicked={userClicked}
-            setcardClicked={setcardClicked}
+          userClicked={userClicked}
+          setcardClicked={setcardClicked}
           />
           
         ) : null}
