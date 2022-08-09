@@ -24,19 +24,19 @@ export const messageSlice = createSlice({
   initialState,
   reducers: {},
  
-  extraReducers: (builder) => {
-    builder
-    //   .addCase(incrementAsync.pending, (state) => {
-    //     state.status = 'loading';
-    //   })
-    //   .addCase(incrementAsync.fulfilled, (state, action) => {
-    //     state.status = 'idle';
-    //     state.value += action.payload;
-    //   })
-    //   .addCase(incrementAsync.rejected, (state) => {
-    //     state.status = 'failed';
-    //   });
-  },
+  // extraReducers: (builder) => {
+  //   builder
+  //     .addCase(incrementAsync.pending, (state) => {
+  //       state.status = 'loading';
+  //     })
+  //     .addCase(incrementAsync.fulfilled, (state, action) => {
+  //       state.status = 'idle';
+  //       state.value += action.payload;
+  //     })
+  //     .addCase(incrementAsync.rejected, (state) => {
+  //       state.status = 'failed';
+  //     });
+  // },
 });
 
 export const { } = messageSlice.actions;
