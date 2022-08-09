@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 
 export const messageSchema = new mongoose.Schema({
-    message: String
+    text: String,
+    img: String
 });
 
 const messageModel = mongoose.model('messages', messageSchema);
