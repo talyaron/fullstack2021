@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState, AppThunk } from "../../app/store";
 import { v4 as uuidv4 } from "uuid";
+import { isTemplateMiddle } from "typescript";
+import { ActionTypes } from "@mui/base";
 
 export enum Status {
   IDLE = "idle",
@@ -27,12 +29,18 @@ export const chatSlice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     addText: (state, action: PayloadAction<string>) => {
-        //the old messages saved,then the new one added
-      state.value = [...state.value,{text:action.payload,id:uuidv4(),status:Status.IDLE}]
+      //the old messages saved,then the new one added
+      state.value = [
+        ...state.value,
+        { text: action.payload, id: uuidv4(), status: Status.IDLE },
+      ];
     },
-    deleteText:(state, action: PayloadAction<string>)=>{
-          state.value=state.value.filter(item=>item.id!==action.payload)
+    deleteText: (state, action: PayloadAction<string>) => {
+      state.value = state.value.filter((item) => item.id !== action.payload);
     },
+    editText:(state,action:PayloadAction<any>)=>{
+      state.value=state.value.map((item)=>item.id==action.payload.id?{...item,text:action.payload.updatedText}:item)
+    }
   },
   //builder creates the thunks/extra reducers that are async
   extraReducers: (builder) => {
@@ -50,7 +58,7 @@ export const chatSlice = createSlice({
   },
 });
 
-export const { addText,deleteText } = chatSlice.actions;
+export const { addText, deleteText,editText } = chatSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
@@ -59,8 +67,6 @@ export const { addText,deleteText } = chatSlice.actions;
 //chat is an object and inside text and status
 export const selectMessage = (state: RootState) => state.chat.value;
 //export const selectMessageStatus = (state: RootState) => state.chat.value.status;
-
-
 
 //state.chat the chat is from the store
 

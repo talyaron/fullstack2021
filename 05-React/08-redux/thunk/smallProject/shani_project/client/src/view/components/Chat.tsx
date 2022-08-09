@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import {
-    selectMessage,addText,deleteText,
+    selectMessage,addText,deleteText,editText,
     //selectMessageStatus,
     // Status
 } from '../../features/reducers/chatSlice';
@@ -21,6 +21,15 @@ export const Chat = () => {
       console.log(id)
       dispatch(deleteText(id))
     }
+    function handleEditMessage(ev:any){
+        ev.preventDefault()
+      
+        const updatedText=ev.target.elements.edittedText.value;
+        const id=ev.target.id
+        console.log(updatedText)
+        console.log(id)
+        dispatch(editText({id,updatedText}))
+    }
   return (
     <div>Chat
        
@@ -31,9 +40,15 @@ export const Chat = () => {
         <div>
             {messages.map((message)=>{
                 return(
-                    <div  key={message.id} onClick={(id)=>{handleDeleteMessage(message.id)}}>
-                      <h3>{message.text}</h3>
+                    <div  key={message.id} >
+                      <h3 onClick={(id)=>{handleDeleteMessage(message.id)}}>{message.text}</h3>
+                     
+                      <form onSubmit={(ev)=>{handleEditMessage(ev)}} id={message.id} >
+                        <input type='text' placeholder='edit text' name='edittedText' />
+                        <button >update</button>
+                      </form>
                     </div>
+                    
                 )
             })}
         </div>
