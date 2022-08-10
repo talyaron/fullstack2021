@@ -21,6 +21,7 @@
     "@types/jwt-simple": "^0.5.33",
     "@types/mongoose": "^5.11.97",
     "aws-sdk": "^2.1162.0",
+    "axios": "^0.27.2",
     "cloudinary": "^1.30.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",

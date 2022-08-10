@@ -1,6 +1,6 @@
 
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import "../Styles/request.scss";
+import "../styles/request.scss";
 import Popup from 'reactjs-popup';
 import { useNavigate } from "react-router-dom";
 
@@ -59,7 +59,7 @@ const RequestCard = (props: CardReqProps) => {
                 </Popup>
                
 
-                <button className='matching-card-flex__button' onClick={()=>{navigate('/mainPage/chat')}}>Start Mentoring</button>
+                <button className='matching__wrapper_card_footer_request' onClick={()=>{navigate('/mainPage/chat')}}>Start Mentoring</button>
            
 
                 

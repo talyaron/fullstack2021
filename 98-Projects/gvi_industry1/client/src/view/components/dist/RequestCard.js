@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var LinkedIn_1 = require("@mui/icons-material/LinkedIn");
-require("../Styles/request.scss");
+require("../styles/request.scss");
 var reactjs_popup_1 = require("reactjs-popup");
 var react_router_dom_1 = require("react-router-dom");
 var RequestCard = function (props) {
@@ -34,7 +34,7 @@ var RequestCard = function (props) {
                             "You can add a short message(optional):",
                             React.createElement("input", { type: "text", name: "name", placeholder: '(Up to 50 characters)' })),
                         React.createElement("input", { type: "submit", value: "Submit" })))),
-            React.createElement("button", { className: 'matching-card-flex__button', onClick: function () { navigate('/mainPage/chat'); } }, "Start Mentoring"));
+            React.createElement("button", { className: 'matching__wrapper_card_footer_request', onClick: function () { navigate('/mainPage/chat'); } }, "Start Mentoring"));
     })));
 };
 exports["default"] = RequestCard;

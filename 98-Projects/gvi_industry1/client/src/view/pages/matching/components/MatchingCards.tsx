@@ -1,5 +1,10 @@
 import StarSvg from "./StarSvg";
 import axios from 'axios'
+import MessageForm1 from "./MessageForm1";
+
+
+
+// import SentReq from "./sentReq";
 
 interface MatchingCardProps {
   usersList: any
@@ -8,7 +13,8 @@ interface MatchingCardProps {
 const MatchingCard = (props: MatchingCardProps) => {
   const { usersList} = props
   async function handleSelectUser(selectedUserId: any) { await axios.post("/api/users/selected-user", { selectedUserId }) }
-  
+  async function handleSendReq(selectedUserId: any) { await axios.post("/api/users/requested-users", { selectedUserId }) }
+
 
 
 
@@ -27,16 +33,30 @@ const MatchingCard = (props: MatchingCardProps) => {
               <div className='matching__wrapper_card_footer'>
                 <a href={user.linkedInProfile}>
                   <img className='matching__wrapper_card_footer_linkedin' src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png" alt="" />
+                  
                 </a>
-                <button className='matching__wrapper_card_footer_request'>Send Request</button>
+                <MessageForm1  userId={user._id}/>
+                {/* /====================================================== */}
+                <button onClick={() => handleSendReq(user._id)} className='matching__wrapper_card_footer_request'>Send Request</button>
+                
               </div>
             </div>
+
+
+            
           </div>
+
+
+
         )}
       </div>
 
+//
     </div>
   )
+
+
+  
 }
 
 export default MatchingCard

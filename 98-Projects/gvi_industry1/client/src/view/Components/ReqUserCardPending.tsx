@@ -4,17 +4,31 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import StarIcon from "@mui/icons-material/Star";
 import "../styles/card.scss";
 
-interface CardProps {
-  selectedUsers: any;
+import Popup from 'reactjs-popup';
+import { useEffect } from 'react';
+import 'reactjs-popup/dist/index.css';
+import { Navigate, useNavigate } from "react-router-dom";
+import axios from "axios";
+
+
+interface CardReqProps {
+  requestUsers: any;
 }
 
-const Card = (props: CardProps) => {
+const ReqUserCardPending = (props: CardReqProps) => {
 
-  const { selectedUsers } = props;
+  const { requestUsers } = props;
+  const navigate = useNavigate();
+
+  async function handleAnsReq(requestUsersId: any) { 
+    await axios.post("/api/users/requested-answered", { requestUsersId }) 
+  }
+
+
 
   return (
     <>
-      {selectedUsers.map((selectedUser: any, i: any) =>
+      {requestUsers.map((selectedUser: any, i: any) =>
         <div className="card" key={i}>
 
           <div className="card__photo">
@@ -35,16 +49,16 @@ const Card = (props: CardProps) => {
             <p className="card__center__profession">{selectedUser.sector}</p>
           </div>
 
-          <div className="card__star">
-            <StarIcon></StarIcon>
-          </div>
-          <button className="card__button"> Send-Requst</button>
+         
+
 
         </div>
+
+        
       )
       }
     </>
   );
 };
 
-export default Card;
+export default ReqUserCardPending;
