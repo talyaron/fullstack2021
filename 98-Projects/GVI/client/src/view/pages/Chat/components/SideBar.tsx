@@ -26,12 +26,12 @@ function SideBar() {
                 </div>
             </div>
             <ul className='chat__sideBar__recipientsList'>
-                {userList ? (
+                {(userList && userList.length > 0) ? (
                     userList.map((user: any, i: any) => {
                         return <RecipientCard user={user} key={i} />;
                     })
                 ) : (
-                    <h1>userList</h1>
+                    null
                 )}
             </ul>
         </div>

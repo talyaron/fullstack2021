@@ -12,7 +12,7 @@ interface CurrentRecipientProps {
     searchMessagesToggle: boolean;
 }
 function CurrentRecipient() {
-    const { chatArea, recipient, handleChatSearchBar, searchMessagesToggle, handleTabChange } = useContext<CurrentRecipientProps>(ChatContext);
+    const { chatArea, recipient, handleTabChange } = useContext<CurrentRecipientProps>(ChatContext);
     const fullName: any = `${recipient.name.first + ' ' + recipient.name.last}`;
     const initial = fullName.match(/\b(\w)/g).join('').toUpperCase();
     const id = useId();
