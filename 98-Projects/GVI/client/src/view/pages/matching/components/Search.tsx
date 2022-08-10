@@ -45,10 +45,6 @@ const Search = (props: MatchingProps) => {
   return (
     <div className="matching__search">
       <h2>Entrepreneur Matching</h2>
-      <h3 className="matching__title">
-        Matchings that are appropriate for you
-      </h3>
-
       <input
         className="matching__search_input"
         type="text"
