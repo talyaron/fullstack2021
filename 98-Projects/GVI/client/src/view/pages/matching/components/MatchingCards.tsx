@@ -34,7 +34,7 @@ const MatchingCard = (props: MatchingCardProps) => {
           />
           ) : null}
 
-        <h2>Matchings that are appropriate for you</h2>
+        <h2 className="matching__title">Matchings that are appropriate for you</h2>
       <div className={cardClicked ? "opacityZero" : ""}>
         <div className="matching__wrapper">
           {usersList
