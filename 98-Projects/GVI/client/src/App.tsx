@@ -1,6 +1,6 @@
+
 import Profile from "./view/pages/mentee/Profile";
 // import Card from "./view/pages/mentee/Card"//
-import React from "react";
 import "./view/styles/global.scss";
 
 import Matching from "./view/pages/matching/Matching";
@@ -13,7 +13,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  
+  useParams,
 } from "react-router-dom";
 import SelectedUsers from "./view/components/SelctedUsers";
 import Layout from "./view/pages/Layout";

@@ -19,6 +19,7 @@ export const getAllRecipients = async (req, res) => {
     try {
         const {id} = req.body.user;
         const currentUsersInitiative = await InitiativeModel.findOne({ownerUserId: id});
+        if(!currentUsersInitiative.mentors) throw new Error('no mentors')
         let recipients: any = currentUsersInitiative.mentors;
         let localArr: Array<any> = [];
         const getRecipientsList = async () => {

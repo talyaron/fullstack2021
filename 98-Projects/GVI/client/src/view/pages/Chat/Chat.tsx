@@ -203,9 +203,7 @@ return setSentMessage('')
                 let localRecipients = data;
                 setUserList(localRecipients);
                 setRecipient(localRecipients[0]);
-                if (!localRecipients[0].name.first) throw new Error('no localRecipients');
-                if (localRecipients[0].name.first) {
-                }
+                // if (!localRecipients[0].name.first) throw new Error('no localRecipients');
             }
         } catch (error) {
             console.error(error);
