@@ -40,7 +40,8 @@ export const messageSlice = createSlice({
 });
 
 export const { } = messageSlice.actions;
-export const selectCount = (state: RootState) => state.counter.value;
+export const selectMessage = (state: RootState) => state.message.value;
+export const selectMessageStatus = (state: RootState) => state.message.status;
 
 
 export default messageSlice.reducer;
