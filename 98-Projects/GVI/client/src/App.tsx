@@ -1,4 +1,3 @@
-import { socket } from "./index";
 import Profile from "./view/pages/mentee/Profile";
 // import Card from "./view/pages/mentee/Card"//
 import React from "react";
@@ -14,8 +13,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useParams,
-  BrowserRouter,
+  
 } from "react-router-dom";
 import SelectedUsers from "./view/components/SelctedUsers";
 import Layout from "./view/pages/Layout";
@@ -32,11 +30,10 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [filterOptions, setFilterOptions] = useState([]);
   const [checked, setChecked] = useState(false);
-  const [myProfile, setMyProfile] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loggedInUser, setloggedInUser] = useState({});
   const [currentUserType, setCurrentUserType] = useState("");
 
-  let { userId } = useParams();
 
   useEffect(() => {
     (async () => {

@@ -55,6 +55,7 @@ const MatchingCard = (props: MatchingCardProps) => {
                         "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
                       }
                       onClick={handleCardProfile}
+                      alt=""
                       />
                     <p className="matching__wrapper_card_seen">Last Seen</p>
 

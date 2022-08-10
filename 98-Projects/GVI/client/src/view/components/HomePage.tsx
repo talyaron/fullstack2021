@@ -24,8 +24,8 @@ const HomePage = (props:HomePageProps) => {
   const [thirdSection, setThirdSection] = useState('showThirdSection-none')
   const [secondSection, setSecondSection] = useState('showSecondSection-none')
   const [firstSection, setFirstSection] = useState('')
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [showProgressBar, setShowProgressBar] = useState('')
-  const [closeForm, setCloseForm] = useState('')
 
 
   function handleToggleShowSections() {

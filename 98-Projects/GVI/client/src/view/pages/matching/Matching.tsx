@@ -3,7 +3,6 @@ import { useEffect } from "react";
 
 import FilterMenu from "./components/FilterMenu";
 import Search from "./components/Search";
-import { Link, Outlet } from "react-router-dom";
 import MatchingCards from "./components/MatchingCards";
 
 interface MatchingProps {
@@ -36,6 +35,7 @@ const Matching = (props: MatchingProps) => {
       const { user } = data;
       setCurrentUser(user);
     })();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -55,6 +55,7 @@ const Matching = (props: MatchingProps) => {
         console.error(error);
       }
     })();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser]);
 
   useEffect(() => {
@@ -69,6 +70,7 @@ const Matching = (props: MatchingProps) => {
         console.error(error);
       }
     })();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
