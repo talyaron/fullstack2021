@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState, AppThunk } from "../../app/store";
 import { v4 as uuidv4 } from "uuid";
-import { getMessages } from './chatAPI';
+import { getMessages } from './chatApi';
 
 //the thunk i use here in order to get the data
 
@@ -12,15 +12,16 @@ export enum Status {
 }
 export interface Message {
   text: string;
-  status: Status;
   id: any;
 }
 export interface MessageState {
   value: Array<Message>;
+  status:Status
 }
 
 const initialState: MessageState = {
   value: [],
+  status:Status.IDLE
 };
 
 export const chatSlice = createSlice({
@@ -33,7 +34,7 @@ export const chatSlice = createSlice({
       //the old messages saved,then the new one added
       state.value = [
         ...state.value,
-        { text: action.payload, id: uuidv4(), status: Status.IDLE },
+        { text: action.payload, id: uuidv4()},
       ];
     },
     deleteText: (state, action: PayloadAction<string>) => {
@@ -41,7 +42,7 @@ export const chatSlice = createSlice({
     },
     editText: (state, action: PayloadAction<any>) => {
       state.value = state.value.map((item) =>
-        item.id == action.payload.id
+        item.id === action.payload.id
           ? { ...item, text: action.payload.updatedText }
           : item
       );
@@ -51,14 +52,16 @@ export const chatSlice = createSlice({
   extraReducers: (builder) => {
     builder
     .addCase(getMessages.pending, (state) => {
-      // state.status = Status.LOADING;
+      state.status = Status.LOADING;
     })
     .addCase(getMessages.fulfilled, (state, action) => {
-      // state.status = Status.IDLE;
-      // state.data = action.payload;
+      state.status = Status.IDLE;
+      
+      state.value = action.payload;
+      
     })
     .addCase(getMessages.rejected, (state) => {
-      // state.status = Status.FAILED;
+      state.status = Status.FAILED;
     });
   },
 });

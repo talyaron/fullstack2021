@@ -9,7 +9,7 @@ import {
   // Status
 } from "../../features/reducers/chatSlice";
 import axios from "axios";
-import { getMessages } from '../../features/reducers/chatAPI'
+import { getMessages } from '../../features/reducers/chatApi'
 
 export const Chat = () => {
   const messages = useAppSelector(selectMessage);
@@ -45,7 +45,9 @@ export const Chat = () => {
   //   }
   //   handleGetMessages()
   // },[])
-  function handleGetMessages(){
+  async function handleGetMessages(){
+    // const { data } = await axios.get("/chat/get-messages");
+    // console.log(data)
     dispatch(getMessages());
   }
   return (
