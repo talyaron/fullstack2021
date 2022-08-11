@@ -1,8 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState, AppThunk } from "../../app/store";
 import { v4 as uuidv4 } from "uuid";
-import { isTemplateMiddle } from "typescript";
-import { ActionTypes } from "@mui/base";
+import { getMessages } from './chatAPI';
+
+//the thunk i use here in order to get the data
 
 export enum Status {
   IDLE = "idle",
@@ -19,7 +20,7 @@ export interface MessageState {
 }
 
 const initialState: MessageState = {
-  value: [{ text: "", status: Status.IDLE, id: uuidv4() }],
+  value: [],
 };
 
 export const chatSlice = createSlice({
@@ -38,27 +39,31 @@ export const chatSlice = createSlice({
     deleteText: (state, action: PayloadAction<string>) => {
       state.value = state.value.filter((item) => item.id !== action.payload);
     },
-    editText:(state,action:PayloadAction<any>)=>{
-      state.value=state.value.map((item)=>item.id==action.payload.id?{...item,text:action.payload.updatedText}:item)
-    }
+    editText: (state, action: PayloadAction<any>) => {
+      state.value = state.value.map((item) =>
+        item.id == action.payload.id
+          ? { ...item, text: action.payload.updatedText }
+          : item
+      );
+    },
   },
   //builder creates the thunks/extra reducers that are async
   extraReducers: (builder) => {
-    //builder
-    // .addCase(getImgAsync.pending, (state) => {
-    //   state.status = Status.LOADING;
-    // })
-    // .addCase(getImgAsync.fulfilled, (state, action) => {
-    //   state.status = Status.IDLE;
-    //   state.meme = action.payload;
-    // })
-    // .addCase(getImgAsync.rejected, (state) => {
-    //   state.status = Status.FAILED;
-    // });
+    builder
+    .addCase(getMessages.pending, (state) => {
+      // state.status = Status.LOADING;
+    })
+    .addCase(getMessages.fulfilled, (state, action) => {
+      // state.status = Status.IDLE;
+      // state.data = action.payload;
+    })
+    .addCase(getMessages.rejected, (state) => {
+      // state.status = Status.FAILED;
+    });
   },
 });
 
-export const { addText, deleteText,editText } = chatSlice.actions;
+export const { addText, deleteText, editText } = chatSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

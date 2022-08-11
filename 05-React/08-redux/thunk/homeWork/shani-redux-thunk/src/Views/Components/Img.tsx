@@ -7,7 +7,7 @@ import { getImgAsync } from "../../features/imgAPI";
 export const Img = () => {
   const dispatch = useAppDispatch();
   const img = useAppSelector(selectImg);
-  c
+  let imgStatus=useAppSelector(selectImgStatus)
 
   
 
