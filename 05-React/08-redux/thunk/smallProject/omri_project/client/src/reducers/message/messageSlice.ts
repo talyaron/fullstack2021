@@ -2,28 +2,35 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../../app/store';
 
 
-export interface MessageState {
-  value: string;
-  status: Status;
-}
-
 export enum Status {
-    IDLE = 'idle',
-    LOADING = 'loading',
-    FAILED = 'failed'
+  IDLE = 'idle',
+  LOADING = 'loading',
+  FAILED = 'failed'
+}
+export interface message {
+  text: string,
+  status: Status
+}
+export interface MessageState {
+  value: Array<message>;
 }
 
 const initialState: MessageState = {
-  value: '',
-  status: Status.IDLE,
+  value: [{ text: '', status: Status.IDLE }],
 };
 
 
 export const messageSlice = createSlice({
   name: 'messasge',
   initialState,
-  reducers: {},
- 
+  reducers: {
+    addMessage: (state: any, action: PayloadAction<string>) => {
+      if (state.value !== '') {
+         state.value = [...state.value, { text: action.payload, state: Status.IDLE }];
+      }
+    }
+  },
+
   // extraReducers: (builder) => {
   //   builder
   //     .addCase(incrementAsync.pending, (state) => {
@@ -39,9 +46,8 @@ export const messageSlice = createSlice({
   // },
 });
 
-export const { } = messageSlice.actions;
+export const { addMessage } = messageSlice.actions;
 export const selectMessage = (state: RootState) => state.message.value;
-export const selectMessageStatus = (state: RootState) => state.message.status;
 
 
 export default messageSlice.reducer;
