@@ -1,9 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import textReducer from '../features/text/textSlice';
+import textReducer from '../features/Text/textSlice';
 
 export const store = configureStore({
   reducer: {
-    text: textReducer,
+    Text: textReducer,
   },
 });
 

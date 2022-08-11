@@ -1,18 +1,18 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import 'dotenv/config'
 const app = express();
-const port = process.env.PORT || 4058;
-require('dotenv').config()
+const port = process.env.PORT || 4001;
+const URI:any = process.env.MONGODB_URI;
 
 app.use(express.static('public/build'))
 app.use(express.json());
-const uri=process.env.MONGODB_URI;
 
 mongoose
   .connect(
-    uri
+    URI
   )
-  .then((result) => {
+  .then(() => {
     console.log("connected to db");
  
     
@@ -20,11 +20,6 @@ mongoose
   .catch((err) => {
     console.log(err.message);
   });
-
-
-
-import chatRoutes from './routes/chatRoute'
-app.use('/chat', chatRoutes)
 
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
