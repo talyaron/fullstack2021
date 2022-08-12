@@ -21,6 +21,11 @@ mongoose
     console.log(err.message);
   });
 
+
+
+import chatRoutes from './routes/chatRoute'
+app.use('/chat', chatRoutes)
+
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
