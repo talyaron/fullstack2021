@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 const app = express();
-const port = process.env.PORT || 4058;
+const port = process.env.PORT || 4001;
 require('dotenv').config()
 
 app.use(express.static('public/build'))

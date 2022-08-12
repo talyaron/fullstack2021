@@ -26,7 +26,8 @@ export const Chat = () => {
   async function handleDeleteMessage(id: any) {
     console.log(id);
     dispatch(deleteText(id));
-    const { data } = await axios.delete("/chat/delete-message", { data: { id }});
+    const { data } = await axios.delete("/chat/delete-message", { data:{id}});
+    console.log(data)
    
     
   }
@@ -45,14 +46,15 @@ export const Chat = () => {
   //   }
   //   handleGetMessages()
   // },[])
-  async function handleGetMessages(){
+  function handleGetMessages(){
     // const { data } = await axios.get("/chat/get-messages");
     // console.log(data)
+    //()=>{handleGetMessages()}
     dispatch(getMessages());
   }
   return (
     <div>
-      <button onClick={()=>{handleGetMessages()}}>get chat</button>
+      <button onClick={()=>{dispatch(getMessages())}}>get chat</button>
       <form onSubmit={handleAddMessage}>
         <input type="text" placeholder="write message.." name="newMessage" />
         <button>send</button>

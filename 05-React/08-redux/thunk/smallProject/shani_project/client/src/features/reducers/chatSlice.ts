@@ -58,6 +58,7 @@ export const chatSlice = createSlice({
       state.status = Status.IDLE;
       
       state.value = action.payload;
+      console.log(state.value)
       
     })
     .addCase(getMessages.rejected, (state) => {

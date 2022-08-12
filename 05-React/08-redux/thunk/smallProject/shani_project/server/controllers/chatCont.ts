@@ -25,7 +25,7 @@ export  const deleteMessage= async (req,res)=>{
         
         const{id}=req.body
         if(id){
-            const users= await Message.deleteOne({_id:id});
+            const deletedMessage= await Message.deleteOne({_id:id});
             // res.send({ok:true,users})
 
         }else{
