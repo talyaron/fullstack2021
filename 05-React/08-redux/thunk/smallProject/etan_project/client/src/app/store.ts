@@ -3,7 +3,7 @@ import textReducer from '../features/Text/textSlice';
 
 export const store = configureStore({
   reducer: {
-    Text: textReducer,
+    text: textReducer,
   },
 });
 

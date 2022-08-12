@@ -1,18 +1,20 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../../app/store';
-import { fetchText } from './textAPI';
+import {  createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '../../app/store';
+
+
+
 
 export enum statusEnum {
   IDLE='idle',
   LOADING='loading',
   FAILED='failed'
 }
-export interface textLine {
-id:number;
+export interface TextLine {
+id:string;
 text:string
 }
 export interface TextState {
-  value: Array<textLine>;
+  value: Array<TextLine>;
   status:statusEnum;
 }
 
@@ -35,27 +37,25 @@ const initialState: TextState = {
 //   }
 // );
 
+
+
 export const textSlice = createSlice({
   name: 'text',
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    add: (state:TextState, action:PayloadAction<textLine>) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
+    add: (state:TextState, action:PayloadAction<TextLine>) => {
       state.value.unshift(action.payload);
     },
-    delete: (state:TextState, action: PayloadAction<textLine>) => {
+    deleteLine: (state:TextState, action: PayloadAction<TextLine>) => {
       const {id} = action.payload
-      const index = state.value.findIndex((textLine:textLine)=>{textLine.id === id})
+      const index = state.value.findIndex((textLine:TextLine)=>{return textLine.id === id})
       state.value.splice(index, 1)
     },
-    // Use the PayloadAction type to declare the contents of `action.payload`
-    update: (state:TextState, action: PayloadAction<textLine>) => {
+    
+    updateLine: (state:TextState, action: PayloadAction<TextLine>) => {
       const {id} = action.payload
-      const index = state.value.findIndex((textLine:textLine)=>{textLine.id === id})
+      const index = state.value.findIndex((textLine:TextLine)=>{return textLine.id === id})
       state.value[index] = action.payload;
     },
   },
@@ -76,12 +76,13 @@ export const textSlice = createSlice({
   // },
 });
 
-export const {add } = textSlice.actions;
+
+export const {add, deleteLine,updateLine } = textSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
-export const selectText = (state: RootState) => state.Text.value;
+export const selectText = (state: RootState) => state.text.value;
 
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.

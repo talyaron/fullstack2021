@@ -37,3 +37,11 @@
     transform: translateY(0px);
   }
 }
+.textList{
+display: flex;
+flex-direction: column;
+  .textLine{
+    display: flex;
+    align-self: center;
+  }
+}
