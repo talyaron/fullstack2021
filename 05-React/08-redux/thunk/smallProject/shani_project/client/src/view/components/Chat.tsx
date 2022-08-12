@@ -46,15 +46,15 @@ export const Chat = () => {
   //   }
   //   handleGetMessages()
   // },[])
-  function handleGetMessages(){
-    // const { data } = await axios.get("/chat/get-messages");
-    // console.log(data)
+ async function handleGetMessages(){
+    //  const { data } = await axios.get("/chat/get-messages");
+    //  console.log(data)
     //()=>{handleGetMessages()}
     dispatch(getMessages());
   }
   return (
     <div>
-      <button onClick={()=>{dispatch(getMessages())}}>get chat</button>
+      <button onClick={handleGetMessages}>get chat</button>
       <form onSubmit={handleAddMessage}>
         <input type="text" placeholder="write message.." name="newMessage" />
         <button>send</button>

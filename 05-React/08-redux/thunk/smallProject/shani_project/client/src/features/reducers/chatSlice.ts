@@ -55,8 +55,7 @@ export const chatSlice = createSlice({
       state.status = Status.LOADING;
     })
     .addCase(getMessages.fulfilled, (state, action) => {
-      state.status = Status.IDLE;
-      
+      state.status = Status.IDLE;      
       state.value = action.payload;
       console.log(state.value)
       
