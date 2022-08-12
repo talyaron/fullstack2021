@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import 'dotenv/config'
 const app = express();
 const port = process.env.PORT || 4001;
-const URI:any = process.env.MONGODB_URI;
+const URI = process.env.MONGODB_URI;
 
 app.use(express.static('public/build'))
 app.use(express.json());
