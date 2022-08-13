@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../../app/store';
+import { v4 as uuidv4 } from 'uuid';
 
 
 export enum Status {
@@ -9,6 +10,7 @@ export enum Status {
 }
 export interface message {
   text: string,
+  id: any,
   status: Status
 }
 export interface MessageState {
@@ -16,7 +18,7 @@ export interface MessageState {
 }
 
 const initialState: MessageState = {
-  value: [{ text: '', status: Status.IDLE }],
+  value: [{ text: '', id: uuidv4(), status: Status.IDLE }],
 };
 
 
@@ -26,8 +28,12 @@ export const messageSlice = createSlice({
   reducers: {
     addMessage: (state: any, action: PayloadAction<string>) => {
       if (state.value !== '') {
-         state.value = [...state.value, { text: action.payload, state: Status.IDLE }];
+        state.value = [...state.value, { text: action.payload, id: uuidv4(), state: Status.IDLE }];
       }
+    },
+
+    deleteMessage: (state: any, action: PayloadAction<any>) => {
+      console.log(state)
     }
   },
 
@@ -46,7 +52,7 @@ export const messageSlice = createSlice({
   // },
 });
 
-export const { addMessage } = messageSlice.actions;
+export const { addMessage, deleteMessage } = messageSlice.actions;
 export const selectMessage = (state: RootState) => state.message.value;
 
 
