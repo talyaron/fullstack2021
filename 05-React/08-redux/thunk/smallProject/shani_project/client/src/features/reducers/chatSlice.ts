@@ -12,7 +12,7 @@ export enum Status {
 }
 export interface Message {
   text: string;
-  id: any;
+  _id: any;
 }
 export interface MessageState {
   value: Array<Message>;
@@ -32,17 +32,18 @@ export const chatSlice = createSlice({
   reducers: {
     addText: (state, action: PayloadAction<string>) => {
       //the old messages saved,then the new one added
+      //how doesnt _id here now get the text as payload ????
       state.value = [
         ...state.value,
-        { text: action.payload, id: uuidv4()},
+        { text: action.payload, _id: action.payload},
       ];
     },
     deleteText: (state, action: PayloadAction<string>) => {
-      state.value = state.value.filter((item) => item.id !== action.payload);
+      state.value = state.value.filter((item) => item._id !== action.payload);
     },
     editText: (state, action: PayloadAction<any>) => {
       state.value = state.value.map((item) =>
-        item.id === action.payload.id
+        item._id === action.payload._id
           ? { ...item, text: action.payload.updatedText }
           : item
       );

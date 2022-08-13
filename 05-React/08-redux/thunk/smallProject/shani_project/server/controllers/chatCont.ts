@@ -10,7 +10,7 @@ export  const addMessage= async (req,res)=>{
         
             const newMessage=new Message({text});
             const result=await newMessage.save();
-       console.log(result)
+    //    console.log(result)
        
                
     }catch(error){
@@ -32,6 +32,20 @@ export  const deleteMessage= async (req,res)=>{
             throw new Error(" userId  is missing")
         }
        
+               
+    }catch(error){
+        console.error(error.message)
+        res.send({error:error.message})
+    }
+    
+}
+
+export  const updateMessage= async (req,res)=>{
+    try{
+        const {id,updatedText}=req.body
+        const updatedMessage= await Message.findOneAndUpdate({_id:id},{text:updatedText});
+     
+      //console.log(updatedMessage)
                
     }catch(error){
         console.error(error.message)
