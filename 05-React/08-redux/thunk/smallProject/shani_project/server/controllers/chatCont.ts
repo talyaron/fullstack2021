@@ -10,7 +10,7 @@ export  const addMessage= async (req,res)=>{
         
             const newMessage=new Message({text});
             const result=await newMessage.save();
-       
+       console.log(result)
        
                
     }catch(error){
@@ -42,16 +42,17 @@ export  const deleteMessage= async (req,res)=>{
 
 
 
-// export  const getMessages= async (req,res)=>{
-//     try{
+export const getMessages= async (req,res)=>{
+    try{
         
-//         const messages=await Message.find({});
-//         console.log(messages)
-       
+        const data=await Message.find({});
+        console.log(data)
+        res.send(data)
+        
                
-//     }catch(error){
-//         console.error(error.message)
-//         res.send({error:error.message})
-//     }
+    }catch(error){
+        console.error(error.message)
+        res.send({error:error.message})
+    }
     
-// }
+}

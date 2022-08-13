@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState, AppThunk } from "../../app/store";
 import { v4 as uuidv4 } from "uuid";
-import { getMessages } from './chatApi';
+//import { getMessages } from './chatApi';
 
 //the thunk i use here in order to get the data
 
@@ -47,26 +47,31 @@ export const chatSlice = createSlice({
           : item
       );
     },
+    getPassText: (state, action:PayloadAction<any>) => {
+      state.value = action.payload
+      console.log(state.value)
+    },
+   
   },
   //builder creates the thunks/extra reducers that are async
-  extraReducers: (builder) => {
-    builder
-    .addCase(getMessages.pending, (state) => {
-      state.status = Status.LOADING;
-    })
-    .addCase(getMessages.fulfilled, (state, action) => {
-      state.status = Status.IDLE;      
-      state.value = action.payload;
-      console.log(state.value)
+  // extraReducers: (builder) => {
+  //   builder
+  //   .addCase(getMessages.pending, (state) => {
+  //     state.status = Status.LOADING;
+  //   })
+  //   .addCase(getMessages.fulfilled, (state, action) => {
+  //     state.status = Status.IDLE;      
+  //     state.value = action.payload;
+  //     console.log(state.value)
       
-    })
-    .addCase(getMessages.rejected, (state) => {
-      state.status = Status.FAILED;
-    });
-  },
+  //   })
+  //   .addCase(getMessages.rejected, (state) => {
+  //     state.status = Status.FAILED;
+  //   });
+  //  },
 });
 
-export const { addText, deleteText, editText } = chatSlice.actions;
+export const { addText, deleteText, editText,getPassText} = chatSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
