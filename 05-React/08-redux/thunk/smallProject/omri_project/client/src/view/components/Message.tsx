@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { selectMessage, addMessage } from '../../reducers/message/messageSlice';
+import { selectMessage, addMessage, deleteMessage, message } from '../../reducers/message/messageSlice';
 
 
 function Message() {
@@ -14,20 +14,24 @@ function Message() {
       const message = ev.target.newMessage.value;
       // const { data } = await axios.post('/api/messages/add-message');
       dispatch(addMessage(message))
-      ev.reset();
+      ev.target.reset();
     } catch (error) {
       console.error(error);
     }
+  }
+
+  async function handleDeleteMessage(id:any, messages:Array<message>) {
+    dispatch(deleteMessage(messages))
   }
 
   return (
     <div className="messageBox">
 
       <div className="messageBox__show">
-        {messages.map((message, i: any) => {
+        {messages.map((message) => {
           return (
-            <div key={i}>
-            <h4>{message.text}</h4>
+            <div key={message.id}>
+            <h4 onClick={(e) => handleDeleteMessage(message.id,messages)}>{message.text}</h4>
             </div>
           )
         })}
