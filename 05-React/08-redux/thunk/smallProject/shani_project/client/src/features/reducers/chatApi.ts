@@ -4,17 +4,16 @@ import axios from "axios";
 
 // export const getPassTexts=()=>API.get('/chat/get-messages')
 
-export const getMessages = createAsyncThunk("chat/fetchMessages", async (_,{}) => {
-  // try {
-  //   const { data } = await axios.get("/chat/get-messages");
-  //   // const { data } = await getPassTexts()
-  //   if (!data) throw new Error("didnt get data");
-  //   const value = data.value;
-  //   console.log(value);
+export const getMessages = createAsyncThunk("chat/fetchMessages", async () => {
+  try {
+    const { data } = await axios.get("/chat/get-allMessages");
+ 
+    if (!data) throw new Error("didnt get data");
+   
     
-  //   console.dir(data)
-  //   return value;
-  // } catch(error){
+    console.dir(data)
+    return data;
+  } catch(error){
     
-  // }
+  }
 });

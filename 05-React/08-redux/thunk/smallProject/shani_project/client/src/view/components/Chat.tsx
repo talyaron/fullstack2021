@@ -5,12 +5,12 @@ import {
   addText,
   deleteText,
   editText,
-  getPassText,
+  // getPassText,
   //selectMessageStatus,
   // Status
 } from "../../features/reducers/chatSlice";
 import axios from "axios";
-//import { getMessages } from '../../features/reducers/chatApi'
+import { getMessages } from '../../features/reducers/chatApi'
 
 export const Chat = () => {
   const messages = useAppSelector(selectMessage);
@@ -48,21 +48,10 @@ export const Chat = () => {
   
 
   useEffect(() => {
-    handleGetMessages();
+    //handleGetMessages();
+    dispatch(getMessages());
   }, [dispatch]);
-  async function handleGetMessages() {
-    const { data } = await axios.get("/chat/get-allMessages");
-
-    console.log(data);
-    const messages = data;
-    if (messages) {
-      dispatch(getPassText(messages));
-      console.log(messages);
-    } else {
-      console.log("didnt get data");
-    }
-  };
-
+  
 
 
 

@@ -59,10 +59,10 @@ export  const updateMessage= async (req,res)=>{
 
 export const getMessages= async (req,res)=>{
     try{
-        
+        console.log('here')
         const data=await Message.find({});
         console.log(data)
-        res.send(data)
+         res.send(data)
         
                
     }catch(error){
