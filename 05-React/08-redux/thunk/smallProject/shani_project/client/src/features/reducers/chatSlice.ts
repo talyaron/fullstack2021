@@ -13,6 +13,7 @@ export enum Status {
 export interface Message {
   text: string;
   _id: any;
+  img:any;
 }
 export interface MessageState {
   value: Array<Message>;
@@ -35,7 +36,7 @@ export const chatSlice = createSlice({
       //how doesnt _id here now get the text as payload ????
       state.value = [
         ...state.value,
-        { text: action.payload, _id: action.payload},
+        { text: action.payload, _id: action.payload,img:action.payload},
       ];
     },
     deleteText: (state, action: PayloadAction<string>) => {

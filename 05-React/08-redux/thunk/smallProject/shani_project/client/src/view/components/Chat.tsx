@@ -20,31 +20,32 @@ export const Chat = () => {
   async function handleAddMessage(ev: any) {
     ev.preventDefault();
     const text = ev.target.newMessage.value;
-    
+
     dispatch(addText(text));
-    const { data } = await axios.post("/chat/add-message", {text});
+    const { data } = await axios.post("/chat/add-message", { text });
   }
   async function handleDeleteMessage(id: any) {
-    console.log(id +' deleted text id');
+    console.log(id + " deleted text id");
     dispatch(deleteText(id));
-    const { data } = await axios.delete("/chat/delete-message", { data:{id}});
-    
-    
+    const { data } = await axios.delete("/chat/delete-message", {
+      data: { id },
+    });
   }
- async  function handleEditMessage(ev: any) {
+  async function handleEditMessage(ev: any) {
     ev.preventDefault();
 
     const updatedText = ev.target.elements.edittedText.value;
     const id = ev.target.id;
-  
+
     console.log(id);
     const { data } = await axios.patch("/chat/edit-message", {
-      id,updatedText
+      id,
+      updatedText,
     });
-    
-     
+
     dispatch(editText({ id, updatedText }));
   }
+  
 
   useEffect(() => {
     handleGetMessages();
@@ -60,18 +61,35 @@ export const Chat = () => {
     } else {
       console.log("didnt get data");
     }
+  };
+
+
+
+
+  function handleFileInputChange(ev:any){
+    const file=ev.target.files[0]
+    const image=ev.target.elements.image.value
+   console.log(image)
+  }
+
+  async function handleAddImg(ev: any) {
+    ev.preventDefault();
   }
   return (
     <div>
-     
-      <form onSubmit={handleAddMessage}>
-        <input type="text" placeholder="write message.." name="newMessage" />
-        <button>send</button>
-      </form>
+      <div style={{ border: "solid 2px black" }}>
+        <form onSubmit={handleAddMessage}>
+          <input type="text" placeholder="write message.." name="newMessage" onChange={handleFileInputChange}/>
+          <button>send</button>
+        </form>
+        <form onSubmit={handleAddImg}>
+          <input type="file" placeholder="img" name="image"/>
+          <button>addPic</button>
+        </form>
+      </div>
+
       <div>
         {messages.map((message) => {
-        
-
           return (
             <div key={message._id}>
               <h3

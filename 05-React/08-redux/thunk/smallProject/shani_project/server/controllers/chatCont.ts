@@ -1,5 +1,6 @@
 import Message from "../models/chatModel";
-
+const cloudinary=require('../cloudinary').v2
+ 
 
 
 
@@ -10,7 +11,7 @@ export  const addMessage= async (req,res)=>{
         
             const newMessage=new Message({text});
             const result=await newMessage.save();
-    //    console.log(result)
+    
        
                
     }catch(error){
@@ -26,7 +27,7 @@ export  const deleteMessage= async (req,res)=>{
         const{id}=req.body
         if(id){
             const deletedMessage= await Message.deleteOne({_id:id});
-            // res.send({ok:true,users})
+           
 
         }else{
             throw new Error(" userId  is missing")
