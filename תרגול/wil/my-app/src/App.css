@@ -1,0 +1,27 @@
+.App{
+    height: 95vh;
+    display: flex;
+ justify-content: center;
+    align-items: center;
+    border: 5px solid gray;
+    border-radius: 20px;
+}
+
+p{
+cursor: pointer;
+border: 2px solid gray;
+border-radius:  15px; 
+padding: 5px;
+}
+
+form{
+    bottom: 0px;
+position: fixed;
+
+}
+
+  input[type=text] {
+    border-radius: 20px;
+    height: 15px;
+    width: 300px;
+  }

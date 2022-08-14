@@ -2,7 +2,11 @@ import requestMessageModel from "../models/requestMessageModel";
 const secret = process.env.JWT_SECRET;
 
 import JWT from "jwt-simple";
+<<<<<<< HEAD
 import axios from 'axios'
+=======
+import axios from "axios";
+>>>>>>> Yae_Will
 import UserModel from "../models/userModel";
 
 //======================================================================================
