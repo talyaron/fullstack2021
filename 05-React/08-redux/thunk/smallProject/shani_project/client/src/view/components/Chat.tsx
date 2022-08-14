@@ -20,9 +20,9 @@ export const Chat = () => {
   async function handleAddMessage(ev: any) {
     ev.preventDefault();
     const text = ev.target.newMessage.value;
-
+  
     dispatch(addText(text));
-    const { data } = await axios.post("/chat/add-message", { text });
+    const { data } = await axios.post("/chat/add-message", { text});
   }
   async function handleDeleteMessage(id: any) {
     console.log(id + " deleted text id");

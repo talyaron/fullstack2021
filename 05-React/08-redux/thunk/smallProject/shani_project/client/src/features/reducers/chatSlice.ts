@@ -31,12 +31,12 @@ export const chatSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    addText: (state, action: PayloadAction<string>) => {
+    addText: (state, action: PayloadAction<any>) => {
       //the old messages saved,then the new one added
       //how doesnt _id here now get the text as payload ????
       state.value = [
         ...state.value,
-        { text: action.payload, _id: action.payload,img:action.payload},
+        { text: action.payload, _id:action.payload.id,img:action.payload},
       ];
     },
     deleteText: (state, action: PayloadAction<string>) => {
@@ -64,7 +64,7 @@ export const chatSlice = createSlice({
     .addCase(getMessages.fulfilled, (state, action) => {
       state.status = Status.IDLE;      
       state.value = action.payload;
-      console.log(action+ 'paylod getMeszsaes')
+     
       
     })
     .addCase(getMessages.rejected, (state) => {
