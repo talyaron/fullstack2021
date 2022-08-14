@@ -11,6 +11,9 @@ export  const addMessage= async (req,res)=>{
         
             const newMessage=new Message({text});
             const result=await newMessage.save();
+            console.log(result._id)
+          
+
     
        
                
