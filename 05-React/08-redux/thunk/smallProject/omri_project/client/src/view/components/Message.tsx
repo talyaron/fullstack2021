@@ -22,9 +22,10 @@ function Message() {
   }
 
   async function handleDeleteMessage(id: any) {
-    // dispatch(deleteMessage(id))
-    const { data } = await axios.delete('/api/messages/delete-message', { data: { id } })
     console.log(id);
+    dispatch(deleteMessage(id))
+    const { data } = await axios.delete('/api/messages/delete-message', { data: { id } })
+    
   }
 
   useEffect(() => {
@@ -37,8 +38,8 @@ function Message() {
       <div className="messageBox__show">
         {messages.map((message,i) => {
           return (
-            <div className="messageBox__show__line" key={i}>
-              <h4 onClick={() => handleDeleteMessage(message)}>
+            <div className="messageBox__show__line" key={message.id}>
+              <h4 onClick={() => handleDeleteMessage(message.id)}>
                 {message.text}
               </h4>
               <h4>Edit</h4>

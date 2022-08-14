@@ -11,11 +11,11 @@ export enum Status {
 }
 export interface message {
   text: string,
-  status: Status
+  id: any,
 }
 export interface MessageState {
   value: Array<message>,
-  status:Status
+  status: Status
 }
 
 const initialState: MessageState = {
@@ -30,12 +30,13 @@ export const messageSlice = createSlice({
   reducers: {
     addMessage: (state: any, action: PayloadAction<string>) => {
       if (state.value !== '') {
-        state.value = [...state.value, { text: action.payload,  state: Status.IDLE }];
+        state.value = [...state.value, { text: action.payload, id: uuidv4() }];
       }
     },
 
     deleteMessage: (state: any, action: PayloadAction<any>) => {
-      state.value = action.payload.messages.filter((message:any) => message.id !==action.payload.id)
+      // state.value = action.payload.messages.filter((message: any) => message.id !== action.payload.id)
+      state.value = state.value.filter((message:any) => message.id !== action.payload);
     }
   },
 
