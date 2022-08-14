@@ -1,9 +1,9 @@
 import messageModel from "../models/messageModel";
 
 export const addMessage = async (req, res) => {
-    const { messages } = req.body;
+    const { message } = req.body;
     try {
-        if(!messages) throw new Error('no massege');
+        if (!message) throw new Error('no massege');
         const newMessage = new messageModel({
             text: message
         });
@@ -13,7 +13,17 @@ export const addMessage = async (req, res) => {
     }
 }
 
-export const deleteMessage = async (req, res) =>{
-    const {id} = req.body;
+export const deleteMessage = async (req, res) => {
+    const { id } = req.body;
     console.log(id);
+}
+
+export const getMesaages = async (req, res) => {
+    try {
+        const messages = await messageModel.find({})
+        // console.log(messages);
+        res.send(messages);
+    } catch (err) {
+        console.error(err);
+    }
 }
