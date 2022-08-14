@@ -18,7 +18,7 @@ export interface MessageState {
 }
 
 const initialState: MessageState = {
-  value: [{ text: '', id: uuidv4(), status: Status.IDLE }],
+  value: [],
 };
 
 
@@ -33,7 +33,7 @@ export const messageSlice = createSlice({
     },
 
     deleteMessage: (state: any, action: PayloadAction<any>) => {
-      console.log(state)
+      state.value = action.payload.messages.filter((message:any) => message.id !==action.payload.id)
     }
   },
 

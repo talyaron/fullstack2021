@@ -1,8 +1,19 @@
 import mongoose from "mongoose";
 
+export interface message {
+    text: string,
+    id: any,
+    status: Status
+}
+
+export enum Status {
+    IDLE = 'idle',
+    LOADING = 'loading',
+    FAILED = 'failed'
+  }
+
 export const messageSchema = new mongoose.Schema({
-    text: String,
-    img: String
+    messages: Array<message>
 });
 
 const messageModel = mongoose.model('messages', messageSchema);

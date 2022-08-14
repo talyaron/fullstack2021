@@ -6,22 +6,22 @@ import { selectMessage, addMessage, deleteMessage, message } from '../../reducer
 function Message() {
   const messages = useAppSelector(selectMessage);
   const dispatch = useAppDispatch();
-  console.log(messages)
 
   async function handleAddText(ev: any) {
     try {
       ev.preventDefault();
       const message = ev.target.newMessage.value;
-      // const { data } = await axios.post('/api/messages/add-message');
-      dispatch(addMessage(message))
+      dispatch(addMessage(message));
+      const { data } = await axios.post('/api/messages/add-message', { messages });
       ev.target.reset();
     } catch (error) {
       console.error(error);
     }
   }
 
-  async function handleDeleteMessage(id:any, messages:Array<message>) {
-    dispatch(deleteMessage(messages))
+  async function handleDeleteMessage(id: any, messages: Array<message>) {
+    const { data } = await axios.delete('/api/messages/delete-message', { data: { id } })
+    // dispatch(deleteMessage({ id, messages }))
   }
 
   return (
@@ -30,8 +30,11 @@ function Message() {
       <div className="messageBox__show">
         {messages.map((message) => {
           return (
-            <div key={message.id}>
-            <h4 onClick={(e) => handleDeleteMessage(message.id,messages)}>{message.text}</h4>
+            <div className="messageBox__show__line" key={message.id}>
+              <h4 onClick={() => handleDeleteMessage(message.id, messages)}>
+                {message.text}
+              </h4>
+              <h4>Edit</h4>
             </div>
           )
         })}
@@ -41,7 +44,7 @@ function Message() {
       <div className="messageBox__textInput">
         <form onSubmit={handleAddText}>
           <input type='text' name='newMessage' id='text'></input>
-          <input type="submit" id='submit'></input>
+          <input type="submit" value="send" id='submit'></input>
         </form>
       </div>
 
