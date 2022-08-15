@@ -1,10 +1,8 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import jokeReducer from '../reducers/jokesSlice';
 import inputTextReducer from '../reducers/textSlice'
 
 export const store = configureStore({
   reducer: {
-    joke: jokeReducer,
     inputText: inputTextReducer
   },
 });
