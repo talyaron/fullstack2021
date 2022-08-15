@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Quicksand';
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
+}
+
+.textAreaContainer {
+    width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #3a5a40;
+    border-radius: 10px;
+    padding: 4%;
+    box-shadow: 3px 3px 6px #344e4190;
+}
+
+.formContainer {
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    border-radius: 0px;
+}
+
+textArea {
+    width: 100%;
+}
+
+.submitButton {
+    width: 100%;
+    background-color: #588157;
+    color: rgb(255, 238, 0);
+    cursor: pointer;
+}
+
+.text h1 {
+    color: rgb(255, 255, 255);
+}
+
+.lineText {
+    min-height: 50px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+.updateForm {
+    display: flex;
+    flex-direction: row;
+}
+
+.updateForm .updateButton {
+    width: 20%;
+    font-size: 60%;
+    background-color: #588157;
+    cursor: pointer;
+}
+
+/* div {
+    border: 1px solid rgb(255, 238, 0);
+} */
+
+.hr {
+    background-color: black;
+    height: 1px;
+}
