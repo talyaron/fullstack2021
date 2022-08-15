@@ -1,0 +1,154 @@
+// .card {
+//     display: grid;
+//     grid-template-columns: repeat(5,0.5fr);
+//     grid-template-rows: repeat(5, 0.5fr);
+//     column-gap: 20px;
+//     padding: 5px;
+//     margin-bottom: 10%;
+
+//     // grid-template-rows: 1.5fr 1.5fr 1.5fr 1.5fr;
+//     // column-gap: 1vw;
+
+//     // grid-template-rows: repeat(4, 1fr);
+//     height: 190px;
+//     width: 301px;
+//     border: solid black;
+//     border: 1px solid rgba(0, 0, 0, 0.5);
+//     border-radius: 5px;
+//     background-color: #F0F0F0;
+//     padding: 5%;
+//     font-family: 'Inter';
+//     font-weight: 520;
+//     font-style: normal;
+
+//     &__photo {
+//         grid-column-start: 1;
+//         grid-column-end: 2;
+//         position: relative;
+//         bottom: 25px;
+//         img {
+//             border-radius: 50%;
+//             height: 76px;
+//             width: 76px;
+
+
+//         }
+
+//     }
+
+//     &__center {
+//         display: grid;
+//         grid-template-rows: repeat(4, 0.5fr);
+
+//         width: 100%;
+//         position: relative;
+//         bottom: 25px;
+//         img {
+//             height: 30px;
+//             width: 30px;
+//         }
+
+       
+//         grid-column-start: 2;
+//         grid-column-end: 5;
+//         row-gap: 4px;
+
+
+
+//     }
+
+//     &__flex {
+//         display: flex;
+
+//         a {
+//             text-decoration: none;
+//             color: black;
+//             padding-left: 5%;
+//             height: 31px;
+//         }
+
+//         img {
+//             width: 40px;
+//         }
+//     }
+
+
+//     &__button {
+//         height: 39px;
+//         width: 159px;
+//         // left: 153px;
+//         // top: 170px;
+//         border-radius: 15px;
+//         background-color: #ADADAD;
+//         border: none;
+//         grid-column-start: 4;
+//         grid-column-end: 6;
+//         grid-row-start: 5;
+//         grid-row-end: 5;
+
+//     }
+
+// }
+
+
+// .card__photo{
+//     border-radius: 40% ;
+//     height: 110px;
+//     width: 110px;
+//     padding-top: 5px;
+    
+// }
+// #envelope{
+//   position: relative;
+//   top:20px;
+//   left:85%;
+//   height: 25px;
+//   width: 30px;
+
+// }
+// #selfi{
+//   height: 110px;
+//   width: 110px;
+
+// }
+// .request-card-buttons-flex{
+
+//     //display: flex;
+//    // justify-content: space-between;
+//     height: 35px;
+//     width:150px;
+//     font-size: medium;
+//     position: relative;
+//     border:none;
+//     border-radius: 20px;
+// }
+// .request-card-flex__mismatch{
+//     background-color: lightgray;
+//     padding: 10px 10px 10px 10px;
+//     border-radius: 20px;
+//     position: relative;
+//     right:130%;
+//     top:170px;
+//     border: none;
+
+
+// }
+// .match{
+//     background-color: grey;
+//     padding: 10px 10px 10px 10px;
+//     border-radius: 20px;
+//     position: relative;
+//     right:0px;
+//     top:130px;
+//     border: none;
+
+
+// }
+// #envelope{
+//     position: relative;
+//     top:5px;
+//     left:250px;
+//     height: 25px;
+//     width: 30px;
+  
+//   }

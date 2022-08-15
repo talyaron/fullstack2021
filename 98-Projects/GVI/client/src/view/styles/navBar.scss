@@ -1,0 +1,62 @@
+.logo {
+    width: 93px;
+    height: 81px;
+    padding-left: 2em;
+
+}
+
+.navBar {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+  
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    padding-right: 2em;
+}
+
+.btn {
+ background-color: rgb(197, 204, 204);
+    
+          width: 134px;
+    height: 39px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+     align-items: center;
+    .link{ 
+      color: black;
+       
+      text-decoration: none;  
+    }
+
+}
+
+.profileIMG {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+  //  background-color: aqua;
+    img{
+        text-align: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;  
+    }
+}
+
+.showMentee {
+    display: block;
+}
+
+.dontShowMentee {
+    display: none;
+}

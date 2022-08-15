@@ -1,0 +1,100 @@
+.card {
+    display: grid;
+    grid-template-columns: 1fr,1fr,1fr;
+    grid-template-rows: 1fr,1fr,1fr;
+    width: 15vw;
+    height: 30vh;
+    column-gap: 15px;
+
+    border-radius: 5px;
+    background-color: #F0F0F0;
+    font-family: 'Inter';
+    font-weight: 520;
+    font-style: normal;
+    transform-style: preserve-3d;
+    padding: 0rem 5rem;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
+    border: solid 1px;
+
+   
+
+        .photo {
+            border-radius: 50%;
+            height: 76px;
+            width: 76px;
+            grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        padding: 10px;
+        
+
+
+
+        }
+
+
+    &__center {
+        display: flex;
+       flex-direction: column;
+        width: 100%;
+
+        img {
+            height: 30px;
+            width: 30px;
+        }
+
+        &__company {
+            // margin-top: -5%;
+        }
+
+        &__profession {
+            // margin-top: -15%;
+        }
+        grid-column-start: 2;
+        grid-column-end: 5;
+        row-gap: 4px;
+
+
+
+    }
+
+    &__flex {
+        display: flex;
+
+        a {
+            text-decoration: none;
+            color: black;
+            padding-left: 5%;
+            height: 31px;
+        }
+
+        img {
+            width: 40px;
+        }
+    }
+
+    &__star {
+        grid-column-start: 6;
+        grid-column-end: 6;
+        position:absolute;
+        margin-right: 10px;
+
+    }
+
+    &__button {
+        height: 39px;
+        width: 159px;
+        // left: 153px;
+        // top: 170px;
+        border-radius: 15px;
+        background-color: #ADADAD;
+        border: none;
+        grid-column-start: 4;
+        grid-column-end: 6;
+        grid-row-start: 6;
+        grid-row-end: 6;
+
+    }
+
+}

@@ -1,0 +1,80 @@
+.logo {
+  width: 93px;
+  height: 81px;
+  padding-left: 2em;
+
+}
+
+.req_navBar {
+  position: relative;
+  top:5%;
+  left:5%;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+}
+
+.req_btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  //padding-right: 2em;
+}
+
+.req_btn_ans_pen{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  // padding-right: 0.5em;
+}
+
+.req_btn {
+background-color: rgb(197, 204, 204);
+  
+  width: 134px;
+  height: 39px;
+  // border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+   align-items: center;
+   border: solid 1px grey;
+  .link{ 
+    background-color: rgb(197, 204, 204);
+    color: black;
+    font-weight: bold;
+    text-decoration: none;  
+  }
+}
+
+.req_btn:hover{
+  background-color: rgb(237, 248, 248);
+  cursor: pointer;
+  .link{
+    background-color: rgb(237, 248, 248);
+  }
+}
+
+.profileIMG {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+//  background-color: aqua;
+  img{
+      text-align: center;
+      width: 70px;
+      height: 70px;
+      border-radius: 100%;  
+  }
+}
+
+.showMentee {
+  display: block;
+}
+
+.dontShowMentee {
+  display: none;
+}
