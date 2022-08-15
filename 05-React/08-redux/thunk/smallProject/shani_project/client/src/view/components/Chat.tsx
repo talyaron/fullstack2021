@@ -65,23 +65,14 @@ export const Chat = () => {
     ev.preventDefault();
   }
   return (
-    <div>
-      <div style={{ border: "solid 2px black" }}>
-        <form onSubmit={handleAddMessage}>
-          <input type="text" placeholder="write message.." name="newMessage" onChange={handleFileInputChange}/>
-          <button>send</button>
-        </form>
-        <form onSubmit={handleAddImg}>
-          <input type="file" placeholder="img" name="image"/>
-          <button>addPic</button>
-        </form>
-      </div>
+    <div className="chat">
+     
 
-      <div>
+      <div className="chat__messages">
         {messages.map((message) => {
           return (
-            <div key={message._id}>
-              <h3
+            <div className='chat__messages__message' key={message._id}>
+              <h3 className='chat__messages__message--text'
                 onClick={() => {
                   handleDeleteMessage(message._id);
                 }}
@@ -89,7 +80,7 @@ export const Chat = () => {
                 {message.text}
               </h3>
 
-              <form
+              <form className="chat__messages__message--text--update"
                 onSubmit={(ev) => {
                   handleEditMessage(ev);
                 }}
@@ -101,6 +92,16 @@ export const Chat = () => {
             </div>
           );
         })}
+      </div>
+      <div className="chat__input">
+        <form onSubmit={handleAddMessage} className="chat__input--addText">
+          <input type="text" placeholder="write message.." name="newMessage" onChange={handleFileInputChange}/>
+          <button>send</button>
+        </form>
+        {/* <form onSubmit={handleAddImg}>
+          <input type="file" placeholder="img" name="image"/>
+          <button>addPic</button>
+        </form> */}
       </div>
     </div>
   );
