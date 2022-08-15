@@ -1,6 +1,6 @@
 import { createSlice} from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
-import {getPicAsync} from '../picComp/picCompApi'
+import {getPicAsync} from './picCompApi'
 
 export enum status {
     IDLE = 'idle',
@@ -32,7 +32,7 @@ export const picCompSlice = createSlice({
       })
       .addCase(getPicAsync.fulfilled, (state:any, action) => {
         state.status = status.IDLE;
-        console.log(action.payload, 'payLoad');
+        // console.log(action.payload, 'payLoad');
         
         state.pic = action.payload;
       })

@@ -1,47 +1,68 @@
 .App {
-  text-align: center;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+    .App-logo {
+        animation: App-logo-float infinite 3s ease-in-out;
+    }
 }
 
 .App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
 }
 
 .App-link {
-  color: rgb(112, 76, 182);
+    color: rgb(112, 76, 182);
 }
 
 @keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
-.textList{
-display: flex;
-flex-direction: column;
-  .textLine{
-    display: flex;
-    align-self: center;
-  }
+.chatArea {
+  position: relative;
+    height: 100%;
+    overflow-y: scroll;
+    .container{
+        height: 80%;
+        overflow-y: scroll;
+
+    .textList {
+        display: flex;
+        flex-direction: column;
+        // height: 80%;
+        // overflow-y: scroll;
+        .textLine {
+            display: flex;
+            align-self: center;
+        }
+    }
+}
+    .messageBar{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      .text{
+      }
+    }
 }

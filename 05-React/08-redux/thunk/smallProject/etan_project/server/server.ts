@@ -8,6 +8,9 @@ const URI = process.env.MONGODB_URI;
 app.use(express.static('public/build'))
 app.use(express.json());
 
+import textRoute from './routes/textRoute';
+app.use('/api/texts', textRoute)
+
 mongoose
   .connect(
     URI
