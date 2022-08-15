@@ -1,5 +1,6 @@
 import Message from "../models/chatModel";
-
+const cloudinary=require('../cloudinary').v2
+ 
 
 
 
@@ -10,7 +11,10 @@ export  const addMessage= async (req,res)=>{
         
             const newMessage=new Message({text});
             const result=await newMessage.save();
-       
+            console.log(result._id)
+          
+
+    
        
                
     }catch(error){
@@ -26,7 +30,7 @@ export  const deleteMessage= async (req,res)=>{
         const{id}=req.body
         if(id){
             const deletedMessage= await Message.deleteOne({_id:id});
-            // res.send({ok:true,users})
+           
 
         }else{
             throw new Error(" userId  is missing")
@@ -40,18 +44,33 @@ export  const deleteMessage= async (req,res)=>{
     
 }
 
-
-
-// export  const getMessages= async (req,res)=>{
-//     try{
-        
-//         const messages=await Message.find({});
-//         console.log(messages)
-       
+export  const updateMessage= async (req,res)=>{
+    try{
+        const {id,updatedText}=req.body
+        const updatedMessage= await Message.findOneAndUpdate({_id:id},{text:updatedText});
+     
+      //console.log(updatedMessage)
                
-//     }catch(error){
-//         console.error(error.message)
-//         res.send({error:error.message})
-//     }
+    }catch(error){
+        console.error(error.message)
+        res.send({error:error.message})
+    }
     
-// }
+}
+
+
+
+export const getMessages= async (req,res)=>{
+    try{
+        console.log('here')
+        const data=await Message.find({});
+        console.log(data)
+         res.send(data)
+        
+               
+    }catch(error){
+        console.error(error.message)
+        res.send({error:error.message})
+    }
+    
+}

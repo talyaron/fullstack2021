@@ -12,7 +12,8 @@ export enum Status {
 }
 export interface Message {
   text: string;
-  id: any;
+  _id: any;
+  img:any;
 }
 export interface MessageState {
   value: Array<Message>;
@@ -30,23 +31,29 @@ export const chatSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    addText: (state, action: PayloadAction<string>) => {
+    addText: (state, action: PayloadAction<any>) => {
       //the old messages saved,then the new one added
+      //how doesnt _id here now get the text as payload ????
       state.value = [
         ...state.value,
-        { text: action.payload, id: uuidv4()},
+        { text: action.payload, _id:action.payload.id,img:action.payload},
       ];
     },
     deleteText: (state, action: PayloadAction<string>) => {
-      state.value = state.value.filter((item) => item.id !== action.payload);
+      state.value = state.value.filter((item) => item._id !== action.payload);
     },
     editText: (state, action: PayloadAction<any>) => {
       state.value = state.value.map((item) =>
-        item.id === action.payload.id
+        item._id === action.payload._id
           ? { ...item, text: action.payload.updatedText }
           : item
       );
     },
+    getPassText: (state, action:PayloadAction<any>) => {
+      state.value = action.payload
+      console.log(state.value)
+    },
+   
   },
   //builder creates the thunks/extra reducers that are async
   extraReducers: (builder) => {
@@ -57,16 +64,16 @@ export const chatSlice = createSlice({
     .addCase(getMessages.fulfilled, (state, action) => {
       state.status = Status.IDLE;      
       state.value = action.payload;
-      console.log(state.value)
+     
       
     })
     .addCase(getMessages.rejected, (state) => {
       state.status = Status.FAILED;
     });
-  },
+   },
 });
 
-export const { addText, deleteText, editText } = chatSlice.actions;
+export const { addText, deleteText, editText,getPassText} = chatSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

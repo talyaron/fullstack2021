@@ -1,33 +1,48 @@
 import axios from "axios";
+import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { selectMessage, addMessage } from '../../reducers/message/messageSlice';
+import { getMessages } from "../../reducers/message/messageAPI";
+import { selectMessage, addMessage, deleteMessage, message } from '../../reducers/message/messageSlice';
 
 
 function Message() {
   const messages = useAppSelector(selectMessage);
   const dispatch = useAppDispatch();
-  console.log(messages)
 
   async function handleAddText(ev: any) {
     try {
       ev.preventDefault();
       const message = ev.target.newMessage.value;
-      // const { data } = await axios.post('/api/messages/add-message');
-      dispatch(addMessage(message))
-      ev.reset();
+      dispatch(addMessage(message));
+      const { data } = await axios.post('/api/messages/add-message', { message });
+      ev.target.reset();
     } catch (error) {
       console.error(error);
     }
   }
 
+  async function handleDeleteMessage(id: any) {
+    console.log(id);
+    dispatch(deleteMessage(id))
+    const { data } = await axios.delete('/api/messages/delete-message', { data: { id } })
+    
+  }
+
+  useEffect(() => {
+    dispatch(getMessages());
+  }, [dispatch]);
+
   return (
     <div className="messageBox">
 
       <div className="messageBox__show">
-        {messages.map((message, i: any) => {
+        {messages.map((message,i) => {
           return (
-            <div key={i}>
-            <h4>{message.text}</h4>
+            <div className="messageBox__show__line" key={message.id}>
+              <h4 onClick={() => handleDeleteMessage(message.id)}>
+                {message.text}
+              </h4>
+              <h4>Edit</h4>
             </div>
           )
         })}
@@ -37,7 +52,7 @@ function Message() {
       <div className="messageBox__textInput">
         <form onSubmit={handleAddText}>
           <input type='text' name='newMessage' id='text'></input>
-          <input type="submit" id='submit'></input>
+          <input type="submit" value="send" id='submit'></input>
         </form>
       </div>
 

@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../../app/store';
+import { v4 as uuidv4 } from 'uuid';
+import { getMessages } from './messageAPI';
 
 
 export enum Status {
@@ -9,14 +11,16 @@ export enum Status {
 }
 export interface message {
   text: string,
-  status: Status
+  id: any,
 }
 export interface MessageState {
-  value: Array<message>;
+  value: Array<message>,
+  status: Status
 }
 
 const initialState: MessageState = {
-  value: [{ text: '', status: Status.IDLE }],
+  value: [],
+  status: Status.IDLE
 };
 
 
@@ -26,28 +30,32 @@ export const messageSlice = createSlice({
   reducers: {
     addMessage: (state: any, action: PayloadAction<string>) => {
       if (state.value !== '') {
-         state.value = [...state.value, { text: action.payload, state: Status.IDLE }];
+        state.value = [...state.value, { text: action.payload, id: uuidv4() }];
       }
+    },
+
+    deleteMessage: (state: any, action: PayloadAction<any>) => {
+      // state.value = action.payload.messages.filter((message: any) => message.id !== action.payload.id)
+      state.value = state.value.filter((message:any) => message.id !== action.payload);
     }
   },
 
-  // extraReducers: (builder) => {
-  //   builder
-  //     .addCase(incrementAsync.pending, (state) => {
-  //       state.status = 'loading';
-  //     })
-  //     .addCase(incrementAsync.fulfilled, (state, action) => {
-  //       state.status = 'idle';
-  //       state.value += action.payload;
-  //     })
-  //     .addCase(incrementAsync.rejected, (state) => {
-  //       state.status = 'failed';
-  //     });
-  // },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getMessages.pending, (state) => {
+        state.status = Status.LOADING;
+      })
+      .addCase(getMessages.fulfilled, (state, action) => {
+        state.status = Status.IDLE;
+        state.value = action.payload;
+      })
+      .addCase(getMessages.rejected, (state) => {
+        state.status = Status.FAILED;
+      });
+  },
 });
 
-export const { addMessage } = messageSlice.actions;
+export const { addMessage, deleteMessage } = messageSlice.actions;
 export const selectMessage = (state: RootState) => state.message.value;
-
 
 export default messageSlice.reducer;
