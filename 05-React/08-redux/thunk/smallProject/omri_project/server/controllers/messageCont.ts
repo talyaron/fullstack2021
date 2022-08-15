@@ -7,21 +7,28 @@ export const addMessage = async (req, res) => {
         const newMessage = new messageModel({
             text: message
         });
-        await newMessage.save();
+        const result = await newMessage.save();
     } catch (error) {
         console.error(error);
     }
 }
 
 export const deleteMessage = async (req, res) => {
-    const { id } = req.body;
-    console.log(id);
+    try {
+        const { id } = req.body;
+        if (!id) throw new Error('didnt get id');
+        const deleletText = await messageModel.deleteOne({ _id: id });
+        // const mesaages = await messageModel.find({})
+    } catch (error) {
+        console.error(error);
+    }
+
 }
 
 export const getMesaages = async (req, res) => {
     try {
         const messages = await messageModel.find({})
-        // console.log(messages);
+        if (messages.length === 0) throw new Error('no messages');
         res.send(messages);
     } catch (err) {
         console.error(err);

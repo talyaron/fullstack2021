@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../../app/store';
 import { v4 as uuidv4 } from 'uuid';
 import { getMessages } from './messageAPI';
@@ -11,10 +11,14 @@ export enum Status {
 }
 export interface message {
   text: string,
-  id: any,
 }
+// export interface MessageState {
+//   value: Array<message>,
+//   status: Status
+// }
+
 export interface MessageState {
-  value: Array<message>,
+  value: [],
   status: Status
 }
 
@@ -28,16 +32,16 @@ export const messageSlice = createSlice({
   name: 'messasge',
   initialState,
   reducers: {
-    addMessage: (state: any, action: PayloadAction<string>) => {
-      if (state.value !== '') {
-        state.value = [...state.value, { text: action.payload, id: uuidv4() }];
-      }
-    },
+    // addMessage: (state: any, action: PayloadAction<string>) => {
+    //   if (state.value !== '') {
+    //     state.value = [...state.value, { text: action.payload, id: uuidv4() }];
+    //   }
+    // },
 
-    deleteMessage: (state: any, action: PayloadAction<any>) => {
-      // state.value = action.payload.messages.filter((message: any) => message.id !== action.payload.id)
-      state.value = state.value.filter((message:any) => message.id !== action.payload);
-    }
+    // deleteMessage: (state: any, action: PayloadAction<any>) => {
+    //   state.value = action.payload.messages.filter((message: any) => message.id !== action.payload.id)
+    //   state.value = state.value.filter((message:any) => message.id !== action.payload);
+    // }
   },
 
   extraReducers: (builder) => {
@@ -55,7 +59,7 @@ export const messageSlice = createSlice({
   },
 });
 
-export const { addMessage, deleteMessage } = messageSlice.actions;
+export const {   } = messageSlice.actions;
 export const selectMessage = (state: RootState) => state.message.value;
 
 export default messageSlice.reducer;

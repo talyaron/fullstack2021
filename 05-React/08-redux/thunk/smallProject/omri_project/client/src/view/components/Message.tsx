@@ -2,19 +2,23 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { getMessages } from "../../reducers/message/messageAPI";
-import { selectMessage, addMessage, deleteMessage, message } from '../../reducers/message/messageSlice';
+import { selectMessage } from '../../reducers/message/messageSlice';
 
 
 function Message() {
   const messages = useAppSelector(selectMessage);
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    dispatch(getMessages());
+  }, [messages]);
+
   async function handleAddText(ev: any) {
     try {
       ev.preventDefault();
       const message = ev.target.newMessage.value;
-      dispatch(addMessage(message));
       const { data } = await axios.post('/api/messages/add-message', { message });
+      // dispatch(getMessages());
       ev.target.reset();
     } catch (error) {
       console.error(error);
@@ -22,24 +26,23 @@ function Message() {
   }
 
   async function handleDeleteMessage(id: any) {
-    console.log(id);
-    dispatch(deleteMessage(id))
-    const { data } = await axios.delete('/api/messages/delete-message', { data: { id } })
-    
-  }
+    try {
+      if (!id) throw new Error('no id');
+      const { data } = await axios.delete('/api/messages/delete-message', { data: { id } })
+    } catch (error) {
+      console.error(error);
+    }
 
-  useEffect(() => {
-    dispatch(getMessages());
-  }, [dispatch]);
+  }
 
   return (
     <div className="messageBox">
 
       <div className="messageBox__show">
-        {messages.map((message,i) => {
+        {messages.map((message: any) => {
           return (
-            <div className="messageBox__show__line" key={message.id}>
-              <h4 onClick={() => handleDeleteMessage(message.id)}>
+            <div className="messageBox__show__line" key={message._id}>
+              <h4 onClick={() => handleDeleteMessage(message._id)}>
                 {message.text}
               </h4>
               <h4>Edit</h4>
