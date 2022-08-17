@@ -73,7 +73,7 @@ export const textSlice = createSlice({
       
       state.messeges = [
         ...state.messeges,
-        { value: action.payload, _id: action.payload,img:action.payload},
+        action.payload,
       ];
       
     })
