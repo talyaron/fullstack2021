@@ -14,72 +14,43 @@ import {
 import { getText,addNewText, removeText, editAllText } from './textApi';
 import { image, text } from '@cloudinary/url-gen/qualifiers/source';
 import { Value } from 'sass';
-// import {AdvancedImage} from '@cloudinary/react';
-// import {Cloudinary} from "@cloudinary/url-gen";
-// import {Transformation} from "@cloudinary/url-gen";
-
-// // Import required actions.
-// import {thumbnail, scale} from "@cloudinary/url-gen/actions/resize";
-// import {byRadius} from "@cloudinary/url-gen/actions/roundCorners";
-// import {sepia} from "@cloudinary/url-gen/actions/effect";
-// import {source} from "@cloudinary/url-gen/actions/overlay";
-// import {opacity,brightness} from "@cloudinary/url-gen/actions/adjust";
-// import {byAngle} from "@cloudinary/url-gen/actions/rotate"
-
-// // Import required qualifiers.
-// import {image} from "@cloudinary/url-gen/qualifiers/source";
-// import {Position} from "@cloudinary/url-gen/qualifiers/position";
-// import {compass} from "@cloudinary/url-gen/qualifiers/gravity";
-// import {focusOn} from "@cloudinary/url-gen/qualifiers/gravity";
-// import {FocusOn} from "@cloudinary/url-gen/qualifiers/focusOn";
-
 
 export function Texts() {
   const userText = useAppSelector(selectGivenText);
  
   const dispatch = useAppDispatch();
 
+
   async function handleAddText(e:any){
  
   
-e.preventDefault();
-const value = e.target.elements.newText.value;
-
-console.log(value);
-
- const {data}= await axios.post('/text/add-text',{value})
-  console.log(data);
-  dispatch(addText(value));
- }
- async function handleDeleteText(id:any){
-  console.log(id);
-  
-  
-  const {data}= await axios.patch('/text/delete-text',{id})
-  console.log(data);
-  dispatch(deleteText(id))
- }
-async function handleEditText(e:any){
-  e.preventDefault()
-  const updateText =e.target.elements.editText.value;
-
-  const id = e.target.id;
-  console.log(id, updateText);
- 
-  const {data}= await axios.patch('/text/update-text',{id, updateText})
-  console.log(data);
-   dispatch(editText({ id, updateText}))
- }
- useEffect(() => {
-  dispatch(getText())
-}, []);
- async function handleGetText() {
-  const  {data} = await axios.get("/text/get-text");
-  const userText = data;
-  console.log(userText);
-  
-  dispatch(getAllText(userText))
- }
+    e.preventDefault();
+    const value = e.target.elements.newText.value;
+    
+    console.log(value);
+    
+    
+      dispatch(addNewText(value));
+     }
+     async function handleDeleteText(id:any){
+      console.log(id);
+      
+    
+      dispatch(removeText(id))
+     }
+    async function handleEditText(e:any){
+      e.preventDefault()
+      const updateText =e.target.elements.editText.value;
+    
+      const id = e.target.id;
+      console.log(id, updateText);
+    
+       dispatch(editAllText({ id, updateText}))
+     }
+     useEffect(() => {
+    dispatch(getText())
+    }, []);
+    
 async function handleAddImage(e:any) {
   e.preventDefault();
 
