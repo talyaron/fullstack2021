@@ -30,25 +30,25 @@ export const textSlice = createSlice({
 
   reducers: {
   
-    addText: (state, action: PayloadAction<any>) => {
-      state.messeges = [
-        ...state.messeges,
-        { value: action.payload, _id: action.payload,img:action.payload},
-      ];
-    },
-    deleteText: (state, action: PayloadAction<string>) => {
-      state.messeges = state.messeges.filter((item) => 
-        item._id !== action.payload);
+    // addText: (state, action: PayloadAction<any>) => {
+    //   state.messeges = [
+    //     ...state.messeges,
+    //     { value: action.payload, _id: action.payload,img:action.payload},
+    //   ];
+    // },
+    // deleteText: (state, action: PayloadAction<string>) => {
+    //   state.messeges = state.messeges.filter((item) => 
+    //     item._id !== action.payload);
    
-    },
-    editText: (state, action: PayloadAction<any>) => {
-      state.messeges = state.messeges.map(item => item._id == action.payload._id ? { ...item, value: action.payload.updateText} : item)
+    // },
+    // editText: (state, action: PayloadAction<any>) => {
+    //   state.messeges = state.messeges.map(item => item._id == action.payload._id ? { ...item, value: action.payload.updateText} : item)
 
-    },
-    getAllText: (state, action: PayloadAction<any>) => {
-      state.messeges = action.payload
+    // },
+    // getAllText: (state, action: PayloadAction<any>) => {
+    //   state.messeges = action.payload
    
-    },
+    // },
   },
   
   extraReducers: (builder) => {
@@ -58,7 +58,6 @@ export const textSlice = createSlice({
     })
     .addCase(getText.fulfilled, (state, action) => {
       state.status = Status.IDLE;
-      console.log('hii');
       
       state.messeges = action.payload;
       
@@ -69,10 +68,13 @@ export const textSlice = createSlice({
     .addCase(addNewText.pending, (state) => {
       state.status = Status.LOADING;
     })
-    .addCase(addNewText.fulfilled, (state, action) => {
+    .addCase(addNewText.fulfilled, (state, action:any) => {
       state.status = Status.IDLE;
       
-     state.messeges = action.payload;
+      state.messeges = [
+        ...state.messeges,
+        { value: action.payload, _id: action.payload,img:action.payload},
+      ];
       
     })
     .addCase(addNewText.rejected, (state) => {
@@ -84,8 +86,8 @@ export const textSlice = createSlice({
     .addCase(editAllText.fulfilled, (state, action) => {
       state.status = Status.IDLE;
       
-      state.messeges = action.payload;
-      
+      state.messeges = state.messeges.map(item => item._id == action.payload._id ? { ...item, value: action.payload.updateText} : item)
+
     })
     .addCase(editAllText.rejected, (state) => {
       state.status = Status.FAILED;
@@ -96,7 +98,8 @@ export const textSlice = createSlice({
     .addCase(removeText.fulfilled, (state, action) => {
       state.status = Status.IDLE;
       
-      state.messeges = action.payload;
+      state.messeges = state.messeges.filter((item) => 
+        item._id !== action.payload);
       
     })
     .addCase(removeText.rejected, (state) => {
