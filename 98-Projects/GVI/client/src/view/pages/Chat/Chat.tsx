@@ -5,7 +5,6 @@ import CurrentRecipient from './components/CurrentRecipient';
 import SideBar from './components/SideBar';
 import {socket} from '../../../index';
 import {ChatProvider} from '../../Contexts/ChatContext';
-import e from 'express';
 export interface nameInterface {
     first: string;
     last: string;
@@ -36,6 +35,7 @@ function Chat() {
     //set to empty so we don't get errors about undefined userInterface:
     //FIXME: this
     const [sentMessage, setSentMessage] = useState<String>('');
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [sentFile, setSentFile] = useState<any>('');
     const [recipient, setRecipient] = useState<any>({_id: '1', name: {first: 'a', last: 'a'}});
     const [sender, setSender] = useState<MessageUserInterface>({userId: '', name: {first: '', last: ''}});
@@ -105,6 +105,7 @@ function Chat() {
             console.log('off');
             socket.off('receive-message');
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [socket]);
 
     useEffect(() => {
@@ -114,12 +115,14 @@ function Chat() {
 
     useEffect(() => {
         handleJoinRoom();
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userList]);
 
     useEffect(() => {
         return () => {
             getMessageList();
         };
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [recipient]);
 
     function handleChatSearchBar(ev:any) {
@@ -200,9 +203,7 @@ return setSentMessage('')
                 let localRecipients = data;
                 setUserList(localRecipients);
                 setRecipient(localRecipients[0]);
-                if (!localRecipients[0].name.first) throw new Error('no localRecipients');
-                if (localRecipients[0].name.first) {
-                }
+                // if (!localRecipients[0].name.first) throw new Error('no localRecipients');
             }
         } catch (error) {
             console.error(error);

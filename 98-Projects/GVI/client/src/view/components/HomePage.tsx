@@ -24,8 +24,8 @@ const HomePage = (props:HomePageProps) => {
   const [thirdSection, setThirdSection] = useState('showThirdSection-none')
   const [secondSection, setSecondSection] = useState('showSecondSection-none')
   const [firstSection, setFirstSection] = useState('')
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [showProgressBar, setShowProgressBar] = useState('')
-  const [closeForm, setCloseForm] = useState('')
 
 
   function handleToggleShowSections() {
@@ -91,8 +91,7 @@ const HomePage = (props:HomePageProps) => {
       <div className='videoWindow'>
         <img src="./video.png" alt="" />
       </div>
-      <Login loginWindow={loginWindow} setLoginWindow={setLoginWindow}  
-      setCurrentUserType={ setCurrentUserType} setCurrentUser={setCurrentUser} />
+      <Login loginWindow={loginWindow} setLoginWindow={setLoginWindow} setCurrentUserType={ setCurrentUserType} setCurrentUser={setCurrentUser} />
       <UserSelection registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} setMenteeWindow={setMenteeWindow} mentorWindow={mentorWindow} setMentorWindow={setMentorWindow} />
       <RegisterMentee setCurrentUserType={ setCurrentUserType} registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} menteeWindow={menteeWindow} setMenteeWindow={setMenteeWindow} countryArray={countryArray} handleCloseRegisterWindow={handleCloseRegisterWindow} secondSection={secondSection} firstSection={firstSection} thirdSection={thirdSection} showProgressBar={showProgressBar} handleToggleShowSections={handleToggleShowSections} handleBackToggleShowSections={handleBackToggleShowSections} handleBackToSelection={handleBackToSelection} handleToggleShowThirdSection={handleToggleShowThirdSection} handleBackToggleShowThirdSection={handleBackToggleShowThirdSection}/>
       <RegisterMentor setCurrentUserType={ setCurrentUserType} countryArray={countryArray} registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} mentorWindow={mentorWindow} setMenteeWindow={setMenteeWindow} handleCloseRegisterWindow={handleCloseRegisterWindow} secondSection={secondSection} firstSection={firstSection}  thirdSection={thirdSection} showProgressBar={showProgressBar} handleToggleShowSections={handleToggleShowSections} handleBackToggleShowSections={handleBackToggleShowSections} handleBackToSelection={handleBackToSelection} handleToggleShowThirdSection={handleToggleShowThirdSection} handleBackToggleShowThirdSection={handleBackToggleShowThirdSection}/>

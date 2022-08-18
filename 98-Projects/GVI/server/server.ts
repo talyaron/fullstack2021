@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import cloudinaryTest from './controllers/uploads/test'
 const app = express();
 require('dotenv').config();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4001;
 //socket.io:
 import http from 'http';
 const server = http.createServer(app);

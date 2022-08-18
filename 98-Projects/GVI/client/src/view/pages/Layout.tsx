@@ -7,16 +7,19 @@ interface navBarLayoutProps {
   currentUserType: String;
   currentUser: any;
 }
+
 const Layout = (props: navBarLayoutProps) => {
+
   const { currentUserType, currentUser } = props;
 
+  
   const profilePic = currentUser.image
 
   
   
   return (
     <>
-      <NavBar profilePic={profilePic} currentUser={currentUser} currentUserType={currentUserType} />
+      <NavBar profilePic={profilePic} currentUserType={currentUserType} />
 
       <Outlet />
     </>

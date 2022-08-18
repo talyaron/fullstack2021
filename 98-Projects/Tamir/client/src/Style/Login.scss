@@ -1,0 +1,25 @@
+.Login {
+    display: flex;
+    position: absolute;
+    left: 32%;
+    gap: 30%; 
+   border-radius: 10px;
+
+    &__Login {
+        border-radius: 10px;
+        display: grid;
+        position: absolute;
+        top: 85%;
+        width: 30%;
+        height: 20%;
+    }
+
+    &__register {
+        display: grid;
+        position: absolute;
+        top: 85%;
+        left: 61%;
+        width: 30%;
+        height: 20%;
+    }
+}
