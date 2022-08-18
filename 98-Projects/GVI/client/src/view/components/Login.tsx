@@ -29,7 +29,7 @@ const Login = (props: LoginProps) => {
     if (user) {
       setCurrentUserType(user.type);
 
-      console.log();
+      
       
       
       setCurrentUser(user);

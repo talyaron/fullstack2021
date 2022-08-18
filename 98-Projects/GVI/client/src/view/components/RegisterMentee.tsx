@@ -59,7 +59,7 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
   
   async function handleMenteeForm(ev: any) {
     ev.preventDefault();
-    console.log("handleMenteeForm");
+    
     try {
       setActiveStep(3);
       const first = ev.target.elements.first.value;
@@ -94,12 +94,12 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         stage,
         type,
       };
-      console.log(user);
+      
 
       const userData = await axios.post("/api/users/add-user", { user });
 
       const { data } = userData;
-      console.log(data);
+      
       const { result } = data;
 
       const ownerUserId = result._id;

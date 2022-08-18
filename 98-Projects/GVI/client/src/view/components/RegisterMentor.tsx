@@ -68,7 +68,6 @@ const RegisterMentor = (props: RegisterMentorProps) => {
 
 
             const userData = await axios.post('/api/users/add-user', { user });
-            console.log(userData);
             
             // Already exists CHECK
             if (userData.data === 'Already exists') {

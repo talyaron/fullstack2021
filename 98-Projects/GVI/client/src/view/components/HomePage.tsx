@@ -59,7 +59,7 @@ const HomePage = (props:HomePageProps) => {
   async function getCountries() {
     const { data } = await axios.get('https://restcountries.com/v3.1/all')
     const countries = data.sort((a:any, b:any) => a.name.common.localeCompare(b.name.common));
-    console.log(countries)
+    
     setCountryArray(data)
   }
 
