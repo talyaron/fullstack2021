@@ -42,10 +42,11 @@ function Message() {
         {messages.map((message: any) => {
           return (
             <div className="messageBox__show__line" key={message._id}>
-              <h4 onClick={() => handleDeleteMessage(message._id)}>
+              <h4>
                 {message.text}
               </h4>
               <h4>Edit</h4>
+              <h4 onClick={() => handleDeleteMessage(message._id)}>X</h4>
             </div>
           )
         })}

@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
   host: "localhost",
   port: "3306",
   user: "root",
-  password: "password2",
+  password: "12345678",
 });
 
 connection.connect((err) => {
@@ -24,7 +24,7 @@ connection.connect((err) => {
 
 app.post("/api/create-databse", (req, res) => {
   console.log('/api/create-databse')
-  const query = `CREATE DATABASE TestDB1;`;
+  const query = `CREATE DATABASE testDB1;`;
   connection.query(query, (err, results, fields) => {
     try {
       if (err) throw err;
