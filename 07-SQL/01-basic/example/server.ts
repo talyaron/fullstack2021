@@ -128,6 +128,99 @@ app.post("/api/add-buyer", (req, res) => {
   });
 });
 
+// /api/get-users
+
+app.get("/api/get-buyers", (req, res) => {
+  console.log("api/get-buyers");
+
+
+
+  const query = `SELECT * FROM buyers ORDER BY year_of_birth DESC;`;
+
+  connection.query(query, (err, results, fields) => {
+    try {
+      if (err) throw err;
+
+      console.log(results);
+      console.log(fields);
+      res.send({ ok: true, buyers:results, message: "buyer were quired" });
+    } catch (error) {
+      console.error(error);
+      res.send({ ok: false, error: error.message });
+    }
+  });
+});
+
+app.get("/api/get-buyers-by-year", (req, res) => {
+  console.log("api/get-buyers");
+
+const {year} = req.query;
+if(!year) throw new Error('year is missing')
+
+  const query = `SELECT * FROM buyers WHERE year_of_birth <= ${year} ORDER BY year_of_birth ASC;`;
+
+  connection.query(query, (err, results, fields) => {
+    try {
+      if (err) throw err;
+
+      console.log(results);
+      console.log(fields);
+      res.send({ ok: true, buyers:results, message: "buyer were quired" });
+    } catch (error) {
+      console.error(error);
+      res.send({ ok: false, error: error.message });
+    }
+  });
+});
+
+
+app.get("/api/get-youngest-buyer", (req, res) => {
+  console.log("api/get-youngest-buyers");
+
+//SELECT id, MAX(rev)
+//FROM YourTable
+//GROUP BY id
+
+  const query = `SELECT MAX(year_of_birth) AS Youngest FROM buyers;`;
+
+  connection.query(query, (err, results, fields) => {
+    try {
+      if (err) throw err;
+
+      console.log(results);
+      console.log(fields);
+      res.send({ ok: true, buyer:results, message: "buyer were quired" });
+    } catch (error) {
+      console.error(error);
+      res.send({ ok: false, error: error.message });
+    }
+  });
+});
+
+
+//search-buyers
+app.get("/api/search-buyers", (req, res) => {
+  console.log("api/get-buyers");
+
+const {name} = req.query;
+if(!name) throw new Error('year is missing')
+
+  const query = `SELECT * FROM buyers WHERE name LIKE "%${name}%"`;
+
+  connection.query(query, (err, results, fields) => {
+    try {
+      if (err) throw err;
+
+      console.log(results);
+      console.log(fields);
+      res.send({ ok: true, buyers:results, message: "buyer were quired" });
+    } catch (error) {
+      console.error(error);
+      res.send({ ok: false, error: error.message });
+    }
+  });
+});
+
 app.listen(port, () => {
   return console.log(`Server is listening at port:${port} 🔥`);
 });

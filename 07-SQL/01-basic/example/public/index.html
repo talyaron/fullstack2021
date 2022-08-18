@@ -31,6 +31,14 @@
         <input type="number" name="year_of_birth" placeholder="Year of Birth" required min=1900 max=3000>
         <button type="submit">ADD</button>
     </form>
+<hr>
+    <button onclick="handleGetBuyers()">Get Users</button>
+    <div id="showUsers"></div>
+
+    <button onclick="handleGetYoungestBuyer()">Get Youngest</button>
+
+    <h3>Search for Buyers</h3>
+    <input type="text" placeholder="Buyer name" onkeyup="handleSearch(event)">
    
    
     <script src="./dist/index.js"></script>
