@@ -12,12 +12,14 @@
     "init": "^0.1.2",
     "mongoose": "^6.2.9",
     "mui": "^0.0.1",
+    "mysql": "^2.18.1",
     "node-sass": "^7.0.1",
     "nodemon": "^2.0.15",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "sass": "^1.52.3",
     "scss": "^0.2.4",
+    "sql": "^0.78.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

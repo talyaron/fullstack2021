@@ -1,23 +1,13 @@
 {
-    "liveServer.settings.port": 5502,
-    "compile-hero.disable-compile-files-on-did-save-code": false,
-    "cSpell.ignoreWords": [
-        "LSHFY",
-        "cybvt"
-    ],
-    "cSpell.words": [
-        "searchbar"
-    ],
-    "editor.colorDecorators": true,
-    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-    "workbench.preferredDarkColorTheme": "Theme + Dark Blue Theme",
-    "workbench.colorTheme": "Dark Low Contrast Fire",
-    "window.autoDetectColorScheme": false,
-    "editor.language.colorizedBracketPairs": [
-    
-    ],
-    "editor.tokenColorCustomizations": {
-    
-    },
-    
+  "liveServer.settings.port": 5502,
+  "compile-hero.disable-compile-files-on-did-save-code": true,
+  "cSpell.ignoreWords": ["LSHFY", "cybvt"],
+  "cSpell.words": ["searchbar"],
+  "editor.colorDecorators": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "workbench.preferredDarkColorTheme": "Theme + Dark Blue Theme",
+  "workbench.colorTheme": "Dark Low Contrast Fire",
+  "window.autoDetectColorScheme": false,
+  "editor.language.colorizedBracketPairs": [],
+  "editor.tokenColorCustomizations": {}
 }
