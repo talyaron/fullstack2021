@@ -12,7 +12,27 @@
 </head>
 
 <body>
-    <button onclick="handleClick()">Delete DB</button>
+    <button onclick="handleClick()">create table</button>
+    <hr/>
+    <h3>ADD cars</h3>
+    <form onsubmit="handleAddCar(event)">
+        <input type="text" name="license" placeholder="license" required>
+        <input type="text" name="model" placeholder="model" required>
+        <input type="text" name="manufacturer" placeholder="manufacturer" required>
+        <input type="number"  min=1900 max=3000 name="year" placeholder="Year" required>
+        <button type="submit">ADD</button>
+    </form>
+
+    <hr />
+    <h3>ADD Buyer</h3>
+    <form onsubmit="handleAddBuyer(event)">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="buyerId" placeholder="ID" required>
+        <input type="number" name="year_of_birth" placeholder="Year of Birth" required min=1900 max=3000>
+        <button type="submit">ADD</button>
+    </form>
+   
+   
     <script src="./dist/index.js"></script>
 </body>
 

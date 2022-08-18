@@ -41,7 +41,7 @@ function handleClick() {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, axios.post("/api/create-table", {})];
+                    return [4 /*yield*/, axios["delete"]('/api/delete-databse', {})];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
@@ -51,67 +51,6 @@ function handleClick() {
                     console.error(error_1);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
-            }
-        });
-    });
-}
-function handleAddCar(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var _a, year, model, license, manufacturer, data, error_2;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    ev.preventDefault();
-                    _b.label = 1;
-                case 1:
-                    _b.trys.push([1, 3, , 4]);
-                    _a = ev.target.elements, year = _a.year, model = _a.model, license = _a.license, manufacturer = _a.manufacturer;
-                    if (!year || !license || !model || !manufacturer)
-                        throw new Error('Missing data');
-                    year = year.value;
-                    license = license.value;
-                    model = model.value;
-                    manufacturer = manufacturer.value;
-                    return [4 /*yield*/, axios.post("/api/add-car", { year: year, model: model, license: license, manufacturer: manufacturer })];
-                case 2:
-                    data = (_b.sent()).data;
-                    console.log(data);
-                    return [3 /*break*/, 4];
-                case 3:
-                    error_2 = _b.sent();
-                    console.error(error_2);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
-            }
-        });
-    });
-}
-function handleAddBuyer(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var _a, name, buyerId, year_of_birth, data, error_3;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    ev.preventDefault();
-                    _b.label = 1;
-                case 1:
-                    _b.trys.push([1, 3, , 4]);
-                    _a = ev.target.elements, name = _a.name, buyerId = _a.buyerId, year_of_birth = _a.year_of_birth;
-                    if (!name || !year_of_birth || !buyerId)
-                        throw new Error('Missing data');
-                    name = name.value;
-                    year_of_birth = year_of_birth.value;
-                    buyerId = buyerId.value;
-                    return [4 /*yield*/, axios.post("/api/add-buyer", { name: name, buyerId: buyerId, year_of_birth: year_of_birth })];
-                case 2:
-                    data = (_b.sent()).data;
-                    console.log(data);
-                    return [3 /*break*/, 4];
-                case 3:
-                    error_3 = _b.sent();
-                    console.error(error_3);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
             }
         });
     });
