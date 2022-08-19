@@ -1,0 +1,97 @@
+.card {
+  display: grid;
+  grid-template-columns: repeat(5, 0.5fr);
+  grid-template-rows: repeat(5, 0.5fr);
+  column-gap: 20px;
+  padding: 5px;
+  margin-bottom: 10%;
+  height: 190px;
+  width: 301px;
+  border: solid black;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  background-color: #F0F0F0;
+  padding: 5%;
+  font-family: "Inter";
+  font-weight: 520;
+  font-style: normal;
+}
+.card__photo {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.card__photo img {
+  border-radius: 50%;
+  height: 76px;
+  width: 76px;
+}
+.card__center {
+  display: grid;
+  grid-template-rows: repeat(4, 0.5fr);
+  width: 100%;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  row-gap: 4px;
+}
+.card__center img {
+  height: 30px;
+  width: 30px;
+}
+.card__flex {
+  display: flex;
+}
+.card__flex a {
+  text-decoration: none;
+  color: black;
+  padding-left: 5%;
+  height: 31px;
+}
+.card__flex img {
+  width: 40px;
+}
+.card__star {
+  grid-column-start: 5;
+  grid-column-end: 5;
+}
+.card__button {
+  height: 39px;
+  width: 159px;
+  border-radius: 15px;
+  background-color: #ADADAD;
+  border: none;
+  grid-column-start: 4;
+  grid-column-end: 6;
+  grid-row-start: 5;
+  grid-row-end: 5;
+}
+
+.matching-card-buttons-flex {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.req_aa_btns {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  padding-right: 2em;
+  position: relative;
+  top: 50%;
+  left: 17.5%;
+}
+
+.req_aa_btn {
+  background-color: #c5cccc;
+  width: 134px;
+  height: 39px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.req_aa_btn .link {
+  color: black;
+  text-decoration: none;
+}

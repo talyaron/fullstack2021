@@ -5,8 +5,9 @@ import initiativeModel from "../models/initiativeModel";
 import countryFlagModel from "../models/countryFlagModel";
 import JWT from "jwt-simple";
 import requestsUsersModel from "../models/requestedModel";
-
-import AnsUsersModel from "../models/ansUsersModel";
+import ansUsersModel from "../models/ansUsers";
+import {useState} from 'react';
+import requestedModel from "../models/requestedModel";
 const cloudinary = require('./uploads/cloudinary');
 
 
@@ -609,7 +610,7 @@ export async function getAnsReqUser(req, res) {
     console.log(req.body);
     const { _id, type } = req.body;
 
-    const selected = await AnsUsersModel.find({});
+    const selected = await ansUsersModel.find({});
     console.log(selected);
     const selectedUsers = selected.filter(
       (user) => user.selectingUserId === _id && user.selected === true );
@@ -781,13 +782,28 @@ export const requestAnsUser = async (req: any, res: any) => {
       selectingUserId: selectedUser._id,
     };
 
-    const selectingUser: any = await AnsUsersModel.findOne(
+    const selectingUser: any = await ansUsersModel.findOne(
       searchSelecting
     );
   
+
+    const deleteddUser = await requestedModel.findById(userId);
+    // const database = require('mongodb').database,
+    const MongoClient = require('mongodb').MongoClient;
+  const database = MongoClient.db("gvi");
+  const pending =  database.collection("requested-users")
+  const del= await database.pending.deleteOne( { "_id": userId } )
+  if (!del) { console.log("not deleted succefully")}
+ else  {console.log("deleted succefully")}
+  
+  console.log(deleteddUser);
+  
+
+
+
     if (!selectingUser) {
       console.log("no record in DB - saving");
-      const newAnsDB = new AnsUsersModel({
+      const newAnsDB = new ansUsersModel({
         selectingUserId: selectedUser._id,
         selectedUser: { email, name, image },
         selected: true,
@@ -812,9 +828,85 @@ export const requestAnsUser = async (req: any, res: any) => {
     res.send({ success: true, selection: newSelection });
   }else{ console.log("user already exists in DB")}
 
+  
+
+
 
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
   }
+};
+
+
+//=========================================================================================
+
+export async function answers_users_req(req, res) {
+  try {
+    const { _id, type } = req.body;
+
+    const ans = await ansUsersModel.find({});
+    // const selectedUsers = ans.filter(
+    //   (user) => user.selectingUserId === _id );
+    // const selectedUesrModel = await UserModel.find({});
+    // const selectedUserInitiatives = await initiativeModel.find({});
+    // const flags = await countryFlagModel.find({});
+
+    // if (type === "mentee") {
+    //   let chosenMentors = [];
+    //   selectedUsers.forEach((selectedUser, i) => {
+    //     const mentor = selectedUesrModel.filter(
+    //       (selectedMentor) =>
+    //         selectedMentor.email === selectedUser.selectedUser["email"]
+    //     );
+    //     let user = mentor[0];
+    //     const country = flags.filter(
+    //       (country) => country.countryName === user.country
+    //     );
+    //     if(country.length > 0){
+    //       user['country'] = `${country[0].countryFlag}`;
+    //       };
+    //       chosenMentors.push(user);
+    //   });
+    //   res.send({ ok: true, chosenMentors });
+    // }
+    
+    // else if (type === "mentor") {
+    //   let chosenMentees = [];
+    //   selectedUsers.forEach((selectedUser, i) => {
+    //     const mentee = selectedUesrModel.filter(
+    //       (selectedMentee) =>
+    //         selectedMentee.email === selectedUser.selectedUser["email"]
+    //     );
+    //     let user = mentee[0];
+    //     const country = flags.filter(
+    //       (country) => country.countryName === user.country
+    //     );
+    //     if(country.length > 0){
+    //     user['country'] = `${country[0].countryFlag}`;
+    //     };
+    //     const menteeIntiative = selectedUserInitiatives.filter(
+    //       (selectedMentee) => selectedMentee.ownerUserId === user.id
+    //     );
+    //     if(menteeIntiative.length > 0){
+    //       user['fieldsOfKnowledge'] = `${menteeIntiative[0].companyName}`
+    //       user['sector'] = `${menteeIntiative[0].stage}`
+    //     }
+    //     console.log(menteeIntiative);
+    //     chosenMentees.push(user);
+    //   });
+    //   res.send({ ok: true, chosenMentees });
+    // }
+
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+}
+
+//================================================================
+
+export const getUsersAns = async (req, res) => {
+
+  
 };

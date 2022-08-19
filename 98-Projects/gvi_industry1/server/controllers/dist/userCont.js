@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.requestAnsUser = exports.getRequestUsers = exports.mentee_mentor_users_req = exports.getAnsReqUser = exports.getRequestedUser = exports.requestUser = exports.getLoggedInProfile = exports.addFlags = exports.adminGetAllUsers = exports.updateUserDetails = exports.getUserProfile = exports.addUser = exports.login = exports.getAllRecipients = exports.getSelectedUser = exports.getSelectingUser = exports.selectUser = exports.getSearch = exports.getFilter = exports.getUsers = exports.getUser = void 0;
+exports.getUsersAns = exports.answers_users_req = exports.requestAnsUser = exports.getRequestUsers = exports.mentee_mentor_users_req = exports.getAnsReqUser = exports.getRequestedUser = exports.requestUser = exports.getLoggedInProfile = exports.addFlags = exports.adminGetAllUsers = exports.updateUserDetails = exports.getUserProfile = exports.addUser = exports.login = exports.getAllRecipients = exports.getSelectedUser = exports.getSelectingUser = exports.selectUser = exports.getSearch = exports.getFilter = exports.getUsers = exports.getUser = void 0;
 var secret = process.env.JWT_SECRET;
 var userModel_1 = require("../models/userModel");
 var selectedUsers_1 = require("../models/selectedUsers");
@@ -44,7 +44,8 @@ var initiativeModel_1 = require("../models/initiativeModel");
 var countryFlagModel_1 = require("../models/countryFlagModel");
 var jwt_simple_1 = require("jwt-simple");
 var requestedModel_1 = require("../models/requestedModel");
-var ansUsersModel_1 = require("../models/ansUsersModel");
+var ansUsers_1 = require("../models/ansUsers");
+var requestedModel_2 = require("../models/requestedModel");
 var cloudinary = require('./uploads/cloudinary');
 exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var userInfo, payload, id, user, error_1;
@@ -798,7 +799,7 @@ function getAnsReqUser(req, res) {
                     _b.trys.push([0, 5, , 6]);
                     console.log(req.body);
                     _a = req.body, _id_3 = _a._id, type = _a.type;
-                    return [4 /*yield*/, ansUsersModel_1["default"].find({})];
+                    return [4 /*yield*/, ansUsers_1["default"].find({})];
                 case 1:
                     selected = _b.sent();
                     console.log(selected);
@@ -971,11 +972,11 @@ exports.getRequestUsers = function (req, res) { return __awaiter(void 0, void 0,
 }); };
 //============================================================================================
 exports.requestAnsUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userId, selectedUser, email, name, image, searchSelecting, selectingUser, newAnsDB, newSelection, error_18;
+    var userId, selectedUser, email, name, image, searchSelecting, selectingUser, deleteddUser, MongoClient, database, pending, del, newAnsDB, newSelection, error_18;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 6, , 7]);
+                _a.trys.push([0, 8, , 9]);
                 // const { userInfo } = req.cookies;
                 // const payload = JWT.decode(userInfo, secret);
                 // const currentUserId = payload.id;
@@ -992,18 +993,34 @@ exports.requestAnsUser = function (req, res) { return __awaiter(void 0, void 0, 
                     "selectedUser.email": selectedUser.email,
                     selectingUserId: selectedUser._id
                 };
-                return [4 /*yield*/, ansUsersModel_1["default"].findOne(searchSelecting)];
+                return [4 /*yield*/, ansUsers_1["default"].findOne(searchSelecting)];
             case 2:
                 selectingUser = _a.sent();
-                if (!!selectingUser) return [3 /*break*/, 4];
+                return [4 /*yield*/, requestedModel_2["default"].findById(userId)];
+            case 3:
+                deleteddUser = _a.sent();
+                MongoClient = require('mongodb').MongoClient;
+                database = MongoClient.db("gvi");
+                pending = database.collection("requested-users");
+                return [4 /*yield*/, database.pending.deleteOne({ "_id": userId })];
+            case 4:
+                del = _a.sent();
+                if (!del) {
+                    console.log("not deleted succefully");
+                }
+                else {
+                    console.log("deleted succefully");
+                }
+                console.log(deleteddUser);
+                if (!!selectingUser) return [3 /*break*/, 6];
                 console.log("no record in DB - saving");
-                newAnsDB = new ansUsersModel_1["default"]({
+                newAnsDB = new ansUsers_1["default"]({
                     selectingUserId: selectedUser._id,
                     selectedUser: { email: email, name: name, image: image },
                     selected: true
                 });
                 return [4 /*yield*/, newAnsDB.save()];
-            case 3:
+            case 5:
                 newSelection = _a.sent();
                 // } else {
                 //   if (selectingUser.selected === true) {
@@ -1020,17 +1037,47 @@ exports.requestAnsUser = function (req, res) { return __awaiter(void 0, void 0, 
                 //     );
                 //   }
                 res.send({ success: true, selection: newSelection });
-                return [3 /*break*/, 5];
-            case 4:
-                console.log("user already exists in DB");
-                _a.label = 5;
-            case 5: return [3 /*break*/, 7];
+                return [3 /*break*/, 7];
             case 6:
+                console.log("user already exists in DB");
+                _a.label = 7;
+            case 7: return [3 /*break*/, 9];
+            case 8:
                 error_18 = _a.sent();
                 console.log(error_18.error);
                 res.send({ error: error_18.message });
-                return [3 /*break*/, 7];
-            case 7: return [2 /*return*/];
+                return [3 /*break*/, 9];
+            case 9: return [2 /*return*/];
         }
+    });
+}); };
+//=========================================================================================
+function answers_users_req(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, _id, type, ans, error_19;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _b.trys.push([0, 2, , 3]);
+                    _a = req.body, _id = _a._id, type = _a.type;
+                    return [4 /*yield*/, ansUsers_1["default"].find({})];
+                case 1:
+                    ans = _b.sent();
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_19 = _b.sent();
+                    console.log(error_19.error);
+                    res.send({ error: error_19.message });
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.answers_users_req = answers_users_req;
+//================================================================
+exports.getUsersAns = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        return [2 /*return*/];
     });
 }); };

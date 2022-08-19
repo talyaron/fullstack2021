@@ -3,7 +3,7 @@ const router = express.Router();
 import {isAdmin} from'../middlewares/loginMiddleware'
 
 import { addUser, login, getUsers, getUser,getFilter, getAllRecipients,getSearch,getLoggedInProfile,adminGetAllUsers,
-     selectUser,getSelectingUser,getSelectedUser ,getUserProfile,updateUserDetails,addFlags, requestUser, getRequestedUser, mentee_mentor_users_req, getRequestUsers, requestAnsUser,getAnsReqUser} from '../controllers/userCont'
+     selectUser,getSelectingUser,getSelectedUser ,getUserProfile,updateUserDetails,addFlags, requestUser, getUsersAns, getRequestedUser, mentee_mentor_users_req, getRequestUsers, requestAnsUser,getAnsReqUser, answers_users_req} from '../controllers/userCont'
 import { requestMessage } from '../controllers/reqMessageCont';
 
 router
@@ -29,6 +29,9 @@ router
     .post('/get-selected-users',getSelectedUser)
     .post('/get-sent-request-users',getRequestedUser)
     .post('/get-sent-ans-users',getAnsReqUser)
+    .post('/get-ans-users',getUsersAns)
+
+    
    
     .post('/get-mentee-mentor-requests',mentee_mentor_users_req)
     .post('/get-menteeMentor-requests',getRequestUsers)

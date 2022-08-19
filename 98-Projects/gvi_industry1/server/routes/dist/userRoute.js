@@ -23,6 +23,7 @@ router
     .post('/get-selected-users', userCont_1.getSelectedUser)
     .post('/get-sent-request-users', userCont_1.getRequestedUser)
     .post('/get-sent-ans-users', userCont_1.getAnsReqUser)
+    .post('/get-ans-users', userCont_1.getUsersAns)
     .post('/get-mentee-mentor-requests', userCont_1.mentee_mentor_users_req)
     .post('/get-menteeMentor-requests', userCont_1.getRequestUsers)
     //.post ('/request-answer',requestAnsUser )

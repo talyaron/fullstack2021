@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 var react_1 = require("react");
 require("../styles/request.scss");
+require("../styles/requestPage.scss");
 var axios_1 = require("axios");
 var ReqUserCardPending_1 = require("./ReqUserCardPending");
 var Request = function () {
@@ -74,9 +75,9 @@ var Request = function () {
     //   <h5 className="requestPage__title"></h5>
     //   <div className="requestPage__wrapper">
     //     <RequestCard requestUsers={requestUsers} />
-    React.createElement("div", { className: "selectedPage" },
-        React.createElement("h5", { className: "selectedPage__title" }),
-        React.createElement("div", { className: "selectedPage__wrapper" },
+    React.createElement("div", { className: "requestedPage" },
+        React.createElement("h3", { className: "requestedPage__title" }, " "),
+        React.createElement("div", { className: "requestedPage__wrapper" },
             React.createElement(ReqUserCardPending_1["default"], { requestUsers: requestUsers }))));
 };
 exports["default"] = Request;

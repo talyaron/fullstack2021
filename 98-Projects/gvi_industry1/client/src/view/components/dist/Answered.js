@@ -52,7 +52,7 @@ var Answered = function () {
                     case 1:
                         data = (_a.sent()).data;
                         _id = data._id, type = data.type;
-                        return [4 /*yield*/, axios_1["default"].post("/api/users/get-sent-ans-users", { _id: _id, type: type })];
+                        return [4 /*yield*/, axios_1["default"].post("/api/users/get-ans-users", { _id: _id })];
                     case 2:
                         users = _a.sent();
                         chosen = users.data.chosen;

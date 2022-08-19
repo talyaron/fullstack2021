@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 var react_1 = require("react");
 require("../styles/selectedPage.scss");
+require("../styles/requestPage.scss");
 //@ts-ignore
 var axios_1 = require("axios");
 var ReqMentorsUserCard_1 = require("./ReqMentorsUserCard ");
@@ -70,9 +71,9 @@ var FromMentors = function () {
             });
         }); })();
     }, []);
-    return (React.createElement("div", { className: "selectedPage" },
-        React.createElement("h3", { className: "selectedPage__title" }, " "),
-        React.createElement("div", { className: "selectedPage__wrapper" },
+    return (React.createElement("div", { className: "requestedPage" },
+        React.createElement("h3", { className: "requestedPage__title" }, " "),
+        React.createElement("div", { className: "requestedPage__wrapper" },
             React.createElement(ReqMentorsUserCard_1["default"], { requestUsers: requestedUsers, type: type }))));
 };
 exports["default"] = FromMentors;

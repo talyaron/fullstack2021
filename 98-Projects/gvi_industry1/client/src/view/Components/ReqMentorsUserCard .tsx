@@ -79,7 +79,8 @@ async function handleAnsReq(userId: any) {
 
          
 
-          <div className='matching-card-buttons-flex'>
+          <div className='btn'>
+          
                               
                 <button onClick={()=>{{navigate('/mainPage/chat')}{handleAnsReq(selectedUser._id)}}}>
                   

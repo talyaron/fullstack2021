@@ -17,7 +17,7 @@ const Answered = () => {
      
       const { _id,type} = data;
       
-      const users = await axios.post("/api/users/get-sent-ans-users", { _id, type });
+      const users = await axios.post("/api/users/get-ans-users", { _id });
       const { chosen } = users.data;
     
       setAnsUsers(chosen);

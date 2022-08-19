@@ -4,12 +4,14 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import StarIcon from "@mui/icons-material/Star";
 import "../styles/card.scss";
 
+
 import Popup from 'reactjs-popup';
 import {useState,useEffect } from 'react';
 import 'reactjs-popup/dist/index.css';
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Form1 from "./Form1"
+import MessageForm1 from "../pages/matching/components/MessageForm1";
 
 
 interface CardReqProps {
@@ -79,33 +81,23 @@ async function handleAnsReq(userId: any) {
 
          
 
-          <div className='matching-card-buttons-flex'>
-                              
-                <button onClick={()=>{{navigate('/mainPage/chat')}{handleAnsReq(selectedUser._id)}}}>
+          <div className='req_aa_btns'>
+                                        
+                  
+                  <button id="right" onClick={()=>{{navigate('/mainPage/chat')}{handleAnsReq(selectedUser._id)}}}className='req_aa_btn'>
                   
                   
-                  Start Mentoring</button>):
+                 Start Mentoring</button>
+                 
 
-              
-                  
-                  <button onClick={()=>{{navigate('/mainPage/chat')}{handleAnsReq(selectedUser._id)}}}>
-                  
-                  
-                  Lets talk</button>
+                
+       <Popup className="popUp" trigger={<button id="left" onClick={() => handleAnsReq(selectedUser._id)} className='req_aa_btn'>
+                  MisMatch              
 
-                <button   onClick={() => { setDisplay("block"); }}>Send req</button>
-                {/* <button onClick={()=>{{navigate('/components/Form1')}{handleAnsReq(selectedUser._id)}}}>Mismatch</button> */}
-
-                <div  style={{ display: display, position: "absolute", top: "50" }}>
-                <form onSubmit={handleSubmitForm}>
-           
-           <input type="text" name="message" placeholder="Text here " />
-             <button  onClick={() => {{handleAnsReq(selectedUser._id)}{handleMessageReq(selectedUser._id,message)}}} type="submit">Submit</button>
-
-           
-         </form>
-      
-      </div>
+                </button>} >
+                <MessageForm1  userId={selectedUser._id}/>
+        </Popup>
+          
 
 
               </div>

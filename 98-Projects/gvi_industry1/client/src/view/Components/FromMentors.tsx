@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "../styles/selectedPage.scss";
+import "../styles/requestPage.scss";
+
 //@ts-ignore
 
 import axios from "axios"
@@ -37,9 +39,9 @@ const FromMentors = () => {
   }, []);
 
   return (
-    <div className="selectedPage">
-      <h3 className="selectedPage__title"> </h3>
-      <div className="selectedPage__wrapper">
+    <div className="requestedPage">
+      <h3 className="requestedPage__title"> </h3>
+      <div className="requestedPage__wrapper">
         <ReqMentorsUserCard requestUsers={requestedUsers} type={type} />
       </div>
     </div>

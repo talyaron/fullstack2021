@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 
 import "../styles/request.scss";
+import "../styles/requestPage.scss";
+
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios"
 import RequestCard from "../Components/RequestCard"
@@ -8,7 +10,6 @@ import RequestCard from "../Components/RequestCard"
 
 import SelectedUserCard from './SelectedUserCard';
 
-import ReqUserCard from "./ReqMenteeUserCard";
 import ReqUserCardPending from "./ReqUserCardPending";
 const Request = () => {
 
@@ -43,9 +44,9 @@ const Request = () => {
     //   <div className="requestPage__wrapper">
     //     <RequestCard requestUsers={requestUsers} />
 
-    <div className="selectedPage">
-      <h5 className="selectedPage__title"></h5>
-      <div className="selectedPage__wrapper">
+    <div className="requestedPage">
+      <h3 className="requestedPage__title"> </h3>
+      <div className="requestedPage__wrapper">
         <ReqUserCardPending requestUsers={requestUsers} />
       </div>
     </div>
