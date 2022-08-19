@@ -22,6 +22,7 @@ import Answered from './view/Components/Answered';
 import Pending from './view/Components/Pending';
 import FromMentee from './view/Components/FromMentee';
 import FromMentors from './view/Components/FromMentors';
+import Form1 from './view/Components/Form1';
 
 
 function App() {
@@ -101,12 +102,12 @@ function App() {
                 {currentUserType==='mentor'}?(
                 <Route index element={<FromMentee />} />
                 <Route path="from-mentee" element={<FromMentee />} />
-                <Route path="answered" element={<Request />} />
+                <Route path="answered" element={<Answered />} />
                 <Route path="pending" element={<Request />} />
                   ):(
                     <Route index element={<FromMentors />} />
                 <Route path="from-mentor" element={<FromMentors />} />
-                <Route path="answered" element={<Request />} />
+                <Route path="answered" element={<Answered />} />
                 <Route path="pending" element={<Request />} />
                   )
 

@@ -44,7 +44,7 @@ var initiativeModel_1 = require("../models/initiativeModel");
 var countryFlagModel_1 = require("../models/countryFlagModel");
 var jwt_simple_1 = require("jwt-simple");
 var requestedModel_1 = require("../models/requestedModel");
-var answerReqModel_1 = require("../models/answerReqModel");
+var ansUsersModel_1 = require("../models/ansUsersModel");
 var cloudinary = require('./uploads/cloudinary');
 exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var userInfo, payload, id, user, error_1;
@@ -652,14 +652,15 @@ function getLoggedInProfile(req, res) {
 exports.getLoggedInProfile = getLoggedInProfile;
 //======================================================================================
 exports.requestUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, payload, currentUserId, selectedUserId, selectedUser, email, name, image, searchSelecting, selectingUser, newSelection, newSelectionDB, error_13;
+    var userInfo, payload, currentUserId, selectedUserId, selectedUser, email, name, image, searchSelecting, selectingUser, newSelectionDB, newSelection, error_13;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 9, , 10]);
+                _a.trys.push([0, 6, , 7]);
                 userInfo = req.cookies.userInfo;
                 payload = jwt_simple_1["default"].decode(userInfo, secret);
                 currentUserId = payload.id;
+                console.log(req.body);
                 selectedUserId = req.body.selectedUserId;
                 return [4 /*yield*/, userModel_1["default"].findById(selectedUserId)];
             case 1:
@@ -674,7 +675,6 @@ exports.requestUser = function (req, res) { return __awaiter(void 0, void 0, voi
                 return [4 /*yield*/, requestedModel_1["default"].findOne(searchSelecting)];
             case 2:
                 selectingUser = _a.sent();
-                newSelection = void 0;
                 if (!!selectingUser) return [3 /*break*/, 4];
                 console.log("no record in DB - saving");
                 newSelectionDB = new requestedModel_1["default"]({
@@ -685,29 +685,32 @@ exports.requestUser = function (req, res) { return __awaiter(void 0, void 0, voi
                 return [4 /*yield*/, newSelectionDB.save()];
             case 3:
                 newSelection = _a.sent();
-                return [3 /*break*/, 8];
-            case 4:
-                if (!(selectingUser.selected === true)) return [3 /*break*/, 6];
-                console.log("a record in DB - turning off");
-                return [4 /*yield*/, requestedModel_1["default"].findOneAndUpdate(searchSelecting, { selected: false })];
-            case 5:
-                newSelection = _a.sent();
-                return [3 /*break*/, 8];
-            case 6:
-                console.log("a record in DB - turning on");
-                return [4 /*yield*/, requestedModel_1["default"].findOneAndUpdate(searchSelecting, { selected: true })];
-            case 7:
-                newSelection = _a.sent();
-                _a.label = 8;
-            case 8:
+                // } else {
+                //   if (selectingUser.selected === true) {
+                //     console.log("a record in DB - turning off");
+                //     newSelection = await requestsUsersModel.findOneAndUpdate(
+                //       searchSelecting,
+                //       { selected: false }
+                //     );
+                //   } else {
+                //     console.log("a record in DB - turning on");
+                //     newSelection = await requestsUsersModel.findOneAndUpdate(
+                //       searchSelecting,
+                //       { selected: true }
+                //     );
+                //   }
                 res.send({ success: true, selection: newSelection });
-                return [3 /*break*/, 10];
-            case 9:
+                return [3 /*break*/, 5];
+            case 4:
+                console.log("user already exists in DB");
+                _a.label = 5;
+            case 5: return [3 /*break*/, 7];
+            case 6:
                 error_13 = _a.sent();
                 console.log(error_13.error);
                 res.send({ error: error_13.message });
-                return [3 /*break*/, 10];
-            case 10: return [2 /*return*/];
+                return [3 /*break*/, 7];
+            case 7: return [2 /*return*/];
         }
     });
 }); };
@@ -793,10 +796,12 @@ function getAnsReqUser(req, res) {
             switch (_b.label) {
                 case 0:
                     _b.trys.push([0, 5, , 6]);
+                    console.log(req.body);
                     _a = req.body, _id_3 = _a._id, type = _a.type;
-                    return [4 /*yield*/, requestedModel_1["default"].find({})];
+                    return [4 /*yield*/, ansUsersModel_1["default"].find({})];
                 case 1:
                     selected = _b.sent();
+                    console.log(selected);
                     selectedUsers = selected.filter(function (user) { return user.selectingUserId === _id_3 && user.selected === true; });
                     return [4 /*yield*/, userModel_1["default"].find({})];
                 case 2:
@@ -966,16 +971,18 @@ exports.getRequestUsers = function (req, res) { return __awaiter(void 0, void 0,
 }); };
 //============================================================================================
 exports.requestAnsUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, payload, currentUserId, selectedUserId, selectedUser, email, name, image, searchSelecting, selectingUser, newSelection, newAnsDB, error_18;
+    var userId, selectedUser, email, name, image, searchSelecting, selectingUser, newAnsDB, newSelection, error_18;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 9, , 10]);
-                userInfo = req.cookies.userInfo;
-                payload = jwt_simple_1["default"].decode(userInfo, secret);
-                currentUserId = payload.id;
-                selectedUserId = req.body.selectedUserId;
-                return [4 /*yield*/, userModel_1["default"].findById(selectedUserId)];
+                _a.trys.push([0, 6, , 7]);
+                // const { userInfo } = req.cookies;
+                // const payload = JWT.decode(userInfo, secret);
+                // const currentUserId = payload.id;
+                console.log(req.body);
+                userId = req.body.userId;
+                console.log(userId);
+                return [4 /*yield*/, userModel_1["default"].findById(userId)];
             case 1:
                 selectedUser = _a.sent();
                 if (!selectedUser)
@@ -983,45 +990,47 @@ exports.requestAnsUser = function (req, res) { return __awaiter(void 0, void 0, 
                 email = selectedUser.email, name = selectedUser.name, image = selectedUser.image;
                 searchSelecting = {
                     "selectedUser.email": selectedUser.email,
-                    selectingUserId: currentUserId
+                    selectingUserId: selectedUser._id
                 };
-                return [4 /*yield*/, answerReqModel_1["default"].findOne(searchSelecting)];
+                return [4 /*yield*/, ansUsersModel_1["default"].findOne(searchSelecting)];
             case 2:
                 selectingUser = _a.sent();
-                newSelection = void 0;
                 if (!!selectingUser) return [3 /*break*/, 4];
                 console.log("no record in DB - saving");
-                newAnsDB = new answerReqModel_1["default"]({
-                    selectingUserId: currentUserId,
+                newAnsDB = new ansUsersModel_1["default"]({
+                    selectingUserId: selectedUser._id,
                     selectedUser: { email: email, name: name, image: image },
                     selected: true
                 });
                 return [4 /*yield*/, newAnsDB.save()];
             case 3:
                 newSelection = _a.sent();
-                return [3 /*break*/, 8];
-            case 4:
-                if (!(selectingUser.selected === true)) return [3 /*break*/, 6];
-                console.log("a record in DB - turning off");
-                return [4 /*yield*/, answerReqModel_1["default"].findOneAndUpdate(searchSelecting, { selected: false })];
-            case 5:
-                newSelection = _a.sent();
-                return [3 /*break*/, 8];
-            case 6:
-                console.log("a record in DB - turning on");
-                return [4 /*yield*/, answerReqModel_1["default"].findOneAndUpdate(searchSelecting, { selected: true })];
-            case 7:
-                newSelection = _a.sent();
-                _a.label = 8;
-            case 8:
+                // } else {
+                //   if (selectingUser.selected === true) {
+                //     console.log("a record in DB - turning off");
+                //     newSelection = await requestsUsersModel.findOneAndUpdate(
+                //       searchSelecting,
+                //       { selected: false }
+                //     );
+                //   } else {
+                //     console.log("a record in DB - turning on");
+                //     newSelection = await requestsUsersModel.findOneAndUpdate(
+                //       searchSelecting,
+                //       { selected: true }
+                //     );
+                //   }
                 res.send({ success: true, selection: newSelection });
-                return [3 /*break*/, 10];
-            case 9:
+                return [3 /*break*/, 5];
+            case 4:
+                console.log("user already exists in DB");
+                _a.label = 5;
+            case 5: return [3 /*break*/, 7];
+            case 6:
                 error_18 = _a.sent();
                 console.log(error_18.error);
                 res.send({ error: error_18.message });
-                return [3 /*break*/, 10];
-            case 10: return [2 /*return*/];
+                return [3 /*break*/, 7];
+            case 7: return [2 /*return*/];
         }
     });
 }); };

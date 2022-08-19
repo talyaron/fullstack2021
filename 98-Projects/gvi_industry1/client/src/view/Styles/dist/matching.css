@@ -1,0 +1,112 @@
+.matching {
+  margin-top: 50px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(auto-fit, 80fr));
+  grid-template-rows: repeat(3, 1fr);
+  height: 5px;
+}
+.matching__wrapper {
+  margin-top: 50px;
+  display: flex;
+  gap: 20px;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  justify-items: center;
+  grid-auto-flow: row;
+  flex-wrap: wrap;
+}
+.matching__wrapper_card {
+  width: 348px;
+  height: 393px;
+  border-radius: 8% 8% 0 0;
+  background-color: #E1E1E1;
+  position: relative;
+}
+.matching__wrapper_card_select {
+  position: absolute;
+  top: 3%;
+  left: 88%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  border-radius: 50%;
+  background-color: #D9D9D9;
+  width: 2rem;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+}
+.matching__wrapper_card_pic {
+  width: 348px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8% 8% 0 0;
+  cursor: pointer;
+}
+.matching__wrapper_card_seen {
+  position: absolute;
+  background-color: #D9D9D9;
+  right: 0;
+  bottom: 32%;
+  padding: 5px;
+}
+.matching__wrapper_card_description {
+  padding: 1rem;
+}
+.matching__wrapper_card_footer {
+  display: flex;
+  justify-content: space-between;
+}
+.matching__wrapper_card_footer_linkedin {
+  width: 30px;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+}
+.matching__wrapper_card_footer_request {
+  border: none;
+  background-color: #ADADAD;
+  border-radius: 15px;
+}
+.matching__search {
+  grid-column: 2/2;
+  grid-row: 1/2;
+}
+.matching__filter-menu {
+  margin-top: 150px;
+  margin-right: 50px;
+  height: 50px;
+  height: 100px;
+  position: sticky;
+  grid-column: 1/2;
+  grid-row: 2/2;
+}
+.matching--wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 19vh;
+  right: 34vw;
+  border: 1px solid black;
+  padding: 24px;
+  padding-top: 0px;
+}
+.matching--wrapper h1 {
+  border-bottom: 1px black solid;
+}
+.matching--wrapper select,
+.matching--wrapper button {
+  font-size: 1.5em;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+Popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}

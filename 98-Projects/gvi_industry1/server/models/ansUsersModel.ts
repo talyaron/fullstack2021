@@ -17,6 +17,6 @@ const AnsUserSchema = new mongoose.Schema({
   selected: Boolean,
 });
 
-const AnsUsersModel = mongoose.model("requested-answered", AnsUserSchema);
+const AnsUsersModel = mongoose.model("requested-answereds", AnsUserSchema);
 
 export default AnsUsersModel;

@@ -2,11 +2,10 @@ import requestMessageModel from "../models/requestMessageModel";
 const secret = process.env.JWT_SECRET;
 
 import JWT from "jwt-simple";
-<<<<<<< HEAD
-import axios from 'axios'
-=======
+
+
 import axios from "axios";
->>>>>>> Yae_Will
+
 import UserModel from "../models/userModel";
 
 //======================================================================================
@@ -15,30 +14,33 @@ export const requestMessage = async (req: any, res: any) => {
       const { userInfo } = req.cookies;
       const payload = JWT.decode(userInfo, secret);
       const senderUserId = payload.id;
-  
-      const { recipientUserId,textMessage } = req.body;
+      console.log(req.body);
+      const {userId ,message} = req.body;
 
-    //   const recipient = await UserModel.findById(recipientUserId);
-    //   if (!recipient) throw new Error("couldnt find the user in the DB");
+       const recipientUser = await UserModel.findById(userId);
+       console.log(recipientUser);
+      if (!recipientUser) throw new Error("couldnt find the user in the DB");
   
     //   const { email, name, image } = recipient;
 
-    //   const selectedUser = await UserModel.findById(selectedUserId);
-    //   if (!selectedUser) throw new Error("couldnt find the user in the DB");
+       const senderUser = await UserModel.findById(senderUserId);
+       if (!senderUser) throw new Error("couldnt find the user in the DB");
+       else{
+        console.log("saving to DB")
   
     //   const { email, name, image } = selectedUser;
 
-    let newReqMessage: any;
+    // let newReqMessage: any;
       
     
         const newRequestMessagesDB = new requestMessageModel({
-            sender: senderUserId,
-            recipient: recipientUserId,
-            text: textMessage ,
+            sender: senderUser.name,
+            recipient: recipientUser.name,
+            text: message
         
         });
-        newReqMessage = await newRequestMessagesDB.save();
-  
+        const newReqMessage = await newRequestMessagesDB.save();
+     
     //    const searchRecipient = {
        
     //     recipientUserId: recipientUserId,
@@ -66,7 +68,7 @@ export const requestMessage = async (req: any, res: any) => {
     //     }
     //   }
   
-      res.send({ success: true, selection: newReqMessage });
+      res.send({ success: true, selection: newReqMessage }) };
     } catch (error) {
       console.log(error.error);
       res.send({ error: error.message });

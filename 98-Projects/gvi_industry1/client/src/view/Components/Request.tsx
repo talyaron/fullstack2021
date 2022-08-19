@@ -7,11 +7,8 @@ import RequestCard from "../Components/RequestCard"
 
 
 import SelectedUserCard from './SelectedUserCard';
-<<<<<<< HEAD
-=======
-import RequestCard from "./RequestCard";
->>>>>>> Yae_Will
-import ReqUserCard from "./ReqUserCard";
+
+import ReqUserCard from "./ReqMenteeUserCard";
 import ReqUserCardPending from "./ReqUserCardPending";
 const Request = () => {
 

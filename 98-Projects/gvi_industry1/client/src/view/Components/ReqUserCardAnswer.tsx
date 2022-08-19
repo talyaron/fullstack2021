@@ -12,12 +12,12 @@ import axios from "axios";
 
 
 interface CardReqProps {
-  requestUsers: any;
+  ansUsers: any;
 }
 
-const ReqUserCardPending = (props: CardReqProps) => {
+const ReqUserCardAnswer = (props: CardReqProps) => {
 
-  const { requestUsers } = props;
+  const { ansUsers } = props;
   const navigate = useNavigate();
 
   // async function handleAnsReq(requestUsersId: any) { 
@@ -28,7 +28,7 @@ const ReqUserCardPending = (props: CardReqProps) => {
 
   return (
     <>
-      {requestUsers.map((selectedUser: any, i: any) =>
+      {ansUsers.map((selectedUser: any, i: any) =>
         <div className="card" key={i}>
 
           <div className="card__photo">
@@ -61,4 +61,4 @@ const ReqUserCardPending = (props: CardReqProps) => {
   );
 };
 
-export default ReqUserCardPending;
+export default ReqUserCardAnswer;

@@ -40,25 +40,39 @@ exports.requestMessage = void 0;
 var requestMessageModel_1 = require("../models/requestMessageModel");
 var secret = process.env.JWT_SECRET;
 var jwt_simple_1 = require("jwt-simple");
+var userModel_1 = require("../models/userModel");
 //======================================================================================
 exports.requestMessage = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, payload, senderUserId, _a, recipientUserId, textMessage, newReqMessage, newRequestMessagesDB, error_1;
+    var userInfo, payload, senderUserId, _a, userId, message, recipientUser, senderUser, newRequestMessagesDB, newReqMessage, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
+                _b.trys.push([0, 6, , 7]);
                 userInfo = req.cookies.userInfo;
                 payload = jwt_simple_1["default"].decode(userInfo, secret);
                 senderUserId = payload.id;
-                _a = req.body, recipientUserId = _a.recipientUserId, textMessage = _a.textMessage;
-                newReqMessage = void 0;
+                console.log(req.body);
+                _a = req.body, userId = _a.userId, message = _a.message;
+                return [4 /*yield*/, userModel_1["default"].findById(userId)];
+            case 1:
+                recipientUser = _b.sent();
+                console.log(recipientUser);
+                if (!recipientUser)
+                    throw new Error("couldnt find the user in the DB");
+                return [4 /*yield*/, userModel_1["default"].findById(senderUserId)];
+            case 2:
+                senderUser = _b.sent();
+                if (!!senderUser) return [3 /*break*/, 3];
+                throw new Error("couldnt find the user in the DB");
+            case 3:
+                console.log("saving to DB");
                 newRequestMessagesDB = new requestMessageModel_1["default"]({
-                    sender: senderUserId,
-                    recipient: recipientUserId,
-                    text: textMessage
+                    sender: senderUser.name,
+                    recipient: recipientUser.name,
+                    text: message
                 });
                 return [4 /*yield*/, newRequestMessagesDB.save()];
-            case 1:
+            case 4:
                 newReqMessage = _b.sent();
                 //    const searchRecipient = {
                 //     recipientUserId: recipientUserId,
@@ -82,13 +96,16 @@ exports.requestMessage = function (req, res) { return __awaiter(void 0, void 0, 
                 //     }
                 //   }
                 res.send({ success: true, selection: newReqMessage });
-                return [3 /*break*/, 3];
-            case 2:
+                _b.label = 5;
+            case 5:
+                ;
+                return [3 /*break*/, 7];
+            case 6:
                 error_1 = _b.sent();
                 console.log(error_1.error);
                 res.send({ error: error_1.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 7];
+            case 7: return [2 /*return*/];
         }
     });
 }); };

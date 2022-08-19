@@ -6,8 +6,7 @@ import countryFlagModel from "../models/countryFlagModel";
 import JWT from "jwt-simple";
 import requestsUsersModel from "../models/requestedModel";
 
-import requestedUsersModel from "../models/requestedModel";
-import AnsUsersModel from "../models/answerReqModel";
+import AnsUsersModel from "../models/ansUsersModel";
 const cloudinary = require('./uploads/cloudinary');
 
 
@@ -475,7 +474,7 @@ export const requestUser = async (req: any, res: any) => {
     const { userInfo } = req.cookies;
     const payload = JWT.decode(userInfo, secret);
     const currentUserId = payload.id;
-
+    console.log(req.body);
     const { selectedUserId } = req.body;
     const selectedUser = await UserModel.findById(selectedUserId);
     if (!selectedUser) throw new Error("couldnt find the user in the DB");
@@ -489,33 +488,36 @@ export const requestUser = async (req: any, res: any) => {
 
     const selectingUser: any = await requestsUsersModel.findOne(
       searchSelecting
-    );
-    let newSelection: any;
-    if (!selectingUser) {
+     );
+    // let newSelection: any;
+     if (!selectingUser) {
       console.log("no record in DB - saving");
       const newSelectionDB = new requestsUsersModel({
         selectingUserId: currentUserId,
         selectedUser: { email, name, image },
         selected: true,
       });
-      newSelection = await newSelectionDB.save();
-    } else {
-      if (selectingUser.selected === true) {
-        console.log("a record in DB - turning off");
-        newSelection = await requestsUsersModel.findOneAndUpdate(
-          searchSelecting,
-          { selected: false }
-        );
-      } else {
-        console.log("a record in DB - turning on");
-        newSelection = await requestsUsersModel.findOneAndUpdate(
-          searchSelecting,
-          { selected: true }
-        );
-      }
-    }
+      const newSelection = await newSelectionDB.save();
+    // } else {
+    //   if (selectingUser.selected === true) {
+    //     console.log("a record in DB - turning off");
+    //     newSelection = await requestsUsersModel.findOneAndUpdate(
+    //       searchSelecting,
+    //       { selected: false }
+    //     );
+    //   } else {
+    //     console.log("a record in DB - turning on");
+    //     newSelection = await requestsUsersModel.findOneAndUpdate(
+    //       searchSelecting,
+    //       { selected: true }
+    //     );
+    //   }
+    
 
     res.send({ success: true, selection: newSelection });
+  }else{ console.log("user already exists in DB")}
+
+
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
@@ -604,11 +606,13 @@ export async function getRequestedUser(req, res) {
 //=========================================================================================//
 export async function getAnsReqUser(req, res) {
   try {
+    console.log(req.body);
     const { _id, type } = req.body;
 
-    const selected = await requestsUsersModel.find({});
+    const selected = await AnsUsersModel.find({});
+    console.log(selected);
     const selectedUsers = selected.filter(
-      (user) => user.selectingUserId === _id && user.selected === true);
+      (user) => user.selectingUserId === _id && user.selected === true );
     const selectedUesrModel = await UserModel.find({});
     const selectedUserInitiatives = await initiativeModel.find({});
     const flags = await countryFlagModel.find({});
@@ -761,53 +765,56 @@ export const getRequestUsers = async (req, res) => {
 
 export const requestAnsUser = async (req: any, res: any) => {
   try {
-    const { userInfo } = req.cookies;
-    const payload = JWT.decode(userInfo, secret);
-    const currentUserId = payload.id;
-
-    const { selectedUserId } = req.body;
-    const selectedUser = await UserModel.findById(selectedUserId);
+    // const { userInfo } = req.cookies;
+    // const payload = JWT.decode(userInfo, secret);
+    // const currentUserId = payload.id;
+    console.log(req.body);
+    const { userId } = req.body;
+    console.log(userId);
+    const selectedUser = await UserModel.findById(userId);
     if (!selectedUser) throw new Error("couldnt find the user in the DB");
 
     const { email, name, image } = selectedUser;
 
     const searchSelecting = {
       "selectedUser.email": selectedUser.email,
-      selectingUserId: currentUserId,
+      selectingUserId: selectedUser._id,
     };
 
     const selectingUser: any = await AnsUsersModel.findOne(
       searchSelecting
     );
-    let newSelection: any;
+  
     if (!selectingUser) {
       console.log("no record in DB - saving");
       const newAnsDB = new AnsUsersModel({
-        selectingUserId: currentUserId,
+        selectingUserId: selectedUser._id,
         selectedUser: { email, name, image },
         selected: true,
       });
-      newSelection = await newAnsDB.save();
-    } else {
-      if (selectingUser.selected === true) {
-        console.log("a record in DB - turning off");
-        newSelection = await AnsUsersModel.findOneAndUpdate(
-          searchSelecting,
-          { selected: false }
-        );
-      } else {
-        console.log("a record in DB - turning on");
-        newSelection = await AnsUsersModel.findOneAndUpdate(
-          searchSelecting,
-          { selected: true }
-        );
-      }
-    }
+      const newSelection = await newAnsDB.save();
+    // } else {
+    //   if (selectingUser.selected === true) {
+    //     console.log("a record in DB - turning off");
+    //     newSelection = await requestsUsersModel.findOneAndUpdate(
+    //       searchSelecting,
+    //       { selected: false }
+    //     );
+    //   } else {
+    //     console.log("a record in DB - turning on");
+    //     newSelection = await requestsUsersModel.findOneAndUpdate(
+    //       searchSelecting,
+    //       { selected: true }
+    //     );
+    //   }
+    
 
     res.send({ success: true, selection: newSelection });
+  }else{ console.log("user already exists in DB")}
+
+
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
   }
 };
-

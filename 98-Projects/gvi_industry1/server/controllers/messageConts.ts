@@ -10,7 +10,7 @@ export const getMessages = async (req, res) => {
     } catch (error) {
         console.log(error.error)
         res.send({ error: error.message })
-    }
+    }   
 }
 export const uploadFile = async (req, res) => {
     try {

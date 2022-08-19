@@ -1,6 +1,10 @@
 import StarSvg from "./StarSvg";
 import axios from 'axios'
+
 import MessageForm1 from "./MessageForm1";
+import Popup from "reactjs-popup";
+//import "../styles/matching.scss";
+
 
 
 
@@ -13,7 +17,11 @@ interface MatchingCardProps {
 const MatchingCard = (props: MatchingCardProps) => {
   const { usersList} = props
   async function handleSelectUser(selectedUserId: any) { await axios.post("/api/users/selected-user", { selectedUserId }) }
-  async function handleSendReq(selectedUserId: any) { await axios.post("/api/users/requested-users", { selectedUserId }) }
+  async function handleSendReq(selectedUserId: any) { 
+    
+    const {data}= await axios.post("/api/users/requested-users", { selectedUserId }) 
+    console.log(data);
+  }
 
 
 
@@ -35,14 +43,48 @@ const MatchingCard = (props: MatchingCardProps) => {
                   <img className='matching__wrapper_card_footer_linkedin' src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png" alt="" />
                   
                 </a>
-                <MessageForm1  userId={user._id}/>
+                {/* <MessageForm1  userId={user._id}/> */}
+                
                 {/* /====================================================== */}
-                <button onClick={() => handleSendReq(user._id)} className='matching__wrapper_card_footer_request'>Send Request</button>
+                <Popup className="popUp" trigger={<button onClick={() => handleSendReq(user._id)} className='matching__wrapper_card_footer_request'>
+                  Send Request               
+
+                </button>} >
+                <MessageForm1  userId={user._id}/>
+
+                {/* <div>
+      <form>
+          <label>
+              Select a reason for rejecting the request:
+                <input type="text" name="name" /><br></br>
+        </label>
+        <label>       
+              You can add a short message(optional):
+                <input type="text" name="name" placeholder='(Up to 50 characters)' />
+        </label>
+                  <input type="submit" value="Submit" />
+      </form>                           
+    </div> */}
+                </Popup>
                 
               </div>
             </div>
 
-
+            {/* <Popup  trigger={<button className='matching-card-flex__button' >Mismatch</button>}>
+    <div>
+      <form>
+          <label>
+              Select a reason for rejecting the request:
+                <input type="text" name="name" /><br></br>
+        </label>
+        <label>       
+              You can add a short message(optional):
+                <input type="text" name="name" placeholder='(Up to 50 characters)' />
+        </label>
+                  <input type="submit" value="Submit" />
+      </form>                           
+    </div>
+  </Popup> */}
             
           </div>
 
@@ -51,7 +93,7 @@ const MatchingCard = (props: MatchingCardProps) => {
         )}
       </div>
 
-//
+
     </div>
   )
 

@@ -4,7 +4,7 @@ import "../styles/selectedPage.scss";
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios"
 import SelectedUserCard from './SelectedUserCard';
-import ReqUserCard from "./ReqUserCard";
+import ReqMenteeUserCard from "./ReqMenteeUserCard";
 const FromMentee = () => {
 
   const [selectedUsers, setSelectedUsers] = useState([]);
@@ -30,14 +30,7 @@ const FromMentee = () => {
         setRequestedUsers(chosenMentees);
       }
 
-      // const { chosen } = users.data;
       
-      // if(type === 'mentee'){
-      //   setType('Mentors')
-      // }
-      // else{
-      //   setType('Entrepreneurs')
-      // }
     })();
   }, []);
 
@@ -45,7 +38,7 @@ const FromMentee = () => {
     <div className="selectedPage">
       <h3 className="selectedPage__title"> </h3>
       <div className="selectedPage__wrapper">
-        <ReqUserCard requestUsers={requestedUsers} />
+        <ReqMenteeUserCard requestUsers={requestedUsers} type={type} />
       </div>
     </div>
   );
