@@ -35,6 +35,15 @@ function Message() {
 
   }
 
+  async function handleEditText(message: any) {
+    try {
+      if (!message) throw new Error('no massege');
+      
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div className="messageBox">
 
@@ -45,8 +54,10 @@ function Message() {
               <h4>
                 {message.text}
               </h4>
-              <h4>Edit</h4>
-              <h4 onClick={() => handleDeleteMessage(message._id)}>X</h4>
+              <div className="messageBox__show__line--options">
+                <h4 onClick={() => handleEditText(message.text)}>Edit</h4>
+                <h4 onClick={() => handleDeleteMessage(message._id)}>X</h4>
+              </div>
             </div>
           )
         })}

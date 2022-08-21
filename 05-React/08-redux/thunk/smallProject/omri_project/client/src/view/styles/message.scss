@@ -20,6 +20,13 @@
             display: flex;
             flex-wrap: nowrap;
             justify-content: space-between;
+
+            &--options{
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                width: 10%;
+            }
            
 
             h4 {
