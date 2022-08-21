@@ -37,44 +37,40 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var react_1 = require("react");
-require("../styles/selectedPage.scss");
-require("../styles/requestPage.scss");
-//@ts-ignore
-var axios_1 = require("axios");
-var ReqMentorsUserCard_1 = require("./ReqMentorsUserCard ");
-var FromMentors = function () {
-    var _a = react_1.useState([]), requestedUsers = _a[0], setRequestedUsers = _a[1];
-    var _b = react_1.useState(''), type = _b[0], setType = _b[1];
-    react_1.useEffect(function () {
-        (function () { return __awaiter(void 0, void 0, void 0, function () {
-            var data, _id, type, loggedUser, users, chosenMentors, chosenMentees;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, axios_1["default"].get("/api/users/get-selecteing-user")];
-                    case 1:
-                        data = (_a.sent()).data;
-                        _id = data._id, type = data.type;
-                        loggedUser = _id;
-                        return [4 /*yield*/, axios_1["default"].post('/api/users/get-mentee-mentor-requests', { _id: _id, type: type })];
-                    case 2:
-                        users = _a.sent();
-                        //const users = await axios.post('/api/users/get-menteeMentor-requests', { _id, type });
-                        if (type === 'mentee') {
-                            chosenMentors = users.data.chosenMentors;
-                            setRequestedUsers(chosenMentors);
+var react_st_modal_1 = require("react-st-modal");
+// The element to be shown in the modal window
+function CustomDialogContent() {
+    // use this hook to control the dialog
+    var dialog = react_st_modal_1.useDialog();
+    var _a = react_1.useState(), value = _a[0], setValue = _a[1];
+    function CustomExample() {
+        var _this = this;
+        return (react_1["default"].createElement("div", null,
+            react_1["default"].createElement("button", { onClick: function () { return __awaiter(_this, void 0, void 0, function () {
+                    var result;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0: return [4 /*yield*/, react_st_modal_1.CustomDialog(react_1["default"].createElement(CustomDialogContent, null), {
+                                    title: 'Custom Dialog',
+                                    showCloseIcon: true
+                                })];
+                            case 1:
+                                result = _a.sent();
+                                return [2 /*return*/];
                         }
-                        else {
-                            chosenMentees = users.data.chosenMentees;
-                            setRequestedUsers(chosenMentees);
-                        }
-                        return [2 /*return*/];
-                }
-            });
-        }); })();
-    }, []);
-    return (React.createElement("div", { className: "requestedPage" },
-        React.createElement("h3", { className: "requestedPage__title" }, " "),
-        React.createElement("div", { className: "requestedPage__wrapper" },
-            React.createElement(ReqMentorsUserCard_1["default"], { requestUsers: requestedUsers, type: type }))));
-};
-exports["default"] = FromMentors;
+                    });
+                }); } }, "Custom")));
+    }
+    var Mui = function () {
+        return (react_1["default"].createElement("div", null,
+            react_1["default"].createElement("input", { type: "text", onChange: function (e) {
+                    setValue(e.target.value);
+                } }),
+            react_1["default"].createElement("button", { onClick: function () {
+                    // Сlose the dialog and return the value
+                    dialog.close(value);
+                } }, "Custom button"))
+            / );
+    };
+    export default Mui;
+}

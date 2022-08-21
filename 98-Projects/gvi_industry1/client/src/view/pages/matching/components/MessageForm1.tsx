@@ -32,9 +32,29 @@ const MessageForm1 = ( props: any) => {
     }
       return (
         <div>
-          <form onSubmit={handleSubmitForm}>
-           
-            <input type="text" name="message" placeholder="Text here " />
+          <form >
+            
+
+
+          </form>
+          
+          
+          
+          <form  onSubmit={handleSubmitForm}>
+            
+          <label>
+       Select a reason for rejecting the request:
+       <select>
+           <option value="1">Busy</option>
+           <option value="2">Not in my proffesional scope</option>
+           <option value="3">On vacation till 2023</option>
+       </select>
+   </label>
+
+           <h5>You can add a short message (optional) </h5>
+            <input  type="text" name="message" placeholder="Text here " />
+
+            
               <button  onClick={() => handleSendReq(userId)} type="submit">Submit</button>
 
             

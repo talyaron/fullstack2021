@@ -12,6 +12,8 @@ import AdminLayout from './view/pages/AdminLayout';
 import axios from 'axios'
 import {BrowserRouter as Router, Routes, Route, useParams, BrowserRouter} from 'react-router-dom';
 import SelectedUsers from './view/Components/SelctedUsers';
+import SelectedUsersAns from './view/Components/SelctedUsersAns';
+
 import Layout from './view/pages/Layout';
 import RequestUsers from './view/pages/mentee/RequestUsers';
 import HomePage from './view/Components/HomePage';
@@ -23,6 +25,7 @@ import Pending from './view/Components/Pending';
 import FromMentee from './view/Components/FromMentee';
 import FromMentors from './view/Components/FromMentors';
 import Form1 from './view/Components/Form1';
+import SelctedUsersAns from './view/Components/SelctedUsersAns';
 
 
 function App() {
@@ -102,12 +105,12 @@ function App() {
                 {currentUserType==='mentor'}?(
                 <Route index element={<FromMentee />} />
                 <Route path="from-mentee" element={<FromMentee />} />
-                <Route path="answered" element={<Answered />} />
+                <Route path="answered" element={<Request />} />
                 <Route path="pending" element={<Request />} />
                   ):(
                     <Route index element={<FromMentors />} />
                 <Route path="from-mentor" element={<FromMentors />} />
-                <Route path="answered" element={<Answered />} />
+                <Route path="answered" element={<Request />} />
                 <Route path="pending" element={<Request />} />
                   )
 

@@ -1,7 +1,6 @@
 "use strict";
 exports.__esModule = true;
-var mongoose_1 = require("mongoose");
-var ansUserSchema = new mongoose_1["default"].Schema({
+var ansUserSchema = new mongoose.Schema({
     selectingUserId: {
         type: String,
         required: true
@@ -16,5 +15,6 @@ var ansUserSchema = new mongoose_1["default"].Schema({
     },
     selected: Boolean
 });
-var ansUsersModel = mongoose_1["default"].model("answers", ansUserSchema);
+var mongoose, model;
+("answers", ansUserSchema);
 exports["default"] = ansUsersModel;

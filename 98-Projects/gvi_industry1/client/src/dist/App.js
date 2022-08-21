@@ -53,7 +53,6 @@ var HomePage_1 = require("./view/Components/HomePage");
 var WelcomePage_1 = require("./view/Components/WelcomePage");
 var AdminPage_1 = require("./view/Components/AdminPage");
 var RequestLayout_1 = require("./view/pages/RequestLayout");
-var Answered_1 = require("./view/Components/Answered");
 var FromMentee_1 = require("./view/Components/FromMentee");
 var FromMentors_1 = require("./view/Components/FromMentors");
 function App() {
@@ -100,12 +99,12 @@ function App() {
                     "?(",
                     react_1["default"].createElement(react_router_dom_1.Route, { index: true, element: react_1["default"].createElement(FromMentee_1["default"], null) }),
                     react_1["default"].createElement(react_router_dom_1.Route, { path: "from-mentee", element: react_1["default"].createElement(FromMentee_1["default"], null) }),
-                    react_1["default"].createElement(react_router_dom_1.Route, { path: "answered", element: react_1["default"].createElement(Answered_1["default"], null) }),
+                    react_1["default"].createElement(react_router_dom_1.Route, { path: "answered", element: react_1["default"].createElement(Request_1["default"], null) }),
                     react_1["default"].createElement(react_router_dom_1.Route, { path: "pending", element: react_1["default"].createElement(Request_1["default"], null) }),
                     "):(",
                     react_1["default"].createElement(react_router_dom_1.Route, { index: true, element: react_1["default"].createElement(FromMentors_1["default"], null) }),
                     react_1["default"].createElement(react_router_dom_1.Route, { path: "from-mentor", element: react_1["default"].createElement(FromMentors_1["default"], null) }),
-                    react_1["default"].createElement(react_router_dom_1.Route, { path: "answered", element: react_1["default"].createElement(Answered_1["default"], null) }),
+                    react_1["default"].createElement(react_router_dom_1.Route, { path: "answered", element: react_1["default"].createElement(Request_1["default"], null) }),
                     react_1["default"].createElement(react_router_dom_1.Route, { path: "pending", element: react_1["default"].createElement(Request_1["default"], null) }),
                     ")")),
             react_1["default"].createElement(react_router_dom_1.Route, { path: "mainPageAdmin", element: react_1["default"].createElement(AdminLayout_1["default"], { loggedInUser: loggedInUser }) },

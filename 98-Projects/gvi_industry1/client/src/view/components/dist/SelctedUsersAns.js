@@ -38,43 +38,38 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 var react_1 = require("react");
 require("../styles/selectedPage.scss");
-require("../styles/requestPage.scss");
-//@ts-ignore
 var axios_1 = require("axios");
-var ReqMentorsUserCard_1 = require("./ReqMentorsUserCard ");
-var FromMentors = function () {
-    var _a = react_1.useState([]), requestedUsers = _a[0], setRequestedUsers = _a[1];
+var SelectedUserCardAns_1 = require("../Components/SelectedUserCardAns");
+var SelectedUsers = function () {
+    var _a = react_1.useState([]), selectedUsers = _a[0], setSelectedUsers = _a[1];
     var _b = react_1.useState(''), type = _b[0], setType = _b[1];
     react_1.useEffect(function () {
         (function () { return __awaiter(void 0, void 0, void 0, function () {
-            var data, _id, type, loggedUser, users, chosenMentors, chosenMentees;
+            var data, _id, type, users, chosen;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, axios_1["default"].get("/api/users/get-selecteing-user")];
                     case 1:
                         data = (_a.sent()).data;
                         _id = data._id, type = data.type;
-                        loggedUser = _id;
-                        return [4 /*yield*/, axios_1["default"].post('/api/users/get-mentee-mentor-requests', { _id: _id, type: type })];
+                        return [4 /*yield*/, axios_1["default"].post('/api/users/get-selected-users-ans', { _id: _id, type: type })];
                     case 2:
                         users = _a.sent();
-                        //const users = await axios.post('/api/users/get-menteeMentor-requests', { _id, type });
+                        chosen = users.data.chosen;
+                        setSelectedUsers(chosen);
                         if (type === 'mentee') {
-                            chosenMentors = users.data.chosenMentors;
-                            setRequestedUsers(chosenMentors);
+                            setType('Mentors');
                         }
                         else {
-                            chosenMentees = users.data.chosenMentees;
-                            setRequestedUsers(chosenMentees);
+                            setType('Entrepreneurs');
                         }
                         return [2 /*return*/];
                 }
             });
         }); })();
     }, []);
-    return (React.createElement("div", { className: "requestedPage" },
-        React.createElement("h3", { className: "requestedPage__title" }, " "),
-        React.createElement("div", { className: "requestedPage__wrapper" },
-            React.createElement(ReqMentorsUserCard_1["default"], { requestUsers: requestedUsers, type: type }))));
+    return (React.createElement("div", { className: "selectedPage" },
+        React.createElement("div", { className: "selectedPage__wrapper" },
+            React.createElement(SelectedUserCardAns_1["default"], { selectedUsers: selectedUsers }))));
 };
-exports["default"] = FromMentors;
+exports["default"] = SelectedUsers;

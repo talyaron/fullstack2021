@@ -74,7 +74,15 @@ var MessageForm1 = function (props) {
         });
     }
     return (react_1["default"].createElement("div", null,
+        react_1["default"].createElement("form", null),
         react_1["default"].createElement("form", { onSubmit: handleSubmitForm },
+            react_1["default"].createElement("label", null,
+                "Select a reason for rejecting the request:",
+                react_1["default"].createElement("select", null,
+                    react_1["default"].createElement("option", { value: "1" }, "Busy"),
+                    react_1["default"].createElement("option", { value: "2" }, "Not in my proffesional scope"),
+                    react_1["default"].createElement("option", { value: "3" }, "On vacation till 2023"))),
+            react_1["default"].createElement("h5", null, "You can add a short message (optional) "),
             react_1["default"].createElement("input", { type: "text", name: "message", placeholder: "Text here " }),
             react_1["default"].createElement("button", { onClick: function () { return handleSendReq(userId); }, type: "submit" }, "Submit"))));
 };

@@ -39,6 +39,7 @@ exports.__esModule = true;
 //@ts-ignore
 var LinkedIn_1 = require("@mui/icons-material/LinkedIn");
 require("../styles/card.scss");
+var reactjs_popup_1 = require("reactjs-popup");
 var react_1 = require("react");
 require("reactjs-popup/dist/index.css");
 var react_router_dom_1 = require("react-router-dom");
@@ -106,27 +107,17 @@ var ReqUserCard = function (props) {
                         React.createElement(LinkedIn_1["default"], { className: "card__flex__linkdIn", style: { fontSize: "30px" } }))),
                 React.createElement("p", { className: "card__center__company" }, selectedUser.fieldsOfKnowledge),
                 React.createElement("p", { className: "card__center__profession" }, selectedUser.sector)),
-            React.createElement("div", { className: 'btn' },
-                React.createElement("button", { onClick: function () { {
+            React.createElement("div", { className: 'req_aa_btns' },
+                React.createElement("button", { id: "right", onClick: function () { {
                         navigate('/mainPage/chat');
                     } {
                         handleAnsReq(selectedUser._id);
-                    } } }, "Start Mentoring"),
-                "):",
-                React.createElement("button", { onClick: function () { {
-                        navigate('/mainPage/chat');
-                    } {
-                        handleAnsReq(selectedUser._id);
-                    } } }, "Lets talk"),
-                React.createElement("button", { onClick: function () { setDisplay("block"); } }, "Send req"),
-                React.createElement("div", { style: { display: display, position: "absolute", top: "50" } },
-                    React.createElement("form", { onSubmit: handleSubmitForm },
-                        React.createElement("input", { type: "text", name: "message", placeholder: "Text here " }),
-                        React.createElement("button", { onClick: function () { {
-                                handleAnsReq(selectedUser._id);
-                            } {
-                                handleMessageReq(selectedUser._id, message);
-                            } }, type: "submit" }, "Submit")))));
+                    } }, className: 'req_aa_btn' }, "Start Mentoring"),
+                React.createElement(reactjs_popup_1["default"], { className: "popUp", trigger: React.createElement("button", { id: "left", onClick: function () { return handleAnsReq(selectedUser._id); }, className: 'req_aa_btn' }, "MisMatch") },
+                    React.createElement(MessageForm1, { userId: selectedUser._id })),
+                React.createElement(reactjs_popup_1["default"], { className: "popUp", trigger: React.createElement("button", { id: "envelope", onClick: function () { } },
+                        React.createElement("i", { className: "fa fa-envelope", "aria-hidden": "true" })) },
+                    React.createElement(MessageForm2, null))));
     })));
 };
 exports["default"] = ReqUserCard;

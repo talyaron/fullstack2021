@@ -79,34 +79,35 @@ async function handleAnsReq(userId: any) {
 
          
 
-          <div className='btn'>
+          <div className='req_aa_btns'>
+                                        
+                  
+                  <button id="right" onClick={()=>{{navigate('/mainPage/chat')} {handleAnsReq(selectedUser._id)}}}className='req_aa_btn'>
+                  
+                  
+                 Start Mentoring</button>
+
+                
+       <Popup className="popUp" trigger={<button id="left" onClick={() => handleAnsReq(selectedUser._id)} className='req_aa_btn'>
+                  MisMatch              
+
+                </button>} >
+                 <MessageForm1  userId={selectedUser._id}/> 
+
+        </Popup>
+
+
+        <Popup className="popUp" trigger={<button id="envelope" onClick={() => {}}>
+<i   className="fa fa-envelope" aria-hidden="true"></i>
+
+                </button>} >
+                  
+                 <MessageForm2 /> 
+                 
+
+        </Popup>
+       
           
-                              
-                <button onClick={()=>{{navigate('/mainPage/chat')}{handleAnsReq(selectedUser._id)}}}>
-                  
-                  
-                  Start Mentoring</button>):
-
-              
-                  
-                  <button onClick={()=>{{navigate('/mainPage/chat')}{handleAnsReq(selectedUser._id)}}}>
-                  
-                  
-                  Lets talk</button>
-
-                <button   onClick={() => { setDisplay("block"); }}>Send req</button>
-                {/* <button onClick={()=>{{navigate('/components/Form1')}{handleAnsReq(selectedUser._id)}}}>Mismatch</button> */}
-
-                <div  style={{ display: display, position: "absolute", top: "50" }}>
-                <form onSubmit={handleSubmitForm}>
-           
-           <input type="text" name="message" placeholder="Text here " />
-             <button  onClick={() => {{handleAnsReq(selectedUser._id)}{handleMessageReq(selectedUser._id,message)}}} type="submit">Submit</button>
-
-           
-         </form>
-      
-      </div>
 
 
               </div>
@@ -118,5 +119,6 @@ async function handleAnsReq(userId: any) {
     </>
   );
 };
+
 
 export default ReqUserCard;

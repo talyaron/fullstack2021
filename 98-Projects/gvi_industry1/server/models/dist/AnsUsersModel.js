@@ -6,7 +6,7 @@ var ansUserSchema = new mongoose_1["default"].Schema({
         type: String,
         required: true
     },
-    answeredUser: {
+    selectedUser: {
         email: String,
         name: {
             first: String,
@@ -16,5 +16,5 @@ var ansUserSchema = new mongoose_1["default"].Schema({
     },
     selected: Boolean
 });
-var ansModel = mongoose_1["default"].model("users-answers", ansUserSchema);
-exports["default"] = ansModel;
+var ansUsersModel = mongoose_1["default"].model("answers", ansUserSchema);
+exports["default"] = ansUsersModel;

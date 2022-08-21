@@ -19,13 +19,18 @@
 }
 .requestedPage__wrapper {
   display: grid;
-  grid-template-columns: auto;
   grid-template-rows: auto;
   grid-template-columns: repeat(3, 1fr);
-  width: 1223px;
+  width: 1400px;
   height: auto;
   grid-column: 2/4;
   grid-row: 3/4;
   padding: 30px;
   justify-items: center;
+}
+
+#envelope {
+  position: relative;
+  bottom: 190px;
+  right: 85px;
 }

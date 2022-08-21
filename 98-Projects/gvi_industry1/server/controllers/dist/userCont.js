@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getUsersAns = exports.answers_users_req = exports.requestAnsUser = exports.getRequestUsers = exports.mentee_mentor_users_req = exports.getAnsReqUser = exports.getRequestedUser = exports.requestUser = exports.getLoggedInProfile = exports.addFlags = exports.adminGetAllUsers = exports.updateUserDetails = exports.getUserProfile = exports.addUser = exports.login = exports.getAllRecipients = exports.getSelectedUser = exports.getSelectingUser = exports.selectUser = exports.getSearch = exports.getFilter = exports.getUsers = exports.getUser = void 0;
+exports.getSelectedUserAns = exports.getUsersAns = exports.answers_users_req = exports.requestAnsUser = exports.getRequestUsers = exports.mentee_mentor_users_req = exports.getAnsReqUser = exports.getRequestedUser = exports.requestUser = exports.getLoggedInProfile = exports.addFlags = exports.adminGetAllUsers = exports.updateUserDetails = exports.getUserProfile = exports.addUser = exports.login = exports.getAllRecipients = exports.getSelectedUser = exports.getSelectingUser = exports.selectUser = exports.getSearch = exports.getFilter = exports.getUsers = exports.getUser = void 0;
 var secret = process.env.JWT_SECRET;
 var userModel_1 = require("../models/userModel");
 var selectedUsers_1 = require("../models/selectedUsers");
@@ -44,8 +44,7 @@ var initiativeModel_1 = require("../models/initiativeModel");
 var countryFlagModel_1 = require("../models/countryFlagModel");
 var jwt_simple_1 = require("jwt-simple");
 var requestedModel_1 = require("../models/requestedModel");
-var ansUsers_1 = require("../models/ansUsers");
-var requestedModel_2 = require("../models/requestedModel");
+var ansUsersModel_1 = require("../models/ansUsersModel");
 var cloudinary = require('./uploads/cloudinary');
 exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var userInfo, payload, id, user, error_1;
@@ -799,7 +798,7 @@ function getAnsReqUser(req, res) {
                     _b.trys.push([0, 5, , 6]);
                     console.log(req.body);
                     _a = req.body, _id_3 = _a._id, type = _a.type;
-                    return [4 /*yield*/, ansUsers_1["default"].find({})];
+                    return [4 /*yield*/, ansUsersModel_1["default"].find({})];
                 case 1:
                     selected = _b.sent();
                     console.log(selected);
@@ -972,11 +971,11 @@ exports.getRequestUsers = function (req, res) { return __awaiter(void 0, void 0,
 }); };
 //============================================================================================
 exports.requestAnsUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userId, selectedUser, email, name, image, searchSelecting, selectingUser, deleteddUser, MongoClient, database, pending, del, newAnsDB, newSelection, error_18;
+    var userId, selectedUser, email, name, image, searchSelecting, selectingUser, newAnsDB, newSelection, error_18;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 8, , 9]);
+                _a.trys.push([0, 6, , 7]);
                 // const { userInfo } = req.cookies;
                 // const payload = JWT.decode(userInfo, secret);
                 // const currentUserId = payload.id;
@@ -993,34 +992,18 @@ exports.requestAnsUser = function (req, res) { return __awaiter(void 0, void 0, 
                     "selectedUser.email": selectedUser.email,
                     selectingUserId: selectedUser._id
                 };
-                return [4 /*yield*/, ansUsers_1["default"].findOne(searchSelecting)];
+                return [4 /*yield*/, ansUsersModel_1["default"].findOne(searchSelecting)];
             case 2:
                 selectingUser = _a.sent();
-                return [4 /*yield*/, requestedModel_2["default"].findById(userId)];
-            case 3:
-                deleteddUser = _a.sent();
-                MongoClient = require('mongodb').MongoClient;
-                database = MongoClient.db("gvi");
-                pending = database.collection("requested-users");
-                return [4 /*yield*/, database.pending.deleteOne({ "_id": userId })];
-            case 4:
-                del = _a.sent();
-                if (!del) {
-                    console.log("not deleted succefully");
-                }
-                else {
-                    console.log("deleted succefully");
-                }
-                console.log(deleteddUser);
-                if (!!selectingUser) return [3 /*break*/, 6];
+                if (!!selectingUser) return [3 /*break*/, 4];
                 console.log("no record in DB - saving");
-                newAnsDB = new ansUsers_1["default"]({
+                newAnsDB = new ansUsersModel_1["default"]({
                     selectingUserId: selectedUser._id,
                     selectedUser: { email: email, name: name, image: image },
                     selected: true
                 });
                 return [4 /*yield*/, newAnsDB.save()];
-            case 5:
+            case 3:
                 newSelection = _a.sent();
                 // } else {
                 //   if (selectingUser.selected === true) {
@@ -1037,17 +1020,17 @@ exports.requestAnsUser = function (req, res) { return __awaiter(void 0, void 0, 
                 //     );
                 //   }
                 res.send({ success: true, selection: newSelection });
-                return [3 /*break*/, 7];
-            case 6:
+                return [3 /*break*/, 5];
+            case 4:
                 console.log("user already exists in DB");
-                _a.label = 7;
-            case 7: return [3 /*break*/, 9];
-            case 8:
+                _a.label = 5;
+            case 5: return [3 /*break*/, 7];
+            case 6:
                 error_18 = _a.sent();
                 console.log(error_18.error);
                 res.send({ error: error_18.message });
-                return [3 /*break*/, 9];
-            case 9: return [2 /*return*/];
+                return [3 /*break*/, 7];
+            case 7: return [2 /*return*/];
         }
     });
 }); };
@@ -1060,7 +1043,7 @@ function answers_users_req(req, res) {
                 case 0:
                     _b.trys.push([0, 2, , 3]);
                     _a = req.body, _id = _a._id, type = _a.type;
-                    return [4 /*yield*/, ansUsers_1["default"].find({})];
+                    return [4 /*yield*/, ansUsersModel_1["default"].find({})];
                 case 1:
                     ans = _b.sent();
                     return [3 /*break*/, 3];
@@ -1081,3 +1064,75 @@ exports.getUsersAns = function (req, res) { return __awaiter(void 0, void 0, voi
         return [2 /*return*/];
     });
 }); };
+//================================================================
+function getSelectedUserAns(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, _id_5, type, selected, selectedUsers, selectedUesrModel_5, selectedUserInitiatives_5, flags_5, chosen_7, chosen_8, error_20;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _b.trys.push([0, 5, , 6]);
+                    _a = req.body, _id_5 = _a._id, type = _a.type;
+                    return [4 /*yield*/, ansUsersModel_1["default"].find({})];
+                case 1:
+                    selected = _b.sent();
+                    selectedUsers = selected.filter(function (user) { return user.selectingUserId === _id_5 && user.selected === true; });
+                    return [4 /*yield*/, userModel_1["default"].find({})];
+                case 2:
+                    selectedUesrModel_5 = _b.sent();
+                    return [4 /*yield*/, initiativeModel_1["default"].find({})];
+                case 3:
+                    selectedUserInitiatives_5 = _b.sent();
+                    return [4 /*yield*/, countryFlagModel_1["default"].find({})];
+                case 4:
+                    flags_5 = _b.sent();
+                    if (type === "mentee") {
+                        chosen_7 = [];
+                        selectedUsers.forEach(function (selectedUser, i) {
+                            var mentor = selectedUesrModel_5.filter(function (selectedMentor) {
+                                return selectedMentor.email === selectedUser.selectedUser["email"];
+                            });
+                            var user = mentor[0];
+                            var country = flags_5.filter(function (country) { return country.countryName === user.country; });
+                            if (country.length > 0) {
+                                user['country'] = "" + country[0].countryFlag;
+                            }
+                            ;
+                            chosen_7.push(user);
+                        });
+                        res.send({ ok: true, chosen: chosen_7 });
+                    }
+                    else if (type === "mentor") {
+                        chosen_8 = [];
+                        selectedUsers.forEach(function (selectedUser, i) {
+                            var mentee = selectedUesrModel_5.filter(function (selectedMentee) {
+                                return selectedMentee.email === selectedUser.selectedUser["email"];
+                            });
+                            var user = mentee[0];
+                            var country = flags_5.filter(function (country) { return country.countryName === user.country; });
+                            if (country.length > 0) {
+                                user['country'] = "" + country[0].countryFlag;
+                            }
+                            ;
+                            var menteeIntiative = selectedUserInitiatives_5.filter(function (selectedMentee) { return selectedMentee.ownerUserId === user.id; });
+                            if (menteeIntiative.length > 0) {
+                                user['fieldsOfKnowledge'] = "" + menteeIntiative[0].companyName;
+                                user['sector'] = "" + menteeIntiative[0].stage;
+                            }
+                            console.log(menteeIntiative);
+                            chosen_8.push(user);
+                        });
+                        res.send({ ok: true, chosen: chosen_8 });
+                    }
+                    return [3 /*break*/, 6];
+                case 5:
+                    error_20 = _b.sent();
+                    console.log(error_20.error);
+                    res.send({ error: error_20.message });
+                    return [3 /*break*/, 6];
+                case 6: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.getSelectedUserAns = getSelectedUserAns;

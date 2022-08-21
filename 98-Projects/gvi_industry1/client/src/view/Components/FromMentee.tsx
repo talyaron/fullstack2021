@@ -40,7 +40,7 @@ const FromMentee = () => {
     <div className="requestedPage">
       <h3 className="requestedPage__title"> </h3>
       <div className="requestedPage__wrapper">
-        <ReqMenteeUserCard requestUsers={requestedUsers} type={type} />
+        <ReqMenteeUserCard requestUsers={requestedUsers} type={type}/>
       </div>
     </div>
   );

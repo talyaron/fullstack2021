@@ -46,13 +46,13 @@
             width: 30px;
         }
 
-        &__company {
-            // margin-top: -5%;
-        }
+        // &__company {
+        //     // margin-top: -5%;
+        // }
 
-        &__profession {
-            // margin-top: -15%;
-        }
+        // &__profession {
+        //     // margin-top: -15%;
+        // }
         grid-column-start: 2;
         grid-column-end: 5;
         row-gap: 4px;
@@ -122,7 +122,7 @@
 
 .req_aa_btn {
  background-color: rgb(197, 204, 204);
-    
+ position:absolute;
           width: 134px;
     height: 39px;
     border-radius: 15px;
@@ -132,7 +132,7 @@
      align-items: center;
     .link{ 
       color: black;
-       
+   
       text-decoration: none;  
     }
 
@@ -151,17 +151,21 @@
    
    
 
-   
-
-// }
-// #left{
-//     position:relative;
-//     right:250px;
+#left{
+    right: 325px;
+    background-color: white;
     
   
-// }
-// #right{
-//     position: relative;
-//     left: 85px;
+}
+#right{
+    position: relative;
+    left: 50px;
+    background-color: rgb(180, 179, 179);
     
-// }
+}
+
+
+.popUp{
+    height: 420px;
+    width: 600px;
+}

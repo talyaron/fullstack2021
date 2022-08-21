@@ -83,6 +83,7 @@
 
 .req_aa_btn {
   background-color: #c5cccc;
+  position: absolute;
   width: 134px;
   height: 39px;
   border-radius: 15px;
@@ -94,4 +95,20 @@
 .req_aa_btn .link {
   color: black;
   text-decoration: none;
+}
+
+#left {
+  right: 325px;
+  background-color: white;
+}
+
+#right {
+  position: relative;
+  left: 50px;
+  background-color: #b4b3b3;
+}
+
+.popUp {
+  height: 420px;
+  width: 600px;
 }

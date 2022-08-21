@@ -1,7 +1,6 @@
 //@ts-ignore
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 //@ts-ignore
-import StarIcon from "@mui/icons-material/Star";
 import "../styles/card.scss";
 
 
@@ -11,17 +10,24 @@ import 'reactjs-popup/dist/index.css';
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Form1 from "./Form1"
+import Example from "./Example"
 import MessageForm1 from "../pages/matching/components/MessageForm1";
+import MessageForm2 from "../pages/matching/components/MessageForm2";
+
+import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 
 interface CardReqProps {
   requestUsers: any;
   type:any;
+  loggedUser:any;
 }
 
 const ReqUserCard = (props: CardReqProps) => {
 
-  const { requestUsers,type } = props;
+  const { requestUsers,type, loggedUser } = props;
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
 
@@ -50,8 +56,16 @@ async function handleAnsReq(userId: any) {
 
   
 }
-  
 
+
+//===========================================
+ function Example(){
+   return(
+    <Example/>
+    )
+ }  
+
+//==============================================
   const [display, setDisplay] = useState("none"); 
 
   
@@ -84,19 +98,31 @@ async function handleAnsReq(userId: any) {
           <div className='req_aa_btns'>
                                         
                   
-                  <button id="right" onClick={()=>{{navigate('/mainPage/chat')}{handleAnsReq(selectedUser._id)}}}className='req_aa_btn'>
+                  <button id="right" onClick={()=>{{navigate('/mainPage/chat')} {handleAnsReq(selectedUser._id)}}}className='req_aa_btn'>
                   
                   
                  Start Mentoring</button>
-                 
 
                 
        <Popup className="popUp" trigger={<button id="left" onClick={() => handleAnsReq(selectedUser._id)} className='req_aa_btn'>
                   MisMatch              
 
                 </button>} >
-                <MessageForm1  userId={selectedUser._id}/>
+                 <MessageForm1  userId={selectedUser._id}/> 
+
         </Popup>
+
+
+        <Popup className="popUp" trigger={<button id="envelope" onClick={() => {}}>
+<i   className="fa fa-envelope" aria-hidden="true"></i>
+
+                </button>} >
+                  
+                 <MessageForm2  loggedUser={loggedUser}/> 
+                 
+
+        </Popup>
+       
           
 
 

@@ -21,6 +21,7 @@ router
     .post('/get-LoggedIn-Profile', userCont_1.getLoggedInProfile)
     .get('/admin-getAllUsers', loginMiddleware_1.isAdmin, userCont_1.adminGetAllUsers)
     .post('/get-selected-users', userCont_1.getSelectedUser)
+    .post('/get-selected-users-ans', userCont_1.getSelectedUserAns)
     .post('/get-sent-request-users', userCont_1.getRequestedUser)
     .post('/get-sent-ans-users', userCont_1.getAnsReqUser)
     .post('/get-ans-users', userCont_1.getUsersAns)

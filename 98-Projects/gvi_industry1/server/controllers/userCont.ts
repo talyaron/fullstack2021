@@ -5,7 +5,7 @@ import initiativeModel from "../models/initiativeModel";
 import countryFlagModel from "../models/countryFlagModel";
 import JWT from "jwt-simple";
 import requestsUsersModel from "../models/requestedModel";
-import ansUsersModel from "../models/ansUsers";
+import ansUsersModel from "../models/ansUsersModel";
 import {useState} from 'react';
 import requestedModel from "../models/requestedModel";
 const cloudinary = require('./uploads/cloudinary');
@@ -787,16 +787,16 @@ export const requestAnsUser = async (req: any, res: any) => {
     );
   
 
-    const deleteddUser = await requestedModel.findById(userId);
-    // const database = require('mongodb').database,
-    const MongoClient = require('mongodb').MongoClient;
-  const database = MongoClient.db("gvi");
-  const pending =  database.collection("requested-users")
-  const del= await database.pending.deleteOne( { "_id": userId } )
-  if (!del) { console.log("not deleted succefully")}
- else  {console.log("deleted succefully")}
+//     const deleteddUser = await requestedModel.findById(userId);
+//     // const database = require('mongodb').database,
+//     const MongoClient = require('mongodb').MongoClient;
+//   const database = MongoClient.db("gvi");
+//   const pending =  database.collection("requested-users")
+//   const del= await database.pending.deleteOne( { "_id": userId } )
+//   if (!del) { console.log("not deleted succefully")}
+//  else  {console.log("deleted succefully")}
   
-  console.log(deleteddUser);
+//   console.log(deleteddUser);
   
 
 
@@ -910,3 +910,68 @@ export const getUsersAns = async (req, res) => {
 
   
 };
+//================================================================
+export async function getSelectedUserAns(req, res) {
+  try {
+    const { _id, type } = req.body;
+
+    const selected = await ansUsersModel.find({});
+    const selectedUsers = selected.filter(
+      (user) => user.selectingUserId === _id && user.selected === true);
+    const selectedUesrModel = await UserModel.find({});
+    const selectedUserInitiatives = await initiativeModel.find({});
+    const flags = await countryFlagModel.find({});
+
+    if (type === "mentee") {
+      let chosen = [];
+      selectedUsers.forEach((selectedUser, i) => {
+        const mentor = selectedUesrModel.filter(
+          (selectedMentor) =>
+            selectedMentor.email === selectedUser.selectedUser["email"]
+        );
+        let user = mentor[0];
+        const country = flags.filter(
+          (country) => country.countryName === user.country
+        );
+        if(country.length > 0){
+          user['country'] = `${country[0].countryFlag}`;
+          };
+        chosen.push(user);
+      });
+      res.send({ ok: true, chosen });
+    }
+    
+    else if (type === "mentor") {
+      let chosen = [];
+      selectedUsers.forEach((selectedUser, i) => {
+        const mentee = selectedUesrModel.filter(
+          (selectedMentee) =>
+            selectedMentee.email === selectedUser.selectedUser["email"]
+        );
+        let user = mentee[0];
+        const country = flags.filter(
+          (country) => country.countryName === user.country
+        );
+        if(country.length > 0){
+        user['country'] = `${country[0].countryFlag}`;
+        };
+        const menteeIntiative = selectedUserInitiatives.filter(
+          (selectedMentee) => selectedMentee.ownerUserId === user.id
+        );
+        if(menteeIntiative.length > 0){
+          user['fieldsOfKnowledge'] = `${menteeIntiative[0].companyName}`
+          user['sector'] = `${menteeIntiative[0].stage}`
+        }
+        console.log(menteeIntiative);
+        chosen.push(user);
+      });
+      res.send({ ok: true, chosen });
+    }
+
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+}
+
+

@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 //@ts-ignore
 var LinkedIn_1 = require("@mui/icons-material/LinkedIn");
+//@ts-ignore
 require("../styles/card.scss");
 var reactjs_popup_1 = require("reactjs-popup");
 var react_1 = require("react");
@@ -45,8 +46,10 @@ require("reactjs-popup/dist/index.css");
 var react_router_dom_1 = require("react-router-dom");
 var axios_1 = require("axios");
 var MessageForm1_1 = require("../pages/matching/components/MessageForm1");
+var MessageForm2_1 = require("../pages/matching/components/MessageForm2");
+var react_2 = require("react");
 var ReqUserCard = function (props) {
-    var requestUsers = props.requestUsers, type = props.type;
+    var requestUsers = props.requestUsers, type = props.type, loggedUser = props.loggedUser;
     var navigate = react_router_dom_1.useNavigate();
     var _a = react_1.useState(""), message = _a[0], setMessage = _a[1];
     function handleSubmitForm(ev) {
@@ -92,30 +95,38 @@ var ReqUserCard = function (props) {
             });
         });
     }
+    //===========================================
+    function Example() {
+        return (react_2["default"].createElement(Example, null));
+    }
+    //==============================================
     var _b = react_1.useState("none"), display = _b[0], setDisplay = _b[1];
-    return (React.createElement(React.Fragment, null, requestUsers.map(function (selectedUser, i) {
-        return React.createElement("div", { className: "card", key: i },
-            React.createElement("div", { className: "card__photo" },
-                React.createElement("img", { src: selectedUser.image ? "" + selectedUser.image : 'https://www.pngitem.com/pimgs/m/504-5040528_empty-profile-picture-png-transparent-png.png' })),
-            React.createElement("div", { className: "card__center" },
-                React.createElement("p", null,
+    return (react_2["default"].createElement(react_2["default"].Fragment, null, requestUsers.map(function (selectedUser, i) {
+        return react_2["default"].createElement("div", { className: "card", key: i },
+            react_2["default"].createElement("div", { className: "card__photo" },
+                react_2["default"].createElement("img", { src: selectedUser.image ? "" + selectedUser.image : 'https://www.pngitem.com/pimgs/m/504-5040528_empty-profile-picture-png-transparent-png.png' })),
+            react_2["default"].createElement("div", { className: "card__center" },
+                react_2["default"].createElement("p", null,
                     selectedUser['name']['first'],
                     " ",
                     selectedUser['name']['last']),
-                React.createElement("div", { className: "card__flex" },
-                    React.createElement("img", { src: selectedUser.country ? "" + selectedUser.country : 'https://flagsweb.com/Flag_Colouring_Page/WEBP/Germany_Flag_Colouring_Page.webp' }),
-                    React.createElement("a", { href: selectedUser.linkedInProfile ? "" + selectedUser.linkedInProfile : 'https://www.linkedin.com/' },
-                        React.createElement(LinkedIn_1["default"], { className: "card__flex__linkdIn", style: { fontSize: "30px" } }))),
-                React.createElement("p", { className: "card__center__company" }, selectedUser.fieldsOfKnowledge),
-                React.createElement("p", { className: "card__center__profession" }, selectedUser.sector)),
-            React.createElement("div", { className: 'req_aa_btns' },
-                React.createElement("button", { id: "right", onClick: function () { {
+                react_2["default"].createElement("div", { className: "card__flex" },
+                    react_2["default"].createElement("img", { src: selectedUser.country ? "" + selectedUser.country : 'https://flagsweb.com/Flag_Colouring_Page/WEBP/Germany_Flag_Colouring_Page.webp' }),
+                    react_2["default"].createElement("a", { href: selectedUser.linkedInProfile ? "" + selectedUser.linkedInProfile : 'https://www.linkedin.com/' },
+                        react_2["default"].createElement(LinkedIn_1["default"], { className: "card__flex__linkdIn", style: { fontSize: "30px" } }))),
+                react_2["default"].createElement("p", { className: "card__center__company" }, selectedUser.fieldsOfKnowledge),
+                react_2["default"].createElement("p", { className: "card__center__profession" }, selectedUser.sector)),
+            react_2["default"].createElement("div", { className: 'req_aa_btns' },
+                react_2["default"].createElement("button", { id: "right", onClick: function () { {
                         navigate('/mainPage/chat');
                     } {
                         handleAnsReq(selectedUser._id);
                     } }, className: 'req_aa_btn' }, "Start Mentoring"),
-                React.createElement(reactjs_popup_1["default"], { className: "popUp", trigger: React.createElement("button", { id: "left", onClick: function () { return handleAnsReq(selectedUser._id); }, className: 'req_aa_btn' }, "MisMatch") },
-                    React.createElement(MessageForm1_1["default"], { userId: selectedUser._id }))));
+                react_2["default"].createElement(reactjs_popup_1["default"], { className: "popUp", trigger: react_2["default"].createElement("button", { id: "left", onClick: function () { return handleAnsReq(selectedUser._id); }, className: 'req_aa_btn' }, "MisMatch") },
+                    react_2["default"].createElement(MessageForm1_1["default"], { userId: selectedUser._id })),
+                react_2["default"].createElement(reactjs_popup_1["default"], { className: "popUp", trigger: react_2["default"].createElement("button", { id: "envelope", onClick: function () { } },
+                        react_2["default"].createElement("i", { className: "fa fa-envelope", "aria-hidden": "true" })) },
+                    react_2["default"].createElement(MessageForm2_1["default"], { loggedUser: loggedUser }))));
     })));
 };
 exports["default"] = ReqUserCard;
