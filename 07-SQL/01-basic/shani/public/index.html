@@ -12,7 +12,18 @@
 </head>
 
 <body>
-    <button onclick="handleClick()">create new DB</button>
+    <button onclick="handleNewDB()">create new DB</button>
+    <button onclick="handleNewTable()">create table</button>
+    <hr/>
+    <form onsubmit="handleAddCat(event)">
+        
+        <input type="text" name="color" placeholder="cat color" required/>
+        <input type="number" min="1" max='10' name='age' placeholder="cat age" required/>
+        <input type="text" name='owner' placeholder=" owner name" required/>
+        <input type="text" name='catName'placeholder=" cat name" required/>
+ 
+        <button type="submit">ADD</button>
+    </form>
     <script src="./dist/index.js"></script>
 </body>
 

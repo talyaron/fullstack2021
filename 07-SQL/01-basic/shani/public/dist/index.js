@@ -34,7 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function handleClick() {
+function handleNewDB() {
     return __awaiter(this, void 0, void 0, function () {
         var data, error_1;
         return __generator(this, function (_a) {
@@ -53,6 +53,58 @@ function handleClick() {
                     console.error(error_1);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+;
+function handleNewTable() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, error_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, axios.post('/api/create-table', {})];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_2 = _a.sent();
+                    console.error(error_2);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleAddCat(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var age, color, owner, name, data, error_3;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    age = ev.target.elements.age.value;
+                    color = ev.target.elements.color.value;
+                    owner = ev.target.elements.owner.value;
+                    name = ev.target.elements.catName.value;
+                    if (!age || !color || !owner || !name)
+                        throw new Error('missing data');
+                    return [4 /*yield*/, axios.post('/api/add-cat', { color: color, age: age, owner: owner, name: name })];
+                case 2:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_3 = _a.sent();
+                    console.error(error_3);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     });
