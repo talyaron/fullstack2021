@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState, AppThunk } from "../../app/store";
 import { v4 as uuidv4 } from "uuid";
-import { getMessages } from './chatApi';
+import { getMessages,editMessage } from './chatApi';
 
 //the thunk i use here in order to get the data
 
@@ -42,13 +42,13 @@ export const chatSlice = createSlice({
     deleteText: (state, action: PayloadAction<string>) => {
       state.value = state.value.filter((item) => item._id !== action.payload);
     },
-    editText: (state, action: PayloadAction<any>) => {
-      state.value = state.value.map((item) =>
-        item._id === action.payload._id
-          ? { ...item, text: action.payload.updatedText }
-          : item
-      );
-    },
+    // editText: (state, action: PayloadAction<any>) => {
+    //   state.value = state.value.map((item) =>
+    //     item._id === action.payload._id
+    //       ? { ...item, text: action.payload.updatedText }
+    //       : item
+    //   );
+    // },
     getPassText: (state, action:PayloadAction<any>) => {
       state.value = action.payload
       console.log(state.value)
@@ -69,11 +69,32 @@ export const chatSlice = createSlice({
     })
     .addCase(getMessages.rejected, (state) => {
       state.status = Status.FAILED;
+    })
+
+    .addCase(editMessage.pending, (state) => {
+      state.status = Status.LOADING;
+    })
+    
+    .addCase(editMessage.fulfilled, (state, action: PayloadAction<any>)=> {
+      state.status = Status.IDLE;      
+     state.value = state.value.map((item) =>
+        item._id === action.payload._id
+          ? { ...item, text: action.payload.updatedText }
+          : item
+      );
+     
+      
+    })
+    .addCase(editMessage.rejected, (state) => {
+      state.status = Status.FAILED;
     });
    },
+   
+   
 });
 
-export const { addText, deleteText, editText,getPassText} = chatSlice.actions;
+
+export const { addText, deleteText, getPassText} = chatSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
@@ -81,7 +102,7 @@ export const { addText, deleteText, editText,getPassText} = chatSlice.actions;
 
 //chat is an object and inside text and status
 export const selectMessage = (state: RootState) => state.chat.value;
-//export const selectMessageStatus = (state: RootState) => state.chat.value.status;
+export const selectMessageStatus = (state: RootState) => state.chat.status;
 
 //state.chat the chat is from the store
 
