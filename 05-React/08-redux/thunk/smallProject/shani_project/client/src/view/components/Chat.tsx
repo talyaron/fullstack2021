@@ -2,15 +2,12 @@ import React, { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import {
   selectMessage,
-  addText,
-  deleteText,
   
-  // getPassText,
   selectMessageStatus,
    Status
 } from "../../features/reducers/chatSlice";
-import axios from "axios";
-import { getMessages,editMessage } from '../../features/reducers/chatApi'
+
+import { getMessages,editMessage,deleteMessage,addMessage } from '../../features/reducers/chatApi'
 
 export const Chat = () => {
   const messages = useAppSelector(selectMessage);
@@ -19,40 +16,33 @@ export const Chat = () => {
   let messageStatus = useAppSelector(selectMessageStatus);
   async function handleAddMessage(ev: any) {
     ev.preventDefault();
-    const text = ev.target.newMessage.value;
-  
-    dispatch(addText(text));
-    const { data } = await axios.post("/chat/add-message", { text});
+    const text = ev.target.newMessage.value;  
+    dispatch(addMessage(text));
+    
   }
   async function handleDeleteMessage(id: any) {
     console.log(id + " deleted text id");
-    dispatch(deleteText(id));
-    const { data } = await axios.delete("/chat/delete-message", {
-      data: { id },
-    });
+    dispatch(deleteMessage(id));
+    
   }
   async function handleEditMessage(ev: any) {
     ev.preventDefault();
 
     const updatedText = ev.target.elements.edittedText.value;
     const id = ev.target.id;
-    // console.log(id);
-    // const { data } = await axios.patch("/chat/edit-message", {
-    //   id,
-    //   updatedText,
-    // });
     
      dispatch(editMessage({id, updatedText}))
-     
-    // dispatch(editText({ id, updatedText }));
+
   }
+
+    
+
 
 
   useEffect(() => {
-    //handleGetMessages();
    
     dispatch(getMessages());
-  }, [dispatch]);
+  }, []);
   
 
 
