@@ -56,3 +56,34 @@ function handleClick() {
         });
     });
 }
+function handleAddCar(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, licensePlate, manufacturer, type, year, data, error_2;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    ev.preventDefault();
+                    _b.label = 1;
+                case 1:
+                    _b.trys.push([1, 3, , 4]);
+                    _a = ev.target.elements, licensePlate = _a.licensePlate, manufacturer = _a.manufacturer, type = _a.type, year = _a.year;
+                    if (!licensePlate || !manufacturer || !type || !year)
+                        throw new Error('car data is missing');
+                    licensePlate = licensePlate.value;
+                    manufacturer = manufacturer.value;
+                    type = type.value;
+                    year = year.value;
+                    return [4 /*yield*/, axios.post('/api/add-car', { licensePlate: licensePlate, manufacturer: manufacturer, type: type, year: year })];
+                case 2:
+                    data = (_b.sent()).data;
+                    console.log(data);
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_2 = _b.sent();
+                    console.error(error_2);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}

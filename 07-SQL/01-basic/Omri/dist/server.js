@@ -12,7 +12,7 @@ const connection = mysql_1.default.createConnection({
     host: "localhost",
     port: "3306",
     user: "root",
-    password: "password",
+    password: "password2",
 });
 connection.connect((err) => {
     try {

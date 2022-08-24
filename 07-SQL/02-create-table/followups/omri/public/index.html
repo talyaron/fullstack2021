@@ -13,6 +13,16 @@
 
 <body>
     <button onclick="handleClick()">Delete DB</button>
+    <div class="cars">
+        <h2>Add Cars</h2>
+        <form onsubmit="handleAddCar(event)">
+            <input type="number" name="licensePlate" placeholder="License Plate" required>
+            <input type="text" name="manufacturer" placeholder="Manufacturer" required>
+            <input type="text" name="type" placeholder="Model" required>
+            <input type="number" name="year" placeholder="Model year" required>
+            <button type="submit">Add</button>
+        </form>
+    </div>
     <script src="./dist/index.js"></script>
 </body>
 
