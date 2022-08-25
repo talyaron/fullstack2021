@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState, AppThunk } from "../../app/store";
 import { v4 as uuidv4 } from "uuid";
-import { getMessages } from './chatApi';
+import { getMessages,editMessage,deleteMessage,addMessage } from './chatApi';
 
 //the thunk i use here in order to get the data
 
@@ -31,28 +31,28 @@ export const chatSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    addText: (state, action: PayloadAction<any>) => {
-      //the old messages saved,then the new one added
-      //how doesnt _id here now get the text as payload ????
-      state.value = [
-        ...state.value,
-        { text: action.payload, _id:action.payload.id,img:action.payload},
-      ];
-    },
-    deleteText: (state, action: PayloadAction<string>) => {
-      state.value = state.value.filter((item) => item._id !== action.payload);
-    },
-    editText: (state, action: PayloadAction<any>) => {
-      state.value = state.value.map((item) =>
-        item._id === action.payload._id
-          ? { ...item, text: action.payload.updatedText }
-          : item
-      );
-    },
-    getPassText: (state, action:PayloadAction<any>) => {
-      state.value = action.payload
-      console.log(state.value)
-    },
+    // addText: (state, action: PayloadAction<any>) => {
+    //   //the old messages saved,then the new one added
+    //   //how doesnt _id here now get the text as payload ????
+    //   state.value = [
+    //     ...state.value,
+    //     { text: action.payload, _id:action.payload.id,img:action.payload},
+    //   ];
+    // },
+    // deleteText: (state, action: PayloadAction<string>) => {
+    //   state.value = state.value.filter((item) => item._id !== action.payload);
+    // },
+    // editText: (state, action: PayloadAction<any>) => {
+    //   state.value = state.value.map((item) =>
+    //     item._id === action.payload._id
+    //       ? { ...item, text: action.payload.updatedText }
+    //       : item
+    //   );
+    // },
+    // getPassText: (state, action:PayloadAction<any>) => {
+    //   state.value = action.payload
+    //   console.log(state.value)
+    // },
    
   },
   //builder creates the thunks/extra reducers that are async
@@ -69,11 +69,64 @@ export const chatSlice = createSlice({
     })
     .addCase(getMessages.rejected, (state) => {
       state.status = Status.FAILED;
+    })
+    //update
+    .addCase(editMessage.pending, (state) => {
+      state.status = Status.LOADING;
+    })
+    
+    .addCase(editMessage.fulfilled, (state, action: PayloadAction<any>)=> {
+      state.status = Status.IDLE;      
+     state.value = state.value.map((item) =>
+        item._id === action.payload._id
+          ? { ...item, text: action.payload.updatedText }
+          : item
+      );
+     
+      
+    })
+    .addCase(editMessage.rejected, (state) => {
+      state.status = Status.FAILED;
+    })
+   //delete
+    .addCase(deleteMessage.pending, (state) => {
+      state.status = Status.LOADING;
+    })
+    
+    .addCase(deleteMessage.fulfilled, (state, action: PayloadAction<any>)=> {
+      state.status = Status.IDLE;      
+      state.value = state.value.filter((item) => item._id !== action.payload);
+     
+      
+    })
+    .addCase(deleteMessage.rejected, (state) => {
+      state.status = Status.FAILED;
+    })
+    //add
+    .addCase(addMessage.pending, (state) => {
+      state.status = Status.LOADING;
+    })
+    
+    .addCase(addMessage.fulfilled, (state, action: PayloadAction<any>)=> {
+      state.status = Status.IDLE;      
+      state.value = [
+            ...state.value,
+            { text: action.payload, _id:action.payload.id,img:action.payload},
+          ];
+     
+      
+    })
+    .addCase(addMessage.rejected, (state) => {
+      state.status = Status.FAILED;
     });
    },
+   
+   
 });
 
-export const { addText, deleteText, editText,getPassText} = chatSlice.actions;
+
+
+// export const { getPassText} = chatSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
@@ -81,7 +134,7 @@ export const { addText, deleteText, editText,getPassText} = chatSlice.actions;
 
 //chat is an object and inside text and status
 export const selectMessage = (state: RootState) => state.chat.value;
-//export const selectMessageStatus = (state: RootState) => state.chat.value.status;
+export const selectMessageStatus = (state: RootState) => state.chat.status;
 
 //state.chat the chat is from the store
 
