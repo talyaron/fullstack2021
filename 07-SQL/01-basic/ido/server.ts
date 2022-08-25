@@ -1,6 +1,6 @@
 import express from "express";
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4001;
 import mysql from "mysql";
 
 app.use(express.static("public")); //middlware
