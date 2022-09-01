@@ -5,35 +5,34 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = express_1.default();
-const port = process.env.PORT || 4000;
 const mysql_1 = __importDefault(require("mysql"));
-app.use(express_1.default.static("public")); //middlware
+const port = 9875;
+app.use(express_1.default.static("client/build"));
+app.use(express_1.default.json());
 const connection = mysql_1.default.createConnection({
     host: "localhost",
     port: "3306",
     user: "root",
-    password: "password2",
+    password: "123123",
+    database: "reactwithsql"
 });
 connection.connect((err) => {
     try {
         if (err)
             throw err;
-        console.info("🔥 MySQL is connected 🛢 ");
+        console.info("🔥 MySQL is connected ");
     }
     catch (error) {
         console.error(error);
     }
 });
-app.post("/api/create-databse", (req, res) => {
-    console.log('/api/create-databse');
-    const query = `CREATE DATABASE TestDB1;`;
+app.get("/api/show-all-users", (req, res) => {
+    const query = `SELECT * FROM users;`;
     connection.query(query, (err, results, fields) => {
         try {
             if (err)
                 throw err;
-            console.log(results);
-            console.log(fields);
-            res.send({ ok: true });
+            res.send({ ok: true, results });
         }
         catch (error) {
             console.error(error);
@@ -41,16 +40,17 @@ app.post("/api/create-databse", (req, res) => {
         }
     });
 });
-app.delete("/api/delete-databse", (req, res) => {
-    console.log('/api/delete-databse');
-    const query = `DROP DATABASE testDB1;`;
+app.post("/api/add-new-user", (req, res) => {
+    // console.log('/api/add-new-user')
+    console.log(req.body);
+    const { name, age } = req.body;
+    const query = `INSERT INTO users (name, age) VALUES ("${name}", ${age});`;
     connection.query(query, (err, results, fields) => {
         try {
             if (err)
                 throw err;
             console.log(results);
-            console.log(fields);
-            res.send({ ok: true });
+            res.send({ ok: true, results });
         }
         catch (error) {
             console.error(error);
@@ -59,5 +59,5 @@ app.delete("/api/delete-databse", (req, res) => {
     });
 });
 app.listen(port, () => {
-    return console.log(`Server is listening at port:${port} 🔥`);
+    return console.log(`Server is listening at http://localhost:${port}`);
 });

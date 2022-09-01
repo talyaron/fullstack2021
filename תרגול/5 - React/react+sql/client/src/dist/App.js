@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,78 +35,45 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function handleNewDB() {
-    return __awaiter(this, void 0, void 0, function () {
-        var data, error_1;
+exports.__esModule = true;
+var axios_1 = require("axios");
+var react_1 = require("react");
+function App() {
+    var _this = this;
+    react_1.useEffect(function () {
+        (function () { return __awaiter(_this, void 0, void 0, function () {
+            var data;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, axios_1["default"].get("/api/show-all-users")];
+                    case 1:
+                        data = (_a.sent()).data;
+                        console.log(data);
+                        return [2 /*return*/];
+                }
+            });
+        }); })();
+    }, []);
+    var handleSendUser = function (e) { return __awaiter(_this, void 0, void 0, function () {
+        var name, age, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, axios.post('/api/create-database', {})];
+                    e.preventDefault();
+                    name = e.target.elements.name.value;
+                    age = e.target.elements.age.value;
+                    return [4 /*yield*/, axios_1["default"].post("/api/add-new-user", { name: name, age: age })];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
-                    //const {data} = await axios.delete('/api/delete-databse',{});
-                    console.log(data);
-                    return [3 /*break*/, 3];
-                case 2:
-                    error_1 = _a.sent();
-                    console.error(error_1);
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                    return [2 /*return*/];
             }
         });
-    });
+    }); };
+    return (React.createElement("div", { className: "App" },
+        React.createElement("form", { onSubmit: handleSendUser },
+            React.createElement("input", { type: "text", name: "name", placeholder: "name" }),
+            React.createElement("input", { type: "number", name: "age", placeholder: "age" }),
+            React.createElement("button", { type: "submit" }, "Send"))));
 }
-;
-function handleNewTable() {
-    return __awaiter(this, void 0, void 0, function () {
-        var data, error_2;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, axios.post('/api/create-table', {})];
-                case 1:
-                    data = (_a.sent()).data;
-                    console.log(data);
-                    return [3 /*break*/, 3];
-                case 2:
-                    error_2 = _a.sent();
-                    console.error(error_2);
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
-            }
-        });
-    });
-}
-function handleAddCat(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var age, color, owner, name, data, error_3;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    ev.preventDefault();
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, 3, , 4]);
-                    age = ev.target.elements.age.value;
-                    color = ev.target.elements.color.value;
-                    owner = ev.target.elements.owner.value;
-                    name = ev.target.elements.catName.value;
-                    if (!age || !color || !owner || !name)
-                        throw new Error('missing data');
-                    return [4 /*yield*/, axios.post('/api/add-cat', { color: color, age: age, owner: owner, name: name })];
-                case 2:
-                    data = (_a.sent()).data;
-                    console.log(data);
-                    return [3 /*break*/, 4];
-                case 3:
-                    error_3 = _a.sent();
-                    console.error(error_3);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
-            }
-        });
-    });
-}
+exports["default"] = App;
