@@ -47,14 +47,24 @@ export const Chat = () => {
 
 
 
-  function handleFileInputChange(ev:any){
-    const file=ev.target.files[0]
-    const image=ev.target.elements.image.value
-   console.log(image)
-  }
+  // function handleFileInputChange(ev:any){
+  //   const file=ev.target.files[0]
+  //   const image=ev.target.elements.image.value
+  //  console.log(image)
+  // }
 
   async function handleAddImg(ev: any) {
     ev.preventDefault();
+    const image = ev.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onloadend = async () => {
+      // await setImageFile(`${reader.result}`);
+      const imageFile = reader.result;
+      //const { data } = await axios.post("/api/profile/saveImage", {imageFile});
+      //const ImgUrl = data.result.url;
+      // setProfilePic(ImgUrl);
+    };
   }
   return (
     <div className="chat">
@@ -87,13 +97,15 @@ export const Chat = () => {
       </div>
       <div className="chat__input">
         <form onSubmit={handleAddMessage} className="chat__input--addText">
-          <input type="text" placeholder="write message.." name="newMessage" onChange={handleFileInputChange}/>
+          <input type="text" placeholder="write message.." name="newMessage"
+          //  onChange={handleFileInputChange}
+           />
           <button>send</button>
         </form>
-        {/* <form onSubmit={handleAddImg}>
+        <form onSubmit={handleAddImg}>
           <input type="file" placeholder="img" name="image"/>
           <button>addPic</button>
-        </form> */}
+        </form>
       </div>
     </div>
   );
