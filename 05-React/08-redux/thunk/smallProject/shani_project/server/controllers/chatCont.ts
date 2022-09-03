@@ -74,3 +74,17 @@ export const getMessages= async (req,res)=>{
     }
     
 }
+export async function saveImage(req, res) {
+
+    try {
+      
+      const {img,userId} = req.body;
+      const result = await cloudinary.uploader.upload(img,{
+        folder:"imgs",
+      })
+      res.send({  ok: true ,result});
+    } catch (error) {
+      console.log(error.error);
+      res.send({ error: error.message });
+    }
+  }
