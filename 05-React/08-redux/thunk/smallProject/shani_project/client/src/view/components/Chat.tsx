@@ -68,12 +68,12 @@ useState("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAA
      setImageFile(`${reader.result}`);
       const img = reader.result;
       console.log(img)
-      // const { data } = await axios.post("/chat/saveImage", {img});
-      // const ImgUrl = data.result.url;
-      // setProfilePic(ImgUrl);
-      // console.log(data)
+      const { data } = await axios.post("/chat/saveImage", {img});
       
-      // console.log(imageFile)
+     
+      console.log(data)
+      
+   
     };
   }
   return (

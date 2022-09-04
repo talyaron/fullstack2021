@@ -12,7 +12,7 @@ export const getMessages = createAsyncThunk("chat/fetchMessages", async () => {
 
     if (!data) throw new Error("didnt get data");
 
-    console.dir(data);
+    
     return data;
   } catch (error) {}
 });
@@ -30,7 +30,7 @@ export const editMessage = createAsyncThunk(
 
       if (!data) throw new Error("didnt get data to update");
 
-      console.dir(data);
+     
       return data;
     } catch (error) {}
   }
