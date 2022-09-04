@@ -79,7 +79,7 @@ export async function saveImage(req, res) {
 
     try {
       
-      const {img,id} = req.body;
+      const {img} = req.body;
       const result = await cloudinary.uploader.upload(img,{
         folder:"imgs",
       })

@@ -53,11 +53,6 @@ useState("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAA
 
 
 
-  // function handleFileInputChange(ev:any){
-  //   const file=ev.target.files[0]
-  //   const image=ev.target.elements.image.value
-  //  console.log(image)
-  // }
 
   async function handleAddImg(ev: any) {
     ev.preventDefault();
@@ -110,14 +105,13 @@ useState("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAA
       <div className="chat__input">
         <form onSubmit={handleAddMessage} className="chat__input--addText">
           <input type="text" placeholder="write message.." name="newMessage"
-          //  onChange={handleFileInputChange}
+          
            />
           <button>send</button>
         </form>
-        {/* <form onSubmit={handleAddImg}> */}
+        
           <input type="file" placeholder="img"  name="image" onChange={handleAddImg}/>
-          {/* <button>addPic</button>
-        </form> */}
+      
       </div>
       
     </div>
