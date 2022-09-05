@@ -82,6 +82,8 @@ export async function saveImage(req, res) {
       const {img} = req.body;
       const result = await cloudinary.uploader.upload(img,{
         folder:"imgs",
+        public_id:'sent image',
+        resource_type: "image"
       })
       const newMessage=new Message({img});
       const imgurl=await newMessage.save();
