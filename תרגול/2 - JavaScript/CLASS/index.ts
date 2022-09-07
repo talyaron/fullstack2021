@@ -35,3 +35,4 @@ class Living extends Human {
 const will = new Living("Beer Sheva", "Will", "black")
 
 console.log(will)
+
