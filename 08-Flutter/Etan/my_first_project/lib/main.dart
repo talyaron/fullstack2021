@@ -125,25 +125,40 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-             SizedBox(
+            ListView.builder(
+              shrinkWrap: true,
+              padding: const EdgeInsets.only(left: 5, right: 5),
+              itemCount: myColors.length,
+              itemBuilder: (BuildContext context, int index) {
+                final currentColor = [myColors[index]];
+                final coloring = 'Colors.$currentColor';
+                return Container(
+                  height:30,
+                  width: 160,
+                  // color: Colors,
+                  child: Text(coloring),
+                );
+              },
+            ),
+            SizedBox(
               width: 150,
               child: TextField(
                 decoration: const InputDecoration(labelText: 'input something'),
-                onSubmitted: (String value) {textSubmitted(value);},
+                onSubmitted: (String value) {
+                  textSubmitted(value);
+                },
               ),
             ),
 
-             Text(
+            Text(
               'You have typed the word $myText:',
             ),
             Text(
               '$_counter',
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .headline4,
+              style: Theme.of(context).textTheme.headline4,
             ),
             // Container(
             //   margin: const EdgeInsets.symmetric(vertical: 20.0),
@@ -169,7 +184,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: ElevatedButton(
                   onPressed: decrementCounter,
                   style: ButtonStyle(backgroundColor:
-                  MaterialStateProperty.resolveWith((states) {
+                      MaterialStateProperty.resolveWith((states) {
                     if (states.contains(MaterialState.pressed)) {
                       return Colors.green;
                     }
