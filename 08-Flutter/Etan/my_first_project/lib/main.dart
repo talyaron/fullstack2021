@@ -48,26 +48,33 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-List<String> myColors = [
-  "blue",
-  "red",
-  "green",
-  "orange",
-  "purple",
-  "yellow",
-  "pink",
-  "black"
+List<Color> myColors = [
+  Colors.blue,
+  Colors.red,
+  Colors.green,
+  Colors.orange,
+  Colors.purple,
+  Colors.yellow,
+  Colors.pink,
+  Colors.black,
 ];
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String myText = 'Nothing';
+  Color chosenBackgroundColor = Colors.white;
 
   void textSubmitted(value) {
     setState(() {
       myText = value;
     });
     // myText = value;
+  }
+
+  void changeBackground(Color color) {
+    setState(() {
+      chosenBackgroundColor = color;
+    });
   }
 
   void _incrementCounter() {
@@ -101,6 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      backgroundColor: chosenBackgroundColor,
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
@@ -128,20 +136,26 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            ListView.builder(
-              shrinkWrap: true,
-              padding: const EdgeInsets.only(left: 5, right: 5),
-              itemCount: myColors.length,
-              itemBuilder: (BuildContext context, int index) {
-                final currentColor = [myColors[index]];
-                final coloring = 'Colors.$currentColor';
-                return Container(
-                  height:30,
-                  width: 160,
-                  // color: Colors,
-                  child: Text(coloring),
-                );
-              },
+            Expanded(
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(left: 5, right: 5),
+                itemCount: myColors.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return SizedBox(
+                    height: 30,
+                    width: 160,
+                    child: ElevatedButton(
+                      child: Text(myColors[index].toString()),
+                      onPressed: () {
+                        changeBackground(myColors[index]);
+                      },
+                      style: ButtonStyle(backgroundColor: MaterialStateColor.resolveWith((states) => myColors[index]) ),
+                    ),
+                  );
+                },
+              ),
             ),
             SizedBox(
               width: 150,
