@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -136,26 +138,34 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
+            Text('The current background color is $chosenBackgroundColor.'),
             Expanded(
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                padding: const EdgeInsets.only(left: 5, right: 5),
-                itemCount: myColors.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return SizedBox(
-                    height: 30,
-                    width: 160,
-                    child: ElevatedButton(
-                      child: Text(myColors[index].toString()),
-                      onPressed: () {
-                        changeBackground(myColors[index]);
-                      },
-                      style: ButtonStyle(backgroundColor: MaterialStateColor.resolveWith((states) => myColors[index]) ),
-                    ),
-                  );
-                },
-              ),
+              // child: Column(
+              //   children: <Widget>[
+                  // Text('The current background is ${chosenBackgroundColor.toString()}'),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    // padding: const EdgeInsets.only(left: 5, right: 5),
+                    itemCount: myColors.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return SizedBox(
+                        height: 30,
+                        width: 160,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            changeBackground(myColors[index]);
+                          },
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateColor.resolveWith(
+                                  (states) => myColors[index])),
+                          child: Text('${myColors[index]}'),
+                        ),
+                      );
+                    },
+                  ),
+                // ],
+              // ),
             ),
             SizedBox(
               width: 150,
