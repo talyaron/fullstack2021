@@ -2,6 +2,7 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_first_project/calc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -80,6 +81,13 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _incrementCounter() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) =>
+            const MyCalcPage(title: 'My Calculator Page')
+      ),
+    );
+
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -142,29 +150,29 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               // child: Column(
               //   children: <Widget>[
-                  // Text('The current background is ${chosenBackgroundColor.toString()}'),
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    // padding: const EdgeInsets.only(left: 5, right: 5),
-                    itemCount: myColors.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return SizedBox(
-                        height: 30,
-                        width: 160,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            changeBackground(myColors[index]);
-                          },
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateColor.resolveWith(
-                                  (states) => myColors[index])),
-                          child: Text('${myColors[index]}'),
-                        ),
-                      );
-                    },
-                  ),
-                // ],
+              // Text('The current background is ${chosenBackgroundColor.toString()}'),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                // padding: const EdgeInsets.only(left: 5, right: 5),
+                itemCount: myColors.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return SizedBox(
+                    height: 30,
+                    width: 160,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        changeBackground(myColors[index]);
+                      },
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateColor.resolveWith(
+                              (states) => myColors[index])),
+                      child: Text('${myColors[index]}'),
+                    ),
+                  );
+                },
+              ),
+              // ],
               // ),
             ),
             SizedBox(
