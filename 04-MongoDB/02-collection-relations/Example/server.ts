@@ -8,9 +8,9 @@ app.use(express.json());
 
 mongoose.connect(
   "mongodb+srv://tal1:rbBnTtoiIia3ddKK@tal-test1.m39if.mongodb.net/fs-2021-oct?retryWrites=true&w=majority"
-).then(res => {
+).then(res=>{
   console.log("Connected to DB");
-}).catch(err => {
+}).catch(err=>{
   console.log('At mongoose.connect:')
   console.error(err.message)
 });

@@ -18,8 +18,8 @@ mongoose.connect(
   app.use(express.static('client/build'));
   
 
-import messageRoute from './routes/messageRoute';
-app.use('/api/messages',messageRoute);
+// import messageRoute from './routes/messageRoute';
+// app.use('/api/messages',messageRoute);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
