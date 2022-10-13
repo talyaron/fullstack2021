@@ -1,13 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import axios from 'axios';
-import './App.css';
+import './view/styles/global.scss';
+import Message from './view/components/Message';
 
 function App() {
   return (
-    <div className="App">
-
+    <div className="main">
+      <Message />
     </div>
   );
 }

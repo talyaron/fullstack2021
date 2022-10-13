@@ -2,13 +2,14 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const getMessages = createAsyncThunk(
-    'img/fetchImg',
-    async () => {
-        const data = await axios.get('https://source.unsplash.com/random');
-        const {request} = data;
-        const{responseURL} = request;
-        // if (!value) throw new Error("Missing joke");
-        console.log(responseURL);
-      return responseURL;
+  'messages/fetchMessages',
+  async () => {
+    try {
+      const { data } = await axios.get('/api/messages/get-mesaages');
+      if(!data) throw new Error('no data recived');
+      return data;
+    } catch (error) {
+      console.error(error);
     }
-  );
+  }
+);

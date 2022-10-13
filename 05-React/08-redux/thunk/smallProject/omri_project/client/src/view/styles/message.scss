@@ -1,0 +1,60 @@
+.messageBox {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 75vh;
+    border: solid 1px black;
+    border-radius: 10px;
+
+
+    &__show {
+        width: 100%;
+        height: 90%;
+
+        &__line {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+            &--options{
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                width: 10%;
+            }
+           
+
+            h4 {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__textInput {
+        width: 100%;
+        height: 10%;
+
+        form {
+            display: grid;
+            height: 100%;
+            grid-template-columns: 90% 10%;
+            grid-template-rows: 1fr;
+
+            #text {
+                width: 98%;
+                height: 80%;
+                margin-top: 0.5%;
+                border-radius: 20px;
+            }
+
+            #submit {}
+
+            border-radius: 20px;
+        }
+    }
+}
