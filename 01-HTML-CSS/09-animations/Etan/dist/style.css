@@ -2,6 +2,10 @@ body {
   background-color: #c3195d;
 }
 
+body:has(> a) {
+  background-color: blue;
+}
+
 .container {
   background: #f0f0f0;
   box-sizing: border-box;
